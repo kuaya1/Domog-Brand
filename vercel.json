@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd domog-brand-source && npm run build",
+  "outputDirectory": "domog-brand-source/.next",
+  "installCommand": "cd domog-brand-source && npm install"
+}
