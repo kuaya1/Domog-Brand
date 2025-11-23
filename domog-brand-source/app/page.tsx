@@ -1,65 +1,168 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      setShowScrollIndicator(window.scrollY < 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="relative min-h-screen overflow-hidden bg-gradient-parchment">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        
+        {/* Background Image with Parallax */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        >
+          <Image
+            src="/images/hero-background.jpg"
+            alt="Mongolian Heritage Boots"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+
+        {/* Animated Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-crimson-900/40 via-transparent to-gold-900/30 animate-gradient-shift z-0" />
+        
+        {/* Floating Ornamental Patterns */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-gold-500/20 rounded-full animate-float" 
+               style={{ animationDelay: '0s', animationDuration: '4s' }} />
+          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-crimson-500/20 rounded-lg rotate-45 animate-float" 
+               style={{ animationDelay: '1s', animationDuration: '5s' }} />
+          <div className="absolute bottom-32 left-1/4 w-20 h-20 border-2 border-gold-500/15 rounded-full animate-float" 
+               style={{ animationDelay: '2s', animationDuration: '6s' }} />
+          <div className="absolute top-1/3 right-1/4 w-28 h-28 border-2 border-crimson-500/15 rounded-lg rotate-12 animate-float" 
+               style={{ animationDelay: '1.5s', animationDuration: '5.5s' }} />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          
+          {/* Headline - Staggered Animation */}
+          <h1 className="mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <span className="block text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-charcoal-900 tracking-tight leading-tight drop-shadow-lg">
+              Legacy of the
+            </span>
+            <span className="block text-6xl sm:text-7xl lg:text-8xl font-display font-black text-transparent bg-gradient-gold bg-clip-text mt-2 drop-shadow-2xl">
+              Great Khans
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          {/* Subheadline */}
+          <p className="max-w-3xl mx-auto mb-4 text-xl sm:text-2xl lg:text-3xl font-serif text-charcoal-800 leading-relaxed drop-shadow-md animate-fade-in-up" 
+             style={{ animationDelay: '0.4s' }}>
+            Handcrafted Mongolian boots worn by presidents and champions
           </p>
+          
+          <p className="max-w-2xl mx-auto mb-12 text-base sm:text-lg text-charcoal-700 leading-relaxed drop-shadow-sm animate-fade-in-up" 
+             style={{ animationDelay: '0.6s' }}>
+            <span className="font-semibold text-gold-700">35 years</span> of traditional craftsmanship meets modern luxury. 
+            Each pair tells a story of heritage, prestige, and unmatched artistry.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in-up" 
+               style={{ animationDelay: '0.8s' }}>
+            
+            {/* Primary Button with Shimmer */}
+            <Link href="/shop">
+              <Button 
+                variant="primary" 
+                size="lg"
+                className="group relative overflow-hidden shadow-lg hover:shadow-crimson transition-all duration-400 hover:scale-105"
+                rightIcon={
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                }
+              >
+                Explore Collection
+                {/* Gold Shimmer Effect */}
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+              </Button>
+            </Link>
+
+            {/* Secondary Button with Glass Morphism */}
+            <Link href="/heritage">
+              <button className="group relative px-8 py-4 text-lg font-medium text-charcoal-900 bg-white/40 backdrop-blur-md border-2 border-white/60 rounded-crafted shadow-md hover:shadow-lg hover:bg-white/60 hover:border-gold-400/80 hover:scale-105 transition-all duration-400">
+                <span className="flex items-center gap-2">
+                  Our Heritage
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </button>
+            </Link>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 text-sm text-charcoal-700 animate-fade-in-up" 
+               style={{ animationDelay: '1s' }}>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gold-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span className="font-medium">35 Years of Excellence</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span className="font-medium">100% Handcrafted</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+              </svg>
+              <span className="font-medium">Worn by World Leaders</span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Scroll Indicator */}
+        <div 
+          className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500 ${
+            showScrollIndicator ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-sm text-gold-700 font-medium tracking-wide">Scroll to Explore</span>
+            <svg className="w-6 h-6 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Featured Products Section Placeholder */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-display font-bold text-center text-charcoal-900 mb-4">
+            Featured Collection
+          </h2>
+          <p className="text-center text-charcoal-600 mb-12 max-w-2xl mx-auto">
+            Discover our most prestigious boots, each a masterpiece of traditional Mongolian craftsmanship
+          </p>
+          {/* Product grid will go here */}
+        </div>
+      </section>
     </div>
   );
 }
