@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import ProductCard from "@/components/ProductCard";
@@ -26,15 +25,13 @@ export default function Home() {
         
         {/* Subtle Background Image with Parallax */}
         <div 
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 overflow-hidden"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
-          <Image
+          <img
             src="/images/hero-background.jpg"
             alt="Mongolian Heritage Boots"
-            fill
-            className="object-cover opacity-20"
-            priority
+            className="w-full h-full object-cover opacity-20"
           />
         </div>
 
