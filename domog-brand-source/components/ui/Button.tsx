@@ -22,18 +22,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const baseStyles = 'inline-flex items-center justify-center tracking-wider transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none group relative overflow-hidden';
+    const baseStyles = 'inline-flex items-center justify-center font-light tracking-wider transition-opacity duration-300 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none';
     
     const variants = {
-      primary: 'bg-crimson-800 text-warm-50 border-2 border-crimson-800 hover:bg-crimson-900 hover:border-crimson-900 font-medium',
-      secondary: 'bg-gold-700 text-warm-50 border-2 border-gold-700 hover:bg-gold-800 hover:border-gold-800 font-medium',
-      outline: 'border-2 border-warm-800 text-warm-800 bg-transparent hover:bg-warm-800 hover:text-warm-50 font-light',
+      primary: 'bg-crimson-800 text-warm-50 border border-crimson-800 hover:opacity-90',
+      secondary: 'bg-gold-700 text-warm-50 border border-gold-700 hover:opacity-90',
+      outline: 'border border-warm-800 text-warm-800 bg-transparent hover:opacity-60',
     };
 
     const sizes = {
-      sm: 'px-6 py-2 text-xs rounded-none',
-      md: 'px-10 py-3 text-sm rounded-none',
-      lg: 'px-14 py-4 text-base rounded-none',
+      sm: 'px-6 py-2 text-xs rounded-sm',
+      md: 'px-8 py-3 text-sm rounded-sm',
+      lg: 'px-12 py-4 text-base rounded-sm',
     };
 
     return (

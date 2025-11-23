@@ -50,37 +50,29 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with Personality */}
+            {/* Logo */}
             <Link
               href="/"
               className="flex items-center space-x-3 group"
             >
-              <span className="font-display text-xl font-semibold tracking-widest text-warm-900 transition-all duration-300 group-hover:text-crimson-700">
+              <span className="font-display text-xl font-light tracking-widest text-warm-900 transition-opacity duration-300 group-hover:opacity-60">
                 DOMOG
               </span>
-              {/* Decorative separator */}
-              <span className="hidden sm:block w-px h-6 bg-gold-500"></span>
-              <span className="text-xs italic font-serif text-warm-600 hidden sm:block">
+              <span className="text-xs uppercase tracking-wider text-warm-600 hidden sm:block">
                 Mongolian Heritage
               </span>
             </Link>
 
-            {/* Desktop Menu - With gold separators */}
-            <div className="hidden md:flex items-center">
-              {menuItems.map((item, index) => (
-                <React.Fragment key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="relative text-xs uppercase tracking-[0.2em] font-light text-warm-800 px-4 group"
-                  >
-                    <span className="relative z-10">{item.label}</span>
-                    {/* Gold underline slides from left */}
-                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gold-600 transition-all duration-500 group-hover:w-full"></span>
-                  </Link>
-                  {index < menuItems.length - 1 && (
-                    <div className="w-px h-4 bg-gold-400"></div>
-                  )}
-                </React.Fragment>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm uppercase tracking-wider font-light text-warm-800 transition-opacity duration-300 hover:opacity-60"
+                >
+                  {item.label}
+                </Link>
               ))}
             </div>
 
