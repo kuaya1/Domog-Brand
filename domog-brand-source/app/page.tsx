@@ -19,52 +19,76 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-warm-50">
+    <div className="relative min-h-screen bg-ivory-50">
       
-      {/* Minimal Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
+      {/* SIGNATURE HERO - Split Screen Layout */}
+      <section className="relative min-h-screen flex items-stretch overflow-hidden bg-warm-100">
         
-        {/* Subtle Background Image with Parallax */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-        >
-          <Image
-            src="/images/hero-background.jpg"
-            alt="Mongolian Heritage Boots"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
+        {/* LEFT: Image Side */}
+        <div className="relative w-full lg:w-1/2 min-h-screen">
+          <div 
+            className="absolute inset-0"
+            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+          >
+            <Image
+              src="/images/hero-background.jpg"
+              alt="Mongolian Heritage Boots"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-warm-100/30"></div>
+          </div>
+          
+          {/* Animated gold line */}
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gold-600 animate-slide-in-left"></div>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-32 text-center">
+        {/* RIGHT: Text Side */}
+        <div className="relative w-full lg:w-1/2 flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-32">
           
-          {/* Bold, Dramatic Headline with Character */}
-          <h1 className="mb-12">
-            <span className="block text-3xl sm:text-4xl lg:text-5xl font-serif font-extralight text-warm-600 tracking-widest leading-tight mb-2">
-              LEGACY OF THE
-            </span>
-            <span className="block text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-display font-black text-warm-900 tracking-tight leading-none mt-4">
-              Great <span className="italic font-serif font-light text-crimson-700">Khans</span>
-            </span>
-          </h1>
+          {/* Traditional Mongolian pattern watermark */}
+          <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDAgTDEyMCA1MCBMODAgNTAgWiBNMTAwIDIwMCBMMTIwIDE1MCBMODAgMTUwIFoiIGZpbGw9IiNBODhCNjkiLz48L3N2Zz4=')] bg-repeat"></div>
+          
+          <div className="relative z-10">
+            {/* EST. Date - Artful positioning */}
+            <p className="text-xs font-serif text-warm-500 tracking-widest mb-8">
+              EST. 1989
+            </p>
+            
+            {/* HUGE Typography */}
+            <h1 className="mb-12">
+              <span className="block text-2xl sm:text-3xl font-light tracking-[0.3em] text-warm-600 mb-4">
+                LEGACY OF THE
+              </span>
+              <span className="block text-7xl sm:text-8xl lg:text-9xl font-display font-black text-warm-900 tracking-tighter leading-none">
+                GREAT
+              </span>
+              <span className="block text-7xl sm:text-8xl lg:text-9xl font-serif italic font-light text-crimson-700 tracking-tight leading-none mt-2">
+                Khans
+              </span>
+            </h1>
 
-          {/* Warm, Personal Subheadline */}
-          <p className="max-w-2xl mx-auto mb-8 text-xl sm:text-2xl text-warm-800 font-serif leading-relaxed">
-            Handcrafted <span className="italic">Mongolian</span> boots worn by presidents <span className="text-gold-700">&</span> champions.
-          </p>
-          <p className="max-w-xl mx-auto mb-16 text-sm uppercase tracking-widest text-gold-800 font-light">
-            —  35 Years of Heritage  —
-          </p>
+            {/* Body copy - 18px, sophisticated */}
+            <p className="text-base text-warm-700 leading-loose max-w-xl mb-4">
+              Handcrafted <span className="italic font-serif">Mongolian</span> boots worn by presidents, champions, and those who understand that true luxury lies in heritage—not trends.
+            </p>
+            
+            <p className="text-sm text-warm-600 leading-relaxed max-w-xl mb-12 font-light">
+              Thirty-five years of traditional craftsmanship. Every stitch a testament to the steppes. Every pair a legacy.
+            </p>
 
-          {/* Single CTA */}
-          <div className="flex justify-center">
-            <Link href="/shop">
-              <Button variant="primary" size="lg">
+            {/* Large underlined text link CTA */}
+            <Link 
+              href="/shop"
+              className="inline-block group"
+            >
+              <span className="text-xl font-light text-warm-900 tracking-wide relative">
                 Explore Collection
-              </Button>
+                <span className="absolute bottom-0 left-0 w-full h-px bg-gold-600 transform origin-left transition-transform duration-500 group-hover:scale-x-110"></span>
+                <span className="inline-block ml-2 transform transition-transform duration-300 group-hover:translate-x-2">→</span>
+              </span>
             </Link>
           </div>
         </div>
@@ -87,12 +111,14 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Product Grid - Minimal, Spacious */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {products.slice(0, 6).map((product) => (
+          {/* Asymmetric Product Grid - Intentional Irregularity */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 lg:gap-x-12 lg:gap-y-16">
+            {products.slice(0, 6).map((product, index) => (
               <ProductCard
                 key={product.id}
                 product={product}
+                isFeatured={index === 2} // Every 3rd card is featured
+                index={index}
                 onAddToCart={(product) => {
                   console.log('Added to cart:', product.name);
                 }}
@@ -111,46 +137,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Heritage Section - With Soul */}
-      <section className="relative py-32 px-6 lg:px-8 bg-warm-100">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Decorative Accent Line */}
-          <div className="flex items-center justify-center mb-12">
-            <div className="w-16 h-px bg-gold-600"></div>
-            <div className="mx-4 w-1 h-1 bg-gold-600 rounded-full"></div>
-            <div className="w-16 h-px bg-gold-600"></div>
-          </div>
-
-          <div className="text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold text-warm-900 tracking-tight mb-8">
-              Heritage <span className="text-gold-700">&</span> <span className="font-serif italic font-light">Craftsmanship</span>
-            </h2>
+      {/* Heritage Section - Full-bleed asymmetric */}
+      <section className="relative py-48 bg-terracotta-50 leather-texture overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <p className="text-xl sm:text-2xl text-warm-700 font-serif italic leading-relaxed mb-8 max-w-3xl mx-auto">
-              "For over three decades, we have upheld the traditions of Mongolian boot-making, 
-              creating footwear that embodies the spirit of the steppes."
-            </p>
+            {/* LEFT: Full-bleed image */}
+            <div className="relative h-[600px] lg:-ml-32">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-terracotta-50/50"></div>
+              <Image
+                src="/images/hero-background.jpg"
+                alt="Heritage Craftsmanship"
+                fill
+                className="object-cover"
+              />
+              {/* Overlapping decorative element */}
+              <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-64 h-1 bg-gold-600"></div>
+            </div>
 
-            <p className="text-base text-warm-600 font-light leading-loose tracking-wide mb-12 max-w-2xl mx-auto">
-              Our boots have graced the feet of <span className="font-medium text-warm-800">world leaders</span>, <span className="font-medium text-warm-800">champions</span>, and those who appreciate 
-              the intersection of cultural heritage and refined luxury.
-            </p>
+            {/* RIGHT: Text with overlap */}
+            <div className="relative px-6 lg:px-12 lg:-ml-16 z-10">
+              {/* Background card for text */}
+              <div className="bg-ivory-50 p-12 shadow-[0_8px_30px_rgba(212,117,108,0.2)]">
+                
+                <p className="text-xs uppercase tracking-[0.3em] text-sky-600 mb-6 font-light">
+                  — Since 1989 —
+                </p>
 
-            <Link href="/heritage">
-              <Button variant="outline" size="md">
-                Discover Our Story
-              </Button>
-            </Link>
-          </div>
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold text-warm-900 tracking-tight mb-8 leading-tight">
+                  Heritage <span className="text-gold-700">&</span><br />
+                  <span className="font-serif italic font-light text-terracotta-600">Craftsmanship</span>
+                </h2>
+                
+                <p className="text-base text-warm-700 leading-loose mb-6">
+                  For over three decades, we have upheld the traditions of Mongolian boot-making—creating footwear that embodies the spirit of the steppes, the resilience of nomadic heritage, and the elegance of timeless design.
+                </p>
 
-          {/* Bottom Decorative Accent */}
-          <div className="flex items-center justify-center mt-12">
-            <div className="w-8 h-px bg-gold-600"></div>
-            <div className="mx-3 w-1 h-1 bg-gold-600 rounded-full"></div>
-            <div className="w-24 h-px bg-gold-600"></div>
-            <div className="mx-3 w-1 h-1 bg-gold-600 rounded-full"></div>
-            <div className="w-8 h-px bg-gold-600"></div>
+                <p className="text-base text-warm-600 font-light leading-loose mb-8">
+                  Our boots have graced the feet of <span className="font-medium text-warm-800">world leaders</span>, <span className="font-medium text-warm-800">national champions</span>, and those who understand that true luxury lies not in logos—but in legacy.
+                </p>
+
+                <Link 
+                  href="/heritage"
+                  className="inline-block group"
+                >
+                  <span className="text-base font-light text-warm-900 tracking-wide relative border-b border-warm-900 pb-1 hover:border-sky-600 hover:text-sky-700 transition-colors duration-300">
+                    Discover Our Story
+                    <span className="inline-block ml-2 transform transition-transform duration-300 group-hover:translate-x-2">→</span>
+                  </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
