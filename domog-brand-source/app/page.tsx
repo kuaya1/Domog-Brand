@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import ProductCard from "@/components/ProductCard";
+import SectionDivider from "@/components/ui/SectionDivider";
+import { products } from "@/lib/data";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -151,18 +154,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products Section Placeholder */}
+      {/* Decorative Divider */}
+      <SectionDivider variant="ornament" color="gold" />
+
+      {/* Featured Products Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-display font-bold text-center text-charcoal-900 mb-4">
+          <h2 className="text-4xl font-display font-bold text-center text-charcoal-900 mb-4 animate-fade-in-up">
             Featured Collection
           </h2>
-          <p className="text-center text-charcoal-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-charcoal-600 mb-12 max-w-2xl mx-auto animate-fade-in-up">
             Discover our most prestigious boots, each a masterpiece of traditional Mongolian craftsmanship
           </p>
-          {/* Product grid will go here */}
+          
+          {/* Products Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={product.id}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <ProductCard
+                  product={product}
+                  onAddToCart={(product) => {
+                    console.log('Add to cart:', product.name);
+                    // Add to cart logic here
+                  }}
+                  onQuickView={(product) => {
+                    console.log('Quick view:', product.name);
+                    // Quick view modal logic here
+                  }}
+                  onToggleWishlist={(productId) => {
+                    console.log('Toggle wishlist:', productId);
+                    // Wishlist toggle logic here
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* View All Link */}
+          <div className="mt-16 text-center">
+            <Link href="/shop">
+              <Button variant="outline" size="lg">
+                View All Products
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
+
+      {/* Heritage Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-parchment">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-display font-bold text-charcoal-900">
+                35 Years of <span className="text-gold-600">Heritage</span>
+              </h2>
+              <p className="text-lg text-charcoal-700 leading-relaxed">
+                Since 1990, Domog has been crafting the finest Mongolian boots using traditional techniques 
+                passed down through generations. Our master artisans dedicate their lives to preserving this 
+                ancient craft while embracing modern design sensibilities.
+              </p>
+              <p className="text-lg text-charcoal-700 leading-relaxed">
+                Each pair of boots takes over 40 hours to complete, with every stitch placed by hand. 
+                We source only the finest leathers and materials, ensuring that every boot we create 
+                is worthy of the legacy we uphold.
+              </p>
+              <Link href="/heritage">
+                <Button variant="secondary" size="lg">
+                  Learn Our Story
+                </Button>
+              </Link>
+            </div>
+            <div className="relative h-96 lg:h-full min-h-[400px]">
+              <Image
+                src="/images/heritage-craft.jpg"
+                alt="Master craftsman at work"
+                fill
+                className="object-cover rounded-lg shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final Decorative Divider */}
+      <SectionDivider variant="wave" color="mixed" />
     </div>
   );
 }
