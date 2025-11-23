@@ -27,8 +27,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Minimal Card Container */}
-      <div className="relative bg-warm-50 overflow-hidden transition-all duration-500">
+      {/* Crafted Card Container */}
+      <div className="relative bg-warm-50 overflow-hidden transition-all duration-500 border border-warm-200">
+        
+        {/* Decorative Corner Accents */}
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold-600 opacity-30"></div>
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gold-600 opacity-30"></div>
+        <div className={`absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gold-600 transition-opacity duration-500 ${isHovered ? 'opacity-60' : 'opacity-0'}`}></div>
+        <div className={`absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold-600 transition-opacity duration-500 ${isHovered ? 'opacity-60' : 'opacity-0'}`}></div>
         
         {/* Subtle Top Accent - Only visible on hover */}
         <div className={`absolute top-0 left-0 right-0 h-px bg-gold-700 z-10 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
@@ -53,21 +59,29 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        {/* Product Info */}
+        {/* Product Info with Character */}
         <div className="p-6 space-y-3">
-          {/* Product Name */}
-          <h3 className="font-serif text-lg font-light text-warm-900 tracking-wide">
-            {product.name}
+          {/* Product Name - Mix fonts for personality */}
+          <h3 className="text-lg text-warm-900 tracking-wide">
+            <span className="font-display font-medium">{product.name.split(' ')[0]}</span>
+            {product.name.split(' ').length > 1 && (
+              <span className="font-serif italic font-light"> {product.name.split(' ').slice(1).join(' ')}</span>
+            )}
           </h3>
 
-          {/* Price */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-light text-crimson-800 tracking-wide">
-              ${product.price.toLocaleString()}
-            </span>
-            <span className="text-xs uppercase tracking-wider text-warm-600">
-              USD
-            </span>
+          {/* Price with Crafted Detail */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-baseline gap-2">
+              <span className="text-2xl font-light text-crimson-800 tracking-wide">
+                ${product.price.toLocaleString()}
+              </span>
+              <span className="text-xs uppercase tracking-widest text-warm-500">
+                USD
+              </span>
+            </div>
+            {/* Small decorative accent */}
+            <div className="w-px h-4 bg-gold-400"></div>
+            <span className="text-xs italic text-gold-700 font-serif">Handcrafted</span>
           </div>
 
           {/* Description - Only show on hover */}

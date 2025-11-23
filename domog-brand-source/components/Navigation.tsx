@@ -50,15 +50,17 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* Logo with Personality */}
             <Link
               href="/"
               className="flex items-center space-x-3 group"
             >
-              <span className="font-display text-xl font-light tracking-widest text-warm-900 transition-opacity duration-300 group-hover:opacity-60">
+              <span className="font-display text-xl font-semibold tracking-widest text-warm-900 transition-all duration-300 group-hover:text-crimson-700">
                 DOMOG
               </span>
-              <span className="text-xs uppercase tracking-wider text-warm-600 hidden sm:block">
+              {/* Decorative separator */}
+              <span className="hidden sm:block w-px h-6 bg-gold-500"></span>
+              <span className="text-xs italic font-serif text-warm-600 hidden sm:block">
                 Mongolian Heritage
               </span>
             </Link>
