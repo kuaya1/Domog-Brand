@@ -38,10 +38,10 @@ const config: Config = {
           900: '#6B5B3F',
           950: '#3d3328',
         },
-        // Premium Warm Neutrals
+        // Premium Warm Neutrals (Warm Ivory Background)
         warm: {
-          50: '#FDFCFA',
-          100: '#F8F6F2',
+          50: '#FFF8E7',
+          100: '#FFF3D6',
           200: '#EAE6DF',
           300: '#D4CFC5',
           400: '#B8B3A9',
@@ -51,6 +51,12 @@ const config: Config = {
           800: '#3D3A36',
           900: '#2A2825',
           950: '#1a1816',
+        },
+        // Mongolian Blue Accent
+        blue: {
+          DEFAULT: '#2C5F8D',
+          light: '#4A7BA7',
+          dark: '#1E4262',
         },
       },
       fontFamily: {

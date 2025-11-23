@@ -50,28 +50,29 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* Logo - More Presence */}
             <Link
               href="/"
               className="flex items-center space-x-3 group"
             >
-              <span className="font-display text-xl font-light tracking-widest text-warm-900 transition-opacity duration-300 group-hover:opacity-60">
+              <span className="font-display text-2xl font-light tracking-[0.2em] text-warm-900 transition-opacity duration-300 group-hover:opacity-60">
                 DOMOG
               </span>
-              <span className="text-xs uppercase tracking-wider text-warm-600 hidden sm:block">
+              <span className="text-xs italic tracking-wider text-warm-600 hidden sm:block">
                 Mongolian Heritage
               </span>
             </Link>
 
-            {/* Desktop Menu */}
+            {/* Desktop Menu - Gold Underline Slide */}
             <div className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm uppercase tracking-wider font-light text-warm-800 transition-opacity duration-300 hover:opacity-60"
+                  className="group relative text-sm uppercase tracking-[0.15em] font-light text-warm-800 transition-colors duration-300"
                 >
-                  {item.label}
+                  <span>{item.label}</span>
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-gold-700 transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
             </div>
@@ -98,7 +99,7 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
                 </svg>
               </button>
 
-              {/* Cart Icon */}
+              {/* Cart Icon with Gold Dot */}
               <Link
                 href="/cart"
                 className="relative text-warm-800 transition-opacity duration-300 hover:opacity-60"
@@ -118,9 +119,12 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
                   />
                 </svg>
                 {cartItemCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-crimson-800 text-warm-50 text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                    {cartItemCount}
-                  </span>
+                  <>
+                    <span className="absolute -top-2 -right-2 bg-crimson-800 text-warm-50 text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                      {cartItemCount}
+                    </span>
+                    <span className="absolute top-0 right-0 w-2 h-2 bg-gold-700 rounded-full animate-pulse" />
+                  </>
                 )}
               </Link>
 

@@ -28,20 +28,24 @@ const ProductCard: React.FC<ProductCardProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Minimal Card Container */}
-      <div className="relative bg-warm-50 overflow-hidden transition-all duration-500">
+      <div className="relative bg-[#FDFCF8] overflow-hidden transition-all duration-500">
         
-        {/* Subtle Top Accent - Only visible on hover */}
-        <div className={`absolute top-0 left-0 right-0 h-px bg-gold-700 z-10 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
+        {/* Vertical Gold Accent Line - LEFT EDGE */}
+        <div 
+          className={`absolute left-0 top-1/2 -translate-y-1/2 w-0.5 bg-gold-700 transition-all duration-500 z-20 ${
+            isHovered ? 'h-full' : 'h-[60%]'
+          }`}
+        />
         
         {/* Product Image */}
-        <div className="relative w-full aspect-[3/4] overflow-hidden bg-warm-100">
+        <div className="relative w-full aspect-[3/4] overflow-hidden bg-warm-100 cursor-crosshair">
           <Image
             src={product.images[0]}
             alt={product.name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className={`object-cover transition-transform duration-700 ${
-              isHovered ? 'scale-103' : 'scale-100'
+              isHovered ? 'scale-105' : 'scale-100'
             }`}
           />
           
@@ -54,27 +58,28 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Product Info */}
-        <div className="p-6 space-y-3">
-          {/* Product Name */}
-          <h3 className="font-serif text-lg font-light text-warm-900 tracking-wide">
+        <div className="p-6 space-y-4">
+          {/* Product Name - More Letter Spacing */}
+          <h3 className="font-serif text-base font-light text-warm-900 tracking-widest uppercase">
             {product.name}
           </h3>
 
-          {/* Price */}
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-light text-crimson-800 tracking-wide">
-              ${product.price.toLocaleString()}
+          {/* Price - Dramatic Size, Superscript USD */}
+          <div className="flex items-start gap-1">
+            <span className="text-sm font-thin text-crimson-800 mt-1">$</span>
+            <span className="text-4xl font-light text-crimson-800 tracking-tight">
+              {product.price.toLocaleString()}
             </span>
-            <span className="text-xs uppercase tracking-wider text-warm-600">
+            <span className="text-[10px] uppercase tracking-wider text-warm-600 mt-2">
               USD
             </span>
           </div>
 
-          {/* Description - Only show on hover */}
+          {/* Description - Larger, More Luxurious Spacing */}
           <div className={`transition-all duration-500 overflow-hidden ${
-            isHovered ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'
+            isHovered ? 'max-h-28 opacity-100' : 'max-h-0 opacity-0'
           }`}>
-            <p className="text-sm text-warm-700 leading-relaxed line-clamp-3">
+            <p className="text-base text-warm-700 leading-loose line-clamp-3">
               {product.description}
             </p>
           </div>
@@ -94,9 +99,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        {/* Hover Shadow */}
-        <div className={`absolute inset-0 pointer-events-none transition-shadow duration-500 ${
-          isHovered ? 'shadow-lg' : 'shadow-none'
+        {/* Enhanced Hover Shadow - 4px lift */}
+        <div className={`absolute inset-0 pointer-events-none transition-all duration-500 ${
+          isHovered ? 'shadow-xl translate-y-[-4px]' : 'shadow-none translate-y-0'
         }`} />
       </div>
     </div>
