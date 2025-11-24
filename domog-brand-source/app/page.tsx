@@ -17,214 +17,179 @@ export default function Home() {
   const featuredProducts = products.slice(0, 6);
 
   return (
-    <main className="relative bg-rice text-ink">
-      <section className="relative min-h-screen overflow-hidden px-6 pt-28 pb-16 lg:px-10">
-        <div className="absolute inset-0">
+    <main className="relative bg-cream">
+      <section className="relative min-h-screen overflow-hidden">
+        <div className="absolute inset-0 bg-black">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(120deg, rgba(247,244,239,0.95), rgba(245,242,237,0.75)), url('/images/hero-background.jpg')",
+                "linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.6)), url('/images/hero-background.jpg')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              transform: `translateY(${scrollY * 0.12}px)`,
+              transform: `translateY(${scrollY * 0.15}px)`,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-rice via-transparent to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="grid gap-10 lg:grid-cols-[auto_1fr_auto]">
-            <div className="hidden lg:flex flex-col justify-between py-10">
-              <span className="vertical-text text-ink/30">Domog Atelier</span>
-              <span className="ink-divider h-24" />
-              <p className="text-xs uppercase tracking-[0.45em] text-ink/50">Ulaanbaatar · Tokyo</p>
-            </div>
+        <div className="relative z-10 flex min-h-screen items-center">
+          <div className="max-w-7xl mx-auto px-6 py-24 lg:px-12">
+            <div className="max-w-4xl">
+              <p className="text-xs uppercase tracking-widest text-gold mb-8">
+                Est. 1989 — Mongolian Heritage
+              </p>
 
-            <div className="space-y-14">
-              <div className="flex items-center gap-6 text-[0.65rem] uppercase tracking-[0.35em]">
-                <span className="capsule-label">Est. 1989</span>
-                <span className="h-px flex-1 bg-ink/10" />
-                <span className="text-ink/50">Nomadic luxury atelier</span>
-              </div>
+              <h1 className="text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-cream leading-none mb-8">
+                Legacy of the Great Khans
+              </h1>
 
-              <div>
-                <p className="text-[0.65rem] uppercase tracking-[0.45em] text-ink/40">Quiet power in motion</p>
-                <h1 className="mt-6 text-hero font-serif text-ink-deep leading-[0.95]">
-                  The Wabi-sabi Chronicle of Domog
-                </h1>
-                <p className="mt-8 max-w-2xl text-base lg:text-lg leading-8 text-ink/70">
-                  Sculpted leather silhouettes born on Mongolian steppes, refined through the restraint of Japanese
-                  minimalism. Each pair embraces imperfection, asymmetry, and the warmth of human craftsmanship.
-                </p>
-              </div>
+              <p className="text-xl lg:text-2xl text-cream/90 leading-relaxed max-w-2xl mb-12">
+                Handcrafted Mongolian boots worn by presidents and champions. 35 years of refined artistry meets timeless elegance.
+              </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-6">
                 <Link
-                  href="/reserve"
-                  className="inline-flex items-center gap-3 rounded-full border border-jade/60 px-6 py-3 text-[0.7rem] uppercase tracking-[0.35em] text-jade transition hover:bg-jade hover:text-rice"
+                  href="/shop"
+                  className="inline-flex items-center gap-3 bg-gold px-8 py-4 text-sm uppercase tracking-wide text-black transition-all duration-400 hover:bg-gold-light"
                 >
-                  <span className="h-px w-6 bg-jade/60" />
-                  Reserve Atelier Visit
+                  Explore Collection
                 </Link>
                 <Link
                   href="/heritage"
-                  className="inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.35em] text-ink/70 hover:text-ink"
+                  className="inline-flex items-center gap-3 border border-cream/40 px-8 py-4 text-sm uppercase tracking-wide text-cream transition-all duration-400 hover:border-gold hover:text-gold"
                 >
-                  Read Heritage Journal
-                  <span className="h-px w-8 bg-ink/30" />
+                  Our Heritage
                 </Link>
               </div>
             </div>
-
-            <div className="flex flex-col items-end gap-8 text-right">
-              <p className="text-[0.65rem] uppercase tracking-[0.45em] text-ink/45">Season 04 / Reverence</p>
-              <div className="w-32 h-48 bg-silk shadow-card rounded-subtle" />
-              <p className="text-sm leading-relaxed text-ink/60 max-w-[12rem]">
-                Hand-stitched soles, sumi ink edge finishing, bronze-patina hardware.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-10">
-        <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[320px,1fr]">
-          <div className="space-y-10">
-            <div>
-              <span className="capsule-label">Edition 35</span>
-              <h2 className="mt-6 text-3xl lg:text-4xl font-serif text-ink-deep leading-tight">
-                Featured boots for windswept evenings
-              </h2>
-              <p className="mt-4 text-sm uppercase tracking-[0.35em] text-ink/50">Curated asymmetry</p>
-            </div>
-            <p className="text-base leading-8 text-ink/70">
-              A choreography of volume and restraint. Highlight silhouettes span columns, while supporting pieces rest
-              in contemplative space—mirroring the balance between Mongolian wilderness and Japanese courtyards.
+      <section className="px-6 py-24 lg:px-12 bg-cream-sand">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-widest text-cognac mb-4">
+              Featured Collection
             </p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-3 text-[0.7rem] uppercase tracking-[0.35em] text-ink"
-            >
-              View Entire Collection
-              <span className="h-px w-10 bg-ink/30" />
-            </Link>
+            <h2 className="text-5xl lg:text-6xl font-serif font-semibold text-black mb-6">
+              Handcrafted Excellence
+            </h2>
+            <p className="text-lg text-gray-warm max-w-2xl mx-auto leading-relaxed">
+              Each pair embodies 35 years of refined Mongolian craftsmanship, merging ancestral techniques with contemporary elegance.
+            </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2">
-            {featuredProducts.map((product, index) => (
-              <div
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <ProductCard
                 key={product.id}
-                className={`${
-                  index === 0
-                    ? 'sm:col-span-2'
-                    : index === 3
-                    ? 'sm:row-span-2'
-                    : ''
-                }`}
-              >
-                <ProductCard
-                  product={product}
-                  onAddToCart={(item) => {
-                    console.log('Added to cart:', item.name);
-                  }}
-                />
-              </div>
+                product={product}
+                onAddToCart={(item) => {
+                  console.log('Added to cart:', item.name);
+                }}
+              />
             ))}
           </div>
+
+          <div className="text-center mt-16">
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-3 border border-cognac px-8 py-4 text-sm uppercase tracking-wide text-cognac transition-all duration-400 hover:border-gold hover:text-gold"
+            >
+              View All Products
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="split-background px-6 py-24 lg:px-10">
-        <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-2">
-          <div className="space-y-6">
-            <span className="text-[0.65rem] uppercase tracking-[0.45em] text-ink/60">Craft Notes</span>
-            <h3 className="text-3xl lg:text-4xl font-serif text-ink-deep leading-snug">
-              Heritage artisans interpret wabi-sabi through saddle-stitched leather and bronze rivets.
-            </h3>
-            <p className="text-base leading-8 text-ink/70">
-              Our ateliers sit between felt-lined yurts and concrete studios. We embrace sun-faded dyes, hand-planed
-              wooden lasts, and jade pigment rubdowns that create singular patinas.
+      <section className="px-6 py-24 lg:px-12 bg-cream">
+        <div className="max-w-7xl mx-auto grid gap-16 lg:grid-cols-2">
+          <div className="space-y-8">
+            <p className="text-xs uppercase tracking-widest text-cognac">
+              Heritage & Craftsmanship
             </p>
-            <div className="grid grid-cols-2 gap-6 text-sm uppercase tracking-[0.3em] text-ink/60">
+            <h3 className="text-4xl lg:text-5xl font-serif font-semibold text-black leading-tight">
+              Where Ancient Techniques Meet Timeless Design
+            </h3>
+            <p className="text-lg text-gray-warm leading-relaxed">
+              For over three decades, we have upheld the traditions of Mongolian boot-making. Each pair is meticulously handcrafted using time-honored methods passed down through generations, creating footwear that embodies both cultural heritage and refined luxury.
+            </p>
+            <div className="grid grid-cols-2 gap-8 pt-4">
               <div>
-                <p>Natural Clay</p>
-                <span className="block mt-2 h-px w-full bg-ink/15" />
+                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Premium Leather</p>
+                <p className="text-sm text-gray-warm">Hand-selected hides</p>
               </div>
               <div>
-                <p>Sumi Ink Edge</p>
-                <span className="block mt-2 h-px w-full bg-ink/15" />
+                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Gold Accents</p>
+                <p className="text-sm text-gray-warm">24k gold thread</p>
               </div>
               <div>
-                <p>Yak Leather</p>
-                <span className="block mt-2 h-px w-full bg-ink/15" />
+                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Master Artisans</p>
+                <p className="text-sm text-gray-warm">35+ years experience</p>
               </div>
               <div>
-                <p>Bronze Patina</p>
-                <span className="block mt-2 h-px w-full bg-ink/15" />
+                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Limited Edition</p>
+                <p className="text-sm text-gray-warm">Numbered pairs</p>
               </div>
             </div>
           </div>
 
-          <div className="relative rounded-subtle border border-ink/10 bg-pure p-10 shadow-sumi">
-            <div className="flex items-center gap-4 text-[0.65rem] uppercase tracking-[0.4em] text-ink/40">
-              <span>Process</span>
-              <span className="h-px flex-1 bg-ink/10" />
-              <span>Edition 04</span>
+          <div className="relative luxury-border p-10 lg:p-12 bg-cream-sand">
+            <div className="flex items-center gap-4 text-xs uppercase tracking-wider text-cognac mb-8">
+              <span>Master Artisan</span>
+              <span className="h-px flex-1 bg-gold/30" />
+              <span>Collection 35</span>
             </div>
-            <p className="mt-8 text-lg leading-8 text-ink/80">
-              “We sand edges with sumi ink-dipped brushes so every pair feels like a sumi-e sweep—never identical, always
-              intentional.”
-            </p>
-            <p className="mt-6 text-xs uppercase tracking-[0.4em] text-ink/50">Master Artisan · Bayarmaa</p>
+            <blockquote className="text-2xl font-serif text-black leading-relaxed mb-8">
+              "Each pair tells a story of heritage and pride. We create not just boots, but wearable art that connects generations."
+            </blockquote>
+            <p className="text-sm uppercase tracking-wider text-cognac mb-8">Bayarmaa · Lead Craftsman</p>
             <Link
               href="/heritage"
-              className="mt-10 inline-flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.35em] text-jade"
+              className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-gold transition-colors duration-400 hover:text-cognac"
             >
-              Discover atelier process
-              <span className="h-px w-8 bg-jade/40" />
+              Discover Our Story
+              <span className="h-px w-10 bg-gold/40" />
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-10">
-        <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[1fr_auto]">
-          <div className="space-y-6">
-            <span className="text-[0.65rem] uppercase tracking-[0.45em] text-ink/50">Journal fragments</span>
-            <h4 className="text-3xl font-serif text-ink-deep leading-tight">
-              Mongolian steppes meet Japanese courtyards in three contemplations.
+      <section className="px-6 py-24 lg:px-12 bg-black-rich">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-widest text-gold mb-4">
+              Heritage Stories
+            </p>
+            <h4 className="text-4xl lg:text-5xl font-serif font-semibold text-cream mb-6">
+              Tales from the Steppes
             </h4>
-            <div className="grid gap-8 md:grid-cols-3">
-              {["Raw Horizon", "Silent Weight", "Bronze Tempest"].map((title) => (
-                <div key={title} className="border-t border-ink/15 pt-6">
-                  <p className="text-sm uppercase tracking-[0.35em] text-ink/45">{title}</p>
-                  <p className="mt-4 text-base leading-7 text-ink/70">
-                    Limited stories on materials, landscapes, and the calm tension between movement and stillness.
-                  </p>
-                  <Link
-                    href="/journal"
-                    className="mt-4 inline-flex items-center gap-2 text-[0.65rem] uppercase tracking-[0.35em] text-ink"
-                  >
-                    Read Entry
-                    <span className="h-px w-6 bg-ink/25" />
-                  </Link>
-                </div>
-              ))}
-            </div>
+            <p className="text-lg text-cream/80 max-w-2xl mx-auto">
+              Discover the rich history and cultural significance behind each meticulously crafted pair.
+            </p>
           </div>
 
-          <div className="flex flex-col justify-between border border-ink/10 rounded-subtle px-8 py-10 text-sm uppercase tracking-[0.35em] text-ink/50">
-            <p>Appointments</p>
-            <div className="my-6 h-px w-full bg-ink/10" />
-            <p>Tokyo · Ulaanbaatar · Digital Atelier</p>
-            <Link
-              href="/reserve"
-              className="mt-8 inline-flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.35em] text-jade"
-            >
-              Schedule
-              <span className="h-px w-8 bg-jade/40" />
-            </Link>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              { title: 'Royal Legacy', desc: 'Boots worn by Mongolian presidents and dignitaries for over three decades.' },
+              { title: 'Master Craftsmanship', desc: 'Techniques preserved and perfected through generations of artisans.' },
+              { title: 'Cultural Pride', desc: 'Each pair celebrates the enduring spirit of Mongolian heritage.' }
+            ].map((item) => (
+              <div key={item.title} className="luxury-border p-8 bg-black transition-all duration-400 hover:border-gold">
+                <h5 className="text-xl font-serif font-semibold text-cream mb-4">{item.title}</h5>
+                <p className="text-base text-cream/70 leading-relaxed mb-6">
+                  {item.desc}
+                </p>
+                <Link
+                  href="/heritage"
+                  className="inline-flex items-center gap-2 text-sm uppercase tracking-wide text-gold transition-colors duration-400 hover:text-gold-light"
+                >
+                  Read More
+                  <span className="h-px w-8 bg-gold/40" />
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>

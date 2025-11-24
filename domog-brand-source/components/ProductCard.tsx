@@ -27,14 +27,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-subtle border border-ink/10 bg-pure transition-all duration-500">
-        <span
-          className={`absolute left-4 top-6 h-24 w-px bg-gradient-to-b from-transparent via-ink/30 to-transparent transition-all duration-500 ${
-            isHovered ? 'scale-y-100' : 'scale-y-75'
-          }`}
-        />
-
-        <div className="relative w-full aspect-[3/4] overflow-hidden bg-silk">
+      <div className="relative overflow-hidden luxury-border bg-cream transition-all duration-500 hover:border-gold">
+        <div className="relative w-full aspect-[3/4] overflow-hidden bg-black-rich">
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -44,59 +38,54 @@ const ProductCard: React.FC<ProductCardProps> = ({
               isHovered ? 'scale-105' : 'scale-100'
             }`}
           />
-          <div className={`absolute top-5 right-5 transition duration-500 ${isHovered ? 'opacity-100' : 'opacity-0 translate-y-2'}`}>
-            <span className="px-3 py-1 text-[0.6rem] uppercase tracking-[0.35em] text-rice bg-ink/80">
+          <div className={`absolute top-6 right-6 transition duration-500 ${isHovered ? 'opacity-100' : 'opacity-0 translate-y-2'}`}>
+            <span className="px-4 py-2 text-xs uppercase tracking-wider text-cream bg-black/80 backdrop-blur-sm">
               {product.category}
+            </span>
+          </div>
+          <div className="absolute top-6 left-6">
+            <span className="inline-block px-3 py-1 text-xs uppercase tracking-wider text-gold bg-black/60 backdrop-blur-sm">
+              Est. 1989
             </span>
           </div>
         </div>
 
-        <div className="space-y-5 px-6 py-7">
-          <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.35em] text-ink/50">
-            <span>Domog</span>
-            <span className="h-px w-16 bg-ink/10" />
-            <span>{product.category}</span>
-          </div>
-
+        <div className="space-y-6 px-8 py-8">
           <div className="space-y-3">
-            <h3 className="text-xl font-serif text-ink-deep leading-tight">
+            <h3 className="text-2xl font-serif font-semibold text-black leading-tight">
               {product.name}
             </h3>
-            <div className="flex items-end gap-1 text-crimson">
-              <span className="text-sm uppercase tracking-[0.35em]">USD</span>
-              <span className="text-4xl font-light">{product.price.toLocaleString()}</span>
+            <div className="flex items-baseline gap-2">
+              <span className="text-3xl font-serif font-semibold text-cognac">${product.price.toLocaleString()}</span>
+              <span className="text-sm uppercase tracking-wider text-gray-warm">USD</span>
             </div>
           </div>
 
           <div
-            className={`text-sm leading-7 text-ink/70 transition-all duration-500 ${
-              isHovered ? 'max-h-44 opacity-100' : 'max-h-0 opacity-0'
+            className={`text-sm leading-relaxed text-gray-warm transition-all duration-500 ${
+              isHovered ? 'max-h-44 opacity-100' : 'max-h-20 opacity-70'
             }`}
           >
             {product.description}
           </div>
 
-          <div className="flex items-center justify-between text-[0.6rem] uppercase tracking-[0.35em] text-ink/40">
-            <span>Limited</span>
-            <span className="h-px w-10 bg-ink/10" />
-            <span>Handmade</span>
+          <div className="flex items-center gap-4 text-xs uppercase tracking-wider text-cognac">
+            <span>Limited Edition</span>
+            <span className="h-px flex-1 bg-gold/30" />
+            <span>Handcrafted</span>
           </div>
 
-          <div className="flex items-center justify-between">
-            <button
-              onClick={handleAddToCart}
-              className="inline-flex items-center gap-3 rounded-full border border-jade/50 px-5 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-jade transition hover:bg-jade hover:text-rice"
-            >
-              <span className="h-px w-5 bg-jade/40" />
-              Add to Cart
-            </button>
-            <span className="text-xs uppercase tracking-[0.35em] text-ink/40">Est. 1989</span>
-          </div>
+          <button
+            onClick={handleAddToCart}
+            className="w-full border-2 border-gold px-6 py-4 text-sm uppercase tracking-wide text-gold transition-all duration-400 hover:bg-gold hover:text-black"
+          >
+            Add to Collection
+          </button>
         </div>
 
         <div
           className={`absolute inset-0 pointer-events-none transition duration-500 ${
-            isHovered ? 'shadow-card translate-y-[-6px]' : 'shadow-none translate-y-0'
+            isHovered ? 'shadow-luxury' : 'shadow-none'
           }`}
         />
       </div>

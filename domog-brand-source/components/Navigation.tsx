@@ -20,51 +20,45 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-600 ${
           isScrolled
-            ? 'bg-rice/95 backdrop-blur-xl shadow-sm'
+            ? 'bg-cream/98 backdrop-blur-md shadow-elegant border-b border-gold/10'
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="relative py-5">
-            <div className="flex flex-col gap-5 md:grid md:grid-cols-[auto_1fr_auto] md:items-center">
-              <div className="flex items-center gap-6">
-                <span className="hidden lg:flex vertical-text text-ink/30 tracking-[0.45em]">
-                  Atelier
-                </span>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="relative py-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-8">
                 <Link href="/" className="group">
-                  <span className="block text-sm tracking-[0.55em] uppercase text-ink-deep">
+                  <span className="block text-3xl font-serif font-semibold tracking-tight text-black transition-colors duration-400 group-hover:text-gold">
                     DOMOG
                   </span>
-                  <span className="mt-1 block text-[0.65rem] tracking-[0.35em] uppercase text-jade">
-                    Nomadic Atelier
+                  <span className="mt-1 block text-xs uppercase tracking-wider text-cognac">
+                    Mongolian Heritage
                   </span>
-                  <span className="mt-3 block h-px w-14 bg-gradient-to-r from-transparent via-jade to-transparent transform origin-left scale-x-0 transition duration-500 group-hover:scale-x-100" />
                 </Link>
               </div>
 
-              <div className="hidden md:flex items-center justify-center gap-10 text-[0.72rem] uppercase tracking-[0.35em] text-ink/70">
+              <div className="hidden md:flex items-center gap-10 text-sm uppercase tracking-wide text-gray-warm">
                 {menuItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group relative py-2"
+                    className="group relative py-2 transition-colors duration-400 hover:text-gold"
                   >
-                    <span className="transition-colors duration-300 group-hover:text-ink">
-                      {item.label}
-                    </span>
-                    <span className="absolute left-1/2 bottom-0 w-px h-5 bg-ink/20 origin-bottom transform scale-y-0 transition duration-500 group-hover:scale-y-100" />
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-gold transition-all duration-400 group-hover:w-full" />
                   </Link>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between md:justify-end gap-4 text-ink">
+              <div className="flex items-center gap-6 text-black">
                 <button
-                  className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full border border-ink/15 text-ink transition hover:border-jade hover:text-jade"
+                  className="hidden sm:flex items-center justify-center text-gray-warm transition-colors duration-400 hover:text-gold"
                   aria-label="Search"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -75,23 +69,22 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
                 </button>
 
                 <Link
-                  href="/journal"
-                  className="hidden md:inline-flex items-center uppercase tracking-[0.32em] text-[0.65rem] text-ink border border-ink/20 rounded-full px-4 py-2 transition hover:border-jade hover:text-jade"
+                  href="/heritage"
+                  className="hidden md:inline-flex items-center text-sm uppercase tracking-wide text-gray-warm transition-colors duration-400 hover:text-gold"
                 >
-                  Journal
+                  Heritage
                 </Link>
 
                 <Link
                   href="/reserve"
-                  className="inline-flex items-center gap-2 rounded-full border border-jade/60 px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-jade transition hover:bg-jade hover:text-rice"
+                  className="inline-flex items-center gap-2 border border-gold px-6 py-2.5 text-sm uppercase tracking-wide text-gold transition-all duration-400 hover:bg-gold hover:text-cream"
                 >
-                  <span className="h-px w-4 bg-jade/60" />
-                  Reserve
+                  Reserve Visit
                 </Link>
 
                 <Link
                   href="/cart"
-                  className="relative text-ink transition hover:text-crimson"
+                  className="relative text-gray-warm transition-colors duration-400 hover:text-gold"
                   aria-label="Shopping cart"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,14 +96,14 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
                     />
                   </svg>
                   {cartItemCount > 0 && (
-                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-crimson text-[0.6rem] text-rice">
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-burgundy text-xs text-cream">
                       {cartItemCount}
                     </span>
                   )}
                 </Link>
 
                 <button
-                  className="md:hidden text-ink transition hover:text-jade"
+                  className="md:hidden text-gray-warm transition-colors duration-400 hover:text-gold"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   aria-label="Toggle menu"
                 >
@@ -124,52 +117,50 @@ const Navigation: React.FC<NavigationProps> = ({ cartItemCount = 0 }) => {
                 </button>
               </div>
             </div>
-            <span className="pointer-events-none absolute inset-x-0 -bottom-1 h-px bg-gradient-to-r from-transparent via-ink/15 to-transparent" />
           </div>
         </div>
       </nav>
 
       <div
-        className={`fixed inset-0 bg-ink/40 backdrop-blur-sm z-40 transition-opacity duration-500 md:hidden ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-600 md:hidden ${
           isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       <div
-        className={`fixed top-0 right-0 bottom-0 w-72 bg-rice shadow-sumi z-50 transition-transform duration-500 md:hidden ${
+        className={`fixed top-0 right-0 bottom-0 w-80 bg-cream shadow-luxury z-50 transition-transform duration-600 md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex h-full flex-col px-8 py-8">
-          <div className="mb-8">
-            <span className="text-[0.65rem] uppercase tracking-[0.4em] text-ink/60">Domog</span>
-            <p className="mt-2 text-sm text-ink/70 leading-relaxed">
-              Quiet luxury inspired by Mongolian steppes and Japanese clarity.
+        <div className="flex h-full flex-col px-8 py-10">
+          <div className="mb-10">
+            <span className="text-2xl font-serif font-semibold text-black">DOMOG</span>
+            <p className="mt-3 text-sm text-gray-warm leading-relaxed">
+              35 years of refined Mongolian craftsmanship. Heritage meets timeless elegance.
             </p>
           </div>
-          <div className="space-y-5">
+          <div className="space-y-6">
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-sm uppercase tracking-[0.35em] text-ink/80 transition hover:text-ink"
+                className="block text-base text-gray-warm transition-colors duration-400 hover:text-gold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
           </div>
-          <div className="mt-auto pt-8 border-t border-ink/10 space-y-4">
+          <div className="mt-auto pt-8 border-t border-gold/20 space-y-5">
             <Link
               href="/reserve"
-              className="inline-flex items-center gap-2 rounded-full border border-jade/60 px-4 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-jade"
+              className="inline-flex items-center gap-2 border border-gold px-5 py-2.5 text-sm uppercase tracking-wide text-gold"
             >
-              <span className="h-px w-4 bg-jade/60" />
-              Reserve
+              Reserve Visit
             </Link>
-            <p className="text-xs uppercase tracking-[0.4em] text-ink/40">
-              Est. 1989
+            <p className="text-xs uppercase tracking-wider text-cognac">
+              Est. 1989 · Ulaanbaatar
             </p>
           </div>
         </div>
