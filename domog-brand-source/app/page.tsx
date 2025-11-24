@@ -27,7 +27,7 @@ export default function Home() {
               {/* Mobile: Image First */}
               <div className="lg:hidden w-full mb-12">
                 <Image
-                  src="/assets/copper-boots-isolated.png"
+                  src="/images/hero-image.jpg"
                   alt="Copper Mongol Boots"
                   width={520}
                   height={640}
@@ -63,7 +63,7 @@ export default function Home() {
               {/* Desktop: Image on Right - 2/3 */}
               <div className="hidden lg:block lg:w-2/3">
                 <Image
-                  src="/assets/copper-boots-isolated.png"
+                  src="/images/hero-image.jpg"
                   alt="Copper Mongol Boots"
                   width={520}
                   height={640}
