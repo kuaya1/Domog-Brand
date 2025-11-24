@@ -43,11 +43,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
               {product.category}
             </span>
           </div>
-          <div className="absolute top-6 left-6">
-            <span className="inline-block px-3 py-1 text-xs uppercase tracking-wider text-gold bg-black/60 backdrop-blur-sm">
-              Est. 1989
-            </span>
-          </div>
         </div>
 
         <div className="space-y-6 px-8 py-8">
@@ -59,14 +54,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <span className="text-3xl font-serif font-semibold text-cognac">${product.price.toLocaleString()}</span>
               <span className="text-sm uppercase tracking-wider text-gray-warm">USD</span>
             </div>
-          </div>
-
-          <div
-            className={`text-sm leading-relaxed text-gray-warm transition-all duration-500 ${
-              isHovered ? 'max-h-44 opacity-100' : 'max-h-20 opacity-70'
-            }`}
-          >
-            {product.description}
           </div>
 
           <div className="flex items-center gap-4 text-xs uppercase tracking-wider text-cognac">
