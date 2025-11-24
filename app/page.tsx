@@ -8,33 +8,50 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden" style={{backgroundImage: 'url(/images/hero-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center right', backgroundAttachment: 'fixed'}}>
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
         <div className="relative z-10 w-full">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               
-              {/* Text Content - Full Width or Left Aligned */}
-              <div className="lg:w-1/2 text-center lg:text-left space-y-8">
+              {/* Mobile: Image First */}
+              <div className="lg:hidden w-full mb-12">
+                <img
+                  src="/images/hero-image.jpg"
+                  alt="The Master Craftsman hand-lasting a boot"
+                  className="w-full max-w-lg mx-auto h-auto"
+                />
+              </div>
+
+              {/* Text Content - 50% on Desktop */}
+              <div className="lg:w-1/2 text-center lg:text-left space-y-8 z-10">
                 <div className="space-y-3">
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
                     Est. 1990 — The Master&apos;s Touch
                   </p>
-                  <h1 className="font-serif text-5xl lg:text-6xl text-white font-medium leading-tight drop-shadow-lg">
+                  <h1 className="font-serif text-5xl lg:text-6xl text-gray-900 font-medium leading-tight">
                     Legacy Carved by Hand
                   </h1>
                 </div>
                 
-                <p className="font-sans text-base text-white leading-relaxed max-w-lg lg:max-w-none drop-shadow-md">
+                <p className="font-sans text-base text-stone-600 leading-relaxed max-w-lg lg:max-w-none">
                   Founded by a family of artisans in 1990. Every pair is meticulously hand-lasted by our master craftsman, preserving the sacred traditions of the Steppe in every stitch.
                 </p>
 
                 <Link
                   href="/shop"
-                  className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-white pb-2 hover:text-amber-700 hover:border-amber-700 transition-all duration-300 text-white"
+                  className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-gray-900 pb-2 hover:text-amber-700 hover:border-amber-700 transition-all duration-300"
                 >
                   VIEW THE CRAFTSMANSHIP
                 </Link>
+              </div>
+
+              {/* Desktop: Image on Right - 50% */}
+              <div className="hidden lg:block lg:w-1/2">
+                <img
+                  src="/images/hero-image.jpg"
+                  alt="The Master Craftsman hand-lasting a boot"
+                  className="w-full h-auto object-contain"
+                />
               </div>
 
             </div>
