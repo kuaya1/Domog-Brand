@@ -46,11 +46,11 @@ export default function Home() {
               </div>
 
               {/* Desktop: Image on Right - 60% scaled to viewport */}
-              <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-center">
+              <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start pl-12">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-4/5 h-3/4 object-contain"
+                  className="w-[92%] h-[86%] object-contain"
                 />
               </div>
 
