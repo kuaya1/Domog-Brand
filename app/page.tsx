@@ -50,7 +50,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-full object-cover"
+                  className="w-1/2 h-auto object-cover"
                 />
               </div>
 
