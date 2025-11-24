@@ -16,7 +16,7 @@ export default function Navigation() {
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center">
                             <span className="font-serif text-2xl font-bold text-gray-900 tracking-tight">
-                                Domog Brand
+                                DOMOG
                             </span>
                         </Link>
                     </div>
