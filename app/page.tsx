@@ -8,41 +8,54 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/boot-1.jpg"
-            alt="Mongolian Heritage"
-            fill
-            className="object-cover object-center brightness-[0.6]"
-            priority
-          />
-        </div>
-        <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <span className="inline-block mb-4 text-gold tracking-[0.3em] uppercase text-sm font-medium animate-fade-in">
-            Est. 1989 — Ulaanbaatar
-          </span>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 leading-tight drop-shadow-lg">
-            Legacy of the <br />
-            <span className="text-secondary">Great Steppe</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-            Handcrafted Mongolian boots that blend 35 years of master craftsmanship with timeless elegance. Worn by champions, crafted for you.
-          </p>
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-            <Link
-              href="/shop"
-              className="bg-primary hover:bg-red-800 text-white px-10 py-4 rounded-sm font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-primary/30"
-            >
-              <span>Shop Collection</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/about"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-10 py-4 rounded-sm font-medium transition-all duration-300 hover:border-white/60"
-            >
-              Our Heritage
-            </Link>
+      <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
+        <div className="relative z-10 w-full">
+          <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+              
+              {/* Mobile: Image First */}
+              <div className="lg:hidden w-full mb-12">
+                <img
+                  src="/images/hero-image.jpg"
+                  alt="Copper Mongol Boots"
+                  className="w-full max-w-lg mx-auto h-auto"
+                />
+              </div>
+
+              {/* Text Content - 1/3 on Desktop */}
+              <div className="lg:w-1/3 text-center lg:text-left space-y-8">
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#6b4b2f]">
+                    NEW • COPPER MONGOL BOOTS
+                  </p>
+                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif text-[#111111] leading-tight">
+                    Copper Mongol Boots
+                  </h1>
+                </div>
+                
+                <p className="text-base lg:text-lg text-[#2a2a2a] max-w-md lg:max-w-none">
+                  Hand-lasted in Ulaanbaatar for heads of state, Naadam champions, and those who revere the bond between nomadic strength and Italian-level refinement.
+                </p>
+
+                <Link
+                  href="/shop"
+                  className="inline-flex items-center justify-center gap-3 border-2 border-black text-black px-8 py-4 text-sm uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all duration-300"
+                >
+                  DISCOVER
+                  <span className="text-xl">›</span>
+                </Link>
+              </div>
+
+              {/* Desktop: Image on Right - 2/3 */}
+              <div className="hidden lg:block lg:w-2/3">
+                <img
+                  src="/images/hero-image.jpg"
+                  alt="Copper Mongol Boots"
+                  className="w-full h-auto"
+                />
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
