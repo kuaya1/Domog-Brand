@@ -14,16 +14,16 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               
               {/* Mobile: Image First */}
-              <div className="lg:hidden w-full mb-12">
+              <div className="lg:hidden w-full mb-12 overflow-hidden">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full mx-auto h-auto scale-[1.75]"
+                  className="w-full mx-auto h-auto scale-[1.75] origin-center"
                 />
               </div>
 
               {/* Text Content - 50% on Desktop */}
-              <div className="lg:w-1/2 text-center lg:text-left space-y-8">
+              <div className="lg:w-1/2 text-center lg:text-left space-y-8 z-10">
                 <div className="space-y-3">
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
                     Est. 1990 — The Master&apos;s Touch
@@ -46,11 +46,11 @@ export default function Home() {
               </div>
 
               {/* Desktop: Image on Right - 50% */}
-              <div className="hidden lg:block lg:w-1/2">
+              <div className="hidden lg:block lg:w-1/2 overflow-hidden flex items-center justify-center">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-auto scale-[1.75]"
+                  className="w-auto h-auto max-w-[175%] scale-[1.75] origin-center"
                 />
               </div>
 
