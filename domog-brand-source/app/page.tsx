@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/lib/data';
 
@@ -19,13 +20,13 @@ export default function Home() {
   return (
     <main className="relative">
       <section 
-        className="relative min-h-[85vh] overflow-hidden flex items-center bg-[#0a0a0a]"
+        className="relative min-h-[85vh] overflow-hidden flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-900"
       >
         <div className="absolute inset-0">
           <img
-            src="/copper-boots-hero.png"
+            src="/hero-boots.jpg"
             alt="Copper Mongol Boots Background"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-scale-down"
           />
         </div>
         
