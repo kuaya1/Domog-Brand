@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center overflow-hidden" style={{backgroundImage: 'url(/images/hero-bg.jpg)'}}>
-        <div className="absolute inset-0 bg-black/30"></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{backgroundImage: 'url(/images/hero-bg.jpg)', backgroundSize: 'cover', backgroundPosition: 'center right', backgroundAttachment: 'fixed'}}>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 w-full">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start">
