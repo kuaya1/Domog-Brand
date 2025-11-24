@@ -23,10 +23,13 @@ export default function Home() {
         className="relative min-h-[85vh] overflow-hidden flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-900"
       >
         <div className="absolute inset-0">
-          <img
+          <Image
             src="/hero-boots.jpg"
             alt="Copper Mongol Boots Background"
-            className="w-full h-full object-scale-down"
+            fill
+            priority
+            className="object-scale-down"
+            sizes="100vw"
           />
         </div>
         
