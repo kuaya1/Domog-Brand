@@ -14,12 +14,9 @@ export default function Navigation() {
                 <div className="flex justify-between h-20">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-amber-900 rounded-sm flex items-center justify-center text-white font-serif text-xl font-bold">
-                                D
-                            </div>
+                        <Link href="/" className="flex items-center">
                             <span className="font-serif text-2xl font-bold text-gray-900 tracking-tight">
-                                DOMOG
+                                DOMOG BRAND
                             </span>
                         </Link>
                     </div>
