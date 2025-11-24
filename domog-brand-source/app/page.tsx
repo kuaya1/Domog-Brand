@@ -20,51 +20,58 @@ export default function Home() {
   return (
     <main className="relative">
       <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <span className="w-full h-px bg-gray-200" />
-        </div>
-
         <div className="relative z-10 w-full">
-          <div className="mx-auto w-[90%] max-w-screen-2xl px-6 lg:px-12">
-            <div className="grid gap-14 xl:gap-24 lg:grid-cols-3 items-center">
-              <div className="text-center lg:text-right space-y-6">
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-[#111111] leading-tight tracking-tight">
-                  Copper Mongol
-                  <br />
-                  Boots
-                </h1>
-                <p className="text-base lg:text-lg text-[#2a2a2a] max-w-sm lg:ml-auto">
-                  Hand-lasted in Ulaanbaatar for heads of state, Naadam champions, and those who revere the bond
-                  between nomadic strength and Italian-level refinement.
-                </p>
-              </div>
-
-              <div className="flex justify-center">
+          <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+              
+              {/* Mobile: Image First */}
+              <div className="lg:hidden w-full mb-12">
                 <Image
                   src="/assets/copper-boots-isolated.png"
                   alt="Copper Mongol Boots"
                   width={520}
                   height={640}
                   priority
-                  className="w-[480px] sm:w-[600px] lg:w-[900px] xl:w-[1040px] h-auto"
+                  className="w-full max-w-lg mx-auto h-auto"
                 />
               </div>
 
-              <div className="text-center lg:text-left space-y-6">
-                <div className="text-sm uppercase tracking-[0.35em] text-[#6b4b2f]">
-                  Presidents • Wrestlers • Patrons
+              {/* Text Content - 1/3 on Desktop */}
+              <div className="lg:w-1/3 text-center lg:text-left space-y-8">
+                <div className="space-y-2">
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#6b4b2f]">
+                    NEW • COPPER MONGOL BOOTS
+                  </p>
+                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif text-[#111111] leading-tight">
+                    Copper Mongol Boots
+                  </h1>
                 </div>
-                <p className="text-base text-[#2a2a2a] max-w-xs">
-                  Numbered releases crafted with copper-dyed calfskin, felt insulation, and 24k-thread insignias.
+                
+                <p className="text-base lg:text-lg text-[#2a2a2a] max-w-md lg:max-w-none">
+                  Hand-lasted in Ulaanbaatar for heads of state, Naadam champions, and those who revere the bond between nomadic strength and Italian-level refinement.
                 </p>
+
                 <Link
                   href="/shop"
-                  className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.45em] text-[#111111] hover:text-black transition-colors duration-300"
+                  className="inline-flex items-center justify-center gap-3 border-2 border-black text-black px-8 py-4 text-sm uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all duration-300"
                 >
                   DISCOVER
-                  <span className="text-2xl">›</span>
+                  <span className="text-xl">›</span>
                 </Link>
               </div>
+
+              {/* Desktop: Image on Right - 2/3 */}
+              <div className="hidden lg:block lg:w-2/3">
+                <Image
+                  src="/assets/copper-boots-isolated.png"
+                  alt="Copper Mongol Boots"
+                  width={520}
+                  height={640}
+                  priority
+                  className="w-full h-auto"
+                />
+              </div>
+
             </div>
           </div>
         </div>
