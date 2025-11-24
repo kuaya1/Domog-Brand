@@ -14,11 +14,11 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
               
               {/* Mobile: Image First */}
-              <div className="lg:hidden w-full mb-12 overflow-hidden">
+              <div className="lg:hidden w-full mb-12">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full mx-auto h-auto scale-[1.75] origin-center"
+                  className="w-full max-w-md mx-auto h-auto"
                 />
               </div>
 
@@ -46,11 +46,11 @@ export default function Home() {
               </div>
 
               {/* Desktop: Image on Right - 50% */}
-              <div className="hidden lg:block lg:w-1/2 overflow-hidden flex items-center justify-center">
+              <div className="hidden lg:block lg:w-1/2">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-auto h-auto max-w-[175%] scale-[1.75] origin-center"
+                  className="w-full h-auto object-contain"
                 />
               </div>
 
