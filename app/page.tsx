@@ -18,7 +18,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full max-w-lg mx-auto h-auto"
+                  className="w-full max-w-lg mx-auto h-auto scale-125"
                 />
               </div>
 
@@ -50,7 +50,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-full object-contain scale-125"
+                  className="w-full h-full object-contain scale-110"
                 />
               </div>
 
