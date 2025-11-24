@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-stone-50 flex items-center overflow-hidden">
+      <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
         <div className="relative z-10 w-full">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
@@ -18,7 +18,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full max-w-lg mx-auto h-auto"
+                  className="w-full mx-auto h-auto scale-[1.75]"
                 />
               </div>
 
@@ -50,7 +50,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-auto"
+                  className="w-full h-auto scale-[1.75]"
                 />
               </div>
 
