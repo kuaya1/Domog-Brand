@@ -26,7 +26,7 @@ export default function Home() {
               <div className="lg:w-1/2 text-center lg:text-left space-y-8">
                 <div className="space-y-3">
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
-                    Est. 1990 — The Master's Touch
+                    Est. 1990 — The Master&apos;s Touch
                   </p>
                   <h1 className="font-serif text-6xl lg:text-7xl text-gray-900 font-medium leading-tight">
                     Legacy Carved by Hand
