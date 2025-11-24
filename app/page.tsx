@@ -24,10 +24,15 @@ export default function Home() {
 
               {/* Text Content - 40% on Desktop */}
               <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
-                <div className="space-y-3">
+                <div className="space-y-3 hidden lg:block">
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
                     Est. 1990 — The Master&apos;s Touch
                   </p>
+                  <h1 className="font-serif text-5xl lg:text-6xl text-gray-900 font-medium leading-tight">
+                    Legacy Carved by Hand
+                  </h1>
+                </div>
+                <div className="space-y-3 lg:hidden">
                   <h1 className="font-serif text-5xl lg:text-6xl text-gray-900 font-medium leading-tight">
                     Legacy Carved by Hand
                   </h1>
