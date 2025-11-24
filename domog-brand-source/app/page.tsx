@@ -26,12 +26,9 @@ export default function Home() {
               
               {/* Mobile: Image First */}
               <div className="lg:hidden w-full mb-12">
-                <Image
+                <img
                   src="/images/hero-image.jpg"
                   alt="Copper Mongol Boots"
-                  width={520}
-                  height={640}
-                  priority
                   className="w-full max-w-lg mx-auto h-auto"
                 />
               </div>
@@ -62,12 +59,9 @@ export default function Home() {
 
               {/* Desktop: Image on Right - 2/3 */}
               <div className="hidden lg:block lg:w-2/3">
-                <Image
+                <img
                   src="/images/hero-image.jpg"
                   alt="Copper Mongol Boots"
-                  width={520}
-                  height={640}
-                  priority
                   className="w-full h-auto"
                 />
               </div>
