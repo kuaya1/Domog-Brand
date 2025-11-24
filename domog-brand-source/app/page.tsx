@@ -17,41 +17,42 @@ export default function Home() {
   const featuredProducts = products.slice(0, 6);
 
   return (
-    <main className="relative bg-cream">
-      <section className="relative min-h-screen overflow-hidden bg-cream">
-        <div className="absolute inset-0">
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage: "url('/Gemini_Generated_Image_san0prsan0prsan0.png')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              transform: `translateY(${scrollY * 0.5}px)`,
-            }}
-          />
-        </div>
+    <main className="relative">
+      <section className="relative min-h-[80vh] overflow-hidden bg-[#0a0a0a] flex items-center justify-center animate-in fade-in duration-1000">
+        <div className="max-w-[1400px] w-full mx-auto px-6 lg:px-12 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+            
+            {/* Left: Typography */}
+            <div className="text-center lg:text-left order-1 lg:order-1 animate-in fade-in slide-in-from-left duration-700 delay-200">
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight text-[#FAF8F3]">
+                Copper
+                <br />
+                Mongol
+                <br />
+                Boots
+              </h1>
+            </div>
 
-        <div className="relative z-10 flex min-h-screen items-center justify-center text-center">
-          <div className="max-w-5xl mx-auto px-6 py-32">
-            <p className="text-xs uppercase tracking-[0.2em] text-black mb-8">
-              NEW MECHANICAL WATCH
-            </p>
+            {/* Center: Product Image */}
+            <div className="flex items-center justify-center order-2 lg:order-2 animate-in fade-in zoom-in-50 duration-700 delay-500">
+              <img
+                src="/copper-boots-hero.png"
+                alt="Copper Mongol Boots"
+                className="w-full max-w-[400px] lg:max-w-[500px] h-auto object-contain"
+              />
+            </div>
 
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-sans font-normal text-black leading-tight mb-12">
-              Blue Sector
-            </h1>
+            {/* Right: CTA */}
+            <div className="flex items-center justify-center lg:justify-end order-3 lg:order-3 animate-in fade-in slide-in-from-right duration-700 delay-300">
+              <Link
+                href="/shop"
+                className="text-xs uppercase tracking-[0.25em] text-[#FAF8F3] hover:text-[#C9A961] transition-colors duration-300 flex items-center gap-2 group"
+              >
+                DISCOVER
+                <span className="text-lg group-hover:translate-x-1 transition-transform duration-300">›</span>
+              </Link>
+            </div>
 
-            <p className="text-base lg:text-lg text-black max-w-xl mx-auto leading-relaxed mb-12">
-              From now on, blue is the new Grey.
-            </p>
-
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-3 border border-black px-10 py-3 text-xs uppercase tracking-[0.15em] text-black transition-all duration-300 hover:bg-black hover:text-cream"
-            >
-              DISCOVER
-              <span className="text-lg">›</span>
-            </Link>
           </div>
         </div>
       </section>
