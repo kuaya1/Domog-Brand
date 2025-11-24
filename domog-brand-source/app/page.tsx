@@ -18,50 +18,40 @@ export default function Home() {
 
   return (
     <main className="relative bg-cream">
-      <section className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-black">
+      <section className="relative min-h-screen overflow-hidden bg-cream">
+        <div className="absolute inset-0">
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 opacity-30"
             style={{
-              backgroundImage:
-                "linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.6)), url('/images/hero-background.jpg')",
+              backgroundImage: "url('/Gemini_Generated_Image_san0prsan0prsan0.png')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              transform: `translateY(${scrollY * 0.15}px)`,
+              transform: `translateY(${scrollY * 0.5}px)`,
             }}
           />
         </div>
 
-        <div className="relative z-10 flex min-h-screen items-center">
-          <div className="max-w-7xl mx-auto px-6 py-24 lg:px-12">
-            <div className="max-w-4xl">
-              <p className="text-xs uppercase tracking-widest text-gold mb-8">
-                Est. 1989 — Mongolian Heritage
-              </p>
+        <div className="relative z-10 flex min-h-screen items-center justify-center text-center">
+          <div className="max-w-5xl mx-auto px-6 py-32">
+            <p className="text-xs uppercase tracking-[0.2em] text-black mb-8">
+              NEW MECHANICAL WATCH
+            </p>
 
-              <h1 className="text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-cream leading-none mb-8">
-                Legacy of the Great Khans
-              </h1>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-sans font-normal text-black leading-tight mb-12">
+              Blue Sector
+            </h1>
 
-              <p className="text-xl lg:text-2xl text-cream/90 leading-relaxed max-w-2xl mb-12">
-                Handcrafted Mongolian boots worn by presidents and champions. 35 years of refined artistry meets timeless elegance.
-              </p>
+            <p className="text-base lg:text-lg text-black max-w-xl mx-auto leading-relaxed mb-12">
+              From now on, blue is the new Grey.
+            </p>
 
-              <div className="flex flex-wrap items-center gap-6">
-                <Link
-                  href="/shop"
-                  className="inline-flex items-center gap-3 bg-gold px-8 py-4 text-sm uppercase tracking-wide text-black transition-all duration-400 hover:bg-gold-light"
-                >
-                  Explore Collection
-                </Link>
-                <Link
-                  href="/heritage"
-                  className="inline-flex items-center gap-3 border border-cream/40 px-8 py-4 text-sm uppercase tracking-wide text-cream transition-all duration-400 hover:border-gold hover:text-gold"
-                >
-                  Our Heritage
-                </Link>
-              </div>
-            </div>
+            <Link
+              href="/shop"
+              className="inline-flex items-center gap-3 border border-black px-10 py-3 text-xs uppercase tracking-[0.15em] text-black transition-all duration-300 hover:bg-black hover:text-cream"
+            >
+              DISCOVER
+              <span className="text-lg">›</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -103,55 +93,78 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-24 lg:px-12 bg-cream">
-        <div className="max-w-7xl mx-auto grid gap-16 lg:grid-cols-2">
-          <div className="space-y-8">
-            <p className="text-xs uppercase tracking-widest text-cognac">
-              Heritage & Craftsmanship
+      <section className="px-6 py-24 lg:py-32 lg:px-12 bg-cream">
+        <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+          <div className="relative aspect-[3/4] overflow-hidden">
+            <img
+              src="/images/artisans-working.jpg"
+              alt="Master artisans crafting Mongolian boots"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-8 lg:pl-12">
+            <p className="text-xs uppercase tracking-[0.2em] text-black">
+              OUR STORY
             </p>
-            <h3 className="text-4xl lg:text-5xl font-serif font-semibold text-black leading-tight">
-              Where Ancient Techniques Meet Timeless Design
+            
+            <h3 className="text-4xl lg:text-5xl font-sans font-normal text-black leading-tight">
+              A PASSION FULL OF ADVENTURES
             </h3>
-            <p className="text-lg text-gray-warm leading-relaxed">
-              For over three decades, we have upheld the traditions of Mongolian boot-making. Each pair is meticulously handcrafted using time-honored methods passed down through generations, creating footwear that embodies both cultural heritage and refined luxury.
+            
+            <div className="space-y-6 text-base leading-relaxed text-black">
+              <p>
+                <span className="font-semibold">Domog Brand</span> brings together <span className="font-semibold">generations, cultures</span> and <span className="font-semibold">emotions</span> around a shared passion for bootmaking. Rooted in Mongolian craftsmanship and inspired by a timeless sense of design, the brand bridges eras, with an extreme <span className="font-semibold">care for details</span>. Founded by two friends from different worlds, it embodies the harmony between tradition and creativity. Each timepiece is designed to evoke <span className="font-semibold">emotion</span>, connect <span className="font-semibold">stories</span> and <span className="font-semibold">people</span> together. Discover our story, our values and the people behind the brand.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <Link
+                href="/heritage"
+                className="inline-flex items-center gap-3 border border-black px-8 py-3 text-xs uppercase tracking-[0.15em] text-black transition-all duration-300 hover:bg-black hover:text-cream"
+              >
+                DISCOVER
+                <span className="text-lg">›</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-24 lg:py-32 lg:px-12 bg-cream-sand">
+        <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
+          <div className="space-y-8 lg:pr-12">
+            <p className="text-xs uppercase tracking-[0.2em] text-black">
+              SHOWROOM AND ONLINE MEETING
             </p>
-            <div className="grid grid-cols-2 gap-8 pt-4">
-              <div>
-                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Premium Leather</p>
-                <p className="text-sm text-gray-warm">Hand-selected hides</p>
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Gold Accents</p>
-                <p className="text-sm text-gray-warm">24k gold thread</p>
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Master Artisans</p>
-                <p className="text-sm text-gray-warm">35+ years experience</p>
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-wider text-cognac mb-2">Limited Edition</p>
-                <p className="text-sm text-gray-warm">Numbered pairs</p>
-              </div>
+            
+            <h3 className="text-4xl lg:text-5xl font-sans font-normal text-black leading-tight">
+              BOOK YOUR FURLAN MARRI EXPERIENCE
+            </h3>
+            
+            <div className="space-y-6 text-base leading-relaxed text-black">
+              <p>
+                Interested in discovering the Furlan Marri collection in more detail? Explore it in person or online. Book a showroom visit or schedule a virtual meeting today.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <Link
+                href="/book"
+                className="inline-flex items-center gap-3 border border-black px-8 py-3 text-xs uppercase tracking-[0.15em] text-black transition-all duration-300 hover:bg-black hover:text-cream"
+              >
+                BOOK AN APPOINTMENT
+                <span className="text-lg">›</span>
+              </Link>
             </div>
           </div>
 
-          <div className="relative luxury-border p-10 lg:p-12 bg-cream-sand">
-            <div className="flex items-center gap-4 text-xs uppercase tracking-wider text-cognac mb-8">
-              <span>Master Artisan</span>
-              <span className="h-px flex-1 bg-gold/30" />
-              <span>Collection 35</span>
-            </div>
-            <blockquote className="text-2xl font-serif text-black leading-relaxed mb-8">
-              "Each pair tells a story of heritage and pride. We create not just boots, but wearable art that connects generations."
-            </blockquote>
-            <p className="text-sm uppercase tracking-wider text-cognac mb-8">Bayarmaa · Lead Craftsman</p>
-            <Link
-              href="/heritage"
-              className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-gold transition-colors duration-400 hover:text-cognac"
-            >
-              Discover Our Story
-              <span className="h-px w-10 bg-gold/40" />
-            </Link>
+          <div className="relative aspect-[3/4] overflow-hidden lg:order-first">
+            <img
+              src="/images/showroom-workspace.jpg"
+              alt="Domog Brand showroom and design workspace"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
