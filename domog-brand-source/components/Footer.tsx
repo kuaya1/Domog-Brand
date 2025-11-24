@@ -31,145 +31,87 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-warm-900 text-warm-200 border-t border-gold-800/20">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
-          
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <h3 className="font-display text-2xl font-light tracking-widest text-warm-50">
-              DOMOG
-            </h3>
-            <p className="text-sm font-light leading-relaxed text-warm-300">
-              35 years of Mongolian heritage and craftsmanship.
-            </p>
-            
-            {/* Social Links */}
-            <div className="flex space-x-4 pt-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-warm-400 hover:text-gold-500 transition-colors duration-300"
-                aria-label="Instagram"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-warm-400 hover:text-gold-500 transition-colors duration-300"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-              </a>
+    <footer className="relative mt-24 border-t border-ink/15 bg-ink text-rice">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.08),transparent_65%)]" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 py-20">
+        <div className="grid gap-12 lg:grid-cols-[220px_1fr]">
+          <div className="space-y-10">
+            <div>
+              <p className="text-[0.6rem] uppercase tracking-[0.45em] text-rice/40">Domog</p>
+              <h3 className="mt-4 text-3xl font-serif tracking-[0.2em]">Nomadic Atelier</h3>
+              <p className="mt-4 text-sm leading-6 text-rice/70">
+                Quiet luxury forged by Mongolian artisanship and refined through Japanese restraint.
+              </p>
+            </div>
+            <div className="space-y-4 text-[0.65rem] uppercase tracking-[0.4em] text-rice/50">
+              <p>Tokyo · Ulaanbaatar · Digital Atelier</p>
+              <span className="block h-px w-20 bg-rice/20" />
+              <p>Est. 1989</p>
+            </div>
+            <div className="flex gap-4 text-sm uppercase tracking-[0.3em] text-rice/60">
+              <Link href="https://instagram.com" target="_blank" className="hover:text-jade">Instagram</Link>
+              <Link href="https://pinterest.com" target="_blank" className="hover:text-jade">Pinterest</Link>
+              <Link href="/journal" className="hover:text-jade">Journal</Link>
             </div>
           </div>
 
-          {/* Shop Column */}
-          <div>
-            <h4 className="text-sm uppercase tracking-wider font-light text-warm-50 mb-4">
-              Shop
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.shop.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-light text-warm-300 hover:text-gold-500 transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support Column */}
-          <div>
-            <h4 className="text-sm uppercase tracking-wider font-light text-warm-50 mb-4">
-              Support
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-light text-warm-300 hover:text-gold-500 transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div>
-            <h4 className="text-sm uppercase tracking-wider font-light text-warm-50 mb-4">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm font-light text-warm-300 hover:text-gold-500 transition-colors duration-300"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="grid gap-12 md:grid-cols-3">
+            {Object.entries(footerLinks).map(([title, links]) => (
+              <div key={title} className="space-y-5">
+                <p className="text-[0.65rem] uppercase tracking-[0.35em] text-rice/50">
+                  {title}
+                </p>
+                <ul className="space-y-3 text-sm leading-7 text-rice/80">
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link className="transition hover:text-jade" href={link.href}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="mt-16 pt-12 border-t border-warm-700/30">
-          <div className="max-w-md">
-            <h4 className="text-sm uppercase tracking-wider font-light text-warm-50 mb-4">
-              Newsletter
-            </h4>
-            <p className="text-sm font-light text-warm-300 mb-4">
-              Subscribe for updates on new collections and heritage stories.
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_auto]">
+          <div className="space-y-4 max-w-xl">
+            <p className="text-[0.65rem] uppercase tracking-[0.35em] text-rice/50">Studio Dispatch</p>
+            <p className="text-sm leading-7 text-rice/70">
+              Receive fragments on new releases, atelier residencies, and the quiet rituals guiding each pair.
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
+                placeholder="Email for dispatches"
                 required
-                className="flex-1 px-4 py-2 bg-warm-800 border border-warm-700 text-warm-100 text-sm focus:outline-none focus:border-gold-700 transition-colors duration-300"
+                className="flex-1 rounded-full border border-rice/20 bg-transparent px-5 py-3 text-sm uppercase tracking-[0.25em] placeholder:text-rice/30 focus:outline-none focus:border-jade"
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-gold-800 text-warm-50 text-sm uppercase tracking-wider hover:opacity-90 transition-opacity duration-300"
+                className="inline-flex items-center gap-3 rounded-full border border-jade/60 px-6 py-3 text-[0.65rem] uppercase tracking-[0.35em] text-jade transition hover:bg-jade hover:text-ink"
               >
-                Subscribe
+                <span className="h-px w-5 bg-jade/50" />
+                Send
               </button>
             </form>
+          </div>
+
+          <div className="flex flex-col justify-between text-[0.65rem] uppercase tracking-[0.35em] text-rice/50">
+            <span className="vertical-text hidden lg:flex">Quiet luxury</span>
+            <p>Made with pride in Mongolia.</p>
+            <p>Heritage. Stillness. Motion.</p>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-warm-700/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs font-light text-warm-400">
-              © {new Date().getFullYear()} Domog Brand. Made with pride in Mongolia.
-            </p>
-            <p className="text-xs font-light text-warm-400">
-              Crafted with tradition. Built for legacy.
-            </p>
-          </div>
+      <div className="relative border-t border-rice/15">
+        <div className="max-w-6xl mx-auto px-6 lg:px-10 py-6 flex flex-col gap-3 text-[0.6rem] uppercase tracking-[0.35em] text-rice/40 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} Domog Atelier</p>
+          <p>Crafted for wandering empires</p>
         </div>
       </div>
     </footer>

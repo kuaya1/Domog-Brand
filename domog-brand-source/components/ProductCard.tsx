@@ -27,18 +27,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Minimal Card Container */}
-      <div className="relative bg-[#FDFCF8] overflow-hidden transition-all duration-500">
-        
-        {/* Vertical Gold Accent Line - LEFT EDGE */}
-        <div 
-          className={`absolute left-0 top-1/2 -translate-y-1/2 w-0.5 bg-gold-700 transition-all duration-500 z-20 ${
-            isHovered ? 'h-full' : 'h-[60%]'
+      <div className="relative overflow-hidden rounded-subtle border border-ink/10 bg-pure transition-all duration-500">
+        <span
+          className={`absolute left-4 top-6 h-24 w-px bg-gradient-to-b from-transparent via-ink/30 to-transparent transition-all duration-500 ${
+            isHovered ? 'scale-y-100' : 'scale-y-75'
           }`}
         />
-        
-        {/* Product Image */}
-        <div className="relative w-full aspect-[3/4] overflow-hidden bg-warm-100 cursor-crosshair">
+
+        <div className="relative w-full aspect-[3/4] overflow-hidden bg-silk">
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -48,61 +44,61 @@ const ProductCard: React.FC<ProductCardProps> = ({
               isHovered ? 'scale-105' : 'scale-100'
             }`}
           />
-          
-          {/* Category Badge - Fade in on hover */}
-          <div className={`absolute top-4 left-4 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-            <span className="px-3 py-1 text-xs uppercase tracking-wider bg-warm-900/80 text-warm-50 backdrop-blur-sm">
+          <div className={`absolute top-5 right-5 transition duration-500 ${isHovered ? 'opacity-100' : 'opacity-0 translate-y-2'}`}>
+            <span className="px-3 py-1 text-[0.6rem] uppercase tracking-[0.35em] text-rice bg-ink/80">
               {product.category}
             </span>
           </div>
         </div>
 
-        {/* Product Info */}
-        <div className="p-6 space-y-4">
-          {/* Product Name - More Letter Spacing */}
-          <h3 className="font-serif text-base font-light text-warm-900 tracking-widest uppercase">
-            {product.name}
-          </h3>
-
-          {/* Price - Dramatic Size, Superscript USD */}
-          <div className="flex items-start gap-1">
-            <span className="text-sm font-thin text-crimson-800 mt-1">$</span>
-            <span className="text-4xl font-light text-crimson-800 tracking-tight">
-              {product.price.toLocaleString()}
-            </span>
-            <span className="text-[10px] uppercase tracking-wider text-warm-600 mt-2">
-              USD
-            </span>
+        <div className="space-y-5 px-6 py-7">
+          <div className="flex items-center justify-between text-[0.65rem] uppercase tracking-[0.35em] text-ink/50">
+            <span>Domog</span>
+            <span className="h-px w-16 bg-ink/10" />
+            <span>{product.category}</span>
           </div>
 
-          {/* Description - Larger, More Luxurious Spacing */}
-          <div className={`transition-all duration-500 overflow-hidden ${
-            isHovered ? 'max-h-28 opacity-100' : 'max-h-0 opacity-0'
-          }`}>
-            <p className="text-base text-warm-700 leading-loose line-clamp-3">
-              {product.description}
-            </p>
+          <div className="space-y-3">
+            <h3 className="text-xl font-serif text-ink-deep leading-tight">
+              {product.name}
+            </h3>
+            <div className="flex items-end gap-1 text-crimson">
+              <span className="text-sm uppercase tracking-[0.35em]">USD</span>
+              <span className="text-4xl font-light">{product.price.toLocaleString()}</span>
+            </div>
           </div>
 
-          {/* Add to Cart Button - Fade in on hover */}
-          <div className={`transition-all duration-500 ${
-            isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-          }`}>
-            <Button
-              variant="outline"
-              size="md"
+          <div
+            className={`text-sm leading-7 text-ink/70 transition-all duration-500 ${
+              isHovered ? 'max-h-44 opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            {product.description}
+          </div>
+
+          <div className="flex items-center justify-between text-[0.6rem] uppercase tracking-[0.35em] text-ink/40">
+            <span>Limited</span>
+            <span className="h-px w-10 bg-ink/10" />
+            <span>Handmade</span>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
               onClick={handleAddToCart}
-              className="w-full"
+              className="inline-flex items-center gap-3 rounded-full border border-jade/50 px-5 py-2 text-[0.65rem] uppercase tracking-[0.35em] text-jade transition hover:bg-jade hover:text-rice"
             >
+              <span className="h-px w-5 bg-jade/40" />
               Add to Cart
-            </Button>
+            </button>
+            <span className="text-xs uppercase tracking-[0.35em] text-ink/40">Est. 1989</span>
           </div>
         </div>
 
-        {/* Enhanced Hover Shadow - 4px lift */}
-        <div className={`absolute inset-0 pointer-events-none transition-all duration-500 ${
-          isHovered ? 'shadow-xl translate-y-[-4px]' : 'shadow-none translate-y-0'
-        }`} />
+        <div
+          className={`absolute inset-0 pointer-events-none transition duration-500 ${
+            isHovered ? 'shadow-card translate-y-[-6px]' : 'shadow-none translate-y-0'
+          }`}
+        />
       </div>
     </div>
   );
