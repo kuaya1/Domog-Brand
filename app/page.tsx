@@ -11,7 +11,7 @@ export default function Home() {
       <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
         <div className="relative z-10 w-full">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
               
               {/* Mobile: Image First */}
               <div className="lg:hidden w-full mb-12">
@@ -22,8 +22,8 @@ export default function Home() {
                 />
               </div>
 
-              {/* Text Content - 50% on Desktop */}
-              <div className="lg:w-1/2 text-center lg:text-left space-y-8 z-10">
+              {/* Text Content - 40% on Desktop */}
+              <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
                 <div className="space-y-3">
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
                     Est. 1990 — The Master&apos;s Touch
@@ -45,12 +45,12 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Desktop: Image on Right - 50% */}
-              <div className="hidden lg:block lg:w-1/2">
+              {/* Desktop: Image on Right - 60% scaled to viewport */}
+              <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-center">
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
