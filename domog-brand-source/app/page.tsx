@@ -118,7 +118,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid gap-12 lg:grid-cols-2 items-center">
           <div className="relative aspect-[3/4] overflow-hidden">
             <img
-              src="/images/artisans-working.jpg"
+              src="/images/hero-background.jpg"
               alt="Master artisans crafting Mongolian boots"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -182,7 +182,7 @@ export default function Home() {
 
           <div className="relative aspect-[3/4] overflow-hidden lg:order-first">
             <img
-              src="/images/showroom-workspace.jpg"
+              src="/images/hero-background.jpg"
               alt="Domog Brand showroom and design workspace"
               className="absolute inset-0 w-full h-full object-cover"
             />
