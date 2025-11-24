@@ -19,33 +19,53 @@ export default function Home() {
 
   return (
     <main className="relative">
-      <section 
-        className="relative min-h-[85vh] overflow-hidden flex items-center bg-gradient-to-br from-amber-900 via-amber-800 to-yellow-900"
-      >
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-boots.jpg"
-            alt="Copper Mongol Boots Background"
-            fill
-            priority
-            className="object-scale-down"
-            sizes="100vw"
-          />
+      <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <span className="w-full h-px bg-gray-200" />
         </div>
-        
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="w-full lg:w-2/5 text-center lg:text-left">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-serif leading-tight text-[#f0efe9] mb-8 animate-in fade-in slide-in-from-left duration-700">
-              Copper Mongol Boots
-            </h1>
-            
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[#f0efe9] hover:text-[#C9A961] transition-colors duration-300 group"
-            >
-              DISCOVER
-              <span className="text-lg group-hover:translate-x-1 transition-transform duration-300">›</span>
-            </Link>
+
+        <div className="relative z-10 w-full">
+          <div className="mx-auto w-[90%] max-w-screen-2xl px-6 lg:px-12">
+            <div className="grid gap-14 xl:gap-24 lg:grid-cols-3 items-center">
+              <div className="text-center lg:text-right space-y-6">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-[#111111] leading-tight tracking-tight">
+                  Copper Mongol
+                  <br />
+                  Boots
+                </h1>
+                <p className="text-base lg:text-lg text-[#2a2a2a] max-w-sm lg:ml-auto">
+                  Hand-lasted in Ulaanbaatar for heads of state, Naadam champions, and those who revere the bond
+                  between nomadic strength and Italian-level refinement.
+                </p>
+              </div>
+
+              <div className="flex justify-center">
+                <Image
+                  src="/assets/copper-boots-isolated.png"
+                  alt="Copper Mongol Boots"
+                  width={520}
+                  height={640}
+                  priority
+                  className="w-[480px] sm:w-[600px] lg:w-[900px] xl:w-[1040px] h-auto"
+                />
+              </div>
+
+              <div className="text-center lg:text-left space-y-6">
+                <div className="text-sm uppercase tracking-[0.35em] text-[#6b4b2f]">
+                  Presidents • Wrestlers • Patrons
+                </div>
+                <p className="text-base text-[#2a2a2a] max-w-xs">
+                  Numbered releases crafted with copper-dyed calfskin, felt insulation, and 24k-thread insignias.
+                </p>
+                <Link
+                  href="/shop"
+                  className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.45em] text-[#111111] hover:text-black transition-colors duration-300"
+                >
+                  DISCOVER
+                  <span className="text-2xl">›</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
