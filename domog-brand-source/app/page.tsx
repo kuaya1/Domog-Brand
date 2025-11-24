@@ -19,15 +19,15 @@ export default function Home() {
   return (
     <main className="relative">
       <section 
-        className="relative min-h-[85vh] overflow-hidden flex items-center"
-        style={{
-          backgroundImage: "url('/assets/hero-boots.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat'
-        }}
+        className="relative min-h-[85vh] overflow-hidden flex items-center bg-[#0a0a0a]"
       >
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0">
+          <img
+            src="/copper-boots-hero.png"
+            alt="Copper Mongol Boots Background"
+            className="w-full h-full object-cover opacity-40"
+          />
+        </div>
         
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
           <div className="w-full lg:w-2/5 text-center lg:text-left">
