@@ -18,7 +18,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full max-w-md mx-auto h-auto"
+                  className="w-full max-w-lg mx-auto h-auto scale-[1.65]"
                 />
               </div>
 
@@ -28,7 +28,7 @@ export default function Home() {
                   <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
                     Est. 1990 — The Master&apos;s Touch
                   </p>
-                  <h1 className="font-serif text-6xl lg:text-7xl text-gray-900 font-medium leading-tight">
+                  <h1 className="font-serif text-4xl lg:text-5xl text-gray-900 font-medium leading-tight">
                     Legacy Carved by Hand
                   </h1>
                 </div>
@@ -50,7 +50,7 @@ export default function Home() {
                 <img
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain scale-[1.65]"
                 />
               </div>
 
