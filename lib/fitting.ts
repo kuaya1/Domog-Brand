@@ -407,7 +407,7 @@ export function calculateFitConfidence(
     
     const bespokeRecommended = overallScore < 65 || 
         archScore.score < 60 || 
-        profile.preferences.conditions?.length > 0;
+        (profile.preferences.conditions?.length ?? 0) > 0;
     
     return {
         overall: Math.round(overallScore),
@@ -443,18 +443,19 @@ function getDominantFoot(profile: UserMeasurementProfile): FootMeasurements {
     return right;
 }
 
-function normalizeToCm(measurements: FootMeasurements | CalfMeasurements): any {
+function normalizeToCm<T extends FootMeasurements | CalfMeasurements>(measurements: T): T {
     if (measurements.unit === 'cm') return measurements;
     
     // Convert inches to cm (multiply by 2.54)
-    const converted = { ...measurements };
-    Object.keys(converted).forEach(key => {
-        if (typeof converted[key] === 'number') {
-            converted[key] = converted[key] * 2.54;
+    const result: Record<string, unknown> = { ...measurements };
+    Object.keys(result).forEach(key => {
+        const value = result[key];
+        if (typeof value === 'number') {
+            result[key] = value * 2.54;
         }
     });
-    converted.unit = 'cm';
-    return converted;
+    result.unit = 'cm';
+    return result as T;
 }
 
 function calculateLengthScore(diff: number, leather: LeatherProfile): AreaScore {
@@ -759,7 +760,7 @@ function determineBespokeReason(archScore: AreaScore, preferences: FittingPrefer
     if (archScore.score < 60) {
         return 'Your unique arch profile would benefit from a custom last';
     }
-    if (preferences.conditions?.length > 0) {
+    if ((preferences.conditions?.length ?? 0) > 0) {
         return 'We recommend bespoke fitting to accommodate your specific needs';
     }
     return 'For optimal fit, consider our bespoke consultation';

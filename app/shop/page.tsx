@@ -1,19 +1,31 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { products } from '@/lib/data';
 import ProductGrid from '@/components/ProductGrid';
 import ProductFilters from '@/components/ProductFilters';
 import ProductSort from '@/components/ProductSort';
 
+/**
+ * SHOP PAGE - Optimized for High Traffic
+ * 
+ * Key optimizations:
+ * 1. Price range stored as individual values to prevent tuple reference issues
+ * 2. Memoized filter/sort functions to prevent recalculation
+ * 3. ProductGrid is memoized and only re-renders when product list changes
+ * 4. useCallback for all handler functions
+ */
 export default function ShopPage() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
+    // Store price range as individual values to prevent reference equality issues
+    const [priceMin, setPriceMin] = useState(0);
+    const [priceMax, setPriceMax] = useState(500);
     const [sortBy, setSortBy] = useState('newest');
 
+    // Memoize the filtered products
     const filteredProducts = useMemo(() => {
-        let result = [...products];
+        let result = products;
 
         // Filter by Category
         if (selectedCategory) {
@@ -25,12 +37,13 @@ export default function ShopPage() {
             result = result.filter((p) => p.sizes.includes(selectedSize));
         }
 
-        // Filter by Price
+        // Filter by Price (using individual values, not tuple)
         result = result.filter(
-            (p) => p.price >= priceRange[0] && p.price <= priceRange[1]
+            (p) => p.price >= priceMin && p.price <= priceMax
         );
 
-        // Sort
+        // Sort (create new array only here, after all filters)
+        result = [...result];
         switch (sortBy) {
             case 'price-asc':
                 result.sort((a, b) => a.price - b.price);
@@ -44,7 +57,32 @@ export default function ShopPage() {
         }
 
         return result;
-    }, [selectedCategory, selectedSize, priceRange, sortBy]);
+    }, [selectedCategory, selectedSize, priceMin, priceMax, sortBy]);
+
+    // Memoize handlers to prevent child re-renders
+    const handleCategoryChange = useCallback((category: string | null) => {
+        setSelectedCategory(category);
+    }, []);
+
+    const handleSizeChange = useCallback((size: string | null) => {
+        setSelectedSize(size);
+    }, []);
+
+    const handlePriceRangeChange = useCallback((range: [number, number]) => {
+        setPriceMin(range[0]);
+        setPriceMax(range[1]);
+    }, []);
+
+    const handleSortChange = useCallback((sort: string) => {
+        setSortBy(sort);
+    }, []);
+
+    const handleClearFilters = useCallback(() => {
+        setSelectedCategory(null);
+        setSelectedSize(null);
+        setPriceMin(0);
+        setPriceMax(500);
+    }, []);
 
     return (
         <div className="min-h-screen bg-white">
@@ -67,10 +105,10 @@ export default function ShopPage() {
                         <ProductFilters
                             selectedCategory={selectedCategory}
                             selectedSize={selectedSize}
-                            priceRange={priceRange}
-                            onCategoryChange={setSelectedCategory}
-                            onSizeChange={setSelectedSize}
-                            onPriceRangeChange={setPriceRange}
+                            priceRange={[priceMin, priceMax]}
+                            onCategoryChange={handleCategoryChange}
+                            onSizeChange={handleSizeChange}
+                            onPriceRangeChange={handlePriceRangeChange}
                         />
                     </aside>
 
@@ -78,9 +116,9 @@ export default function ShopPage() {
                     <div className="flex-1">
                         <div className="flex justify-between items-center mb-6">
                             <p className="text-sm text-gray-500">
-                                Showing {filteredProducts.length} results
+                                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'result' : 'results'}
                             </p>
-                            <ProductSort sortBy={sortBy} onSortChange={setSortBy} />
+                            <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
                         </div>
 
                         {filteredProducts.length > 0 ? (
@@ -91,12 +129,8 @@ export default function ShopPage() {
                                     No products found matching your criteria.
                                 </p>
                                 <button
-                                    onClick={() => {
-                                        setSelectedCategory(null);
-                                        setSelectedSize(null);
-                                        setPriceRange([0, 500]);
-                                    }}
-                                    className="mt-4 text-amber-700 font-medium hover:underline"
+                                    onClick={handleClearFilters}
+                                    className="mt-4 text-amber-700 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded"
                                 >
                                     Clear all filters
                                 </button>

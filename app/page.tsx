@@ -15,11 +15,16 @@ export default function Home() {
               
               {/* Mobile: Image First */}
               <div className="lg:hidden w-full mb-12">
-                <img
-                  src="/images/hero-image.jpg"
-                  alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full max-w-lg mx-auto h-auto scale-[2.035]"
-                />
+                <div className="relative w-full max-w-lg mx-auto aspect-square">
+                  <Image
+                    src="/images/hero-image.jpg"
+                    alt="The Master Craftsman hand-lasting a boot"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 512px"
+                    className="object-contain scale-[2.035]"
+                    priority
+                  />
+                </div>
               </div>
 
               {/* Text Content - 40% on Desktop */}
@@ -51,11 +56,14 @@ export default function Home() {
               </div>
 
               {/* Desktop: Image on Right - 60% scaled to viewport */}
-              <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
-                <img
+              <div className="hidden lg:flex lg:w-3/5 h-screen items-center justify-start relative">
+                <Image
                   src="/images/hero-image.jpg"
                   alt="The Master Craftsman hand-lasting a boot"
-                  className="w-full h-full object-contain scale-150"
+                  fill
+                  sizes="60vw"
+                  className="object-contain scale-150"
+                  priority
                 />
               </div>
 

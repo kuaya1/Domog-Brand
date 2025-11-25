@@ -1,58 +1,94 @@
-'use client';
-
-import { useState } from 'react';
-import { useParams } from 'next/navigation';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { products } from '@/lib/data';
-import { useCartStore } from '@/lib/store';
-import ImageGallery from '@/components/ImageGallery';
-import SizeSelector from '@/components/SizeSelector';
-import QuantitySelector from '@/components/QuantitySelector';
-import Toast from '@/components/Toast';
+import ProductDetails from './ProductDetails';
 import ProductGrid from '@/components/ProductGrid';
-import { ArrowLeft, ShieldCheck, Truck, Clock } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
-export default function ProductPage() {
-    const params = useParams();
-    const product = products.find((p) => p.id === params.id);
-    const addToCart = useCartStore((state) => state.addToCart);
+/**
+ * PRODUCT PAGE - Server Component Architecture
+ * 
+ * This page is now a React Server Component (RSC), enabling:
+ * 1. SEO: Full HTML rendered on server, crawlable by Google
+ * 2. Caching: Static generation with ISR support
+ * 3. Performance: Only interactive parts hydrate on client
+ * 4. Metadata: Dynamic OG tags for social sharing
+ * 
+ * The interactive "ProductDetails" component (size selector, add to cart)
+ * is a separate client component that hydrates independently.
+ */
 
-    const [selectedSize, setSelectedSize] = useState<string>('');
-    const [quantity, setQuantity] = useState(1);
-    const [showToast, setShowToast] = useState(false);
+interface ProductPageProps {
+    params: Promise<{ id: string }>;
+}
+
+// Generate static paths for all products at build time
+export async function generateStaticParams() {
+    return products.map((product) => ({
+        id: product.id,
+    }));
+}
+
+// Generate dynamic metadata for SEO and social sharing
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+    const { id } = await params;
+    const product = products.find((p) => p.id === id);
+    
+    if (!product) {
+        return {
+            title: 'Product Not Found | Domog Brand',
+        };
+    }
+    
+    return {
+        title: `${product.name} | Domog Brand`,
+        description: product.description.slice(0, 160),
+        openGraph: {
+            title: product.name,
+            description: product.description.slice(0, 160),
+            images: [
+                {
+                    url: product.images[0],
+                    width: 1200,
+                    height: 630,
+                    alt: product.name,
+                },
+            ],
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: product.name,
+            description: product.description.slice(0, 160),
+            images: [product.images[0]],
+        },
+    };
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+    const { id } = await params;
+    const product = products.find((p) => p.id === id);
 
     if (!product) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-center">
-                    <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                        Product not found
-                    </h1>
-                    <Link
-                        href="/shop"
-                        className="text-amber-700 hover:underline font-medium"
-                    >
-                        Return to Shop
-                    </Link>
-                </div>
-            </div>
-        );
+        notFound();
     }
 
-    const handleAddToCart = () => {
-        if (!selectedSize) return;
-        addToCart(product, selectedSize, quantity);
-        setShowToast(true);
-    };
-
     const relatedProducts = products
-        .filter((p) => p.id !== product.id)
+        .filter((p) => p.id !== product.id && p.category === product.category)
         .slice(0, 3);
+    
+    // If not enough related products in same category, fill with others
+    const fillerProducts = relatedProducts.length < 3
+        ? products.filter((p) => p.id !== product.id && !relatedProducts.includes(p)).slice(0, 3 - relatedProducts.length)
+        : [];
+    
+    const displayProducts = [...relatedProducts, ...fillerProducts];
 
     return (
         <div className="min-h-screen bg-white py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Breadcrumb */}
+                {/* Breadcrumb - Server rendered */}
                 <Link
                     href="/shop"
                     className="inline-flex items-center text-sm text-gray-500 hover:text-amber-700 mb-8 transition-colors"
@@ -61,104 +97,19 @@ export default function ProductPage() {
                     Back to Shop
                 </Link>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                    {/* Gallery */}
-                    <ImageGallery images={product.images} productName={product.name} />
+                {/* Product Details - Client component island */}
+                <ProductDetails product={product} />
 
-                    {/* Details */}
-                    <div>
-                        <div className="mb-2">
-                            <span className="text-amber-700 font-medium text-sm tracking-wide uppercase">
-                                {product.category}
-                            </span>
-                        </div>
-                        <h1 className="text-4xl font-serif font-bold text-gray-900 mb-4">
-                            {product.name}
-                        </h1>
-                        <p className="text-2xl text-gray-900 font-bold mb-6">
-                            ${product.price}
-                        </p>
-
-                        <div className="prose prose-stone mb-8 text-gray-600">
-                            <p>{product.description}</p>
-                        </div>
-
-                        {/* Selectors */}
-                        <div className="space-y-6 mb-8 border-t border-b border-gray-100 py-8">
-                            <div>
-                                <div className="flex justify-between mb-2">
-                                    <span className="font-medium text-gray-900">Select Size</span>
-                                    <button className="text-sm text-gray-500 underline hover:text-amber-700">
-                                        Size Guide
-                                    </button>
-                                </div>
-                                <SizeSelector
-                                    sizes={product.sizes}
-                                    selectedSize={selectedSize}
-                                    onSelect={setSelectedSize}
-                                />
-                                {!selectedSize && (
-                                    <p className="text-red-500 text-sm mt-2 hidden peer-invalid:block">
-                                        Please select a size
-                                    </p>
-                                )}
-                            </div>
-
-                            <div>
-                                <span className="block font-medium text-gray-900 mb-2">
-                                    Quantity
-                                </span>
-                                <QuantitySelector
-                                    quantity={quantity}
-                                    onIncrease={() => setQuantity(quantity + 1)}
-                                    onDecrease={() => setQuantity(quantity - 1)}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Actions */}
-                        <div className="flex gap-4 mb-8">
-                            <button
-                                onClick={handleAddToCart}
-                                disabled={!selectedSize || !product.inStock}
-                                className="flex-1 bg-amber-700 text-white py-4 px-8 rounded-md font-bold hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm hover:shadow-md"
-                            >
-                                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                            </button>
-                        </div>
-
-                        {/* Features */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-600">
-                            <div className="flex items-center gap-2">
-                                <ShieldCheck className="text-amber-700" size={20} />
-                                <span>Authentic Craftsmanship</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Truck className="text-amber-700" size={20} />
-                                <span>Free Shipping</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock className="text-amber-700" size={20} />
-                                <span>Lifetime Warranty</span>
-                            </div>
-                        </div>
+                {/* Related Products - Server rendered */}
+                {displayProducts.length > 0 && (
+                    <div className="border-t border-gray-100 pt-16 mt-16">
+                        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-8">
+                            You May Also Like
+                        </h2>
+                        <ProductGrid products={displayProducts} />
                     </div>
-                </div>
-
-                {/* Related Products */}
-                <div className="border-t border-gray-100 pt-16">
-                    <h2 className="text-2xl font-serif font-bold text-gray-900 mb-8">
-                        You May Also Like
-                    </h2>
-                    <ProductGrid products={relatedProducts} />
-                </div>
+                )}
             </div>
-
-            <Toast
-                message={`${product.name} added to cart`}
-                isVisible={showToast}
-                onClose={() => setShowToast(false)}
-            />
         </div>
     );
 }

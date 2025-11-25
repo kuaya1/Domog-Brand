@@ -3,15 +3,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/lib/data';
+import { memo } from 'react';
 
 interface ProductGridProps {
     products: Product[];
 }
 
-export default function ProductGrid({ products }: ProductGridProps) {
+/**
+ * OPTIMIZED PRODUCT GRID
+ * 
+ * Key optimizations:
+ * 1. Memoized to prevent unnecessary re-renders when parent state changes
+ * 2. Images use proper `sizes` prop for responsive loading
+ * 3. First 4 images are priority loaded (above the fold)
+ * 4. Proper alt text for accessibility
+ */
+function ProductGridComponent({ products }: ProductGridProps) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
+            {products.map((product, index) => (
                 <Link
                     key={product.id}
                     href={`/products/${product.id}`}
@@ -20,9 +30,12 @@ export default function ProductGrid({ products }: ProductGridProps) {
                     <div className="relative aspect-[4/5] bg-gray-100 overflow-hidden">
                         <Image
                             src={product.images[0]}
-                            alt={product.name}
+                            alt={`${product.name} - ${product.category} Mongolian boot`}
                             fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                             className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                            priority={index < 4}
+                            loading={index < 4 ? 'eager' : 'lazy'}
                         />
                         {product.isNew && (
                             <span className="absolute top-2 left-2 bg-amber-600 text-white text-xs font-bold px-2 py-1 rounded-sm">
@@ -37,10 +50,22 @@ export default function ProductGrid({ products }: ProductGridProps) {
                         <h3 className="font-serif text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-amber-800 transition-colors">
                             {product.name}
                         </h3>
-                        <p className="text-gray-900 font-bold">${product.price}</p>
+                        <p className="text-gray-900 font-bold">${product.price.toLocaleString()}</p>
                     </div>
                 </Link>
             ))}
         </div>
     );
 }
+
+// Memoize to prevent re-renders when parent state changes
+// Only re-render if the products array actually changes
+const ProductGrid = memo(ProductGridComponent, (prevProps, nextProps) => {
+    // Custom comparison: only re-render if product IDs changed
+    if (prevProps.products.length !== nextProps.products.length) return false;
+    return prevProps.products.every((p, i) => p.id === nextProps.products[i].id);
+});
+
+ProductGrid.displayName = 'ProductGrid';
+
+export default ProductGrid;

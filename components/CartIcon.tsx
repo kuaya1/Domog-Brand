@@ -3,26 +3,50 @@
 import { ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { useCartStore } from '@/lib/store';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
+/**
+ * HYDRATION-SAFE CART ICON
+ * 
+ * Problem: Zustand's persist middleware reads from localStorage on client only.
+ * During SSR, cart count = 0. On hydration, cart count = X (from storage).
+ * This causes React hydration mismatch errors.
+ * 
+ * Solution: Delay reading from store until after hydration completes.
+ * Show a consistent "0" during SSR/initial render, then update on mount.
+ */
 export default function CartIcon() {
-    const count = useCartStore((state) => state.getCartCount());
+    // Start with null to indicate "not yet hydrated"
+    const [isHydrated, setIsHydrated] = useState(false);
     const [animate, setAnimate] = useState(false);
-
+    const prevCountRef = useRef(0);
+    
+    // Only read from store after hydration
+    const storeCount = useCartStore((state) => state.getCartCount());
+    const count = isHydrated ? storeCount : 0;
+    
+    // Mark as hydrated after first client render
     useEffect(() => {
-        if (count > 0) {
+        setIsHydrated(true);
+    }, []);
+    
+    // Animate on count change (only after hydration)
+    useEffect(() => {
+        if (isHydrated && count > 0 && count !== prevCountRef.current) {
             setAnimate(true);
             const timer = setTimeout(() => setAnimate(false), 300);
+            prevCountRef.current = count;
             return () => clearTimeout(timer);
         }
-    }, [count]);
+        prevCountRef.current = count;
+    }, [count, isHydrated]);
 
     return (
         <Link
             href="/cart"
             className="relative p-2 text-gray-600 hover:text-amber-700 transition-colors"
-            aria-label="Cart"
+            aria-label={`Cart${count > 0 ? ` (${count} items)` : ''}`}
         >
             <ShoppingBag size={24} />
             {count > 0 && (
@@ -32,7 +56,7 @@ export default function CartIcon() {
                         animate ? 'scale-125' : 'scale-100'
                     )}
                 >
-                    {count}
+                    {count > 99 ? '99+' : count}
                 </span>
             )}
         </Link>
