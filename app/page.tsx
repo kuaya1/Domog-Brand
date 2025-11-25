@@ -135,18 +135,6 @@ export default function Home() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
-              
-              {/* Floating Quote */}
-              <figure className="absolute bottom-8 left-8 right-8 z-20">
-                <blockquote className="bg-black/70 backdrop-blur-md border border-gold/30 p-6">
-                  <p className="font-serif text-xl lg:text-2xl text-cream italic">
-                    &ldquo;A machine can measure a boot. Only hands can know it.&rdquo;
-                  </p>
-                  <figcaption className="font-sans text-xs uppercase tracking-widest text-gold mt-4">
-                    — The Founder
-                  </figcaption>
-                </blockquote>
-              </figure>
             </div>
 
             {/* Content */}

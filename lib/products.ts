@@ -72,7 +72,7 @@ export const products: Product[] = [
         name: "Genghis Ceremonial Boot",
         price: 450,
         description: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations, these boots feature our signature silver-inlay work depicting the eternal flame of the Mongol Empire. Presidents and heads of state have stood in these boots during ceremonies where history was made.",
-        images: ["/images/boots/genghis-1.jpg"],
+        images: ["/images/boots/genghis-ceremonial.jpg"],
         category: "Ceremonial",
         sizes: ["39", "40", "41", "42", "43", "44"],
         isNew: true,

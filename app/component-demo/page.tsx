@@ -20,7 +20,7 @@ export default function ComponentDemoPage() {
     };
 
     const demoImages = [
-        { src: '/images/boots/genghis-1.jpg', alt: 'Genghis Boot - Front View' },
+        { src: '/images/boots/genghis-ceremonial.jpg', alt: 'Genghis Boot - Front View' },
         { src: '/images/boots/naadam-1.jpg', alt: 'Naadam Boot - Side View' },
         { src: '/images/boots/khaan-1.jpg', alt: 'Khaan Boot - Detail View' },
     ];
