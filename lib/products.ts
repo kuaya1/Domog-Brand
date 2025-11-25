@@ -114,7 +114,7 @@ export const products: Product[] = [
         name: "Khan's Legacy Boot",
         price: 420,
         description: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers. The leather is selected from a single hide, ensuring perfect color harmony. Only twelve pairs are produced each year—and we never rush the gold work.",
-        images: ["/images/boots/khaan-1.jpg"],
+        images: ["/images/boots/khans-legacy.jpg"],
         category: "Luxury",
         sizes: ["40", "41", "42", "43", "44"],
         inStock: true,
