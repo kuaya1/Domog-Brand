@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { ArrowRight, Mail, Lock, Search, Heart, ShoppingBag, Check } from 'lucide-react';
-import { Button, Input, Badge, Card, ImageGallery, useToast } from '@/components/ui';
+import { Button, Input, Badge, Card, ImageGallery } from '@/components/ui';
+import { useToast } from '@/components/ToastProvider';
 
 /**
  * Interactive Component Demo Page

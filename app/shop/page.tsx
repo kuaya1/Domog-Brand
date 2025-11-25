@@ -85,23 +85,27 @@ export default function ShopPage() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white">
-            <div className="bg-gray-50 py-12 mb-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl font-serif font-bold text-gray-900 mb-4">
+        <div className="min-h-screen bg-cream">
+            {/* Hero Header */}
+            <div className="bg-cream-sand py-16 lg:py-24 border-b border-cream-200">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-4">
+                        The Collection
+                    </span>
+                    <h1 className="text-4xl lg:text-5xl font-serif font-medium text-black mb-6">
                         Shop All Boots
                     </h1>
-                    <p className="text-gray-600 max-w-2xl">
+                    <p className="text-stone-warm max-w-2xl text-lg leading-relaxed">
                         Discover our collection of handcrafted Mongolian boots, blending
                         centuries of tradition with modern comfort and style.
                     </p>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-                <div className="flex flex-col lg:flex-row gap-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
+                <div className="flex flex-col lg:flex-row gap-12">
                     {/* Sidebar */}
-                    <aside className="w-full lg:w-64 flex-shrink-0">
+                    <aside className="w-full lg:w-72 flex-shrink-0">
                         <ProductFilters
                             selectedCategory={selectedCategory}
                             selectedSize={selectedSize}
@@ -114,9 +118,9 @@ export default function ShopPage() {
 
                     {/* Main Content */}
                     <div className="flex-1">
-                        <div className="flex justify-between items-center mb-6">
-                            <p className="text-sm text-gray-500">
-                                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'result' : 'results'}
+                        <div className="flex justify-between items-center mb-8 pb-4 border-b border-cream-200">
+                            <p className="text-sm text-stone-warm">
+                                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'piece' : 'pieces'}
                             </p>
                             <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
                         </div>
@@ -124,13 +128,13 @@ export default function ShopPage() {
                         {filteredProducts.length > 0 ? (
                             <ProductGrid products={filteredProducts} />
                         ) : (
-                            <div className="text-center py-12 bg-gray-50 rounded-lg">
-                                <p className="text-gray-600 text-lg">
-                                    No products found matching your criteria.
+                            <div className="text-center py-16 bg-cream-sand border border-cream-200">
+                                <p className="text-stone-warm text-lg mb-6">
+                                    No boots found matching your criteria.
                                 </p>
                                 <button
                                     onClick={handleClearFilters}
-                                    className="mt-4 text-amber-700 font-medium hover:underline focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded"
+                                    className="inline-flex items-center font-sans text-sm uppercase tracking-widest text-cognac hover:text-cognac-dark transition-colors border-b border-cognac pb-1"
                                 >
                                     Clear all filters
                                 </button>

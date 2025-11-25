@@ -25,20 +25,20 @@ export default function ProductFilters({
     onPriceRangeChange,
 }: ProductFiltersProps) {
     return (
-        <div className="space-y-8">
+        <div className="space-y-10">
             {/* Categories */}
             <div>
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-4">
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
                     Collection
                 </h3>
-                <div className="space-y-2">
+                <div className="space-y-3">
                     <button
                         onClick={() => onCategoryChange(null)}
                         className={cn(
-                            'block text-sm transition-colors hover:text-amber-700',
+                            'block text-sm transition-colors duration-300',
                             selectedCategory === null
-                                ? 'text-amber-700 font-medium'
-                                : 'text-gray-600'
+                                ? 'text-black font-medium'
+                                : 'text-stone-warm hover:text-cognac'
                         )}
                     >
                         All Collections
@@ -50,10 +50,10 @@ export default function ProductFilters({
                                 onCategoryChange(selectedCategory === category ? null : category)
                             }
                             className={cn(
-                                'block text-sm transition-colors hover:text-amber-700',
+                                'block text-sm transition-colors duration-300',
                                 selectedCategory === category
-                                    ? 'text-amber-700 font-medium'
-                                    : 'text-gray-600'
+                                    ? 'text-black font-medium'
+                                    : 'text-stone-warm hover:text-cognac'
                             )}
                         >
                             {category}
@@ -64,8 +64,8 @@ export default function ProductFilters({
 
             {/* Sizes */}
             <div>
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-4">
-                    Size
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
+                    Size (EU)
                 </h3>
                 <div className="grid grid-cols-4 gap-2">
                     {SIZES.map((size) => (
@@ -73,10 +73,10 @@ export default function ProductFilters({
                             key={size}
                             onClick={() => onSizeChange(selectedSize === size ? null : size)}
                             className={cn(
-                                'py-1 px-2 border rounded text-sm transition-colors',
+                                'py-3 px-2 border text-sm transition-all duration-300',
                                 selectedSize === size
-                                    ? 'bg-amber-600 text-white border-amber-600'
-                                    : 'border-gray-200 text-gray-600 hover:border-amber-600'
+                                    ? 'bg-black text-white border-black'
+                                    : 'border-cream-300 text-stone-warm hover:border-black'
                             )}
                         >
                             {size}
@@ -87,11 +87,11 @@ export default function ProductFilters({
 
             {/* Price Range */}
             <div>
-                <h3 className="text-lg font-serif font-bold text-gray-900 mb-4">
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
                     Price Range
                 </h3>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-gray-600">
+                    <div className="flex items-center justify-between text-sm text-black">
                         <span>${priceRange[0]}</span>
                         <span>${priceRange[1]}</span>
                     </div>
@@ -104,7 +104,7 @@ export default function ProductFilters({
                         onChange={(e) =>
                             onPriceRangeChange([priceRange[0], parseInt(e.target.value)])
                         }
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                        className="w-full h-1 bg-cream-300 rounded-none appearance-none cursor-pointer accent-black"
                     />
                 </div>
             </div>

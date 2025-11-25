@@ -15,18 +15,19 @@ export default function Home() {
       {/* Hero Section - Optimized for LCP */}
       <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
         <div className="relative z-10 w-full">
-          <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
-            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
+          <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-24 lg:py-0">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
               
               {/* Mobile: Image First - Fixed aspect ratio */}
               <div className="lg:hidden w-full mb-12">
-                <div className="relative w-full max-w-lg mx-auto aspect-square">
+                <div className="relative w-full max-w-md mx-auto">
                   <Image
                     src="/images/hero-image.jpg"
-                    alt="Master craftsman hand-lasting a premium Mongolian boot"
-                    fill
+                    alt="Premium Mongolian boots with traditional embossed medallion"
+                    width={600}
+                    height={700}
                     sizes="(max-width: 768px) 100vw, 512px"
-                    className="object-cover"
+                    className="object-contain"
                     priority
                     placeholder="blur"
                     blurDataURL={heroBlurDataURL}
@@ -35,43 +36,36 @@ export default function Home() {
               </div>
 
               {/* Text Content - 40% on Desktop */}
-              <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
-                <div className="space-y-3 hidden lg:block">
-                  <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac font-medium">
+              <div className="lg:w-2/5 text-left space-y-6 z-10 lg:pr-8">
+                <div className="space-y-4">
+                  <p className="font-sans text-xs uppercase tracking-[0.3em] text-cognac font-medium">
                     Est. 1990 — The Master&apos;s Touch
                   </p>
-                  <h1 className="font-serif text-5xl lg:text-6xl text-black font-medium leading-tight">
-                    Legacy Carved by Hand
-                  </h1>
-                </div>
-                <div className="space-y-3 lg:hidden">
-                  <h1 className="font-serif text-4xl sm:text-5xl text-black font-medium leading-tight">
-                    Legacy Carved by Hand
+                  <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl text-[#1a2a4a] font-normal leading-[1.1]">
+                    Legacy Carved<br />by Hand
                   </h1>
                 </div>
                 
-                <p className="font-sans text-base text-stone-warm leading-relaxed max-w-lg lg:max-w-none">
-                  Founded by a family of artisans in 1990. Every pair is meticulously 
-                  hand-lasted by our master craftsman, preserving the sacred traditions 
-                  of the Steppe in every stitch.
+                <p className="font-sans text-base lg:text-lg text-stone-warm leading-relaxed max-w-md">
+                  Founded by a family of artisans in 1990. Every pair is meticulously hand-lasted by our master craftsman, preserving the sacred traditions of the Steppe in every stitch.
                 </p>
 
                 <Link
-                  href="/shop"
-                  className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-black pb-2 hover:text-cognac hover:border-cognac transition-colors duration-300"
+                  href="/about"
+                  className="inline-block font-sans text-xs uppercase tracking-[0.2em] font-semibold text-[#1a2a4a] border-b-2 border-[#1a2a4a] pb-1.5 hover:text-cognac hover:border-cognac transition-colors duration-300"
                 >
                   View the Craftsmanship
-                  <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               </div>
 
-              {/* Desktop: Image - Fixed layout to prevent CLS */}
-              <div className="hidden lg:flex lg:w-3/5 items-center justify-center relative min-h-[80vh]">
-                <div className="relative w-full h-full">
+              {/* Desktop: Image - Right side with boots */}
+              <div className="hidden lg:flex lg:w-3/5 items-center justify-end relative">
+                <div className="relative w-full max-w-2xl">
                   <Image
                     src="/images/hero-image.jpg"
-                    alt="Master craftsman hand-lasting a premium Mongolian boot"
-                    fill
+                    alt="Premium Mongolian boots with traditional embossed medallion"
+                    width={800}
+                    height={900}
                     sizes="60vw"
                     className="object-contain"
                     priority
@@ -91,12 +85,16 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
-              Curated Selection
+              The Collection
             </span>
             <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight mb-6">
-              Featured Masterpieces
+              Where Heritage Meets Hand
             </h2>
-            <div className="w-24 h-px bg-gold mx-auto" aria-hidden="true" />
+            <p className="text-stone-warm max-w-2xl mx-auto mt-4">
+              Each boot begins as raw leather and a wooden last. What emerges—forty hours later—carries 
+              the weight of tradition and the lightness of true craftsmanship.
+            </p>
+            <div className="w-24 h-px bg-gold mx-auto mt-8" aria-hidden="true" />
           </div>
 
           {/* Product Grid - Optimized loading */}
@@ -126,27 +124,42 @@ export default function Home() {
       {/* Heritage Section */}
       <section className="py-24 lg:py-32 bg-black relative overflow-hidden">
         {/* Decorative background */}
-        <div className="absolute inset-0 opacity-5" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(201,169,97,0.3)_0%,_transparent_50%)]" />
+        <div className="absolute inset-0 opacity-10" aria-hidden="true">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(201,169,97,0.4)_0%,_transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,_rgba(139,111,71,0.3)_0%,_transparent_50%)]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Image */}
-            <div className="relative aspect-[4/5] rounded-sm overflow-hidden">
+            {/* Image with aesthetic blending */}
+            <div className="relative aspect-[4/5] overflow-hidden group">
+              {/* Soft vignette overlay for blending */}
+              <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(10,10,10,0.7)_100%)]" aria-hidden="true" />
+              
+              {/* Top fade into black background */}
+              <div className="absolute inset-x-0 top-0 h-24 z-10 bg-gradient-to-b from-black via-black/60 to-transparent" aria-hidden="true" />
+              
+              {/* Bottom fade for quote area */}
+              <div className="absolute inset-x-0 bottom-0 h-48 z-10 bg-gradient-to-t from-black via-black/80 to-transparent" aria-hidden="true" />
+              
+              {/* Left edge blend */}
+              <div className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-black to-transparent" aria-hidden="true" />
+              
+              {/* Right edge blend */}
+              <div className="absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-black/50 to-transparent" aria-hidden="true" />
+              
               <Image
-                src="/images/boots/genghis-1.jpg"
+                src="/images/heritage-craftsman.jpg"
                 alt="Master craftsman at work in the Domog atelier"
                 fill
-                className="object-cover"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" aria-hidden="true" />
               
               {/* Floating Quote */}
-              <figure className="absolute bottom-8 left-8 right-8">
-                <blockquote className="bg-black/80 backdrop-blur-sm border border-gold/20 p-6">
+              <figure className="absolute bottom-8 left-8 right-8 z-20">
+                <blockquote className="bg-black/70 backdrop-blur-md border border-gold/30 p-6 shadow-2xl">
                   <p className="font-serif text-xl lg:text-2xl text-cream italic">
                     &ldquo;A machine can measure a boot. Only hands can know it.&rdquo;
                   </p>
@@ -163,21 +176,23 @@ export default function Home() {
                 Our Heritage
               </span>
               <h2 className="font-serif text-4xl lg:text-5xl text-cream font-medium tracking-tight mb-8">
-                The Master&apos;s Touch
+                The Hands That Remember
               </h2>
               
               <div className="space-y-6 text-cream/70 text-lg leading-relaxed">
                 <p>
-                  In 1990, our founder opened a small workshop in Ulaanbaatar. 
-                  He had no business plan—only hands that had apprenticed under 
-                  masters who remembered the old ways.
+                  Our founder learned his craft from masters who remembered the old ways—
+                  men who had shod the horses of khans, who knew that a boot must speak 
+                  to both stirrup and ceremony.
                 </p>
                 <p>
-                  Thirty-five years later, those same hands still touch every 
-                  pair we make. Not symbolically. Literally.
+                  Today, those same techniques endure. We cure leather by seasons, not hours. 
+                  We shape by hand, not machine. We sign each pair, because anonymity 
+                  belongs to factories, not artisans.
                 </p>
                 <p className="text-cream font-medium">
-                  We will never open a factory. Some things cannot be rushed.
+                  Presidents have worn our work. Champions have competed in it. 
+                  We keep no photographs—only the wooden lasts, shaped to their feet.
                 </p>
               </div>
 

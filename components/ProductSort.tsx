@@ -7,15 +7,15 @@ interface ProductSortProps {
 
 export default function ProductSort({ sortBy, onSortChange }: ProductSortProps) {
     return (
-        <div className="flex items-center gap-2">
-            <label htmlFor="sort" className="text-sm text-gray-600">
-                Sort by:
+        <div className="flex items-center gap-3">
+            <label htmlFor="sort" className="font-sans text-xs uppercase tracking-wider text-stone-warm">
+                Sort by
             </label>
             <select
                 id="sort"
                 value={sortBy}
                 onChange={(e) => onSortChange(e.target.value)}
-                className="text-sm border-gray-200 rounded-md focus:border-amber-500 focus:ring-amber-500 py-1 pl-2 pr-8"
+                className="font-sans text-sm text-black border border-cream-300 bg-cream focus:border-cognac focus:ring-1 focus:ring-cognac py-2 pl-4 pr-10 appearance-none cursor-pointer transition-colors duration-200"
             >
                 <option value="newest">New Arrivals</option>
                 <option value="price-asc">Price: Low to High</option>

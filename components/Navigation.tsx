@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
+import { useUIStore } from '@/lib/stores/ui-store';
 
 export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function Navigation() {
     const [isHydrated, setIsHydrated] = useState(false);
     const cart = useCartStore((state) => state.cart);
     const itemCount = cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
+    const setSearchOpen = useUIStore(state => state.setSearchOpen);
 
     useEffect(() => {
         setIsHydrated(true);
@@ -88,6 +90,7 @@ export default function Navigation() {
                     {/* Right Side - Icons */}
                     <div className="hidden lg:flex items-center space-x-6">
                         <button 
+                            onClick={() => setSearchOpen(true)}
                             className="p-2 text-stone-warm hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             aria-label="Search products"
                         >

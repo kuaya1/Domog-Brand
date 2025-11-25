@@ -3,7 +3,11 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ToastProvider } from "@/components/ui";
+import { ToastProvider as LegacyToastProvider } from "@/components/ui";
+import { ToastProvider } from "@/components/ToastProvider";
+import { CartDrawer } from "@/components/CartDrawer";
+import { SmartSearch } from "@/components/SmartSearch";
+import { NewsletterPopup } from "@/components/NewsletterPopup";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 const inter = Inter({ 
@@ -132,18 +136,20 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-black antialiased`}>
-                <ToastProvider position="bottom-right">
-                    <a 
-                        href="#main-content" 
-                        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-black"
-                    >
-                        Skip to main content
-                    </a>
-                    <Navigation />
-                    <main id="main-content">{children}</main>
-                    <Footer />
-                    <PerformanceMonitor />
-                </ToastProvider>
+                <a 
+                    href="#main-content" 
+                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-black"
+                >
+                    Skip to main content
+                </a>
+                <Navigation />
+                <main id="main-content">{children}</main>
+                <Footer />
+                <CartDrawer />
+                <SmartSearch />
+                <NewsletterPopup delay={15000} exitIntent={true} />
+                <ToastProvider />
+                <PerformanceMonitor />
             </body>
         </html>
     );

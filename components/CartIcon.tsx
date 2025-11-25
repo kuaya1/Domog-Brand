@@ -1,9 +1,9 @@
 'use client';
 
 import { ShoppingBag } from 'lucide-react';
-import Link from 'next/link';
-import { useCartStore } from '@/lib/store';
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useCartStore } from '@/lib/stores/cart-store';
+import { useUIStore } from '@/lib/stores/ui-store';
+import { useEffect, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 /**
@@ -23,7 +23,8 @@ export default function CartIcon() {
     const prevCountRef = useRef(0);
     
     // Only read from store after hydration
-    const storeCount = useCartStore((state) => state.getCartCount());
+    const storeCount = useCartStore((state) => state.getItemCount());
+    const setCartDrawerOpen = useUIStore(state => state.setCartDrawerOpen);
     const count = isHydrated ? storeCount : 0;
     
     // Mark as hydrated after first client render
@@ -42,23 +43,28 @@ export default function CartIcon() {
         prevCountRef.current = count;
     }, [count, isHydrated]);
 
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setCartDrawerOpen(true);
+    };
+
     return (
-        <Link
-            href="/cart"
-            className="relative p-2 text-gray-600 hover:text-amber-700 transition-colors"
+        <button
+            onClick={handleClick}
+            className="relative p-2 text-cream-600 hover:text-cognac-600 transition-colors"
             aria-label={`Cart${count > 0 ? ` (${count} items)` : ''}`}
         >
             <ShoppingBag size={24} />
             {count > 0 && (
                 <span
                     className={cn(
-                        'absolute top-0 right-0 bg-amber-600 text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full transition-transform duration-300',
+                        'absolute top-0 right-0 bg-cognac-500 text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full transition-transform duration-300',
                         animate ? 'scale-125' : 'scale-100'
                     )}
                 >
                     {count > 99 ? '99+' : count}
                 </span>
             )}
-        </Link>
+        </button>
     );
 }
