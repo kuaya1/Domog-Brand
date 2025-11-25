@@ -20,14 +20,14 @@ export default function Home() {
               
               {/* Mobile: Image First - Fixed aspect ratio */}
               <div className="lg:hidden w-full mb-12">
-                <div className="relative w-full max-w-md mx-auto">
+                <div className="relative w-full max-w-lg mx-auto">
                   <Image
                     src="/images/hero-image.jpg"
                     alt="Premium Mongolian boots with traditional embossed medallion"
-                    width={600}
-                    height={700}
-                    sizes="(max-width: 768px) 100vw, 512px"
-                    className="object-contain"
+                    width={780}
+                    height={910}
+                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="object-contain scale-[1.3] origin-center"
                     priority
                     placeholder="blur"
                     blurDataURL={heroBlurDataURL}
@@ -60,14 +60,14 @@ export default function Home() {
 
               {/* Desktop: Image - Right side with boots */}
               <div className="hidden lg:flex lg:w-3/5 items-center justify-end relative">
-                <div className="relative w-full max-w-2xl">
+                <div className="relative w-full max-w-3xl">
                   <Image
                     src="/images/hero-image.jpg"
                     alt="Premium Mongolian boots with traditional embossed medallion"
-                    width={800}
-                    height={900}
-                    sizes="60vw"
-                    className="object-contain"
+                    width={1040}
+                    height={1170}
+                    sizes="70vw"
+                    className="object-contain scale-[1.3] origin-center"
                     priority
                     placeholder="blur"
                     blurDataURL={heroBlurDataURL}
