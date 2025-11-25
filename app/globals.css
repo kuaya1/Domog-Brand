@@ -3,14 +3,72 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 44, 44, 44;
-  --background-start-rgb: 250, 249, 246;
-  --background-end-rgb: 250, 249, 246;
+    --color-black: #0A0A0A;
+    --color-black-rich: #1A1816;
+    --color-cream: #FAF8F3;
+    --color-cream-sand: #F5F2E9;
+    --color-cognac: #8B6F47;
+    --color-burgundy: #6B2737;
+    --color-gold: #C9A961;
+    --color-stone: #5A5654;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    background-color: var(--color-cream);
+    color: var(--color-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream-sand);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-cognac);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-burgundy);
+}
+
+@layer utilities {
+    .gold-underline {
+        position: relative;
+    }
+
+    .gold-underline::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--color-gold);
+        transition: width 0.4s ease;
+    }
+
+    .gold-underline:hover::after {
+        width: 100%;
+    }
 }

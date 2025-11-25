@@ -6,6 +6,8 @@ export interface Product {
     images: string[];
     category: string;
     sizes: string[];
+    isNew?: boolean;
+    inStock?: boolean;
 }
 
 export const products: Product[] = [
@@ -17,6 +19,8 @@ export const products: Product[] = [
         images: ["/images/boot-1.jpg"],
         category: "Ceremonial",
         sizes: ["39", "40", "41", "42", "43", "44"],
+        isNew: true,
+        inStock: true,
     },
     {
         id: "2",
@@ -26,6 +30,8 @@ export const products: Product[] = [
         images: ["/images/boot-2.jpg"],
         category: "Festival",
         sizes: ["38", "39", "40", "41", "42", "43"],
+        isNew: true,
+        inStock: true,
     },
     {
         id: "3",
@@ -35,6 +41,7 @@ export const products: Product[] = [
         images: ["/images/boot-3.jpg"],
         category: "Riding",
         sizes: ["40", "41", "42", "43", "44", "45"],
+        inStock: true,
     },
     {
         id: "4",
@@ -44,6 +51,7 @@ export const products: Product[] = [
         images: ["/images/boot-4.jpg"],
         category: "Winter",
         sizes: ["38", "39", "40", "41", "42"],
+        inStock: true,
     },
     {
         id: "5",
@@ -53,5 +61,6 @@ export const products: Product[] = [
         images: ["/images/boot-5.jpg"],
         category: "Luxury",
         sizes: ["40", "41", "42", "43", "44"],
+        inStock: true,
     },
 ];

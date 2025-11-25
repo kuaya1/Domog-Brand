@@ -1,97 +1,144 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search } from 'lucide-react';
-import CartIcon from './CartIcon';
+import { Menu, X, ShoppingBag, Search } from 'lucide-react';
+import { useCartStore } from '@/lib/store';
 
 export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isHydrated, setIsHydrated] = useState(false);
+    const cart = useCartStore((state) => state.cart);
+    const itemCount = cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
+
+    useEffect(() => {
+        setIsHydrated(true);
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
-        <nav className="bg-white border-b border-gray-100 sticky top-0 z-40">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-20">
+        <nav 
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                isScrolled 
+                    ? 'bg-cream/95 backdrop-blur-md shadow-elegant' 
+                    : 'bg-cream/80 backdrop-blur-sm'
+            }`}
+        >
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                <div className="flex items-center justify-between h-20 lg:h-24">
                     {/* Logo */}
-                    <div className="flex-shrink-0 flex items-center">
-                        <Link href="/" className="flex items-center">
-                            <span className="font-serif text-2xl font-bold text-gray-900 tracking-tight">
-                                DOMOG
-                            </span>
-                        </Link>
+                    <Link href="/" className="relative z-10 group">
+                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
+                            DOMOG
+                        </span>
+                    </Link>
+
+                    {/* Desktop Navigation - Centered */}
+                    <div className="hidden lg:flex items-center justify-center flex-1 px-12">
+                        <div className="flex items-center space-x-12">
+                            <NavLink href="/shop">Shop</NavLink>
+                            <NavLink href="/about">Heritage</NavLink>
+                            <NavLink href="/contact">Atelier</NavLink>
+                        </div>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        <Link
-                            href="/shop"
-                            className="text-gray-900 hover:text-amber-700 font-medium transition-colors"
+                    {/* Right Side - Icons */}
+                    <div className="hidden lg:flex items-center space-x-6">
+                        <button 
+                            className="p-2 text-stone-warm hover:text-cognac transition-colors duration-300"
+                            aria-label="Search"
                         >
-                            Shop
-                        </Link>
-                        <Link
-                            href="/about"
-                            className="text-gray-600 hover:text-amber-700 font-medium transition-colors"
-                        >
-                            Our Story
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="text-gray-600 hover:text-amber-700 font-medium transition-colors"
-                        >
-                            Contact
-                        </Link>
-                    </div>
-
-                    {/* Icons */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <button className="p-2 text-gray-600 hover:text-amber-700 transition-colors">
-                            <Search size={24} />
+                            <Search size={20} strokeWidth={1.5} />
                         </button>
-                        <CartIcon />
+                        <Link 
+                            href="/cart" 
+                            className="relative p-2 text-stone-warm hover:text-cognac transition-colors duration-300"
+                            aria-label={`Shopping cart with ${itemCount} items`}
+                        >
+                            <ShoppingBag size={20} strokeWidth={1.5} />
+                            {isHydrated && itemCount > 0 && (
+                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
+                                    {itemCount}
+                                </span>
+                            )}
+                        </Link>
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="flex items-center md:hidden gap-4">
-                        <CartIcon />
+                    {/* Mobile Menu Button */}
+                    <div className="flex lg:hidden items-center space-x-4">
+                        <Link 
+                            href="/cart" 
+                            className="relative p-2 text-black"
+                            aria-label={`Shopping cart with ${itemCount} items`}
+                        >
+                            <ShoppingBag size={22} strokeWidth={1.5} />
+                            {isHydrated && itemCount > 0 && (
+                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
+                                    {itemCount}
+                                </span>
+                            )}
+                        </Link>
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
+                            className="p-2 text-black"
+                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         >
-                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {isMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile menu */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-white border-t border-gray-100">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <Link
+            {/* Mobile Menu */}
+            <div 
+                className={`lg:hidden fixed inset-0 top-20 bg-cream z-40 transition-all duration-500 ${
+                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+                }`}
+            >
+                <div className="flex flex-col items-center justify-center h-full space-y-8 px-6">
+                    <MobileNavLink href="/shop" onClick={() => setIsMenuOpen(false)}>Shop</MobileNavLink>
+                    <MobileNavLink href="/about" onClick={() => setIsMenuOpen(false)}>Heritage</MobileNavLink>
+                    <MobileNavLink href="/contact" onClick={() => setIsMenuOpen(false)}>Atelier</MobileNavLink>
+                    
+                    <div className="pt-8 border-t border-gold/20 w-full max-w-xs">
+                        <Link 
                             href="/shop"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-amber-700"
                             onClick={() => setIsMenuOpen(false)}
+                            className="block w-full text-center py-4 bg-gold text-black font-sans text-sm uppercase tracking-widest hover:bg-gold-light transition-colors"
                         >
-                            Shop
-                        </Link>
-                        <Link
-                            href="/about"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-amber-700"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Our Story
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-amber-700"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Contact
+                            Shop Now
                         </Link>
                     </div>
                 </div>
-            )}
+            </div>
         </nav>
+    );
+}
+
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+    return (
+        <Link
+            href={href}
+            className="relative font-sans text-sm uppercase tracking-widest text-stone-warm hover:text-black transition-colors duration-300 gold-underline"
+        >
+            {children}
+        </Link>
+    );
+}
+
+function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
+    return (
+        <Link
+            href={href}
+            onClick={onClick}
+            className="font-serif text-3xl text-black hover:text-cognac transition-colors duration-300"
+        >
+            {children}
+        </Link>
     );
 }
