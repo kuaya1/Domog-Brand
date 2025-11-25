@@ -122,10 +122,7 @@ export default function Home() {
       </section>
 
       {/* Heritage Section */}
-      <section className="py-24 lg:py-32 bg-cream-sand relative overflow-hidden">
-        {/* Decorative gradient background to blend with image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream-sand to-stone-warm opacity-40" aria-hidden="true" />
-        
+      <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image */}
