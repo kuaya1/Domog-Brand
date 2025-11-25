@@ -83,7 +83,7 @@ export const products: Product[] = [
         name: "Naadam Festival Boot",
         price: 380,
         description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
-        images: ["/images/boots/naadam-1.jpg"],
+        images: ["/images/heritage-craftsman.jpg"],
         category: "Festival",
         sizes: ["38", "39", "40", "41", "42", "43"],
         isNew: true,
