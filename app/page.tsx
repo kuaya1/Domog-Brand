@@ -123,43 +123,22 @@ export default function Home() {
 
       {/* Heritage Section */}
       <section className="py-24 lg:py-32 bg-black relative overflow-hidden">
-        {/* Decorative background */}
-        <div className="absolute inset-0 opacity-10" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(201,169,97,0.4)_0%,_transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,_rgba(139,111,71,0.3)_0%,_transparent_50%)]" />
-        </div>
-
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Image with aesthetic blending */}
-            <div className="relative aspect-[4/5] overflow-hidden group">
-              {/* Soft vignette overlay for blending */}
-              <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(10,10,10,0.7)_100%)]" aria-hidden="true" />
-              
-              {/* Top fade into black background */}
-              <div className="absolute inset-x-0 top-0 h-24 z-10 bg-gradient-to-b from-black via-black/60 to-transparent" aria-hidden="true" />
-              
-              {/* Bottom fade for quote area */}
-              <div className="absolute inset-x-0 bottom-0 h-48 z-10 bg-gradient-to-t from-black via-black/80 to-transparent" aria-hidden="true" />
-              
-              {/* Left edge blend */}
-              <div className="absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-black to-transparent" aria-hidden="true" />
-              
-              {/* Right edge blend */}
-              <div className="absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-black/50 to-transparent" aria-hidden="true" />
-              
+            {/* Image */}
+            <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/images/heritage-craftsman.jpg"
                 alt="Master craftsman at work in the Domog atelier"
                 fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
               
               {/* Floating Quote */}
               <figure className="absolute bottom-8 left-8 right-8 z-20">
-                <blockquote className="bg-black/70 backdrop-blur-md border border-gold/30 p-6 shadow-2xl">
+                <blockquote className="bg-black/70 backdrop-blur-md border border-gold/30 p-6">
                   <p className="font-serif text-xl lg:text-2xl text-cream italic">
                     &ldquo;A machine can measure a boot. Only hands can know it.&rdquo;
                   </p>
