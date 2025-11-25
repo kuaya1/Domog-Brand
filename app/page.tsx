@@ -4,25 +4,32 @@ import { ArrowRight } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 
+// Blur placeholder for hero image (reduces LCP)
+const heroBlurDataURL = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEQA/ANsNJdOuppXlkMaqN3IJ2sCcnBH3Hsq/arSlKUrTJZn/2Q==";
+
 export default function Home() {
+  const featuredProducts = products.slice(0, 6);
+
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Optimized for LCP */}
       <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
         <div className="relative z-10 w-full">
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
             <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
               
-              {/* Mobile: Image First */}
+              {/* Mobile: Image First - Fixed aspect ratio */}
               <div className="lg:hidden w-full mb-12">
                 <div className="relative w-full max-w-lg mx-auto aspect-square">
                   <Image
                     src="/images/hero-image.jpg"
-                    alt="The Master Craftsman hand-lasting a boot"
+                    alt="Master craftsman hand-lasting a premium Mongolian boot"
                     fill
                     sizes="(max-width: 768px) 100vw, 512px"
-                    className="object-contain scale-[2.035]"
+                    className="object-cover"
                     priority
+                    placeholder="blur"
+                    blurDataURL={heroBlurDataURL}
                   />
                 </div>
               </div>
@@ -30,66 +37,76 @@ export default function Home() {
               {/* Text Content - 40% on Desktop */}
               <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
                 <div className="space-y-3 hidden lg:block">
-                  <p className="font-sans text-xs uppercase tracking-[0.25em] text-amber-700 font-medium">
+                  <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac font-medium">
                     Est. 1990 — The Master&apos;s Touch
                   </p>
-                  <h1 className="font-serif text-5xl lg:text-6xl text-gray-900 font-medium leading-tight">
+                  <h1 className="font-serif text-5xl lg:text-6xl text-black font-medium leading-tight">
                     Legacy Carved by Hand
                   </h1>
                 </div>
                 <div className="space-y-3 lg:hidden">
-                  <h1 className="font-serif text-5xl lg:text-6xl text-gray-900 font-medium leading-tight">
+                  <h1 className="font-serif text-4xl sm:text-5xl text-black font-medium leading-tight">
                     Legacy Carved by Hand
                   </h1>
                 </div>
                 
-                <p className="font-sans text-base text-stone-600 leading-relaxed max-w-lg lg:max-w-none">
-                  Founded by a family of artisans in 1990. Every pair is meticulously hand-lasted by our master craftsman, preserving the sacred traditions of the Steppe in every stitch.
+                <p className="font-sans text-base text-stone-warm leading-relaxed max-w-lg lg:max-w-none">
+                  Founded by a family of artisans in 1990. Every pair is meticulously 
+                  hand-lasted by our master craftsman, preserving the sacred traditions 
+                  of the Steppe in every stitch.
                 </p>
 
                 <Link
                   href="/shop"
-                  className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-gray-900 pb-2 hover:text-amber-700 hover:border-amber-700 transition-all duration-300"
+                  className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-black pb-2 hover:text-cognac hover:border-cognac transition-colors duration-300"
                 >
-                  VIEW THE CRAFTSMANSHIP
+                  View the Craftsmanship
+                  <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               </div>
 
-              {/* Desktop: Image on Right - 60% scaled to viewport */}
-              <div className="hidden lg:flex lg:w-3/5 h-screen items-center justify-start relative">
-                <Image
-                  src="/images/hero-image.jpg"
-                  alt="The Master Craftsman hand-lasting a boot"
-                  fill
-                  sizes="60vw"
-                  className="object-contain scale-150"
-                  priority
-                />
+              {/* Desktop: Image - Fixed layout to prevent CLS */}
+              <div className="hidden lg:flex lg:w-3/5 items-center justify-center relative min-h-[80vh]">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/hero-image.jpg"
+                    alt="Master craftsman hand-lasting a premium Mongolian boot"
+                    fill
+                    sizes="60vw"
+                    className="object-contain"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={heroBlurDataURL}
+                  />
+                </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Collection */}
-      <section className="py-32 lg:py-40 bg-cream-sand">
+      <section className="py-24 lg:py-32 bg-cream-sand">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
               Curated Selection
             </span>
-            <h2 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-black font-medium tracking-tight mb-6">
+            <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight mb-6">
               Featured Masterpieces
             </h2>
-            <div className="w-24 h-px bg-gold mx-auto" />
+            <div className="w-24 h-px bg-gold mx-auto" aria-hidden="true" />
           </div>
 
-          {/* Product Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {products.map((product, index) => (
-              <ProductCard key={product.id} product={product} priority={index < 2} />
+          {/* Product Grid - Optimized loading */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {featuredProducts.map((product, index) => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+                priority={index < 3}
+              />
             ))}
           </div>
 
@@ -100,14 +117,19 @@ export default function Home() {
               className="inline-flex items-center gap-3 font-sans text-sm uppercase tracking-widest text-black hover:text-cognac transition-colors duration-300 group"
             >
               <span>View All Collection</span>
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Heritage Section */}
-      <section className="py-32 lg:py-40 bg-black relative overflow-hidden">
+      <section className="py-24 lg:py-32 bg-black relative overflow-hidden">
+        {/* Decorative background */}
+        <div className="absolute inset-0 opacity-5" aria-hidden="true">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(201,169,97,0.3)_0%,_transparent_50%)]" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image */}
@@ -118,20 +140,21 @@ export default function Home() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" aria-hidden="true" />
               
               {/* Floating Quote */}
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="bg-black/80 backdrop-blur-sm border border-gold/20 p-6">
-                  <p className="font-serif text-2xl text-cream italic">
+              <figure className="absolute bottom-8 left-8 right-8">
+                <blockquote className="bg-black/80 backdrop-blur-sm border border-gold/20 p-6">
+                  <p className="font-serif text-xl lg:text-2xl text-cream italic">
                     &ldquo;A machine can measure a boot. Only hands can know it.&rdquo;
                   </p>
-                  <p className="font-sans text-xs uppercase tracking-widest text-gold mt-4">
+                  <figcaption className="font-sans text-xs uppercase tracking-widest text-gold mt-4">
                     — The Founder
-                  </p>
-                </div>
-              </div>
+                  </figcaption>
+                </blockquote>
+              </figure>
             </div>
 
             {/* Content */}
@@ -140,9 +163,7 @@ export default function Home() {
                 Our Heritage
               </span>
               <h2 className="font-serif text-4xl lg:text-5xl text-cream font-medium tracking-tight mb-8">
-                The Master&apos;s
-                <br />
-                Touch
+                The Master&apos;s Touch
               </h2>
               
               <div className="space-y-6 text-cream/70 text-lg leading-relaxed">
@@ -153,8 +174,7 @@ export default function Home() {
                 </p>
                 <p>
                   Thirty-five years later, those same hands still touch every 
-                  pair we make. Not symbolically. Literally. He inspects each 
-                  boot at three stages: after lasting, after stitching, after finishing.
+                  pair we make. Not symbolically. Literally.
                 </p>
                 <p className="text-cream font-medium">
                   We will never open a factory. Some things cannot be rushed.
@@ -164,9 +184,9 @@ export default function Home() {
               <div className="mt-10">
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-3 border-2 border-gold text-gold font-sans text-sm uppercase tracking-widest px-8 py-4 hover:bg-gold hover:text-black transition-all duration-400"
+                  className="btn-secondary"
                 >
-                  <span>Explore Our Story</span>
+                  Explore Our Story
                 </Link>
               </div>
             </div>

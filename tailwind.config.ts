@@ -6,6 +6,19 @@ const config: Config = {
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
+    // Safelist dynamically generated classes
+    safelist: [
+        'opacity-0',
+        'opacity-100',
+        'translate-y-0',
+        'translate-y-4',
+        '-translate-y-2',
+        'scale-100',
+        'scale-105',
+    ],
+    future: {
+        hoverOnlyWhenSupported: true,
+    },
     theme: {
         extend: {
             colors: {

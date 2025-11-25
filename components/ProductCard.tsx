@@ -1,8 +1,8 @@
 'use client';
 
+import { memo, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { Product } from '@/lib/products';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -11,20 +11,41 @@ interface ProductCardProps {
     priority?: boolean;
 }
 
-export default function ProductCard({ product, priority = false }: ProductCardProps) {
+/**
+ * Optimized ProductCard Component
+ * - Memoized to prevent unnecessary re-renders
+ * - Lazy loads images below the fold
+ * - Accessible hover states with skeleton loading
+ */
+const ProductCard = memo(function ProductCard({ 
+    product, 
+    priority = false 
+}: ProductCardProps) {
     const [isHovered, setIsHovered] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
+
+    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+    const handleImageLoad = useCallback(() => setImageLoaded(true), []);
+    const handleImageError = useCallback(() => setImageError(true), []);
 
     return (
         <Link
             href={`/products/${product.id}`}
-            className="group block"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            aria-label={`View ${product.name} - $${product.price}`}
         >
             <article className="bg-cream border border-gold/10 transition-all duration-500 hover:border-gold/30 hover:shadow-luxury overflow-hidden">
                 {/* Image Container */}
                 <div className="relative aspect-[4/5] bg-cream-sand overflow-hidden">
+                    {/* Skeleton loader */}
+                    {!imageLoaded && !imageError && (
+                        <div className="absolute inset-0 bg-cream-sand animate-pulse" aria-hidden="true" />
+                    )}
+
                     {imageError ? (
                         <div className="absolute inset-0 flex items-center justify-center bg-cream-sand">
                             <span className="font-sans text-sm text-stone-muted">Image unavailable</span>
@@ -32,14 +53,18 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                     ) : (
                         <Image
                             src={product.images[0]}
-                            alt={`${product.name} - ${product.category} Mongolian boot by Domog`}
+                            alt={`${product.name} - ${product.category} Mongolian boot`}
                             fill
                             priority={priority}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className={`object-cover object-center transition-all duration-700 ${
-                                isHovered ? 'scale-105' : 'scale-100'
-                            }`}
-                            onError={() => setImageError(true)}
+                            loading={priority ? 'eager' : 'lazy'}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className={`
+                                object-cover object-center transition-all duration-700
+                                ${isHovered ? 'scale-105' : 'scale-100'}
+                                ${imageLoaded ? 'opacity-100' : 'opacity-0'}
+                            `}
+                            onLoad={handleImageLoad}
+                            onError={handleImageError}
                         />
                     )}
 
@@ -72,7 +97,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
                     }`}>
                         <span className="inline-flex items-center gap-2 text-cream font-sans text-sm uppercase tracking-widest group-hover:text-gold transition-colors duration-300">
                             <span>View Details</span>
-                            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                            <ArrowUpRight size={16} aria-hidden="true" />
                         </span>
                     </div>
                 </div>
@@ -104,4 +129,6 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
             </article>
         </Link>
     );
-}
+});
+
+export default ProductCard;
