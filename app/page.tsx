@@ -20,14 +20,14 @@ export default function Home() {
               
               {/* Mobile: Image First - Fixed aspect ratio */}
               <div className="lg:hidden w-full mb-12">
-                <div className="relative w-full max-w-lg mx-auto">
+                <div className="relative w-full max-w-xl mx-auto">
                   <Image
                     src="/images/hero-image.jpg"
                     alt="Premium Mongolian boots with traditional embossed medallion"
                     width={780}
                     height={910}
                     sizes="(max-width: 768px) 100vw, 600px"
-                    className="object-contain scale-[1.3] origin-center"
+                    className="object-contain scale-[1.5] origin-center"
                     priority
                     placeholder="blur"
                     blurDataURL={heroBlurDataURL}

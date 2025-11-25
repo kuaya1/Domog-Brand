@@ -67,13 +67,30 @@ export default function Navigation() {
             >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20 lg:h-24">
-                    {/* Logo */}
+                    {/* Mobile: Menu Button (Left) */}
+                    <div className="flex lg:hidden">
+                        <button
+                            onClick={toggleMenu}
+                            className="p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            aria-expanded={isMenuOpen}
+                            aria-controls="mobile-menu"
+                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                        >
+                            {isMenuOpen ? (
+                                <X size={24} strokeWidth={1.5} aria-hidden="true" />
+                            ) : (
+                                <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Logo - Centered on mobile, left on desktop */}
                     <Link 
                         href="/" 
-                        className="relative z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                        className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                         aria-label="Domog Brand - Home"
                     >
-                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
+                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-cognac group-hover:text-cognac/80 transition-colors duration-300">
                             DOMOG
                         </span>
                     </Link>
@@ -110,8 +127,8 @@ export default function Navigation() {
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="flex lg:hidden items-center space-x-4">
+                    {/* Mobile Cart Button (Right) */}
+                    <div className="flex lg:hidden">
                         <Link 
                             href="/cart" 
                             className="relative p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -124,19 +141,6 @@ export default function Navigation() {
                                 </span>
                             )}
                         </Link>
-                        <button
-                            onClick={toggleMenu}
-                            className="p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                            aria-expanded={isMenuOpen}
-                            aria-controls="mobile-menu"
-                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        >
-                            {isMenuOpen ? (
-                                <X size={24} strokeWidth={1.5} aria-hidden="true" />
-                            ) : (
-                                <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
-                            )}
-                        </button>
                     </div>
                 </div>
             </div>
