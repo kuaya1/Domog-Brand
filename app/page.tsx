@@ -122,11 +122,14 @@ export default function Home() {
       </section>
 
       {/* Heritage Section */}
-      <section className="py-24 lg:py-32 bg-black relative overflow-hidden">
+      <section className="py-24 lg:py-32 bg-cream-sand relative overflow-hidden">
+        {/* Decorative gradient background to blend with image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream-sand to-stone-warm opacity-40" aria-hidden="true" />
+        
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image */}
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden shadow-lg">
               <Image
                 src="/images/heritage-craftsman.jpg"
                 alt="Master craftsman at work in the Domog atelier"
@@ -139,14 +142,14 @@ export default function Home() {
 
             {/* Content */}
             <div className="lg:pl-8">
-              <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-6">
+              <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
                 Our Heritage
               </span>
-              <h2 className="font-serif text-4xl lg:text-5xl text-cream font-medium tracking-tight mb-8">
+              <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight mb-8">
                 The Hands That Remember
               </h2>
               
-              <div className="space-y-6 text-cream/70 text-lg leading-relaxed">
+              <div className="space-y-6 text-stone-warm text-lg leading-relaxed">
                 <p>
                   Our founder learned his craft from masters who remembered the old ways—
                   men who had shod the horses of khans, who knew that a boot must speak 
@@ -157,7 +160,7 @@ export default function Home() {
                   We shape by hand, not machine. We sign each pair, because anonymity 
                   belongs to factories, not artisans.
                 </p>
-                <p className="text-cream font-medium">
+                <p className="text-black font-medium">
                   Presidents have worn our work. Champions have competed in it. 
                   We keep no photographs—only the wooden lasts, shaped to their feet.
                 </p>

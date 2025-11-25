@@ -90,7 +90,7 @@ export default function Navigation() {
                         className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                         aria-label="Domog Brand - Home"
                     >
-                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-cognac group-hover:text-cognac/80 transition-colors duration-300">
+                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
                             DOMOG
                         </span>
                     </Link>
