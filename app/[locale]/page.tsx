@@ -37,7 +37,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             <div className="lg:hidden w-full mb-12">
                                 <Image
                                     src="/images/hero-image.jpg"
-                                    alt="The Master Craftsman hand-lasting a boot"
+                                    alt={t.hero_image_alt}
                                     width={720}
                                     height={840}
                                     className="w-full max-w-xl mx-auto h-auto scale-[1.44] origin-center"
@@ -72,7 +72,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
                                 <Image
                                     src="/images/hero-image.jpg"
-                                    alt="The Master Craftsman hand-lasting a boot"
+                                    alt={t.hero_image_alt}
                                     width={960}
                                     height={1080}
                                     className="w-full h-full object-contain scale-[1.2] origin-center"
@@ -126,7 +126,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         <div className="relative aspect-[4/5] overflow-hidden shadow-lg">
                             <Image
                                 src="/images/heritage-craftsman.jpg"
-                                alt="Master craftsman at work in the Domog atelier"
+                                alt={t.heritage_image_alt}
                                 fill
                                 className="object-cover object-center"
                                 sizes="(max-width: 1024px) 100vw, 50vw"

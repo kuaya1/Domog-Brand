@@ -23,9 +23,21 @@ export default function AboutPage({ params: { locale } }: PageProps) {
 
     return (
         <div className="bg-cream">
-            {/* Brand Manifesto - Hero */}
-            <section className="relative min-h-screen flex items-center justify-center bg-cream-sand">
-                <div className="max-w-4xl mx-auto px-6 lg:px-8 py-32 text-center">
+            {/* Brand Manifesto - Hero with Background Image */}
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+                {/* Background Image with Light Overlay */}
+                <Image
+                    src="/images/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e.jpg"
+                    alt={t.manifesto_title}
+                    fill
+                    className="object-cover object-center"
+                    priority
+                />
+                {/* Light Overlay for Contrast */}
+                <div className="absolute inset-0 bg-white/40" />
+                
+                {/* Content */}
+                <div className="max-w-4xl mx-auto px-6 lg:px-8 py-32 text-center relative z-10">
                     <p className="font-sans text-xs uppercase tracking-[0.3em] text-cognac mb-8">
                         {t.manifesto_label}
                     </p>

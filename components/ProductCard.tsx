@@ -69,7 +69,7 @@ const ProductCard = memo(function ProductCard({
                     ) : (
                         <Image
                             src={product.images[0]}
-                            alt={`${product.name} - ${product.category} Mongolian boot`}
+                            alt={`${localizedName} - ${localizedCategory}`}
                             fill
                             priority={priority}
                             loading={priority ? 'eager' : 'lazy'}
