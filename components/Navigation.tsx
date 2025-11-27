@@ -187,9 +187,9 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     aria-hidden="true"
                 />
 
-                {/* Drawer Panel - Glassmorphism */}
+                {/* Drawer Panel - White Glassmorphism */}
                 <div 
-                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-cream/95 backdrop-blur-xl shadow-2xl border-r border-white/20 transform transition-transform duration-500 ease-out ${
+                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-white/80 backdrop-blur-2xl shadow-2xl border-r border-white/30 transform transition-transform duration-500 ease-out ${
                         isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
                 >

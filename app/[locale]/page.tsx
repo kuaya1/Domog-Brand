@@ -33,14 +33,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
               
-                            {/* Mobile: Image First */}
+                            {/* Mobile: Image First - Scaled up 20% */}
                             <div className="lg:hidden w-full mb-12">
                                 <Image
                                     src="/images/hero-image.jpg"
                                     alt="The Master Craftsman hand-lasting a boot"
-                                    width={600}
-                                    height={700}
-                                    className="w-full max-w-lg mx-auto h-auto"
+                                    width={720}
+                                    height={840}
+                                    className="w-full max-w-xl mx-auto h-auto scale-[1.2] origin-center"
                                     priority
                                 />
                             </div>
@@ -100,7 +100,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {products.slice(0, 6).map((product) => (
-                            <ProductCard key={product.id} product={product} locale={locale} />
+                            <div key={product.id} className="transform scale-75 md:scale-100 origin-top">
+                                <ProductCard product={product} locale={locale} />
+                            </div>
                         ))}
                     </div>
 

@@ -61,10 +61,14 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                                 <p className="text-black font-medium">{t.nomadic_p3}</p>
                             </div>
                         </div>
-                        <div className="order-1 lg:order-2 relative h-[500px] bg-cream-200 overflow-hidden">
-                            <div className="absolute inset-0 flex items-center justify-center text-cream-400 font-serif italic">
-                                {t.nomadic_image_alt}
-                            </div>
+                        <div className="order-1 lg:order-2 relative h-[500px] overflow-hidden">
+                            <Image
+                                src="/images/Generated Image November 23, 2025 - 9_31PM.jpeg.jpg"
+                                alt={t.nomadic_image_alt}
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
                         </div>
                     </div>
                 </div>
@@ -74,10 +78,14 @@ export default function AboutPage({ params: { locale } }: PageProps) {
             <section className="py-24 lg:py-32 bg-cream">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        <div className="relative h-[500px] bg-cream-200 overflow-hidden">
-                            <div className="absolute inset-0 flex items-center justify-center text-cream-400 font-serif italic">
-                                {t.italian_image_alt}
-                            </div>
+                        <div className="relative h-[500px] overflow-hidden">
+                            <Image
+                                src="/images/boots/genghis-ceremonial.jpg"
+                                alt={t.italian_image_alt}
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
                         </div>
                         <div>
                             <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
@@ -117,11 +125,15 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                         <p>{t.master_p3}</p>
                     </div>
 
-                    {/* The Hands Image Placeholder */}
-                    <div className="mt-20 relative h-80 lg:h-96 bg-black-rich overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center text-cream/30 font-serif italic">
-                            {t.master_image_alt}
-                        </div>
+                    {/* The Hands Image */}
+                    <div className="mt-20 relative h-80 lg:h-96 overflow-hidden">
+                        <Image
+                            src="/images/heritage-craftsman.jpg"
+                            alt={t.master_image_alt}
+                            fill
+                            className="object-cover object-center"
+                            sizes="100vw"
+                        />
                     </div>
                 </div>
             </section>
