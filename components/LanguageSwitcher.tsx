@@ -2,35 +2,53 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
+import { locales, defaultLocale, localeNames, type Locale } from '@/lib/i18n/config';
 
 export default function LanguageSwitcher() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
+    const router = useRouter();
+    const pathname = usePathname();
+    const [isPending, startTransition] = useTransition();
 
-  // Determine current locale based on path
-  const isMongolian = pathname.startsWith('/mn');
-  const nextLocale = isMongolian ? 'en' : 'mn';
+    // Determine current locale from pathname
+    const getCurrentLocale = (): Locale => {
+        for (const locale of locales) {
+            if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
+                return locale;
+            }
+        }
+        return defaultLocale;
+    };
 
-  const onSelectChange = () => {
-    startTransition(() => {
-      // Replace the current locale in the path with the next one
-      const newPath = pathname.replace(`/${isMongolian ? 'mn' : 'en'}`, `/${nextLocale}`);
-      
-      // If path doesn't have locale yet (e.g. root), prepend it
-      const finalPath = newPath === pathname ? `/${nextLocale}${pathname}` : newPath;
-      
-      router.replace(finalPath);
-    });
-  };
+    const currentLocale = getCurrentLocale();
+    const nextLocale: Locale = currentLocale === 'en' ? 'mn' : 'en';
 
-  return (
-    <button
-      onClick={onSelectChange}
-      disabled={isPending}
-      className="text-xs font-bold tracking-widest uppercase px-3 py-1 border border-red-500 text-red-600 hover:bg-red-50 transition-all mx-2"
-    >
-      {isMongolian ? 'MN' : 'EN'} / {isMongolian ? 'EN' : 'MN'}
-    </button>
-  );
+    const switchLocale = () => {
+        startTransition(() => {
+            let newPath: string;
+
+            // Remove current locale prefix if present
+            const pathWithoutLocale = pathname.replace(new RegExp(`^/(${locales.join('|')})`), '') || '/';
+
+            if (nextLocale === defaultLocale) {
+                // Switching to default locale - use path without prefix
+                newPath = pathWithoutLocale;
+            } else {
+                // Switching to non-default locale - add prefix
+                newPath = `/${nextLocale}${pathWithoutLocale}`;
+            }
+
+            router.push(newPath);
+        });
+    };
+
+    return (
+        <button
+            onClick={switchLocale}
+            disabled={isPending}
+            className="text-xs font-medium tracking-widest uppercase px-3 py-1.5 border border-cognac/30 text-cognac hover:bg-cognac/10 transition-all duration-300 disabled:opacity-50"
+            aria-label={`Switch to ${localeNames[nextLocale]}`}
+        >
+            {isPending ? '...' : localeNames[nextLocale]}
+        </button>
+    );
 }
