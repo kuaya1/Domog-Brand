@@ -30,7 +30,7 @@ export default function Footer() {
                             <SocialLink href="https://instagram.com" label="Instagram">
                                 <Instagram size={20} strokeWidth={1.5} />
                             </SocialLink>
-                            <SocialLink href="https://facebook.com/mongolundesniieetengutal" label="Facebook">
+                            <SocialLink href="https://www.facebook.com/mongolundesniieetengutal/" label="Facebook">
                                 <Facebook size={20} strokeWidth={1.5} />
                             </SocialLink>
                             <SocialLink href="mailto:info@domogbrand.com" label="Email">

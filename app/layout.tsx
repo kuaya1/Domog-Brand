@@ -114,7 +114,7 @@ const jsonLd = {
         }
     },
     sameAs: [
-        'https://facebook.com/mongolundesniieetengutal',
+        'https://www.facebook.com/mongolundesniieetengutal/',
         'https://instagram.com/domogbrand'
     ]
 };
