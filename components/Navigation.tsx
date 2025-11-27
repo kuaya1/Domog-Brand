@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingBag, Search, ArrowRight, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, ShoppingBag, Search, ArrowRight } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
 import { useUIStore } from '@/lib/stores/ui-store';
 import { useLocalizedPath } from '@/lib/i18n/navigation';
@@ -86,29 +86,25 @@ export default function Navigation({ dictionary }: NavigationProps) {
     return (
         <header>
             <nav 
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                     isScrolled 
-                        ? 'bg-cream/95 backdrop-blur-md shadow-elegant' 
-                        : 'bg-cream/80 backdrop-blur-sm'
+                        ? 'bg-cream/90 backdrop-blur-xl shadow-sm border-b border-black/5' 
+                        : 'bg-cream/70 backdrop-blur-md'
                 }`}
                 aria-label="Main navigation"
             >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20 lg:h-24">
+            <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                <div className="flex items-center justify-between h-16 lg:h-20">
                     {/* Mobile: Menu Button (Left) */}
                     <div className="flex lg:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             aria-expanded={isMenuOpen}
                             aria-controls="mobile-menu"
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         >
-                            {isMenuOpen ? (
-                                <X size={24} strokeWidth={1.5} aria-hidden="true" />
-                            ) : (
-                                <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
-                            )}
+                            <Menu size={20} strokeWidth={1.5} aria-hidden="true" />
                         </button>
                     </div>
 
@@ -118,7 +114,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                         className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                         aria-label="Domog Brand - Home"
                     >
-                        <span className="font-serif text-2xl lg:text-3xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
+                        <span className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
                             DOMOG
                         </span>
                     </Link>
@@ -160,12 +156,12 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     <div className="flex lg:hidden">
                         <Link 
                             href={localizedPath('/cart')} 
-                            className="relative p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="relative w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
-                            <ShoppingBag size={22} strokeWidth={1.5} aria-hidden="true" />
+                            <ShoppingBag size={18} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold text-black text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}
@@ -174,64 +170,50 @@ export default function Navigation({ dictionary }: NavigationProps) {
                 </div>
             </div>
 
-            {/* Mobile Menu - Premium Slide-in Drawer */}
+            {/* Mobile Menu - Premium Glassmorphism Drawer */}
             <div 
                 id="mobile-menu"
-                className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ${
+                className={`lg:hidden fixed inset-0 z-50 transition-all duration-500 ${
                     isMenuOpen ? 'visible' : 'invisible pointer-events-none'
                 }`}
                 aria-hidden={!isMenuOpen}
             >
-                {/* Backdrop */}
+                {/* Backdrop with stronger blur */}
                 <div 
-                    className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${
+                    className={`absolute inset-0 bg-black/30 backdrop-blur-md transition-opacity duration-500 ${
                         isMenuOpen ? 'opacity-100' : 'opacity-0'
                     }`}
                     onClick={closeMenu}
                     aria-hidden="true"
                 />
 
-                {/* Drawer Panel */}
+                {/* Drawer Panel - Glassmorphism */}
                 <div 
-                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-cream shadow-2xl transform transition-transform duration-500 ease-out ${
+                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-cream/95 backdrop-blur-xl shadow-2xl border-r border-white/20 transform transition-transform duration-500 ease-out ${
                         isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
                 >
-                    {/* Header */}
-                    <div className="flex items-center justify-between px-6 h-20 border-b border-gold/10">
+                    {/* Minimal Header */}
+                    <div className="flex items-center justify-between px-6 h-16 border-b border-gold/5">
                         <Link 
                             href={localizedPath('/')}
                             onClick={closeMenu}
-                            className="font-serif text-2xl font-semibold tracking-tight text-black"
+                            className="font-serif text-xl font-semibold tracking-tight text-black"
                         >
                             DOMOG
                         </Link>
                         <button
                             onClick={closeMenu}
-                            className="p-2 -mr-2 text-stone-warm hover:text-black transition-colors"
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors"
                             aria-label="Close menu"
                         >
-                            <X size={24} strokeWidth={1.5} />
+                            <X size={20} strokeWidth={1.5} />
                         </button>
                     </div>
 
-                    {/* Search Bar */}
-                    <div className="px-6 py-4 border-b border-gold/10">
-                        <button
-                            onClick={() => {
-                                closeMenu();
-                                setSearchOpen(true);
-                            }}
-                            className="w-full flex items-center gap-3 px-4 py-3 bg-cream-sand rounded-sm text-stone-warm hover:text-black transition-colors"
-                        >
-                            <Search size={18} strokeWidth={1.5} />
-                            <span className="font-sans text-sm">{t.search_placeholder}</span>
-                        </button>
-                    </div>
-
-                    {/* Navigation Links */}
-                    <nav className="flex-1 px-6 py-8" aria-label="Mobile navigation">
-                        <ul className="space-y-2">
+                    {/* Navigation Links - Clean & Minimal */}
+                    <nav className="px-6 py-8" aria-label="Mobile navigation">
+                        <ul className="space-y-1">
                             <MobileNavItem 
                                 href={localizedPath('/shop')} 
                                 onClick={closeMenu}
@@ -267,55 +249,44 @@ export default function Navigation({ dictionary }: NavigationProps) {
                             </MobileNavItem>
                         </ul>
 
-                        {/* CTA Button */}
-                        <div className={`mt-8 transform transition-all duration-500 ${
+                        {/* Search Button - Minimal */}
+                        <div className={`mt-6 transform transition-all duration-500 ${
+                            isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`} style={{ transitionDelay: isMenuOpen ? '250ms' : '0ms' }}>
+                            <button
+                                onClick={() => {
+                                    closeMenu();
+                                    setSearchOpen(true);
+                                }}
+                                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-black/5 text-stone-warm hover:bg-black/10 hover:text-black transition-colors"
+                            >
+                                <Search size={18} strokeWidth={1.5} />
+                                <span className="font-sans text-sm">{t.search_placeholder}</span>
+                            </button>
+                        </div>
+
+                        {/* CTA Button - Modern */}
+                        <div className={`mt-4 transform transition-all duration-500 ${
                             isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                         }`} style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}>
                             <Link 
                                 href={localizedPath('/shop')}
                                 onClick={closeMenu}
-                                className="group flex items-center justify-between w-full px-6 py-4 bg-black text-cream hover:bg-cognac transition-colors duration-300"
+                                className="group flex items-center justify-center gap-2 w-full px-6 py-4 bg-black text-cream rounded-lg hover:bg-cognac transition-all duration-300"
                             >
                                 <span className="font-sans text-sm uppercase tracking-widest">{t.shop_now}</span>
-                                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </nav>
 
-                    {/* Footer */}
-                    <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-gold/10 bg-cream">
+                    {/* Footer - Minimal */}
+                    <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-black/5">
                         {/* Language Switcher */}
-                        <div className="flex items-center justify-between mb-6">
-                            <span className="font-sans text-xs uppercase tracking-widest text-stone-warm">{t.language}</span>
+                        <div className="flex items-center justify-between">
+                            <span className="font-sans text-xs uppercase tracking-widest text-stone-muted">{t.language}</span>
                             <LanguageSwitcher />
                         </div>
-
-                        {/* Social Links */}
-                        <div className="flex items-center gap-4 mb-6">
-                            <a 
-                                href="https://instagram.com/domogbrand" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="p-2 text-stone-warm hover:text-cognac transition-colors"
-                                aria-label="Instagram"
-                            >
-                                <Instagram size={20} strokeWidth={1.5} />
-                            </a>
-                            <a 
-                                href="https://www.facebook.com/mongolundesniieetengutal/" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="p-2 text-stone-warm hover:text-cognac transition-colors"
-                                aria-label="Facebook"
-                            >
-                                <Facebook size={20} strokeWidth={1.5} />
-                            </a>
-                        </div>
-
-                        {/* Tagline */}
-                        <p className="font-sans text-xs text-stone-muted">
-                            {t.tagline}
-                        </p>
                     </div>
                 </div>
             </div>
@@ -356,18 +327,18 @@ function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: Mobile
             <Link
                 href={href}
                 onClick={onClick}
-                className="group flex items-center justify-between py-4 px-4 -mx-4 rounded-sm hover:bg-cream-sand transition-colors duration-200"
+                className="group flex items-center justify-between py-3.5 px-4 -mx-4 rounded-lg hover:bg-black/5 transition-colors duration-200"
             >
-                <span className="font-serif text-xl text-black group-hover:text-cognac transition-colors">
+                <span className="font-sans text-base font-medium text-black group-hover:text-cognac transition-colors">
                     {children}
                 </span>
                 <div className="flex items-center gap-2">
                     {badge && (
-                        <span className="w-6 h-6 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
+                        <span className="w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
                             {badge}
                         </span>
                     )}
-                    <ArrowRight size={16} className="text-stone-muted group-hover:text-cognac group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={14} className="text-stone-muted group-hover:text-cognac group-hover:translate-x-0.5 transition-all" />
                 </div>
             </Link>
         </li>
