@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Menu, X, ShoppingBag, Search } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
 import { useUIStore } from '@/lib/stores/ui-store';
+import { useLocalizedPath } from '@/lib/i18n/navigation';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +15,7 @@ export default function Navigation() {
     const cart = useCartStore((state) => state.cart);
     const itemCount = cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
     const setSearchOpen = useUIStore(state => state.setSearchOpen);
+    const localizedPath = useLocalizedPath();
 
     useEffect(() => {
         setIsHydrated(true);
@@ -86,7 +89,7 @@ export default function Navigation() {
 
                     {/* Logo - Centered on mobile, left on desktop */}
                     <Link 
-                        href="/" 
+                        href={localizedPath('/')} 
                         className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                         aria-label="Domog Brand - Home"
                     >
@@ -98,14 +101,15 @@ export default function Navigation() {
                     {/* Desktop Navigation - Centered */}
                     <div className="hidden lg:flex items-center justify-center flex-1 px-12">
                         <ul className="flex items-center space-x-12" role="menubar">
-                            <li role="none"><NavLink href="/shop">Shop</NavLink></li>
-                            <li role="none"><NavLink href="/about">Heritage</NavLink></li>
-                            <li role="none"><NavLink href="/contact">Atelier</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/shop')}>Shop</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/about')}>Heritage</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/contact')}>Atelier</NavLink></li>
                         </ul>
                     </div>
 
                     {/* Right Side - Icons */}
                     <div className="hidden lg:flex items-center space-x-6">
+                        <LanguageSwitcher />
                         <button 
                             onClick={() => setSearchOpen(true)}
                             className="p-2 text-stone-warm hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
@@ -114,7 +118,7 @@ export default function Navigation() {
                             <Search size={20} strokeWidth={1.5} aria-hidden="true" />
                         </button>
                         <Link 
-                            href="/cart" 
+                            href={localizedPath('/cart')} 
                             className="relative p-2 text-stone-warm hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
@@ -130,7 +134,7 @@ export default function Navigation() {
                     {/* Mobile Cart Button (Right) */}
                     <div className="flex lg:hidden">
                         <Link 
-                            href="/cart" 
+                            href={localizedPath('/cart')} 
                             className="relative p-2 text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
@@ -157,13 +161,16 @@ export default function Navigation() {
                     className="flex flex-col items-center justify-center h-full space-y-8 px-6"
                     aria-label="Mobile navigation"
                 >
-                    <MobileNavLink href="/shop" onClick={closeMenu}>Shop</MobileNavLink>
-                    <MobileNavLink href="/about" onClick={closeMenu}>Heritage</MobileNavLink>
-                    <MobileNavLink href="/contact" onClick={closeMenu}>Atelier</MobileNavLink>
+                    <MobileNavLink href={localizedPath('/shop')} onClick={closeMenu}>Shop</MobileNavLink>
+                    <MobileNavLink href={localizedPath('/about')} onClick={closeMenu}>Heritage</MobileNavLink>
+                    <MobileNavLink href={localizedPath('/contact')} onClick={closeMenu}>Atelier</MobileNavLink>
                     
-                    <div className="pt-8 border-t border-gold/20 w-full max-w-xs">
+                    <div className="pt-8 border-t border-gold/20 w-full max-w-xs space-y-4">
+                        <div className="flex justify-center">
+                            <LanguageSwitcher />
+                        </div>
                         <Link 
-                            href="/shop"
+                            href={localizedPath('/shop')}
                             onClick={closeMenu}
                             className="block w-full text-center py-4 bg-gold text-black font-sans text-sm uppercase tracking-widest hover:bg-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gold"
                         >

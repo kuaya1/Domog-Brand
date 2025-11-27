@@ -4,14 +4,6 @@ import { locales, defaultLocale, isValidLocale } from './lib/i18n/config';
 
 // Get the preferred locale from the request headers
 function getLocale(request: NextRequest): string {
-    // Check if locale is already in the path
-    const pathname = request.nextUrl.pathname;
-    const pathnameLocale = locales.find(
-        (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    );
-    
-    if (pathnameLocale) return pathnameLocale;
-    
     // Check Accept-Language header
     const acceptLanguage = request.headers.get('Accept-Language');
     if (acceptLanguage) {
@@ -49,16 +41,8 @@ export function middleware(request: NextRequest) {
         return NextResponse.next();
     }
     
-    // Redirect to the default locale (without changing URL for default)
-    // For non-default locale requests, redirect to locale-prefixed path
+    // Redirect to the locale-prefixed path
     const locale = getLocale(request);
-    
-    // For the default locale (en), don't redirect - serve from root
-    if (locale === defaultLocale) {
-        return NextResponse.next();
-    }
-    
-    // For other locales, redirect to locale-prefixed path
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}${pathname}`;
     return NextResponse.redirect(url);

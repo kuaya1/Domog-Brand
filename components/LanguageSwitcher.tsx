@@ -2,41 +2,20 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
-import { locales, defaultLocale, localeNames, type Locale } from '@/lib/i18n/config';
+import { locales, localeNames, type Locale } from '@/lib/i18n/config';
+import { useLocale, switchLocaleInPath } from '@/lib/i18n/navigation';
 
 export default function LanguageSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
     const [isPending, startTransition] = useTransition();
-
-    // Determine current locale from pathname
-    const getCurrentLocale = (): Locale => {
-        for (const locale of locales) {
-            if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
-                return locale;
-            }
-        }
-        return defaultLocale;
-    };
-
-    const currentLocale = getCurrentLocale();
+    
+    const currentLocale = useLocale();
     const nextLocale: Locale = currentLocale === 'en' ? 'mn' : 'en';
 
     const switchLocale = () => {
         startTransition(() => {
-            let newPath: string;
-
-            // Remove current locale prefix if present
-            const pathWithoutLocale = pathname.replace(new RegExp(`^/(${locales.join('|')})`), '') || '/';
-
-            if (nextLocale === defaultLocale) {
-                // Switching to default locale - use path without prefix
-                newPath = pathWithoutLocale;
-            } else {
-                // Switching to non-default locale - add prefix
-                newPath = `/${nextLocale}${pathWithoutLocale}`;
-            }
-
+            const newPath = switchLocaleInPath(pathname, nextLocale);
             router.push(newPath);
         });
     };
