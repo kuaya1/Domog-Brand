@@ -3,24 +3,31 @@
 import { memo, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '@/lib/products';
+import { Product, getLocalizedName, getLocalizedCategory } from '@/lib/products';
 import { ArrowUpRight } from 'lucide-react';
+import { useLocale } from '@/lib/i18n/navigation';
+import { type Locale } from '@/lib/i18n/config';
 
 interface ProductCardProps {
     product: Product;
     priority?: boolean;
+    locale?: Locale;
 }
 
 /**
  * Optimized ProductCard Component
  * - Memoized to prevent unnecessary re-renders
  * - Lazy loads images below the fold
- * - Accessible hover states with skeleton loading
+ * - Supports localized product names and categories
  */
 const ProductCard = memo(function ProductCard({ 
     product, 
-    priority = false 
+    priority = false,
+    locale: propLocale
 }: ProductCardProps) {
+    const hookLocale = useLocale();
+    const locale = propLocale || hookLocale;
+    
     const [isHovered, setIsHovered] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
@@ -30,13 +37,16 @@ const ProductCard = memo(function ProductCard({
     const handleImageLoad = useCallback(() => setImageLoaded(true), []);
     const handleImageError = useCallback(() => setImageError(true), []);
 
+    const localizedName = getLocalizedName(product, locale);
+    const localizedCategory = getLocalizedCategory(product, locale);
+
     return (
         <Link
-            href={`/products/${product.id}`}
+            href={`/${locale}/products/${product.id}`}
             className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            aria-label={`View ${product.name} - $${product.price}`}
+            aria-label={`View ${localizedName} - $${product.price}`}
         >
             <article className="bg-cream border border-gold/10 transition-all duration-500 hover:border-gold/30 hover:shadow-luxury overflow-hidden">
                 {/* Image Container */}
@@ -78,7 +88,7 @@ const ProductCard = memo(function ProductCard({
                         isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
                     }`}>
                         <span className="inline-block px-4 py-2 bg-black/80 backdrop-blur-sm text-gold font-sans text-xs uppercase tracking-widest">
-                            {product.category}
+                            {localizedCategory}
                         </span>
                     </div>
 
@@ -106,7 +116,7 @@ const ProductCard = memo(function ProductCard({
                 <div className="p-6 lg:p-8">
                     {/* Product Name */}
                     <h3 className="font-serif text-xl lg:text-2xl text-black font-medium mb-3 group-hover:text-cognac transition-colors duration-300">
-                        {product.name}
+                        {localizedName}
                     </h3>
 
                     {/* Price */}

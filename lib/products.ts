@@ -1,13 +1,44 @@
+import { type Locale } from './i18n/config';
+
+export interface LocalizedText {
+    en: string;
+    mn: string;
+}
+
 export interface Product {
     id: string;
     name: string;
+    nameLocalized?: LocalizedText;
     price: number;
     description: string;
+    descriptionLocalized?: LocalizedText;
     images: string[];
     category: string;
+    categoryLocalized?: LocalizedText;
     sizes: string[];
     isNew?: boolean;
     inStock?: boolean;
+}
+
+/**
+ * Get localized product name
+ */
+export function getLocalizedName(product: Product, locale: Locale): string {
+    return product.nameLocalized?.[locale] || product.name;
+}
+
+/**
+ * Get localized product description
+ */
+export function getLocalizedDescription(product: Product, locale: Locale): string {
+    return product.descriptionLocalized?.[locale] || product.description;
+}
+
+/**
+ * Get localized category
+ */
+export function getLocalizedCategory(product: Product, locale: Locale): string {
+    return product.categoryLocalized?.[locale] || product.category;
 }
 
 export interface ProductCategory {
@@ -70,30 +101,57 @@ export const products: Product[] = [
     {
         id: "1",
         name: "Steppe Rider Boot",
+        nameLocalized: {
+            en: "Steppe Rider Boot",
+            mn: "Тал нутгийн унагчийн гутал"
+        },
         price: 290,
         description: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin. Our founder tested these himself across 400 kilometers of open steppe—they returned home before he did.",
+        descriptionLocalized: {
+            en: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin.",
+            mn: "Зайг бус өдрөөр хэмждэг унагчдад зориулсан. Гурав дахин бэхжүүлсэн арьсан ул нь дөч хасах хүйтэнд дөрөөг барьж, гараар эсгийсэн ноосон дотор нь хоёр дахь арьс шиг дулаан хадгалдаг."
+        },
         images: ["/images/boots/steppe-rider.jpg"],
         category: "Riding",
+        categoryLocalized: { en: "Riding", mn: "Унах" },
         sizes: ["40", "41", "42", "43", "44", "45"],
         inStock: true,
     },
     {
         id: "2",
         name: "Khan's Legacy Boot",
+        nameLocalized: {
+            en: "Khan's Legacy Boot",
+            mn: "Хааны өвийн гутал"
+        },
         price: 420,
         description: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers. The leather is selected from a single hide, ensuring perfect color harmony. Only twelve pairs are produced each year—and we never rush the gold work.",
+        descriptionLocalized: {
+            en: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers.",
+            mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
+        },
         images: ["/images/boots/khans-legacy.jpg"],
         category: "Luxury",
+        categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["40", "41", "42", "43", "44"],
         inStock: true,
     },
     {
         id: "3",
         name: "Genghis Ceremonial Boot",
+        nameLocalized: {
+            en: "Genghis Ceremonial Boot",
+            mn: "Чингисийн ёслолын гутал"
+        },
         price: 450,
         description: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations, these boots feature our signature silver-inlay work depicting the eternal flame of the Mongol Empire. Presidents and heads of state have stood in these boots during ceremonies where history was made.",
+        descriptionLocalized: {
+            en: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations.",
+            mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
+        },
         images: ["/images/boots/genghis-ceremonial.jpg"],
         category: "Ceremonial",
+        categoryLocalized: { en: "Ceremonial", mn: "Ёслолын" },
         sizes: ["39", "40", "41", "42", "43", "44"],
         isNew: true,
         inStock: true,
@@ -101,20 +159,38 @@ export const products: Product[] = [
     {
         id: "4",
         name: "Altai Mountain Boot",
+        nameLocalized: {
+            en: "Altai Mountain Boot",
+            mn: "Алтайн уулын гутал"
+        },
         price: 320,
         description: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees. The geometric embroidery tells the story of mountain spirits who guide travelers home.",
+        descriptionLocalized: {
+            en: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees.",
+            mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
+        },
         images: ["/images/boots/altai-mountain.jpg"],
         category: "Winter",
+        categoryLocalized: { en: "Winter", mn: "Өвөл" },
         sizes: ["38", "39", "40", "41", "42"],
         inStock: true,
     },
     {
         id: "5",
         name: "Burkhan Khaldun Sacred Boot",
+        nameLocalized: {
+            en: "Burkhan Khaldun Sacred Boot",
+            mn: "Бурхан Халдуны ариун гутал"
+        },
         price: 520,
         description: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping. The leather is cured using ancient mineral techniques that create a patina deepening with every wear—your journey written on your feet.",
+        descriptionLocalized: {
+            en: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping.",
+            mn: "Тэмүжин Чингис хаан болсон ариун уулын нэрээр нэрлэгдсэн. Гутал бүр уулын гурван оргилын гар урлалын дүрслэлтэй бөгөөд илгээхээс өмнө орон нутгийн бөөгөөр ариусгагддаг."
+        },
         images: ["/images/boots/burkhan-khaldun.jpg"],
         category: "Luxury",
+        categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["39", "40", "41", "42", "43", "44"],
         isNew: true,
         inStock: true,
@@ -122,10 +198,19 @@ export const products: Product[] = [
     {
         id: "6",
         name: "Naadam Festival Boot",
+        nameLocalized: {
+            en: "Naadam Festival Boot",
+            mn: "Наадмын баярын гутал"
+        },
         price: 380,
         description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
+        descriptionLocalized: {
+            en: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup.",
+            mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
+        },
         images: ["/images/heritage-craftsman.jpg"],
         category: "Festival",
+        categoryLocalized: { en: "Festival", mn: "Баярын" },
         sizes: ["38", "39", "40", "41", "42", "43"],
         isNew: true,
         inStock: true,

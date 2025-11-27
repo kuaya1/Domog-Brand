@@ -1,0 +1,65 @@
+{
+    "common": {
+        "shop_now": "Shop Now",
+        "view_all": "View All",
+        "add_to_cart": "Add to Cart",
+        "learn_more": "Learn More"
+    },
+    "navigation": {
+        "shop": "Shop",
+        "heritage": "Heritage",
+        "atelier": "Atelier",
+        "cart": "Cart"
+    },
+    "home": {
+        "tagline": "Est. 1990 — The Master's Touch",
+        "hero_title": "Legacy Carved by Hand",
+        "hero_description": "Founded by a family of artisans in 1990. Every pair is meticulously hand-lasted by our master craftsman, preserving the sacred traditions of the Steppe in every stitch.",
+        "cta_button": "View the Craftsmanship",
+        "collection_label": "Excellence in Every Stitch",
+        "collection_title": "Featured Masterpieces",
+        "collection_description": "Each boot begins as raw leather and a wooden last. What emerges—forty hours later—carries the weight of tradition and the lightness of true craftsmanship.",
+        "view_all_products": "View All Products",
+        "heritage_label": "Our Heritage",
+        "heritage_title": "The Hands That Remember",
+        "heritage_p1": "Our founder learned his craft from masters who remembered the old ways—men who had shod the horses of khans, who knew that a boot must speak to both stirrup and ceremony.",
+        "heritage_p2": "Today, those same techniques endure. We cure leather by seasons, not hours. We shape by hand, not machine. We sign each pair, because anonymity belongs to factories, not artisans.",
+        "heritage_p3": "Presidents have worn our work. Champions have competed in it. We keep no photographs—only the wooden lasts, shaped to their feet.",
+        "heritage_cta": "Explore Our Story",
+        "promise_label": "Our Promise",
+        "promise_title": "Excellence in Every Detail",
+        "pillar_1_title": "Hand-Lasted",
+        "pillar_1_desc": "Each boot is shaped over a wooden last by hand, a process that takes 40+ hours and cannot be rushed.",
+        "pillar_2_title": "Vegetable-Tanned",
+        "pillar_2_desc": "Our leather is tanned using centuries-old methods. It breaks in, conforms, and develops a patina unique to you.",
+        "pillar_3_title": "Lifetime Warranty",
+        "pillar_3_desc": "We stand behind every pair. Repairs, re-soling, reconditioning—we maintain what we create."
+    },
+    "product": {
+        "size": "Size",
+        "quantity": "Quantity",
+        "in_stock": "In Stock",
+        "out_of_stock": "Out of Stock",
+        "add_to_wishlist": "Add to Wishlist",
+        "size_guide": "Size Guide",
+        "description": "Description",
+        "specifications": "Specifications",
+        "reviews": "Reviews"
+    },
+    "cart": {
+        "your_cart": "Your Cart",
+        "empty_cart": "Your cart is empty",
+        "continue_shopping": "Continue Shopping",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "total": "Total",
+        "checkout": "Proceed to Checkout"
+    },
+    "footer": {
+        "newsletter_title": "Join Our Heritage",
+        "newsletter_description": "Receive exclusive updates on new collections, artisan stories, and early access to limited editions.",
+        "email_placeholder": "Enter your email",
+        "subscribe": "Subscribe",
+        "copyright": "© 2024 Domog Brand. All rights reserved."
+    }
+}

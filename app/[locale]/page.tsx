@@ -4,42 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { locales, isValidLocale, type Locale } from "@/lib/i18n/config";
+import { getNamespace } from "@/lib/i18n/translations";
 import { notFound } from "next/navigation";
 
 // Generate static params for both locales
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
 }
-
-// Translations
-const translations: Record<Locale, {
-    tagline: string;
-    hero_title: string;
-    hero_description: string;
-    cta_button: string;
-    collection_label: string;
-    collection_title: string;
-    view_all: string;
-}> = {
-    en: {
-        tagline: "Est. 1990 — The Master's Touch",
-        hero_title: "Legacy Carved by Hand",
-        hero_description: "Founded by a family of artisans in 1990. Every pair is meticulously hand-lasted by our master craftsman, preserving the sacred traditions of the Steppe in every stitch.",
-        cta_button: "VIEW THE CRAFTSMANSHIP",
-        collection_label: "Excellence in Every Stitch",
-        collection_title: "Featured Masterpieces",
-        view_all: "View All Products",
-    },
-    mn: {
-        tagline: "1990 онд үүсгэн байгуулагдсан — Мастерын хүрэл",
-        hero_title: "Гараар сийлсэн өв уламжлал",
-        hero_description: "1990 онд урчуудын гэр бүлээс үүсгэн байгуулагдсан. Гутал бүр бидний мастер урчуудын гараар нямбай хийгдэж, Монголын өвийн уламжлалыг оёдол бүрт хадгалж байна.",
-        cta_button: "УРЧУУДЫН УРЛАГИЙГ ҮЗЭХ",
-        collection_label: "Оёдол бүрт шилдэг чанар",
-        collection_title: "Онцлох бүтээлүүд",
-        view_all: "Бүх бүтээгдэхүүнийг үзэх",
-    },
-};
 
 interface PageProps {
     params: { locale: string };
@@ -51,7 +22,8 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
         notFound();
     }
 
-    const t = translations[locale];
+    // Get translations from JSON files
+    const t = getNamespace(locale, 'home');
 
     return (
         <main className="min-h-screen">
@@ -128,7 +100,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {products.slice(0, 6).map((product) => (
-                            <ProductCard key={product.id} product={product} />
+                            <ProductCard key={product.id} product={product} locale={locale} />
                         ))}
                     </div>
 
@@ -137,9 +109,109 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             href={`/${locale}/shop`}
                             className="inline-flex items-center space-x-2 text-black hover:text-cognac font-medium border-b-2 border-gold pb-1 transition-colors text-lg"
                         >
-                            <span>{t.view_all}</span>
+                            <span>{t.view_all_products}</span>
                             <ArrowRight className="w-5 h-5" />
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Heritage Section */}
+            <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                        {/* Image */}
+                        <div className="relative aspect-[4/5] overflow-hidden shadow-lg">
+                            <Image
+                                src="/images/heritage-craftsman.jpg"
+                                alt="Master craftsman at work in the Domog atelier"
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                loading="lazy"
+                            />
+                        </div>
+
+                        {/* Content */}
+                        <div className="lg:pl-8">
+                            <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
+                                {t.heritage_label}
+                            </span>
+                            <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight mb-8">
+                                {t.heritage_title}
+                            </h2>
+                            
+                            <div className="space-y-6 text-stone-warm text-lg leading-relaxed">
+                                <p>{t.heritage_p1}</p>
+                                <p>{t.heritage_p2}</p>
+                                <p className="text-black font-medium">{t.heritage_p3}</p>
+                            </div>
+
+                            <div className="mt-10">
+                                <Link
+                                    href={`/${locale}/about`}
+                                    className="btn-secondary"
+                                >
+                                    {t.heritage_cta}
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Craftsmanship Pillars */}
+            <section className="py-32 lg:py-40 bg-cream">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="text-center mb-20">
+                        <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
+                            {t.promise_label}
+                        </span>
+                        <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight">
+                            {t.promise_title}
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+                        <div className="text-center group">
+                            <div className="mb-6">
+                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                    01
+                                </span>
+                            </div>
+                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                                {t.pillar_1_title}
+                            </h3>
+                            <p className="font-sans text-stone-warm leading-relaxed">
+                                {t.pillar_1_desc}
+                            </p>
+                        </div>
+                        <div className="text-center group">
+                            <div className="mb-6">
+                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                    02
+                                </span>
+                            </div>
+                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                                {t.pillar_2_title}
+                            </h3>
+                            <p className="font-sans text-stone-warm leading-relaxed">
+                                {t.pillar_2_desc}
+                            </p>
+                        </div>
+                        <div className="text-center group">
+                            <div className="mb-6">
+                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                    03
+                                </span>
+                            </div>
+                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                                {t.pillar_3_title}
+                            </h3>
+                            <p className="font-sans text-stone-warm leading-relaxed">
+                                {t.pillar_3_desc}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
