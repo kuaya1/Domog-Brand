@@ -65,10 +65,30 @@ export const productCategories: ProductCategory[] = [
 
 export const products: Product[] = [
     // ============================================================================
-    // ORIGINAL 5 PRODUCTS - Enhanced Descriptions
+    // REORDERED PRODUCTS - Per Collection Display Order
     // ============================================================================
     {
         id: "1",
+        name: "Steppe Rider Boot",
+        price: 290,
+        description: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin. Our founder tested these himself across 400 kilometers of open steppe—they returned home before he did.",
+        images: ["/images/boots/steppe-rider.jpg"],
+        category: "Riding",
+        sizes: ["40", "41", "42", "43", "44", "45"],
+        inStock: true,
+    },
+    {
+        id: "2",
+        name: "Khan's Legacy Boot",
+        price: 420,
+        description: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers. The leather is selected from a single hide, ensuring perfect color harmony. Only twelve pairs are produced each year—and we never rush the gold work.",
+        images: ["/images/boots/khans-legacy.jpg"],
+        category: "Luxury",
+        sizes: ["40", "41", "42", "43", "44"],
+        inStock: true,
+    },
+    {
+        id: "3",
         name: "Genghis Ceremonial Boot",
         price: 450,
         description: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations, these boots feature our signature silver-inlay work depicting the eternal flame of the Mongol Empire. Presidents and heads of state have stood in these boots during ceremonies where history was made.",
@@ -76,27 +96,6 @@ export const products: Product[] = [
         category: "Ceremonial",
         sizes: ["39", "40", "41", "42", "43", "44"],
         isNew: true,
-        inStock: true,
-    },
-    {
-        id: "2",
-        name: "Naadam Festival Boot",
-        price: 380,
-        description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
-        images: ["/images/heritage-craftsman.jpg"],
-        category: "Festival",
-        sizes: ["38", "39", "40", "41", "42", "43"],
-        isNew: true,
-        inStock: true,
-    },
-    {
-        id: "3",
-        name: "Steppe Rider Boot",
-        price: 290,
-        description: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin. Our founder tested these himself across 400 kilometers of open steppe—they returned home before he did.",
-        images: ["/images/boots/steppe-rider.jpg"],
-        category: "Riding",
-        sizes: ["40", "41", "42", "43", "44", "45"],
         inStock: true,
     },
     {
@@ -111,20 +110,6 @@ export const products: Product[] = [
     },
     {
         id: "5",
-        name: "Khan's Legacy Boot",
-        price: 420,
-        description: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers. The leather is selected from a single hide, ensuring perfect color harmony. Only twelve pairs are produced each year—and we never rush the gold work.",
-        images: ["/images/boots/khans-legacy.jpg"],
-        category: "Luxury",
-        sizes: ["40", "41", "42", "43", "44"],
-        inStock: true,
-    },
-
-    // ============================================================================
-    // NEW PRODUCTS 6-15
-    // ============================================================================
-    {
-        id: "6",
         name: "Burkhan Khaldun Sacred Boot",
         price: 520,
         description: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping. The leather is cured using ancient mineral techniques that create a patina deepening with every wear—your journey written on your feet.",
@@ -135,8 +120,20 @@ export const products: Product[] = [
         inStock: true,
     },
     {
-        id: "7",
-        name: "Gobi Desert Boot",
+        id: "6",
+        name: "Naadam Festival Boot",
+        price: 380,
+        description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
+        images: ["/images/heritage-craftsman.jpg"],
+        category: "Festival",
+        sizes: ["38", "39", "40", "41", "42", "43"],
+        isNew: true,
+        inStock: true,
+    },
+
+    // ============================================================================
+    // ADDITIONAL PRODUCTS 7-15
+    // ============================================================================
         price: 340,
         description: "Where sand meets stone, only true craftsmanship survives. These boots combine the breathability demanded by summer steppe with protection against the Gobi's infamous temperature swings. The amber-toned leather pays homage to the desert's sunset palette, while reinforced stitching withstands sand that would destroy lesser footwear.",
         images: ["/images/boots/gobi-1.jpg"],

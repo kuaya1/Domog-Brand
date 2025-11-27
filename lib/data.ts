@@ -47,9 +47,9 @@ export const products: Product[] = [
         price: 250,
         description: 'The Steppe Rider is the quintessential boot for the modern nomad. Rugged, practical, and deeply rooted in tradition, it offers superior protection against the elements. Whether you are riding across the plains or navigating city streets, this boot provides unmatched support.',
         images: [
-            '/images/boots/steppe-1.jpg',
-            '/images/boots/steppe-2.jpg',
-            '/images/boots/steppe-3.jpg',
+            '/images/boots/steppe-rider.jpg',
+            '/images/boots/steppe-rider.jpg',
+            '/images/boots/steppe-rider.jpg',
         ],
         sizes: ['38', '39', '40', '41', '42', '43', '44', '45'],
         category: 'Daily Wear',
