@@ -40,7 +40,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                     alt="The Master Craftsman hand-lasting a boot"
                                     width={720}
                                     height={840}
-                                    className="w-full max-w-xl mx-auto h-auto scale-[1.2] origin-center"
+                                    className="w-full max-w-xl mx-auto h-auto scale-[1.44] origin-center"
                                     priority
                                 />
                             </div>
@@ -100,7 +100,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {products.slice(0, 6).map((product) => (
-                            <div key={product.id} className="transform scale-75 md:scale-100 origin-top">
+                            <div key={product.id} className="transform scale-[0.8025] md:scale-100 origin-top">
                                 <ProductCard product={product} locale={locale} />
                             </div>
                         ))}
