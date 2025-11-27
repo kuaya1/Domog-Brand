@@ -1,10 +1,13 @@
 'use client';
 
 import { useState, useMemo, useCallback } from 'react';
+import { useParams } from 'next/navigation';
 import { products } from '@/lib/data';
 import ProductGrid from '@/components/ProductGrid';
 import ProductFilters from '@/components/ProductFilters';
 import ProductSort from '@/components/ProductSort';
+import { getNamespace } from '@/lib/i18n/translations';
+import { isValidLocale } from '@/lib/i18n/config';
 
 /**
  * SHOP PAGE - Optimized for High Traffic
@@ -16,6 +19,10 @@ import ProductSort from '@/components/ProductSort';
  * 4. useCallback for all handler functions
  */
 export default function ShopPage() {
+    const params = useParams();
+    const locale = typeof params.locale === 'string' ? params.locale : 'en';
+    const t = isValidLocale(locale) ? getNamespace(locale, 'shop') : getNamespace('en', 'shop');
+    
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     // Store price range as individual values to prevent reference equality issues
@@ -90,14 +97,13 @@ export default function ShopPage() {
             <div className="bg-cream-sand py-16 lg:py-24 border-b border-cream-200">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-4">
-                        The Collection
+                        {t.hero_label}
                     </span>
                     <h1 className="text-4xl lg:text-5xl font-serif font-medium text-black mb-6">
-                        Shop All Boots
+                        {t.hero_title}
                     </h1>
                     <p className="text-stone-warm max-w-2xl text-lg leading-relaxed">
-                        Discover our collection of handcrafted Mongolian boots, blending
-                        centuries of tradition with modern comfort and style.
+                        {t.hero_description}
                     </p>
                 </div>
             </div>
@@ -120,7 +126,7 @@ export default function ShopPage() {
                     <div className="flex-1">
                         <div className="flex justify-between items-center mb-8 pb-4 border-b border-cream-200">
                             <p className="text-sm text-stone-warm">
-                                Showing {filteredProducts.length} {filteredProducts.length === 1 ? 'piece' : 'pieces'}
+                                {t.showing} {filteredProducts.length} {filteredProducts.length === 1 ? t.piece : t.pieces}
                             </p>
                             <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
                         </div>
@@ -130,13 +136,13 @@ export default function ShopPage() {
                         ) : (
                             <div className="text-center py-16 bg-cream-sand border border-cream-200">
                                 <p className="text-stone-warm text-lg mb-6">
-                                    No boots found matching your criteria.
+                                    {t.no_results}
                                 </p>
                                 <button
                                     onClick={handleClearFilters}
                                     className="inline-flex items-center font-sans text-sm uppercase tracking-widest text-cognac hover:text-cognac-dark transition-colors border-b border-cognac pb-1"
                                 >
-                                    Clear all filters
+                                    {t.clear_filters}
                                 </button>
                             </div>
                         )}

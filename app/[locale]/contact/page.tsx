@@ -1,10 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getNamespace } from '@/lib/i18n/translations';
+import { isValidLocale } from '@/lib/i18n/config';
 
 export default function ContactPage() {
+    const params = useParams();
+    const locale = typeof params.locale === 'string' ? params.locale : 'en';
+    const t = isValidLocale(locale) ? getNamespace(locale, 'contact') : getNamespace('en', 'contact');
+    
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -36,15 +43,13 @@ export default function ContactPage() {
                 </div>
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                     <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-6">
-                        The Atelier
+                        {t.hero_label}
                     </span>
                     <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-cream font-medium tracking-tight mb-6">
-                        Begin Your Journey
+                        {t.hero_title}
                     </h1>
                     <p className="text-cream/70 text-lg leading-relaxed max-w-2xl mx-auto">
-                        Every pair of Domog boots begins with a conversation. 
-                        Whether you seek a bespoke commission or simply wish to learn more, 
-                        we welcome your inquiry.
+                        {t.hero_description}
                     </p>
                 </div>
             </section>
@@ -58,19 +63,17 @@ export default function ContactPage() {
                         <div className="lg:col-span-2 space-y-10">
                             <div>
                                 <h2 className="font-serif text-2xl text-black mb-8">
-                                    Visit the Workshop
+                                    {t.visit_title}
                                 </h2>
                                 <p className="text-stone-warm leading-relaxed mb-8">
-                                    Our atelier in Ulaanbaatar welcomes visitors by appointment. 
-                                    Witness the craft firsthand, discuss bespoke commissions, 
-                                    or simply share a cup of suutei tsai.
+                                    {t.visit_description}
                                 </p>
                             </div>
 
                             <div className="space-y-6">
                                 <ContactInfoItem
                                     icon={<MapPin className="h-5 w-5" />}
-                                    label="Workshop"
+                                    label={t.workshop_label}
                                     value={
                                         <>
                                             Khan-Uul District, 15th Khoroo<br />
@@ -80,23 +83,23 @@ export default function ContactPage() {
                                 />
                                 <ContactInfoItem
                                     icon={<Phone className="h-5 w-5" />}
-                                    label="Telephone"
+                                    label={t.telephone_label}
                                     value="+976 9911-2345"
-                                    subtext="Monday–Friday, 9am–6pm (UB Time)"
+                                    subtext={t.telephone_subtext}
                                 />
                                 <ContactInfoItem
                                     icon={<Mail className="h-5 w-5" />}
-                                    label="Email"
+                                    label={t.email_label}
                                     value="atelier@domogbrand.com"
-                                    subtext="We respond within 24 hours"
+                                    subtext={t.email_subtext}
                                 />
                                 <ContactInfoItem
                                     icon={<Clock className="h-5 w-5" />}
-                                    label="Hours"
+                                    label={t.hours_label}
                                     value={
                                         <>
-                                            Mon–Fri: 09:00–18:00<br />
-                                            Sat: 10:00–15:00 (by appointment)
+                                            {t.hours_weekday}<br />
+                                            {t.hours_saturday}
                                         </>
                                     }
                                 />
@@ -110,7 +113,7 @@ export default function ContactPage() {
                             {/* Quote */}
                             <blockquote className="border-l-2 border-gold/30 pl-6">
                                 <p className="font-serif text-lg text-black italic">
-                                    &ldquo;The best conversations begin with curiosity.&rdquo;
+                                    &ldquo;{t.quote}&rdquo;
                                 </p>
                             </blockquote>
                         </div>
@@ -119,10 +122,10 @@ export default function ContactPage() {
                         <div className="lg:col-span-3">
                             <div className="bg-white border border-cream-200 p-8 lg:p-12">
                                 <h2 className="font-serif text-2xl text-black mb-2">
-                                    Send an Inquiry
+                                    {t.form_title}
                                 </h2>
                                 <p className="text-stone-warm text-sm mb-8">
-                                    All fields marked with * are required
+                                    {t.form_required}
                                 </p>
 
                                 {status === 'success' ? (
@@ -131,11 +134,10 @@ export default function ContactPage() {
                                             <Mail className="h-8 w-8 text-cognac" />
                                         </div>
                                         <h3 className="font-serif text-2xl text-black mb-4">
-                                            Message Received
+                                            {t.success_title}
                                         </h3>
                                         <p className="text-stone-warm max-w-md mx-auto">
-                                            Thank you for reaching out. A member of our team 
-                                            will respond within 24 hours.
+                                            {t.success_message}
                                         </p>
                                     </div>
                                 ) : (
@@ -144,7 +146,7 @@ export default function ContactPage() {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div>
                                                 <label htmlFor="name" className="block text-xs uppercase tracking-wider text-stone-warm mb-2">
-                                                    Full Name *
+                                                    {t.full_name} *
                                                 </label>
                                                 <input
                                                     type="text"
@@ -153,12 +155,11 @@ export default function ContactPage() {
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                     className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
-                                                    placeholder="Your name"
                                                 />
                                             </div>
                                             <div>
                                                 <label htmlFor="email" className="block text-xs uppercase tracking-wider text-stone-warm mb-2">
-                                                    Email Address *
+                                                    {t.email} *
                                                 </label>
                                                 <input
                                                     type="email"
@@ -167,7 +168,6 @@ export default function ContactPage() {
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                                     className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
-                                                    placeholder="your@email.com"
                                                 />
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                                         {/* Phone */}
                                         <div>
                                             <label htmlFor="phone" className="block text-xs uppercase tracking-wider text-stone-warm mb-2">
-                                                Phone Number
+                                                {t.phone}
                                             </label>
                                             <input
                                                 type="tel"
@@ -183,14 +183,13 @@ export default function ContactPage() {
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                                 className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
-                                                placeholder="+1 (555) 000-0000"
                                             />
                                         </div>
 
                                         {/* Subject */}
                                         <div>
                                             <label htmlFor="subject" className="block text-xs uppercase tracking-wider text-stone-warm mb-2">
-                                                Inquiry Type *
+                                                {t.subject} *
                                             </label>
                                             <select
                                                 id="subject"
@@ -198,19 +197,18 @@ export default function ContactPage() {
                                                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                                 className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
                                             >
-                                                <option value="general">General Inquiry</option>
-                                                <option value="bespoke">Bespoke Commission</option>
-                                                <option value="sizing">Sizing & Fit</option>
-                                                <option value="care">Care & Repair</option>
-                                                <option value="press">Press & Media</option>
-                                                <option value="wholesale">Wholesale Partnership</option>
+                                                <option value="general">{t.subject_general}</option>
+                                                <option value="bespoke">{t.subject_bespoke}</option>
+                                                <option value="sizing">{t.subject_sizing}</option>
+                                                <option value="care">{t.subject_care}</option>
+                                                <option value="press">{t.subject_press}</option>
                                             </select>
                                         </div>
 
                                         {/* Message */}
                                         <div>
                                             <label htmlFor="message" className="block text-xs uppercase tracking-wider text-stone-warm mb-2">
-                                                Your Message *
+                                                {t.message} *
                                             </label>
                                             <textarea
                                                 id="message"
@@ -219,7 +217,7 @@ export default function ContactPage() {
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                                 className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
-                                                placeholder="Tell us how we can assist you..."
+                                                placeholder={t.message_placeholder}
                                             />
                                         </div>
 
@@ -236,18 +234,14 @@ export default function ContactPage() {
                                             )}
                                         >
                                             {status === 'submitting' ? (
-                                                <span className="animate-pulse">Sending...</span>
+                                                <span className="animate-pulse">{t.submitting}</span>
                                             ) : (
                                                 <>
-                                                    Send Inquiry
+                                                    {t.submit}
                                                     <ArrowRight className="h-4 w-4" />
                                                 </>
                                             )}
                                         </button>
-
-                                        <p className="text-xs text-cream-500 text-center">
-                                            By submitting, you agree to our privacy policy.
-                                        </p>
                                     </form>
                                 )}
                             </div>
