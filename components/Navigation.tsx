@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { Menu, X, ShoppingBag, Search } from 'lucide-react';
+import { Menu, X, ShoppingBag, Search, ArrowRight, Instagram, Facebook } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
 import { useUIStore } from '@/lib/stores/ui-store';
 import { useLocalizedPath } from '@/lib/i18n/navigation';
@@ -149,35 +149,150 @@ export default function Navigation() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Premium Slide-in Drawer */}
             <div 
                 id="mobile-menu"
-                className={`lg:hidden fixed inset-0 top-20 bg-cream z-40 transition-all duration-500 ${
-                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+                className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ${
+                    isMenuOpen ? 'visible' : 'invisible pointer-events-none'
                 }`}
                 aria-hidden={!isMenuOpen}
             >
-                <nav 
-                    className="flex flex-col items-center justify-center h-full space-y-8 px-6"
-                    aria-label="Mobile navigation"
+                {/* Backdrop */}
+                <div 
+                    className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ${
+                        isMenuOpen ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    onClick={closeMenu}
+                    aria-hidden="true"
+                />
+
+                {/* Drawer Panel */}
+                <div 
+                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-cream shadow-2xl transform transition-transform duration-500 ease-out ${
+                        isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                    }`}
                 >
-                    <MobileNavLink href={localizedPath('/shop')} onClick={closeMenu}>Shop</MobileNavLink>
-                    <MobileNavLink href={localizedPath('/about')} onClick={closeMenu}>Heritage</MobileNavLink>
-                    <MobileNavLink href={localizedPath('/contact')} onClick={closeMenu}>Atelier</MobileNavLink>
-                    
-                    <div className="pt-8 border-t border-gold/20 w-full max-w-xs space-y-4">
-                        <div className="flex justify-center">
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-6 h-20 border-b border-gold/10">
+                        <Link 
+                            href={localizedPath('/')}
+                            onClick={closeMenu}
+                            className="font-serif text-2xl font-semibold tracking-tight text-black"
+                        >
+                            DOMOG
+                        </Link>
+                        <button
+                            onClick={closeMenu}
+                            className="p-2 -mr-2 text-stone-warm hover:text-black transition-colors"
+                            aria-label="Close menu"
+                        >
+                            <X size={24} strokeWidth={1.5} />
+                        </button>
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="px-6 py-4 border-b border-gold/10">
+                        <button
+                            onClick={() => {
+                                closeMenu();
+                                setSearchOpen(true);
+                            }}
+                            className="w-full flex items-center gap-3 px-4 py-3 bg-cream-sand rounded-sm text-stone-warm hover:text-black transition-colors"
+                        >
+                            <Search size={18} strokeWidth={1.5} />
+                            <span className="font-sans text-sm">Search products...</span>
+                        </button>
+                    </div>
+
+                    {/* Navigation Links */}
+                    <nav className="flex-1 px-6 py-8" aria-label="Mobile navigation">
+                        <ul className="space-y-2">
+                            <MobileNavItem 
+                                href={localizedPath('/shop')} 
+                                onClick={closeMenu}
+                                delay={0}
+                                isOpen={isMenuOpen}
+                            >
+                                Shop Collection
+                            </MobileNavItem>
+                            <MobileNavItem 
+                                href={localizedPath('/about')} 
+                                onClick={closeMenu}
+                                delay={1}
+                                isOpen={isMenuOpen}
+                            >
+                                Our Heritage
+                            </MobileNavItem>
+                            <MobileNavItem 
+                                href={localizedPath('/contact')} 
+                                onClick={closeMenu}
+                                delay={2}
+                                isOpen={isMenuOpen}
+                            >
+                                Visit Atelier
+                            </MobileNavItem>
+                            <MobileNavItem 
+                                href={localizedPath('/cart')} 
+                                onClick={closeMenu}
+                                delay={3}
+                                isOpen={isMenuOpen}
+                                badge={isHydrated && itemCount > 0 ? itemCount : undefined}
+                            >
+                                Shopping Bag
+                            </MobileNavItem>
+                        </ul>
+
+                        {/* CTA Button */}
+                        <div className={`mt-8 transform transition-all duration-500 ${
+                            isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                        }`} style={{ transitionDelay: isMenuOpen ? '300ms' : '0ms' }}>
+                            <Link 
+                                href={localizedPath('/shop')}
+                                onClick={closeMenu}
+                                className="group flex items-center justify-between w-full px-6 py-4 bg-black text-cream hover:bg-cognac transition-colors duration-300"
+                            >
+                                <span className="font-sans text-sm uppercase tracking-widest">Shop Now</span>
+                                <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </nav>
+
+                    {/* Footer */}
+                    <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-gold/10 bg-cream">
+                        {/* Language Switcher */}
+                        <div className="flex items-center justify-between mb-6">
+                            <span className="font-sans text-xs uppercase tracking-widest text-stone-warm">Language</span>
                             <LanguageSwitcher />
                         </div>
-                        <Link 
-                            href={localizedPath('/shop')}
-                            onClick={closeMenu}
-                            className="block w-full text-center py-4 bg-gold text-black font-sans text-sm uppercase tracking-widest hover:bg-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gold"
-                        >
-                            Shop Now
-                        </Link>
+
+                        {/* Social Links */}
+                        <div className="flex items-center gap-4 mb-6">
+                            <a 
+                                href="https://instagram.com/domogbrand" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="p-2 text-stone-warm hover:text-cognac transition-colors"
+                                aria-label="Instagram"
+                            >
+                                <Instagram size={20} strokeWidth={1.5} />
+                            </a>
+                            <a 
+                                href="https://www.facebook.com/mongolundesniieetengutal/" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="p-2 text-stone-warm hover:text-cognac transition-colors"
+                                aria-label="Facebook"
+                            >
+                                <Facebook size={20} strokeWidth={1.5} />
+                            </a>
+                        </div>
+
+                        {/* Tagline */}
+                        <p className="font-sans text-xs text-stone-muted">
+                            Handcrafted in Mongolia since 1990
+                        </p>
                     </div>
-                </nav>
+                </div>
             </div>
             </nav>
         </header>
@@ -196,14 +311,40 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     );
 }
 
-function MobileNavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) {
+interface MobileNavItemProps {
+    href: string;
+    children: React.ReactNode;
+    onClick: () => void;
+    delay: number;
+    isOpen: boolean;
+    badge?: number;
+}
+
+function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: MobileNavItemProps) {
     return (
-        <Link
-            href={href}
-            onClick={onClick}
-            className="font-serif text-3xl text-black hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        <li 
+            className={`transform transition-all duration-500 ${
+                isOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+            }`}
+            style={{ transitionDelay: isOpen ? `${delay * 75}ms` : '0ms' }}
         >
-            {children}
-        </Link>
+            <Link
+                href={href}
+                onClick={onClick}
+                className="group flex items-center justify-between py-4 px-4 -mx-4 rounded-sm hover:bg-cream-sand transition-colors duration-200"
+            >
+                <span className="font-serif text-xl text-black group-hover:text-cognac transition-colors">
+                    {children}
+                </span>
+                <div className="flex items-center gap-2">
+                    {badge && (
+                        <span className="w-6 h-6 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
+                            {badge}
+                        </span>
+                    )}
+                    <ArrowRight size={16} className="text-stone-muted group-hover:text-cognac group-hover:translate-x-1 transition-all" />
+                </div>
+            </Link>
+        </li>
     );
 }
