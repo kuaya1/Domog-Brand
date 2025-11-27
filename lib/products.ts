@@ -134,6 +134,9 @@ export const products: Product[] = [
     // ============================================================================
     // ADDITIONAL PRODUCTS 7-15
     // ============================================================================
+    {
+        id: "7",
+        name: "Gobi Desert Boot",
         price: 340,
         description: "Where sand meets stone, only true craftsmanship survives. These boots combine the breathability demanded by summer steppe with protection against the Gobi's infamous temperature swings. The amber-toned leather pays homage to the desert's sunset palette, while reinforced stitching withstands sand that would destroy lesser footwear.",
         images: ["/images/boots/gobi-1.jpg"],
