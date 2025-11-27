@@ -173,8 +173,8 @@ export default function Navigation({ dictionary }: NavigationProps) {
             {/* Mobile Menu - Premium Glassmorphism Drawer */}
             <div 
                 id="mobile-menu"
-                className={`lg:hidden fixed inset-0 z-50 transition-all duration-500 ${
-                    isMenuOpen ? 'visible' : 'invisible pointer-events-none'
+                className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
+                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
                 }`}
                 aria-hidden={!isMenuOpen}
             >
@@ -187,9 +187,9 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     aria-hidden="true"
                 />
 
-                {/* Drawer Panel - Solid White Background */}
+                {/* Drawer Panel - Frosted Glass */}
                 <div 
-                    className={`absolute top-0 left-0 h-full w-[85%] max-w-sm bg-white shadow-2xl border-r border-gray-100 transform transition-transform duration-500 ease-out ${
+                    className={`absolute top-0 left-0 min-h-screen h-full w-[85%] max-w-sm bg-white/90 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_35px_120px_rgba(0,0,0,0.35)] border-r border-white/30 transform transition-transform duration-500 ease-out ${
                         isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
                 >
