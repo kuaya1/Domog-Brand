@@ -10,6 +10,7 @@ import { SmartSearch } from "@/components/SmartSearch";
 import { NewsletterPopup } from "@/components/NewsletterPopup";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { locales, isValidLocale, type Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/dictionaries';
 import { notFound } from 'next/navigation';
 
 const inter = Inter({ 
@@ -151,6 +152,9 @@ export default function LocaleLayout({ children, params: { locale } }: LocaleLay
         notFound();
     }
 
+    // Get dictionary for this locale
+    const dictionary = getDictionary(locale);
+
     return (
         <html lang={locale} className="scroll-smooth">
             <head>
@@ -169,10 +173,10 @@ export default function LocaleLayout({ children, params: { locale } }: LocaleLay
                 >
                     Skip to main content
                 </a>
-                <Navigation />
+                <Navigation dictionary={dictionary.navigation} />
                 <main id="main-content">{children}</main>
-                <Footer />
-                <CartDrawer />
+                <Footer dictionary={dictionary.footer} locale={locale} />
+                <CartDrawer dictionary={dictionary.cart} locale={locale} />
                 <SmartSearch />
                 <NewsletterPopup delay={15000} exitIntent={true} />
                 <ToastProvider />

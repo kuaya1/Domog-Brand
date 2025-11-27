@@ -7,26 +7,32 @@ import { Product, getLocalizedName, getLocalizedCategory } from '@/lib/products'
 import { ArrowUpRight } from 'lucide-react';
 import { useLocale } from '@/lib/i18n/navigation';
 import { type Locale } from '@/lib/i18n/config';
+import { type ProductCardDictionary, getDictionarySection } from '@/lib/dictionaries';
 
 interface ProductCardProps {
     product: Product;
     priority?: boolean;
     locale?: Locale;
+    dictionary?: ProductCardDictionary;
 }
 
 /**
  * Optimized ProductCard Component
  * - Memoized to prevent unnecessary re-renders
  * - Lazy loads images below the fold
- * - Supports localized product names and categories
+ * - Supports localized product names, categories, and UI strings
  */
 const ProductCard = memo(function ProductCard({ 
     product, 
     priority = false,
-    locale: propLocale
+    locale: propLocale,
+    dictionary: propDictionary
 }: ProductCardProps) {
     const hookLocale = useLocale();
     const locale = propLocale || hookLocale;
+    
+    // Get dictionary - use prop if provided, otherwise fetch from locale
+    const t = propDictionary || getDictionarySection(locale, 'productCard');
     
     const [isHovered, setIsHovered] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -96,7 +102,7 @@ const ProductCard = memo(function ProductCard({
                     {product.isNew && (
                         <div className="absolute top-6 right-6">
                             <span className="inline-block px-3 py-1.5 bg-gold text-black font-sans text-xs uppercase tracking-wider">
-                                New
+                                {t.new_badge}
                             </span>
                         </div>
                     )}
@@ -106,7 +112,7 @@ const ProductCard = memo(function ProductCard({
                         isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}>
                         <span className="inline-flex items-center gap-2 text-cream font-sans text-sm uppercase tracking-widest group-hover:text-gold transition-colors duration-300">
-                            <span>View Details</span>
+                            <span>{t.view_details}</span>
                             <ArrowUpRight size={16} aria-hidden="true" />
                         </span>
                     </div>
@@ -125,14 +131,14 @@ const ProductCard = memo(function ProductCard({
                             ${product.price.toLocaleString()}
                         </span>
                         <span className="font-sans text-xs text-stone-muted uppercase tracking-wider">
-                            USD
+                            {t.usd}
                         </span>
                     </div>
 
                     {/* Stock Status */}
                     {product.inStock === false && (
                         <p className="mt-3 font-sans text-xs text-burgundy uppercase tracking-wider">
-                            Currently Unavailable
+                            {t.currently_unavailable}
                         </p>
                     )}
                 </div>

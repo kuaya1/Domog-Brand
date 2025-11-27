@@ -7,8 +7,33 @@ import { useCartStore } from '@/lib/store';
 import { useUIStore } from '@/lib/stores/ui-store';
 import { useLocalizedPath } from '@/lib/i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import { type NavigationDictionary } from '@/lib/dictionaries';
 
-export default function Navigation() {
+// ============================================================================
+// Default Dictionary (fallback)
+// ============================================================================
+
+const defaultDict: NavigationDictionary = {
+    shop: "Shop",
+    heritage: "Heritage",
+    atelier: "Atelier",
+    cart: "Cart",
+    search_placeholder: "Search products...",
+    shop_now: "Shop Now",
+    shop_collection: "Shop Collection",
+    our_heritage: "Our Heritage",
+    visit_atelier: "Visit Atelier",
+    shopping_bag: "Shopping Bag",
+    language: "Language",
+    tagline: "Handcrafted in Mongolia since 1990",
+};
+
+interface NavigationProps {
+    dictionary?: NavigationDictionary;
+}
+
+export default function Navigation({ dictionary }: NavigationProps) {
+    const t = dictionary || defaultDict;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isHydrated, setIsHydrated] = useState(false);
@@ -101,9 +126,9 @@ export default function Navigation() {
                     {/* Desktop Navigation - Centered */}
                     <div className="hidden lg:flex items-center justify-center flex-1 px-12">
                         <ul className="flex items-center space-x-12" role="menubar">
-                            <li role="none"><NavLink href={localizedPath('/shop')}>Shop</NavLink></li>
-                            <li role="none"><NavLink href={localizedPath('/about')}>Heritage</NavLink></li>
-                            <li role="none"><NavLink href={localizedPath('/contact')}>Atelier</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/shop')}>{t.shop}</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/about')}>{t.heritage}</NavLink></li>
+                            <li role="none"><NavLink href={localizedPath('/contact')}>{t.atelier}</NavLink></li>
                         </ul>
                     </div>
 
@@ -200,7 +225,7 @@ export default function Navigation() {
                             className="w-full flex items-center gap-3 px-4 py-3 bg-cream-sand rounded-sm text-stone-warm hover:text-black transition-colors"
                         >
                             <Search size={18} strokeWidth={1.5} />
-                            <span className="font-sans text-sm">Search products...</span>
+                            <span className="font-sans text-sm">{t.search_placeholder}</span>
                         </button>
                     </div>
 
@@ -213,7 +238,7 @@ export default function Navigation() {
                                 delay={0}
                                 isOpen={isMenuOpen}
                             >
-                                Shop Collection
+                                {t.shop_collection}
                             </MobileNavItem>
                             <MobileNavItem 
                                 href={localizedPath('/about')} 
@@ -221,7 +246,7 @@ export default function Navigation() {
                                 delay={1}
                                 isOpen={isMenuOpen}
                             >
-                                Our Heritage
+                                {t.our_heritage}
                             </MobileNavItem>
                             <MobileNavItem 
                                 href={localizedPath('/contact')} 
@@ -229,7 +254,7 @@ export default function Navigation() {
                                 delay={2}
                                 isOpen={isMenuOpen}
                             >
-                                Visit Atelier
+                                {t.visit_atelier}
                             </MobileNavItem>
                             <MobileNavItem 
                                 href={localizedPath('/cart')} 
@@ -238,7 +263,7 @@ export default function Navigation() {
                                 isOpen={isMenuOpen}
                                 badge={isHydrated && itemCount > 0 ? itemCount : undefined}
                             >
-                                Shopping Bag
+                                {t.shopping_bag}
                             </MobileNavItem>
                         </ul>
 
@@ -251,7 +276,7 @@ export default function Navigation() {
                                 onClick={closeMenu}
                                 className="group flex items-center justify-between w-full px-6 py-4 bg-black text-cream hover:bg-cognac transition-colors duration-300"
                             >
-                                <span className="font-sans text-sm uppercase tracking-widest">Shop Now</span>
+                                <span className="font-sans text-sm uppercase tracking-widest">{t.shop_now}</span>
                                 <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
@@ -261,7 +286,7 @@ export default function Navigation() {
                     <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-gold/10 bg-cream">
                         {/* Language Switcher */}
                         <div className="flex items-center justify-between mb-6">
-                            <span className="font-sans text-xs uppercase tracking-widest text-stone-warm">Language</span>
+                            <span className="font-sans text-xs uppercase tracking-widest text-stone-warm">{t.language}</span>
                             <LanguageSwitcher />
                         </div>
 
@@ -289,7 +314,7 @@ export default function Navigation() {
 
                         {/* Tagline */}
                         <p className="font-sans text-xs text-stone-muted">
-                            Handcrafted in Mongolia since 1990
+                            {t.tagline}
                         </p>
                     </div>
                 </div>

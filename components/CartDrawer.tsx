@@ -16,6 +16,8 @@ import {
 } from '@/lib/stores/cart-store';
 import { useUIStore, useCartDrawerOpen } from '@/lib/stores/ui-store';
 import { cn } from '@/lib/utils';
+import { type CartDictionary } from '@/lib/dictionaries';
+import { useLocalizedPath } from '@/lib/i18n/navigation';
 
 // ============================================================================
 // Types
@@ -23,18 +25,22 @@ import { cn } from '@/lib/utils';
 
 interface CartDrawerProps {
     className?: string;
+    dictionary?: CartDictionary;
+    locale?: string;
 }
 
 // ============================================================================
 // Sub-components
 // ============================================================================
 
-function CartItemCard({ item, onUpdateQuantity, onRemove }: {
+function CartItemCard({ item, onUpdateQuantity, onRemove, t }: {
     item: CartItem;
     onUpdateQuantity: (productId: string, size: string, quantity: number) => void;
     onRemove: (productId: string, size: string) => void;
+    t: CartDictionary;
 }) {
     const [isRemoving, setIsRemoving] = useState(false);
+    const localizedPath = useLocalizedPath();
 
     const handleRemove = () => {
         setIsRemoving(true);
@@ -53,7 +59,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
         >
             {/* Product Image */}
             <Link 
-                href={`/products/${item.productId}`}
+                href={localizedPath(`/products/${item.productId}`)}
                 className="relative aspect-square w-20 flex-shrink-0 overflow-hidden rounded bg-cream-100"
             >
                 {item.image ? (
@@ -75,13 +81,13 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
             <div className="flex flex-1 flex-col justify-between">
                 <div>
                     <Link 
-                        href={`/products/${item.productId}`}
+                        href={localizedPath(`/products/${item.productId}`)}
                         className="font-serif text-sm font-medium text-black hover:text-cognac-600 transition-colors line-clamp-2"
                     >
                         {item.name}
                     </Link>
                     <p className="mt-1 text-xs text-cream-600">
-                        Size: {item.size}
+                        {t.size}: {item.size}
                     </p>
                 </div>
 
@@ -120,7 +126,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
             <button
                 onClick={handleRemove}
                 className="p-1 text-cream-400 hover:text-burgundy-600 transition-colors self-start"
-                aria-label={`Remove ${item.name} from cart`}
+                aria-label={`${t.remove} ${item.name}`}
             >
                 <Trash2 className="h-4 w-4" />
             </button>
@@ -128,7 +134,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove }: {
     );
 }
 
-function PromoCodeInput() {
+function PromoCodeInput({ t }: { t: CartDictionary }) {
     const [code, setCode] = useState('');
     const [isApplying, setIsApplying] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -161,7 +167,7 @@ function PromoCodeInput() {
 
     const handleRemove = () => {
         removePromoCode();
-        toast.info('Promo code removed');
+        toast.info(t.promo_code + ' ' + t.remove.toLowerCase());
     };
 
     if (appliedPromo) {
@@ -177,7 +183,7 @@ function PromoCodeInput() {
                     onClick={handleRemove}
                     className="text-sm text-green-600 hover:text-green-800 transition-colors"
                 >
-                    Remove
+                    {t.remove}
                 </button>
             </div>
         );
@@ -193,7 +199,7 @@ function PromoCodeInput() {
                         setCode(e.target.value.toUpperCase());
                         setError(null);
                     }}
-                    placeholder="Promo code"
+                    placeholder={t.promo_code}
                     className={cn(
                         "flex-1 rounded border px-3 py-2 text-sm",
                         "focus:outline-none focus:ring-2 focus:ring-black/5",
@@ -206,7 +212,7 @@ function PromoCodeInput() {
                     disabled={!code.trim() || isApplying}
                     className="px-4 py-2 border-2 border-gold text-gold text-sm uppercase tracking-widest transition-all duration-300 hover:bg-gold hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isApplying ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Apply'}
+                    {isApplying ? <Loader2 className="h-4 w-4 animate-spin" /> : t.apply}
                 </button>
             </div>
             {error && (
@@ -216,24 +222,26 @@ function PromoCodeInput() {
     );
 }
 
-function EmptyCart({ onClose }: { onClose: () => void }) {
+function EmptyCart({ onClose, t }: { onClose: () => void; t: CartDictionary }) {
+    const localizedPath = useLocalizedPath();
+    
     return (
         <div className="flex flex-1 flex-col items-center justify-center px-6 py-16">
             <div className="mb-6 rounded-full bg-cream-100 p-6">
                 <ShoppingBag className="h-12 w-12 text-cream-400" />
             </div>
             <h3 className="mb-2 font-serif text-xl font-medium text-black">
-                Your cart is empty
+                {t.empty_cart_title}
             </h3>
             <p className="mb-8 text-center text-sm text-cream-600">
-                Discover our collection of handcrafted Mongolian boots and find the perfect pair.
+                {t.empty_cart_description}
             </p>
             <Link 
-                href="/shop"
+                href={localizedPath('/shop')}
                 onClick={onClose}
                 className="inline-flex items-center justify-center px-8 py-4 bg-gold text-black font-sans text-sm uppercase tracking-widest transition-all duration-300 hover:bg-gold-light focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
-                Browse Collection
+                {t.browse_collection}
                 <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
         </div>
@@ -241,10 +249,40 @@ function EmptyCart({ onClose }: { onClose: () => void }) {
 }
 
 // ============================================================================
+// Default Dictionary (fallback)
+// ============================================================================
+
+const defaultDict: CartDictionary = {
+    your_cart: "Your Cart",
+    empty_cart_title: "Your cart is empty",
+    empty_cart_description: "Discover our collection of handcrafted Mongolian boots and find the perfect pair.",
+    browse_collection: "Browse Collection",
+    size: "Size",
+    remove: "Remove",
+    subtotal: "Subtotal",
+    shipping: "Shipping",
+    shipping_calculated: "Calculated at checkout",
+    free_shipping: "Free",
+    tax: "Tax",
+    discount: "Discount",
+    total: "Total",
+    checkout: "Proceed to Checkout",
+    continue_shopping: "Continue Shopping",
+    promo_code: "Promo Code",
+    apply: "Apply",
+    promo_applied: "applied",
+    items_in_cart: "items",
+    item_in_cart: "item",
+};
+
+// ============================================================================
 // Main Component
 // ============================================================================
 
-export function CartDrawer({ className }: CartDrawerProps) {
+export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
+    const t = dictionary || defaultDict;
+    const localizedPath = useLocalizedPath();
+    
     const isOpen = useCartDrawerOpen();
     const setCartDrawerOpen = useUIStore(state => state.setCartDrawerOpen);
     
@@ -322,15 +360,15 @@ export function CartDrawer({ className }: CartDrawerProps) {
                 )}
                 role="dialog"
                 aria-modal="true"
-                aria-label="Shopping cart"
+                aria-label={t.your_cart}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-cream-100 px-6 py-4">
                     <h2 className="font-serif text-lg font-medium text-black">
-                        Shopping Cart
+                        {t.your_cart}
                         {itemCount > 0 && (
                             <span className="ml-2 text-sm font-normal text-cream-500">
-                                ({itemCount} {itemCount === 1 ? 'item' : 'items'})
+                                ({itemCount} {itemCount === 1 ? t.item_in_cart : t.items_in_cart})
                             </span>
                         )}
                     </h2>
@@ -344,7 +382,7 @@ export function CartDrawer({ className }: CartDrawerProps) {
                 </div>
 
                 {items.length === 0 ? (
-                    <EmptyCart onClose={handleClose} />
+                    <EmptyCart onClose={handleClose} t={t} />
                 ) : (
                     <Fragment>
                         {/* Cart Items */}
@@ -355,6 +393,7 @@ export function CartDrawer({ className }: CartDrawerProps) {
                                     item={item}
                                     onUpdateQuantity={handleUpdateQuantity}
                                     onRemove={handleRemove}
+                                    t={t}
                                 />
                             ))}
                         </div>
@@ -362,27 +401,27 @@ export function CartDrawer({ className }: CartDrawerProps) {
                         {/* Footer */}
                         <div className="border-t border-cream-100 px-6 py-4 space-y-4">
                             {/* Promo Code */}
-                            <PromoCodeInput />
+                            <PromoCodeInput t={t} />
 
                             {/* Order Summary */}
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between text-cream-600">
-                                    <span>Subtotal</span>
+                                    <span>{t.subtotal}</span>
                                     <span>${subtotal.toFixed(2)}</span>
                                 </div>
                                 
                                 {discount > 0 && (
                                     <div className="flex justify-between text-green-600">
-                                        <span>Discount ({promo?.code})</span>
+                                        <span>{t.discount} ({promo?.code})</span>
                                         <span>-${discount.toFixed(2)}</span>
                                     </div>
                                 )}
                                 
                                 <div className="flex justify-between text-cream-600">
-                                    <span>Shipping</span>
+                                    <span>{t.shipping}</span>
                                     <span>
                                         {shipping === 0 ? (
-                                            <span className="text-green-600">Free</span>
+                                            <span className="text-green-600">{t.free_shipping}</span>
                                         ) : (
                                             `$${shipping.toFixed(2)}`
                                         )}
@@ -390,12 +429,12 @@ export function CartDrawer({ className }: CartDrawerProps) {
                                 </div>
                                 
                                 <div className="flex justify-between text-cream-600">
-                                    <span>Estimated Tax</span>
+                                    <span>{t.tax}</span>
                                     <span>${tax.toFixed(2)}</span>
                                 </div>
                                 
                                 <div className="flex justify-between pt-2 border-t border-cream-100 text-base font-medium text-black">
-                                    <span>Total</span>
+                                    <span>{t.total}</span>
                                     <span>${total.toFixed(2)}</span>
                                 </div>
                             </div>
@@ -418,16 +457,16 @@ export function CartDrawer({ className }: CartDrawerProps) {
 
                             {/* Checkout Button */}
                             <Link 
-                                href="/cart" 
+                                href={localizedPath('/cart')} 
                                 onClick={handleClose}
                                 className="w-full inline-flex items-center justify-center px-8 py-4 bg-black text-white font-sans text-sm uppercase tracking-widest transition-all duration-300 hover:bg-black-rich focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
                             >
-                                Proceed to Checkout
+                                {t.checkout}
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
 
                             <p className="text-center text-xs text-cream-500">
-                                Shipping & taxes calculated at checkout
+                                {t.shipping_calculated}
                             </p>
                         </div>
                     </Fragment>
