@@ -68,14 +68,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                 </Link>
                             </div>
 
-                            {/* Desktop: Image on Right - 60% scaled to viewport */}
+                            {/* Desktop: Image on Right - 60% scaled to viewport, scaled up 20% */}
                             <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
                                 <Image
                                     src="/images/hero-image.jpg"
                                     alt="The Master Craftsman hand-lasting a boot"
-                                    width={800}
-                                    height={900}
-                                    className="w-full h-full object-contain"
+                                    width={960}
+                                    height={1080}
+                                    className="w-full h-full object-contain scale-[1.2] origin-center"
                                     priority
                                 />
                             </div>
@@ -86,7 +86,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             </section>
 
             {/* Featured Collection */}
-            <section className="py-24 px-4 bg-cream-sand">
+            <section className="py-24 px-4 bg-white">
                 <div className="container mx-auto">
                     <div className="text-center mb-16">
                         <span className="text-cognac font-medium uppercase tracking-[0.2em] text-sm">
