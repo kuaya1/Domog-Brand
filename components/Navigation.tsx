@@ -88,40 +88,43 @@ export default function Navigation({ dictionary }: NavigationProps) {
             <nav 
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
                     isScrolled 
-                        ? 'bg-cream/90 backdrop-blur-xl shadow-sm border-b border-black/5' 
-                        : 'bg-cream/70 backdrop-blur-md'
+                        ? 'bg-cream-50/95 backdrop-blur-md border-b border-warm-200' 
+                        : 'bg-cream-50/95 backdrop-blur-md'
                 }`}
                 aria-label="Main navigation"
             >
-            <div className="max-w-7xl mx-auto px-4 lg:px-8">
-                <div className="flex items-center justify-between h-16 lg:h-20">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                <div className="flex items-center justify-between h-20">
                     {/* Mobile: Menu Button (Left) */}
                     <div className="flex lg:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="text-charcoal-800 hover:text-burgundy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-expanded={isMenuOpen}
                             aria-controls="mobile-menu"
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         >
-                            <Menu size={20} strokeWidth={1.5} aria-hidden="true" />
+                            <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
                         </button>
                     </div>
 
                     {/* Logo - Centered on mobile, left on desktop */}
                     <Link 
                         href={localizedPath('/')} 
-                        className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                        className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 z-10 flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2"
                         aria-label="Domog Brand - Home"
                     >
-                        <span className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-black group-hover:text-cognac transition-colors duration-300">
+                        <span className="text-2xl font-serif font-semibold tracking-tight text-charcoal-900 group-hover:text-burgundy-700 transition-colors duration-300">
                             DOMOG
+                        </span>
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-warm-600 hidden sm:block">
+                            Since 1990
                         </span>
                     </Link>
 
                     {/* Desktop Navigation - Centered */}
                     <div className="hidden lg:flex items-center justify-center flex-1 px-12">
-                        <ul className="flex items-center space-x-12" role="menubar">
+                        <ul className="flex items-center gap-10" role="menubar">
                             <li role="none"><NavLink href={localizedPath('/shop')}>{t.shop}</NavLink></li>
                             <li role="none"><NavLink href={localizedPath('/about')}>{t.heritage}</NavLink></li>
                             <li role="none"><NavLink href={localizedPath('/contact')}>{t.atelier}</NavLink></li>
@@ -129,23 +132,23 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     </div>
 
                     {/* Right Side - Icons */}
-                    <div className="hidden lg:flex items-center space-x-6">
+                    <div className="hidden lg:flex items-center gap-6">
                         <LanguageSwitcher />
                         <button 
                             onClick={() => setSearchOpen(true)}
-                            className="p-2 text-stone-warm hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="text-charcoal-800 hover:text-burgundy-700 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-label="Search products"
                         >
                             <Search size={20} strokeWidth={1.5} aria-hidden="true" />
                         </button>
                         <Link 
                             href={localizedPath('/cart')} 
-                            className="relative p-2 text-stone-warm hover:text-cognac transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="relative text-charcoal-800 hover:text-burgundy-700 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
                             <ShoppingBag size={20} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}
@@ -156,12 +159,12 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     <div className="flex lg:hidden">
                         <Link 
                             href={localizedPath('/cart')} 
-                            className="relative w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                            className="relative text-charcoal-800 hover:text-burgundy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
-                            <ShoppingBag size={18} strokeWidth={1.5} aria-hidden="true" />
+                            <ShoppingBag size={22} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-gold text-black text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}
@@ -299,10 +302,11 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     return (
         <Link
             href={href}
-            className="relative font-sans text-sm uppercase tracking-widest text-stone-warm hover:text-black transition-colors duration-300 gold-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+            className="relative font-medium text-sm text-warm-700 hover:text-charcoal-900 transition-colors duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2"
             role="menuitem"
         >
             {children}
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-300" />
         </Link>
     );
 }

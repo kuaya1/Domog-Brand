@@ -22,16 +22,34 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
+                // Luxury Charcoal Palette
+                charcoal: {
+                    800: "#1A1816",
+                    900: "#0A0A0A",
+                },
                 // Primary Palette
                 black: {
                     DEFAULT: "#0A0A0A",
                     rich: "#1A1816",
                     soft: "#2C2824",
                 },
+                // Refined Cream Tones
                 cream: {
+                    50: "#FAF8F3",
+                    100: "#F5F2E9",
+                    200: "#EDE9DF",
                     DEFAULT: "#FAF8F3",
                     sand: "#F5F2E9",
                     warm: "#EDE8DD",
+                },
+                // Warm Neutral Scale
+                warm: {
+                    50: "#FAF8F3",
+                    100: "#F5F2E9",
+                    200: "#EDE9DF",
+                    500: "#8B8378",
+                    600: "#6B6358",
+                    700: "#5A5654",
                 },
                 // Accent Colors
                 cognac: {
@@ -40,11 +58,15 @@ const config: Config = {
                     dark: "#6B5535",
                 },
                 burgundy: {
+                    700: "#6B2737",
                     DEFAULT: "#6B2737",
                     light: "#8B3347",
                     dark: "#4B1727",
                 },
                 gold: {
+                    500: "#D4AF77",
+                    600: "#C9A961",
+                    700: "#B8995A",
                     DEFAULT: "#C9A961",
                     light: "#D9C081",
                     dark: "#A98941",
@@ -83,6 +105,7 @@ const config: Config = {
                 "luxury-lg": "0 12px 50px rgba(0, 0, 0, 0.15)",
                 "elegant": "0 4px 20px rgba(0, 0, 0, 0.08)",
                 "gold": "0 4px 20px rgba(201, 169, 97, 0.25)",
+                "3xl": "0 35px 120px rgba(0, 0, 0, 0.35)",
             },
             transitionDuration: {
                 "400": "400ms",

@@ -270,6 +270,17 @@
         }
     }
 
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     @keyframes scale-in {
         from {
             transform: scale(0.95);
@@ -282,7 +293,12 @@
     }
 
     .animate-fade-in {
-        animation: fade-in 0.3s var(--ease-luxury) forwards;
+        animation: fade-in 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+        opacity: 0;
     }
 
     .animate-scale-in {
