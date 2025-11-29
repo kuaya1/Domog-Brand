@@ -87,6 +87,7 @@ const ProductCard = memo(function ProductCard({
                                     transition-transform duration-700 ease-out
                                     group-hover:scale-105
                                     will-change-transform
+                                    mix-blend-multiply dark:mix-blend-normal
                                     ${imageLoaded ? 'opacity-100' : 'opacity-0'}
                                 `}
                                 style={{
