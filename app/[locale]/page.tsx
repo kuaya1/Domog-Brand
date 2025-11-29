@@ -76,9 +76,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     </div>
                     
                     {/* RIGHT: Hero Boot Image - 55% on desktop, Boots are the STAR */}
-                    <div className="lg:w-[55%] relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-gradient-to-br from-cream-100 to-cream-200">
-                        {/* Subtle gradient overlay - REDUCED to let boots shine */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-cream-50/40 via-transparent to-transparent z-10" />
+                    <div className="lg:w-[55%] relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-cream-50">
+                        {/* Soft gradient transition from text to image */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-transparent to-transparent z-10" />
                         
                         {/* The Hero Boot Image - MASSIVE and Prominent */}
                         <Image 
@@ -86,7 +86,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             alt={t.hero_image_alt}
                             fill
                             sizes="(max-width: 1024px) 100vw, 55vw"
-                            className="object-contain object-center scale-110 lg:scale-125"
+                            className="object-contain object-center scale-110 lg:scale-125 mix-blend-multiply"
                             style={{ 
                                 filter: 'contrast(1.1) saturate(1.15) brightness(1.02)',
                             }}
