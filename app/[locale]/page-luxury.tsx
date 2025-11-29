@@ -82,13 +82,13 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         
                         {/* The Hero Boot Image - Natural Size */}
                         <Image 
-                            src="/images/hero-image.jpg"
+                            src="/images/PNG images/hero-bg.png"
                             alt={t.hero_image_alt}
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-contain object-center"
+                            className="object-contain object-center drop-shadow-2xl"
                             style={{ 
-                                filter: 'contrast(1.1) saturate(1.15) brightness(1.02)',
+                                filter: 'contrast(1.1) saturate(1.15) brightness(1.02) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))',
                             }}
                             priority
                         />

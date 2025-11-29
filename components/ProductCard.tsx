@@ -63,7 +63,7 @@ const ProductCard = memo(function ProductCard({
                     boxShadow: '0 4px 20px rgba(139, 111, 71, 0.08)',
                 }}
                 >
-                    {/* Product Image - 3:4 aspect ratio */}
+                    {/* Product Image - 3:4 aspect ratio with centered contain-fit */}
                     <div className="relative aspect-[3/4] bg-cream-50 overflow-hidden">
                         {/* Skeleton loader */}
                         {!imageLoaded && !imageError && (
@@ -75,27 +75,30 @@ const ProductCard = memo(function ProductCard({
                                 <span className="font-sans text-sm text-warm-500">Image unavailable</span>
                             </div>
                         ) : (
-                            <Image
-                                src={product.images[0]}
-                                alt={`${localizedName} - ${localizedCategory}`}
-                                fill
-                                priority={priority}
-                                loading={priority ? 'eager' : 'lazy'}
-                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                className={`
-                                    object-cover object-center
-                                    transition-transform duration-700 ease-out
-                                    group-hover:scale-105
-                                    will-change-transform
-                                    mix-blend-multiply dark:mix-blend-normal
-                                    ${imageLoaded ? 'opacity-100' : 'opacity-0'}
-                                `}
-                                style={{
-                                    filter: 'contrast(1.05) saturate(1.08)'
-                                }}
-                                onLoad={handleImageLoad}
-                                onError={handleImageError}
-                            />
+                            <div className="absolute inset-0 flex items-center justify-center p-8">
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={product.images[0]}
+                                        alt={`${localizedName} - ${localizedCategory}`}
+                                        fill
+                                        priority={priority}
+                                        loading={priority ? 'eager' : 'lazy'}
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        className={`
+                                            object-contain
+                                            transition-opacity duration-700 ease-out
+                                            will-change-opacity
+                                            drop-shadow-lg
+                                            ${imageLoaded ? 'opacity-100' : 'opacity-0'}
+                                        `}
+                                        style={{
+                                            filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15))'
+                                        }}
+                                        onLoad={handleImageLoad}
+                                        onError={handleImageError}
+                                    />
+                                </div>
+                            </div>
                         )}
                         
                         {/* Darkening overlay on hover */}
