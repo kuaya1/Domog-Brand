@@ -31,40 +31,40 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="relative min-h-screen bg-cream-50 overflow-hidden">
                 <div className="h-full min-h-screen flex flex-col lg:flex-row">
                     
-                    {/* LEFT: Text Content - 40% on desktop */}
-                    <div className="lg:w-[45%] flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1 bg-cream-50">
+                    {/* LEFT: Text Content - 50% on desktop */}
+                    <div className="lg:w-1/2 flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1 bg-cream-50">
                         {/* Small Eyebrow Label */}
                         <p className="text-[10px] lg:text-xs uppercase tracking-[0.35em] text-gold-700 mb-6 font-semibold">
                             {t.tagline}
                         </p>
                         
-                        {/* Main Headline - MASSIVE, Split for Drama */}
+                        {/* Main Headline - Refined Scale */}
                         <h1 className="mb-8">
-                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                            <span className="block text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
                                 Legacy
                             </span>
-                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                            <span className="block text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
                                 Carved
                             </span>
-                            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-semibold text-gold-700 leading-[0.9] tracking-tight mt-2">
+                            <span className="block text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gold-700 leading-[0.9] tracking-tight mt-2">
                                 by Hand
                             </span>
                         </h1>
                         
                         {/* Description */}
-                        <p className="text-base lg:text-lg text-stone-warm leading-[1.8] max-w-lg mb-10 font-light">
+                        <p className="text-sm md:text-base text-stone-warm leading-[1.8] max-w-xl mb-10 font-light">
                             {t.hero_description}
                         </p>
                         
-                        {/* Premium CTA - Large, Bold, Shadow */}
+                        {/* Premium CTA - Refined Size */}
                         <Link 
                             href={`/${locale}/shop`}
                             className="
                                 inline-flex items-center justify-center
                                 w-fit
-                                px-14 py-6
+                                px-10 py-5
                                 bg-charcoal-900 text-cream-50
-                                text-sm uppercase tracking-[0.25em] font-bold
+                                text-xs uppercase tracking-[0.25em] font-bold
                                 hover:bg-black hover:scale-105
                                 transition-all duration-500 ease-out
                                 shadow-2xl hover:shadow-3xl
@@ -75,18 +75,18 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         </Link>
                     </div>
                     
-                    {/* RIGHT: Hero Boot Image - 55% on desktop, Boots are the STAR */}
-                    <div className="lg:w-[55%] relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-cream-50">
+                    {/* RIGHT: Hero Boot Image - 50% on desktop */}
+                    <div className="lg:w-1/2 relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-cream-50">
                         {/* Soft gradient transition from text to image */}
                         <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-transparent to-transparent z-10" />
                         
-                        {/* The Hero Boot Image - MASSIVE and Prominent */}
+                        {/* The Hero Boot Image - Natural Size */}
                         <Image 
                             src="/images/hero-image.jpg"
                             alt={t.hero_image_alt}
                             fill
-                            sizes="(max-width: 1024px) 100vw, 55vw"
-                            className="object-contain object-center scale-110 lg:scale-125 mix-blend-multiply"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-contain object-center"
                             style={{ 
                                 filter: 'contrast(1.1) saturate(1.15) brightness(1.02)',
                             }}
