@@ -73,7 +73,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                                 <p className="text-black font-medium">{t.nomadic_p3}</p>
                             </div>
                         </div>
-                        <div className="order-1 lg:order-2 relative h-[500px] flex items-center justify-center p-12">
+                        <div className="order-1 lg:order-2 relative h-[650px] flex items-center justify-center p-8">
                             <div className="relative w-full h-full">
                                 <Image
                                     src="/images/PNG images/steppe-rider (1).png"
@@ -95,7 +95,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
             <section className="py-24 lg:py-32 bg-cream">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        <div className="relative h-[500px] flex items-center justify-center p-12">
+                        <div className="relative h-[650px] flex items-center justify-center p-8">
                             <div className="relative w-full h-full">
                                 <Image
                                     src="/images/PNG images/Generated Image November 27, 2025 - 10_19AM-EDIT.png"
@@ -148,14 +148,14 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                     </div>
 
                     {/* The Featured Boot */}
-                    <div className="mt-20 relative h-80 lg:h-96 flex items-center justify-center">
+                    <div className="mt-20 relative h-[468px] lg:h-[510px] flex items-center justify-center">
                         {/* Spotlight Effect */}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-1/2 h-2/3 bg-gold-600/[0.14] blur-3xl rounded-full" />
                         </div>
                         
                         {/* Boot Image */}
-                        <div className="relative w-full h-full p-8">
+                        <div className="relative w-full h-full p-6">
                             <Image
                                 src="/images/PNG images/altai-mountain (1).png"
                                 alt={t.master_image_alt}

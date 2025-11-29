@@ -33,14 +33,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
 
-                            {/* Mobile: Image First - Scaled up 20% */}
+                            {/* Mobile: Image First - Scaled down 30% */}
                             <div className="lg:hidden w-full mb-12">
                                 <Image
-                                    src="/images/hero-bg.jpg"
+                                    src="/images/PNG images/Generated Image November 23, 2025 - 9_31PM.png"
                                     alt={t.hero_image_alt}
                                     width={720}
                                     height={840}
-                                    className="w-full max-w-xl mx-auto h-auto scale-[1.44] origin-center"
+                                    className="w-full max-w-xl mx-auto h-auto scale-[1.008] origin-center"
                                     priority
                                 />
                             </div>
@@ -68,14 +68,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                 </Link>
                             </div>
 
-                            {/* Desktop: Image on Right - 60% scaled to viewport, scaled up 20% */}
+                            {/* Desktop: Image on Right - 60% scaled to viewport, scaled down 30% */}
                             <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
                                 <Image
-                                    src="/images/hero-bg.jpg"
+                                    src="/images/PNG images/Generated Image November 23, 2025 - 9_31PM.png"
                                     alt={t.hero_image_alt}
                                     width={960}
                                     height={1080}
-                                    className="w-full h-full object-contain scale-[1.2] origin-center"
+                                    className="w-full h-full object-contain scale-[0.84] origin-center"
                                     priority
                                 />
                             </div>
