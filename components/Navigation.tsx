@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X, ShoppingBag, Search, ArrowRight } from 'lucide-react';
 import { useCartStore } from '@/lib/store';
@@ -37,6 +37,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isHydrated, setIsHydrated] = useState(false);
+    const scrollTicking = useRef(false);
     const cart = useCartStore((state) => state.cart);
     const itemCount = cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
     const setSearchOpen = useUIStore(state => state.setSearchOpen);
@@ -44,11 +45,16 @@ export default function Navigation({ dictionary }: NavigationProps) {
 
     useEffect(() => {
         setIsHydrated(true);
-        
+
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            if (scrollTicking.current) return;
+            scrollTicking.current = true;
+            requestAnimationFrame(() => {
+                setIsScrolled(window.scrollY > 50);
+                scrollTicking.current = false;
+            });
         };
-        
+
         // Passive listener for better scroll performance
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);

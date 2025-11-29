@@ -27,63 +27,78 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
     return (
         <main className="min-h-screen">
-            {/* DRAMATIC HERO SECTION - Full Viewport */}
-            <section className="relative h-screen bg-charcoal-900 overflow-hidden">
-                {/* Full-screen background image */}
-                <div className="absolute inset-0">
-                    <Image 
-                        src="/images/hero-image.jpg"
-                        alt={t.hero_image_alt}
-                        fill
-                        className="object-cover object-center"
-                        style={{ 
-                            filter: 'contrast(1.2) saturate(1.1) brightness(0.85)',
-                        }}
-                        priority
-                    />
-                    {/* Rich gradient overlay - Furlan Marri style */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            {/* DRAMATIC HERO SECTION - Full Viewport, Split Layout with Massive Boots */}
+            <section className="relative min-h-screen bg-cream-50 overflow-hidden">
+                <div className="h-full min-h-screen flex flex-col lg:flex-row">
+                    
+                    {/* LEFT: Text Content - 40% on desktop */}
+                    <div className="lg:w-[45%] flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1 bg-cream-50">
+                        {/* Small Eyebrow Label */}
+                        <p className="text-[10px] lg:text-xs uppercase tracking-[0.35em] text-gold-700 mb-6 font-semibold">
+                            {t.tagline}
+                        </p>
+                        
+                        {/* Main Headline - MASSIVE, Split for Drama */}
+                        <h1 className="mb-8">
+                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                                Legacy
+                            </span>
+                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                                Carved
+                            </span>
+                            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-semibold text-gold-700 leading-[0.9] tracking-tight mt-2">
+                                by Hand
+                            </span>
+                        </h1>
+                        
+                        {/* Description */}
+                        <p className="text-base lg:text-lg text-stone-warm leading-[1.8] max-w-lg mb-10 font-light">
+                            {t.hero_description}
+                        </p>
+                        
+                        {/* Premium CTA - Large, Bold, Shadow */}
+                        <Link 
+                            href={`/${locale}/shop`}
+                            className="
+                                inline-flex items-center justify-center
+                                w-fit
+                                px-14 py-6
+                                bg-charcoal-900 text-cream-50
+                                text-sm uppercase tracking-[0.25em] font-bold
+                                hover:bg-black hover:scale-105
+                                transition-all duration-500 ease-out
+                                shadow-2xl hover:shadow-3xl
+                            "
+                        >
+                            {t.cta_button}
+                            <ArrowRight className="w-5 h-5 ml-4" strokeWidth={2} />
+                        </Link>
+                    </div>
+                    
+                    {/* RIGHT: Hero Boot Image - 55% on desktop, Boots are the STAR */}
+                    <div className="lg:w-[55%] relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-gradient-to-br from-cream-100 to-cream-200">
+                        {/* Subtle gradient overlay - REDUCED to let boots shine */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-cream-50/40 via-transparent to-transparent z-10" />
+                        
+                        {/* The Hero Boot Image - MASSIVE and Prominent */}
+                        <Image 
+                            src="/images/hero-image.jpg"
+                            alt={t.hero_image_alt}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 55vw"
+                            className="object-contain object-center scale-110 lg:scale-125"
+                            style={{ 
+                                filter: 'contrast(1.1) saturate(1.15) brightness(1.02)',
+                            }}
+                            priority
+                        />
+                    </div>
+                    
                 </div>
                 
-                {/* Centered content */}
-                <div className="relative h-full flex flex-col items-center justify-center text-center px-6 lg:px-8">
-                    {/* Small label */}
-                    <p className="text-[10px] uppercase tracking-[0.3em] text-cream-200 mb-6 animate-fade-in font-medium">
-                        {t.tagline}
-                    </p>
-                    
-                    {/* Main headline - DRAMATIC */}
-                    <h1 className="mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                        <span className="block text-5xl md:text-7xl lg:text-8xl font-serif font-semibold text-cream-50 mb-4 tracking-tight leading-none">
-                            {t.hero_title}
-                        </span>
-                        <span className="block text-base md:text-lg lg:text-xl text-cream-200 font-light tracking-wide mt-6 max-w-2xl mx-auto leading-relaxed">
-                            {t.hero_description}
-                        </span>
-                    </h1>
-                    
-                    {/* Premium CTA */}
-                    <Link 
-                        href={`/${locale}/shop`}
-                        className="
-                            inline-block mt-8
-                            px-12 py-5
-                            bg-cream-50 text-charcoal-900
-                            text-sm uppercase tracking-[0.2em] font-medium
-                            hover:bg-cream-100
-                            transition-all duration-400
-                            shadow-2xl hover:shadow-3xl
-                            animate-fade-in
-                        "
-                        style={{ animationDelay: '0.4s' }}
-                    >
-                        {t.cta_button}
-                    </Link>
-                    
-                    {/* Scroll indicator */}
-                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce">
-                        <ChevronDown className="w-6 h-6 text-cream-50/60" strokeWidth={1.5} />
-                    </div>
+                {/* Scroll indicator */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+                    <ChevronDown className="w-6 h-6 text-charcoal-900/40" strokeWidth={1.5} />
                 </div>
             </section>
 

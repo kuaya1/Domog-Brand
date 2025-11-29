@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { locales, isValidLocale, type Locale } from "@/lib/i18n/config";
@@ -27,143 +27,175 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
     return (
         <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
-                <div className="relative z-10 w-full">
-                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
-                        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
-              
-                            {/* Mobile: Image First - Scaled up 20% */}
-                            <div className="lg:hidden w-full mb-12">
-                                <Image
-                                    src="/images/hero-image.jpg"
-                                    alt={t.hero_image_alt}
-                                    width={720}
-                                    height={840}
-                                    className="w-full max-w-xl mx-auto h-auto scale-[1.44] origin-center"
-                                    priority
-                                />
-                            </div>
-
-                            {/* Text Content - 40% on Desktop */}
-                            <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
-                                <div className="space-y-3">
-                                    <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac font-medium">
-                                        {t.tagline}
-                                    </p>
-                                    <h1 className="font-serif text-5xl lg:text-6xl text-black font-medium leading-tight">
-                                        {t.hero_title}
-                                    </h1>
-                                </div>
-                
-                                <p className="font-sans text-base text-stone-warm leading-relaxed max-w-lg lg:max-w-none">
-                                    {t.hero_description}
-                                </p>
-
-                                <Link
-                                    href={`/${locale}/shop`}
-                                    className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-black pb-2 hover:text-cognac hover:border-cognac transition-all duration-300"
-                                >
-                                    {t.cta_button}
-                                </Link>
-                            </div>
-
-                            {/* Desktop: Image on Right - 60% scaled to viewport, scaled up 20% */}
-                            <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
-                                <Image
-                                    src="/images/hero-image.jpg"
-                                    alt={t.hero_image_alt}
-                                    width={960}
-                                    height={1080}
-                                    className="w-full h-full object-contain scale-[1.2] origin-center"
-                                    priority
-                                />
-                            </div>
-
-                        </div>
+            {/* DRAMATIC HERO SECTION - Split Layout with Massive Boots */}
+            <section className="relative min-h-screen bg-cream-50 overflow-hidden">
+                <div className="h-full min-h-screen flex flex-col lg:flex-row">
+                    
+                    {/* LEFT: Text Content - 45% on desktop */}
+                    <div className="lg:w-[45%] flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1 bg-cream-50">
+                        {/* Small Eyebrow Label */}
+                        <p className="text-[10px] lg:text-xs uppercase tracking-[0.35em] text-gold-700 mb-6 font-semibold">
+                            {t.tagline}
+                        </p>
+                        
+                        {/* Main Headline - MASSIVE, Split for Drama */}
+                        <h1 className="mb-8">
+                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                                Legacy
+                            </span>
+                            <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
+                                Carved
+                            </span>
+                            <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-semibold text-gold-700 leading-[0.9] tracking-tight mt-2">
+                                by Hand
+                            </span>
+                        </h1>
+                        
+                        {/* Description */}
+                        <p className="text-base lg:text-lg text-stone-warm leading-[1.8] max-w-lg mb-10 font-light">
+                            {t.hero_description}
+                        </p>
+                        
+                        {/* Premium CTA - Large, Bold, Shadow */}
+                        <Link 
+                            href={`/${locale}/shop`}
+                            className="
+                                inline-flex items-center justify-center
+                                w-fit
+                                px-14 py-6
+                                bg-charcoal-900 text-cream-50
+                                text-sm uppercase tracking-[0.25em] font-bold
+                                hover:bg-black hover:scale-105
+                                transition-all duration-500 ease-out
+                                shadow-2xl hover:shadow-3xl
+                            "
+                        >
+                            {t.cta_button}
+                            <ArrowRight className="w-5 h-5 ml-4" strokeWidth={2} />
+                        </Link>
                     </div>
+                    
+                    {/* RIGHT: Hero Boot Image - 55% on desktop, Boots are the STAR */}
+                    <div className="lg:w-[55%] relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-gradient-to-br from-cream-100 to-cream-200">
+                        {/* Subtle gradient overlay - REDUCED to let boots shine */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-cream-50/40 via-transparent to-transparent z-10" />
+                        
+                        {/* The Hero Boot Image - MASSIVE and Prominent */}
+                        <Image 
+                            src="/images/hero-image.jpg"
+                            alt={t.hero_image_alt}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 55vw"
+                            className="object-contain object-center scale-110 lg:scale-125"
+                            style={{ 
+                                filter: 'contrast(1.1) saturate(1.15) brightness(1.02)',
+                            }}
+                            priority
+                        />
+                    </div>
+                    
+                </div>
+                
+                {/* Scroll indicator */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+                    <ChevronDown className="w-6 h-6 text-charcoal-900/40" strokeWidth={1.5} />
                 </div>
             </section>
 
-            {/* Featured Collection */}
-            <section className="py-24 px-4 bg-white">
-                <div className="container mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="text-cognac font-medium uppercase tracking-[0.2em] text-sm">
+            {/* Featured Collection - Cream Background */}
+            <section className="py-32 lg:py-40 px-6 lg:px-8 bg-cream-50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-20">
+                        <p className="text-xs uppercase tracking-[0.3em] text-gold-700 mb-4 font-medium">
                             {t.collection_label}
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-serif font-medium text-black mt-3 mb-6">
+                        </p>
+                        <h2 className="text-5xl md:text-6xl font-serif font-semibold text-charcoal-900 mb-8 leading-tight">
                             {t.collection_title}
                         </h2>
-                        <div className="w-24 h-px bg-gold mx-auto" />
+                        <div className="w-24 h-px bg-gold-600 mx-auto" />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {products.slice(0, 6).map((product) => (
-                            <div key={product.id} className="transform scale-[0.8025] md:scale-100 origin-top">
-                                <ProductCard product={product} locale={locale} />
-                            </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-20">
+                        {products.slice(0, 6).map((product, index) => (
+                            <ProductCard key={product.id} product={product} locale={locale} priority={index < 3} />
                         ))}
                     </div>
 
                     <div className="text-center mt-20">
-                        <Link
-                            href={`/${locale}/shop`}
-                            className="inline-flex items-center space-x-2 text-black hover:text-cognac font-medium border-b-2 border-gold pb-1 transition-colors text-lg"
-                        >
-                            <span>{t.view_all_products}</span>
-                            <ArrowRight className="w-5 h-5" />
+                        <Link href={`/${locale}/shop`}>
+                            <button className="
+                                px-12 py-4
+                                border-2 border-charcoal-900
+                                text-sm uppercase tracking-[0.2em] font-medium
+                                text-charcoal-900
+                                hover:bg-charcoal-900 hover:text-cream-50
+                                transition-all duration-400
+                            ">
+                                {t.view_all_products}
+                            </button>
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Heritage Section */}
-            <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            {/* DARK HERITAGE SECTION - Visual Rhythm Contrast */}
+            <section className="py-32 lg:py-40 bg-charcoal-900 text-cream-50">
+                <div className="max-w-6xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        {/* Image */}
-                        <div className="relative aspect-[4/5] overflow-hidden shadow-lg">
+                        {/* Image Side */}
+                        <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
                             <Image
                                 src="/images/heritage-craftsman.jpg"
                                 alt={t.heritage_image_alt}
                                 fill
                                 className="object-cover object-center"
+                                style={{ 
+                                    filter: 'contrast(1.15) saturate(1.05) sepia(0.1)' 
+                                }}
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 loading="lazy"
                             />
+                            {/* Rich overlay for depth */}
+                            <div className="absolute inset-0 bg-black/10" />
                         </div>
 
-                        {/* Content */}
-                        <div className="lg:pl-8">
-                            <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
-                                {t.heritage_label}
-                            </span>
-                            <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight mb-8">
-                                {t.heritage_title}
-                            </h2>
+                        {/* Content Side */}
+                        <div className="space-y-8">
+                            <div>
+                                <p className="text-xs uppercase tracking-[0.3em] text-gold-500 mb-6 font-medium">
+                                    {t.heritage_label}
+                                </p>
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
+                                    {t.heritage_title}
+                                </h2>
+                                <div className="w-20 h-px bg-gold-600 mb-8" />
+                            </div>
                             
-                            <div className="space-y-6 text-stone-warm text-lg leading-relaxed">
+                            <div className="space-y-6 text-base lg:text-lg leading-relaxed text-cream-200 font-light">
                                 <p>{t.heritage_p1}</p>
                                 <p>{t.heritage_p2}</p>
-                                <p className="text-black font-medium">{t.heritage_p3}</p>
+                                <p className="text-cream-50 font-normal">{t.heritage_p3}</p>
                             </div>
 
-                            <div className="mt-10">
-                                <Link
-                                    href={`/${locale}/about`}
-                                    className="btn-secondary"
-                                >
+                            <Link href={`/${locale}/about`}>
+                                <button className="
+                                    mt-8 px-10 py-4
+                                    border-2 border-cream-50
+                                    text-sm uppercase tracking-[0.2em] font-medium
+                                    text-cream-50
+                                    hover:bg-cream-50 hover:text-charcoal-900
+                                    transition-all duration-400
+                                ">
                                     {t.heritage_cta}
-                                </Link>
-                            </div>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Craftsmanship Pillars */}
-            <section className="py-32 lg:py-40 bg-cream">
+            {/* Craftsmanship Pillars - Light Background */}
+            <section className="py-32 lg:py-40 bg-warm-50">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-20">
                         <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">

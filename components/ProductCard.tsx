@@ -4,7 +4,7 @@ import { memo, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product, getLocalizedName, getLocalizedCategory } from '@/lib/products';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLocale } from '@/lib/i18n/navigation';
 import { type Locale } from '@/lib/i18n/config';
 import { type ProductCardDictionary, getDictionarySection } from '@/lib/dictionaries';
@@ -17,10 +17,11 @@ interface ProductCardProps {
 }
 
 /**
- * Optimized ProductCard Component
- * - Memoized to prevent unnecessary re-renders
- * - Lazy loads images below the fold
- * - Supports localized product names, categories, and UI strings
+ * Luxury ProductCard Component - Furlan Marri Style
+ * - Warm shadows with dramatic hover lift
+ * - Massive serif pricing with USD superscript
+ * - Slow, elegant transitions (700ms)
+ * - Hover CTA reveal with arrow
  */
 const ProductCard = memo(function ProductCard({ 
     product, 
@@ -34,12 +35,9 @@ const ProductCard = memo(function ProductCard({
     // Get dictionary - use prop if provided, otherwise fetch from locale
     const t = propDictionary || getDictionarySection(locale, 'productCard');
     
-    const [isHovered, setIsHovered] = useState(false);
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
 
-    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
-    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
     const handleImageLoad = useCallback(() => setImageLoaded(true), []);
     const handleImageError = useCallback(() => setImageError(true), []);
 
@@ -48,29 +46,32 @@ const ProductCard = memo(function ProductCard({
 
     return (
         <div className="group cursor-pointer">
-            {/* Card container with refined shadow - Furlan Marri style */}
+            {/* Card container - Warm shadow, dramatic lift */}
             <Link
                 href={`/${locale}/products/${product.id}`}
                 className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-4"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
                 aria-label={`View ${localizedName} - $${product.price}`}
             >
                 <article className="
                     relative bg-white
                     shadow-lg hover:shadow-2xl
                     transition-all duration-500 ease-out
-                    hover:-translate-y-1
-                ">
+                    hover:-translate-y-2
+                    will-change-transform
+                "
+                style={{
+                    boxShadow: '0 4px 20px rgba(139, 111, 71, 0.08)',
+                }}
+                >
                     {/* Product Image - 3:4 aspect ratio */}
-                    <div className="relative aspect-[3/4] bg-warm-50 overflow-hidden">
+                    <div className="relative aspect-[3/4] bg-cream-50 overflow-hidden">
                         {/* Skeleton loader */}
                         {!imageLoaded && !imageError && (
-                            <div className="absolute inset-0 bg-warm-50 animate-pulse" aria-hidden="true" />
+                            <div className="absolute inset-0 bg-cream-100 animate-pulse" aria-hidden="true" />
                         )}
 
                         {imageError ? (
-                            <div className="absolute inset-0 flex items-center justify-center bg-warm-50">
+                            <div className="absolute inset-0 flex items-center justify-center bg-cream-50">
                                 <span className="font-sans text-sm text-warm-500">Image unavailable</span>
                             </div>
                         ) : (
@@ -85,20 +86,21 @@ const ProductCard = memo(function ProductCard({
                                     object-cover object-center
                                     transition-transform duration-700 ease-out
                                     group-hover:scale-105
+                                    will-change-transform
                                     ${imageLoaded ? 'opacity-100' : 'opacity-0'}
                                 `}
                                 style={{
-                                    filter: 'contrast(1.1) saturate(1.05)'
+                                    filter: 'contrast(1.05) saturate(1.08)'
                                 }}
                                 onLoad={handleImageLoad}
                                 onError={handleImageError}
                             />
                         )}
                         
-                        {/* Subtle dark overlay on hover */}
+                        {/* Darkening overlay on hover */}
                         <div className="
                             absolute inset-0
-                            bg-black/0 group-hover:bg-black/5
+                            bg-black/0 group-hover:bg-black/10
                             transition-all duration-500
                         " />
                         
@@ -108,14 +110,14 @@ const ProductCard = memo(function ProductCard({
                                 px-3 py-1.5
                                 bg-white/90 backdrop-blur-sm
                                 text-[10px] uppercase tracking-[0.25em]
-                                text-charcoal-800 font-medium
+                                text-charcoal-900 font-medium
                                 shadow-sm
                             ">
                                 {localizedCategory}
                             </span>
                         </div>
                         
-                        {/* New Badge - top right */}
+                        {/* NEW Badge - top right (gold) */}
                         {product.isNew && (
                             <div className="absolute top-4 right-4 z-10">
                                 <span className="
@@ -131,59 +133,42 @@ const ProductCard = memo(function ProductCard({
                     </div>
                     
                     {/* Product Info */}
-                    <div className="p-6 space-y-4">
+                    <div className="p-6 space-y-3">
                         {/* Product Name */}
                         <h3 className="
-                            text-xl font-serif font-medium text-charcoal-900
-                            group-hover:text-burgundy-700
-                            transition-colors duration-300
+                            text-xl font-serif text-charcoal-900
+                            group-hover:text-gold-700
+                            transition-colors duration-500
                             leading-tight
                         ">
                             {localizedName}
                         </h3>
                         
-                        {/* Short Description - if available */}
-                        {product.description && (
-                            <p className="
-                                text-sm text-warm-700 
-                                line-clamp-2 leading-relaxed
-                                font-light
-                            ">
-                                {product.description}
-                            </p>
-                        )}
-                        
-                        {/* Price and CTA */}
-                        <div className="flex items-baseline justify-between pt-4 border-t border-warm-200">
-                            {/* Price - LARGE and sculptural */}
-                            <div className="flex items-baseline gap-2">
-                                <span className="text-4xl font-serif font-light text-charcoal-900">
+                        {/* Price Row - HUGE price + Hover CTA */}
+                        <div className="flex items-end justify-between pt-2">
+                            {/* Price - MASSIVE serif with USD superscript */}
+                            <div className="flex items-baseline">
+                                <span className="text-4xl font-serif font-light text-charcoal-900 tracking-tight">
                                     ${product.price.toLocaleString()}
                                 </span>
-                                <span className="text-[10px] uppercase tracking-widest text-warm-500 font-medium">
+                                <span className="text-[10px] uppercase tracking-widest text-stone-400 font-medium ml-1 -translate-y-3">
                                     USD
                                 </span>
                             </div>
                             
-                            {/* View Details link - appears on hover */}
-                            <span className="
-                                text-xs uppercase tracking-[0.15em]
+                            {/* Hover CTA - View Details with arrow */}
+                            <div className="
+                                flex items-center gap-1
+                                text-[11px] uppercase tracking-[0.15em]
                                 text-gold-700 font-medium
                                 opacity-0 group-hover:opacity-100
-                                transition-all duration-300
-                                flex items-center gap-2
+                                translate-x-2 group-hover:translate-x-0
+                                transition-all duration-500
                             ">
-                                View Details
-                                <ArrowUpRight className="w-3 h-3" />
-                            </span>
+                                <span>{t.view_details || 'View'}</span>
+                                <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
+                            </div>
                         </div>
-
-                        {/* Stock Status */}
-                        {product.inStock === false && (
-                            <p className="text-xs text-burgundy-700 uppercase tracking-wider font-medium">
-                                {t.currently_unavailable}
-                            </p>
-                        )}
                     </div>
                 </article>
             </Link>
