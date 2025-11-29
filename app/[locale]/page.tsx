@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { locales, isValidLocale, type Locale } from "@/lib/i18n/config";
@@ -27,78 +27,61 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
     return (
         <main className="min-h-screen">
-            {/* DRAMATIC HERO SECTION - Split Layout with Massive Boots */}
-            <section className="relative min-h-screen bg-cream-50 overflow-hidden">
-                <div className="h-full min-h-screen flex flex-col lg:flex-row">
-                    
-                    {/* LEFT: Text Content - 50% on desktop */}
-                    <div className="lg:w-1/2 flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1 bg-cream-50">
-                        {/* Small Eyebrow Label */}
-                        <p className="text-[10px] lg:text-xs uppercase tracking-[0.35em] text-gold-700 mb-6 font-semibold">
-                            {t.tagline}
-                        </p>
-                        
-                        {/* Main Headline - Refined Scale */}
-                        <h1 className="mb-8">
-                            <span className="block text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
-                                Legacy
-                            </span>
-                            <span className="block text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-charcoal-900 leading-[0.85] tracking-tight">
-                                Carved
-                            </span>
-                            <span className="block text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-gold-700 leading-[0.9] tracking-tight mt-2">
-                                by Hand
-                            </span>
-                        </h1>
-                        
-                        {/* Description */}
-                        <p className="text-sm md:text-base text-stone-warm leading-[1.8] max-w-xl mb-10 font-light">
-                            {t.hero_description}
-                        </p>
-                        
-                        {/* Premium CTA - Refined Size */}
-                        <Link 
-                            href={`/${locale}/shop`}
-                            className="
-                                inline-flex items-center justify-center
-                                w-fit
-                                px-10 py-5
-                                bg-charcoal-900 text-cream-50
-                                text-xs uppercase tracking-[0.25em] font-bold
-                                hover:bg-black hover:scale-105
-                                transition-all duration-500 ease-out
-                                shadow-2xl hover:shadow-3xl
-                            "
-                        >
-                            {t.cta_button}
-                            <ArrowRight className="w-5 h-5 ml-4" strokeWidth={2} />
-                        </Link>
+            {/* Hero Section */}
+            <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
+                <div className="relative z-10 w-full">
+                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
+                        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
+
+                            {/* Mobile: Image First - Scaled up 20% */}
+                            <div className="lg:hidden w-full mb-12">
+                                <Image
+                                    src="/images/hero-image.jpg"
+                                    alt={t.hero_image_alt}
+                                    width={720}
+                                    height={840}
+                                    className="w-full max-w-xl mx-auto h-auto scale-[1.44] origin-center"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Text Content - 40% on Desktop */}
+                            <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
+                                <div className="space-y-3">
+                                    <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac font-medium">
+                                        {t.tagline}
+                                    </p>
+                                    <h1 className="font-serif text-5xl lg:text-6xl text-black font-medium leading-tight">
+                                        {t.hero_title}
+                                    </h1>
+                                </div>
+
+                                <p className="font-sans text-base text-stone-warm leading-relaxed max-w-lg lg:max-w-none">
+                                    {t.hero_description}
+                                </p>
+
+                                <Link
+                                    href={`/${locale}/shop`}
+                                    className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-black pb-2 hover:text-cognac hover:border-cognac transition-all duration-300"
+                                >
+                                    {t.cta_button}
+                                </Link>
+                            </div>
+
+                            {/* Desktop: Image on Right - 60% scaled to viewport, scaled up 20% */}
+                            <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
+                                <Image
+                                    src="/images/hero-image.jpg"
+                                    alt={t.hero_image_alt}
+                                    width={960}
+                                    height={1080}
+                                    className="w-full h-full object-contain scale-[1.2] origin-center"
+                                    priority
+                                />
+                            </div>
+
+                        </div>
                     </div>
-                    
-                    {/* RIGHT: Hero Boot Image - 50% on desktop */}
-                    <div className="lg:w-1/2 relative min-h-[60vh] lg:min-h-screen order-1 lg:order-2 bg-cream-50">
-                        {/* Soft gradient transition from text to image */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-cream-50 via-transparent to-transparent z-10" />
-                        
-                        {/* The Hero Boot Image - Natural Size */}
-                        <Image 
-                            src="/images/PNG images/hero-bg.png"
-                            alt={t.hero_image_alt}
-                            fill
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            className="object-contain object-center drop-shadow-2xl"
-                            style={{ 
-                                filter: 'contrast(1.1) saturate(1.15) brightness(1.02) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25))',
-                            }}
-                            priority
-                        />
-                    </div>
-                    
-                </div>
-                
-                {/* Scroll indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
-                    <ChevronDown className="w-6 h-6 text-charcoal-900/40" strokeWidth={1.5} />
                 </div>
             </section>
 
@@ -142,21 +125,27 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="py-32 lg:py-40 bg-charcoal-900 text-cream-50">
                 <div className="max-w-6xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        {/* Image Side */}
-                        <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
-                            <Image
-                                src="/images/heritage-craftsman.jpg"
-                                alt={t.heritage_image_alt}
-                                fill
-                                className="object-cover object-center"
-                                style={{ 
-                                    filter: 'contrast(1.15) saturate(1.05) sepia(0.1)' 
-                                }}
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                                loading="lazy"
-                            />
-                            {/* Rich overlay for depth */}
-                            <div className="absolute inset-0 bg-black/10" />
+                        {/* Image Side - Transparent PNG with Spotlight */}
+                        <div className="relative aspect-[4/5] flex items-center justify-center p-12">
+                            {/* Spotlight Effect Behind Boot */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-2/3 h-2/3 bg-gold-600/20 blur-3xl rounded-full" />
+                            </div>
+                            
+                            {/* Boot Image */}
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/images/PNG images/khans-legacy.png"
+                                    alt={t.heritage_image_alt}
+                                    fill
+                                    className="object-contain drop-shadow-2xl"
+                                    style={{ 
+                                        filter: 'contrast(1.1) saturate(1.08) drop-shadow(0 25px 50px rgba(201, 169, 97, 0.3))' 
+                                    }}
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    loading="lazy"
+                                />
+                            </div>
                         </div>
 
                         {/* Content Side */}

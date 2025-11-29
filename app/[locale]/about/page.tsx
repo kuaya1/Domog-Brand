@@ -73,14 +73,19 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                                 <p className="text-black font-medium">{t.nomadic_p3}</p>
                             </div>
                         </div>
-                        <div className="order-1 lg:order-2 relative h-[500px] overflow-hidden">
-                            <Image
-                                src="/images/Generated Image November 23, 2025 - 9_31PM.jpeg.jpg"
-                                alt={t.nomadic_image_alt}
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
+                        <div className="order-1 lg:order-2 relative h-[500px] flex items-center justify-center p-12">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/images/PNG images/steppe-rider (1).png"
+                                    alt={t.nomadic_image_alt}
+                                    fill
+                                    className="object-contain drop-shadow-xl"
+                                    style={{ 
+                                        filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15))' 
+                                    }}
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,14 +95,19 @@ export default function AboutPage({ params: { locale } }: PageProps) {
             <section className="py-24 lg:py-32 bg-cream">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        <div className="relative h-[500px] overflow-hidden">
-                            <Image
-                                src="/images/boots/genghis-ceremonial.jpg"
-                                alt={t.italian_image_alt}
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
+                        <div className="relative h-[500px] flex items-center justify-center p-12">
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/images/PNG images/Generated Image November 27, 2025 - 10_19AM-EDIT.png"
+                                    alt={t.italian_image_alt}
+                                    fill
+                                    className="object-contain drop-shadow-xl"
+                                    style={{ 
+                                        filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15))' 
+                                    }}
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
+                            </div>
                         </div>
                         <div>
                             <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
@@ -137,15 +147,26 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                         <p>{t.master_p3}</p>
                     </div>
 
-                    {/* The Hands Image */}
-                    <div className="mt-20 relative h-80 lg:h-96 overflow-hidden">
-                        <Image
-                            src="/images/heritage-craftsman.jpg"
-                            alt={t.master_image_alt}
-                            fill
-                            className="object-cover object-center"
-                            sizes="100vw"
-                        />
+                    {/* The Featured Boot */}
+                    <div className="mt-20 relative h-80 lg:h-96 flex items-center justify-center">
+                        {/* Spotlight Effect */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-1/2 h-2/3 bg-gold-600/20 blur-3xl rounded-full" />
+                        </div>
+                        
+                        {/* Boot Image */}
+                        <div className="relative w-full h-full p-8">
+                            <Image
+                                src="/images/PNG images/altai-mountain (1).png"
+                                alt={t.master_image_alt}
+                                fill
+                                className="object-contain drop-shadow-2xl"
+                                style={{ 
+                                    filter: 'contrast(1.1) saturate(1.08) drop-shadow(0 25px 50px rgba(201, 169, 97, 0.3))' 
+                                }}
+                                sizes="100vw"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

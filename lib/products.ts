@@ -188,7 +188,7 @@ export const products: Product[] = [
             en: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping.",
             mn: "Тэмүжин Чингис хаан болсон ариун уулын нэрээр нэрлэгдсэн. Гутал бүр уулын гурван оргилын гар урлалын дүрслэлтэй бөгөөд илгээхээс өмнө орон нутгийн бөөгөөр ариусгагддаг."
         },
-        images: ["/images/PNG images/Generated Image December 6, 2025 - 1_08PM.png"],
+        images: ["/images/PNG images/Generated Image November 27, 2025 - 1_12PM.png"],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["39", "40", "41", "42", "43", "44"],
@@ -208,7 +208,7 @@ export const products: Product[] = [
             en: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup.",
             mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
         },
-        images: ["/images/PNG images/Generated Image December 5, 2025 - 6_52PM.png"],
+        images: ["/images/PNG images/Generated Image November 27, 2025 - 1_16PM.png"],
         category: "Festival",
         categoryLocalized: { en: "Festival", mn: "Баярын" },
         sizes: ["38", "39", "40", "41", "42", "43"],
