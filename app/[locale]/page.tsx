@@ -36,7 +36,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Mobile: Image First - Scaled up 20% */}
                             <div className="lg:hidden w-full mb-12">
                                 <Image
-                                    src="/images/hero-image.jpg"
+                                    src="/images/hero-bg.jpg"
                                     alt={t.hero_image_alt}
                                     width={720}
                                     height={840}
@@ -71,7 +71,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Desktop: Image on Right - 60% scaled to viewport, scaled up 20% */}
                             <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
                                 <Image
-                                    src="/images/hero-image.jpg"
+                                    src="/images/hero-bg.jpg"
                                     alt={t.hero_image_alt}
                                     width={960}
                                     height={1080}
