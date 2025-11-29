@@ -129,7 +129,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         <div className="relative aspect-[4/5] flex items-center justify-center p-12">
                             {/* Spotlight Effect Behind Boot */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-2/3 h-2/3 bg-gold-600/20 blur-3xl rounded-full" />
+                                <div className="w-2/3 h-2/3 bg-gold-600/[0.14] blur-3xl rounded-full" />
                             </div>
                             
                             {/* Boot Image */}

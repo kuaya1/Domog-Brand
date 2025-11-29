@@ -151,7 +151,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                     <div className="mt-20 relative h-80 lg:h-96 flex items-center justify-center">
                         {/* Spotlight Effect */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-1/2 h-2/3 bg-gold-600/20 blur-3xl rounded-full" />
+                            <div className="w-1/2 h-2/3 bg-gold-600/[0.14] blur-3xl rounded-full" />
                         </div>
                         
                         {/* Boot Image */}
