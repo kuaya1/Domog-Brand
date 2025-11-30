@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '@/lib/data';
+import { Product } from '@/lib/products';
 import { memo } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
