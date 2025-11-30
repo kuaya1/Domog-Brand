@@ -22,6 +22,7 @@ interface ProductCardProps {
  * - Massive serif pricing with USD superscript
  * - Slow, elegant transitions (700ms)
  * - Hover CTA reveal with arrow
+ * - Multi-angle image gallery with hover swap and thumbnails
  */
 const ProductCard = memo(function ProductCard({ 
     product, 
@@ -37,9 +38,21 @@ const ProductCard = memo(function ProductCard({
     
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
 
     const handleImageLoad = useCallback(() => setImageLoaded(true), []);
     const handleImageError = useCallback(() => setImageError(true), []);
+    const handleThumbnailClick = useCallback((index: number, e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setCurrentImageIndex(index);
+    }, []);
+
+    // Get the display image - show second image on hover if not manually selected
+    const displayImageIndex = isHovering && currentImageIndex === 0 && product.images.length > 1 
+        ? 1 
+        : currentImageIndex;
 
     const localizedName = getLocalizedName(product, locale);
     const localizedCategory = getLocalizedCategory(product, locale);
@@ -64,7 +77,11 @@ const ProductCard = memo(function ProductCard({
                 }}
                 >
                     {/* Product Image - 3:4 aspect ratio with centered contain-fit */}
-                    <div className="relative aspect-[3/4] bg-cream-50 overflow-hidden">
+                    <div 
+                        className="relative aspect-[3/4] bg-cream-50 overflow-hidden"
+                        onMouseEnter={() => setIsHovering(true)}
+                        onMouseLeave={() => setIsHovering(false)}
+                    >
                         {/* Skeleton loader */}
                         {!imageLoaded && !imageError && (
                             <div className="absolute inset-0 bg-cream-100 animate-pulse" aria-hidden="true" />
@@ -78,15 +95,16 @@ const ProductCard = memo(function ProductCard({
                             <div className="absolute inset-0 flex items-center justify-center p-8">
                                 <div className="relative w-full h-full">
                                     <Image
-                                        src={product.images[0]}
-                                        alt={`${localizedName} - ${localizedCategory}`}
+                                        key={displayImageIndex}
+                                        src={product.images[displayImageIndex]}
+                                        alt={`${localizedName} - ${localizedCategory} - View ${displayImageIndex + 1}`}
                                         fill
                                         priority={priority}
                                         loading={priority ? 'eager' : 'lazy'}
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className={`
                                             object-contain
-                                            transition-opacity duration-700 ease-out
+                                            transition-opacity duration-500 ease-out
                                             will-change-opacity
                                             drop-shadow-lg
                                             ${imageLoaded ? 'opacity-100' : 'opacity-0'}
@@ -98,6 +116,45 @@ const ProductCard = memo(function ProductCard({
                                         onError={handleImageError}
                                     />
                                 </div>
+                            </div>
+                        )}
+                        
+                        {/* Thumbnail Gallery - Bottom of image area */}
+                        {product.images.length > 1 && (
+                            <div className="
+                                absolute bottom-4 left-0 right-0 z-10
+                                flex items-center justify-center gap-2
+                                px-4
+                                opacity-0 group-hover:opacity-100
+                                transition-opacity duration-500
+                            ">
+                                {product.images.map((img, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={(e) => handleThumbnailClick(index, e)}
+                                        className={`
+                                            relative w-12 h-12 sm:w-14 sm:h-14
+                                            bg-white
+                                            rounded-sm
+                                            overflow-hidden
+                                            transition-all duration-300
+                                            hover:scale-110
+                                            ${currentImageIndex === index 
+                                                ? 'ring-2 ring-gold-700 shadow-lg' 
+                                                : 'ring-1 ring-stone-200 hover:ring-gold-400 shadow-md'
+                                            }
+                                        `}
+                                        aria-label={`View angle ${index + 1}`}
+                                    >
+                                        <Image
+                                            src={img}
+                                            alt={`${localizedName} angle ${index + 1}`}
+                                            fill
+                                            sizes="56px"
+                                            className="object-contain p-1"
+                                        />
+                                    </button>
+                                ))}
                             </div>
                         )}
                         

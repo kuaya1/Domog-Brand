@@ -149,7 +149,7 @@ export const products: Product[] = [
             en: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations.",
             mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
         },
-        images: ["/images/PNG images/Generated Image November 27, 2025 - 10_19AM-EDIT.png"],
+        images: ["/images/PNG images/heritage-craftsman (1).png"],
         category: "Ceremonial",
         categoryLocalized: { en: "Ceremonial", mn: "Ёслолын" },
         sizes: ["39", "40", "41", "42", "43", "44"],
