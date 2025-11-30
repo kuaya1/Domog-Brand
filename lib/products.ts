@@ -111,7 +111,11 @@ export const products: Product[] = [
             en: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin.",
             mn: "Зайг бус өдрөөр хэмждэг унагчдад зориулсан. Гурав дахин бэхжүүлсэн арьсан ул нь дөч хасах хүйтэнд дөрөөг барьж, гараар эсгийсэн ноосон дотор нь хоёр дахь арьс шиг дулаан хадгалдаг."
         },
-        images: ["/images/PNG images/steppe-rider (1).png"],
+        images: [
+            "/images/product photos/Steppe rider left.jpg",
+            "/images/product photos/Steppe rider right.jpg",
+            "/images/product photos/Steppe rider back.jpg"
+        ],
         category: "Riding",
         categoryLocalized: { en: "Riding", mn: "Унах" },
         sizes: ["40", "41", "42", "43", "44", "45"],
@@ -130,7 +134,11 @@ export const products: Product[] = [
             en: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers.",
             mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
         },
-        images: ["/images/PNG images/khans-legacy.png"],
+        images: [
+            "/images/product photos/khans legacy left.jpg",
+            "/images/product photos/khans legacy right.jpg",
+            "/images/product photos/khans legacy back.jpg"
+        ],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["40", "41", "42", "43", "44"],
@@ -149,7 +157,11 @@ export const products: Product[] = [
             en: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations.",
             mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
         },
-        images: ["/images/PNG images/heritage-craftsman (1).png"],
+        images: [
+            "/images/product photos/Genghis ceremonial left.jpg",
+            "/images/product photos/Genghis ceremonial right.jpg",
+            "/images/product photos/Genghis ceremonial back.jpg"
+        ],
         category: "Ceremonial",
         categoryLocalized: { en: "Ceremonial", mn: "Ёслолын" },
         sizes: ["39", "40", "41", "42", "43", "44"],
@@ -169,7 +181,11 @@ export const products: Product[] = [
             en: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees.",
             mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
         },
-        images: ["/images/PNG images/altai-mountain (1).png"],
+        images: [
+            "/images/product photos/Altai mountain left.jpg",
+            "/images/product photos/Altai mountain right.jpg",
+            "/images/product photos/Altai Mountain back.jpg"
+        ],
         category: "Winter",
         categoryLocalized: { en: "Winter", mn: "Өвөл" },
         sizes: ["38", "39", "40", "41", "42"],
@@ -188,7 +204,11 @@ export const products: Product[] = [
             en: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping.",
             mn: "Тэмүжин Чингис хаан болсон ариун уулын нэрээр нэрлэгдсэн. Гутал бүр уулын гурван оргилын гар урлалын дүрслэлтэй бөгөөд илгээхээс өмнө орон нутгийн бөөгөөр ариусгагддаг."
         },
-        images: ["/images/PNG images/Generated Image November 27, 2025 - 1_12PM.png"],
+        images: [
+            "/images/product photos/Burkhan Khalduun left.jpg",
+            "/images/product photos/Burkhan Khalduun right.jpg",
+            "/images/product photos/Burkhan Khalduun back.jpg"
+        ],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["39", "40", "41", "42", "43", "44"],
@@ -208,7 +228,11 @@ export const products: Product[] = [
             en: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup.",
             mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
         },
-        images: ["/images/PNG images/Generated Image November 27, 2025 - 1_16PM.png"],
+        images: [
+            "/images/product photos/Naadam Festival left.jpg",
+            "/images/product photos/Naadam Festival right.jpg",
+            "/images/product photos/naadam festival back.jpg"
+        ],
         category: "Festival",
         categoryLocalized: { en: "Festival", mn: "Баярын" },
         sizes: ["38", "39", "40", "41", "42", "43"],
