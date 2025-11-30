@@ -112,9 +112,9 @@ export const products: Product[] = [
             mn: "Зайг бус өдрөөр хэмждэг унагчдад зориулсан. Гурав дахин бэхжүүлсэн арьсан ул нь дөч хасах хүйтэнд дөрөөг барьж, гараар эсгийсэн ноосон дотор нь хоёр дахь арьс шиг дулаан хадгалдаг."
         },
         images: [
-            "/images/product photos/Steppe rider left.jpg",
-            "/images/product photos/Steppe rider right.jpg",
-            "/images/product photos/Steppe rider back.jpg"
+            "/images/boots/steppe-rider-left.jpg",
+            "/images/boots/steppe-rider-right.jpg",
+            "/images/boots/steppe-rider-back.jpg"
         ],
         category: "Riding",
         categoryLocalized: { en: "Riding", mn: "Унах" },
@@ -135,9 +135,9 @@ export const products: Product[] = [
             mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
         },
         images: [
-            "/images/product photos/khans legacy left.jpg",
-            "/images/product photos/khans legacy right.jpg",
-            "/images/product photos/khans legacy back.jpg"
+            "/images/boots/khans-legacy-left.jpg",
+            "/images/boots/khans-legacy-right.jpg",
+            "/images/boots/khans-legacy-back.jpg"
         ],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
@@ -158,9 +158,9 @@ export const products: Product[] = [
             mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
         },
         images: [
-            "/images/product photos/Genghis ceremonial left.jpg",
-            "/images/product photos/Genghis ceremonial right.jpg",
-            "/images/product photos/Genghis ceremonial back.jpg"
+            "/images/boots/genghis-ceremonial-left.jpg",
+            "/images/boots/genghis-ceremonial-right.jpg",
+            "/images/boots/genghis-ceremonial-back.jpg"
         ],
         category: "Ceremonial",
         categoryLocalized: { en: "Ceremonial", mn: "Ёслолын" },
@@ -182,9 +182,9 @@ export const products: Product[] = [
             mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
         },
         images: [
-            "/images/product photos/Altai mountain left.jpg",
-            "/images/product photos/Altai mountain right.jpg",
-            "/images/product photos/Altai Mountain back.jpg"
+            "/images/boots/altai-mountain-left.jpg",
+            "/images/boots/altai-mountain-right.jpg",
+            "/images/boots/altai-mountain-back.jpg"
         ],
         category: "Winter",
         categoryLocalized: { en: "Winter", mn: "Өвөл" },
@@ -205,9 +205,9 @@ export const products: Product[] = [
             mn: "Тэмүжин Чингис хаан болсон ариун уулын нэрээр нэрлэгдсэн. Гутал бүр уулын гурван оргилын гар урлалын дүрслэлтэй бөгөөд илгээхээс өмнө орон нутгийн бөөгөөр ариусгагддаг."
         },
         images: [
-            "/images/product photos/Burkhan Khalduun left.jpg",
-            "/images/product photos/Burkhan Khalduun right.jpg",
-            "/images/product photos/Burkhan Khalduun back.jpg"
+            "/images/boots/burkhan-khaldun-left.jpg",
+            "/images/boots/burkhan-khaldun-right.jpg",
+            "/images/boots/burkhan-khaldun-back.jpg"
         ],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
@@ -229,9 +229,9 @@ export const products: Product[] = [
             mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
         },
         images: [
-            "/images/product photos/Naadam Festival left.jpg",
-            "/images/product photos/Naadam Festival right.jpg",
-            "/images/product photos/naadam festival back.jpg"
+            "/images/boots/naadam-festival-left.jpg",
+            "/images/boots/naadam-festival-right.jpg",
+            "/images/boots/naadam-festival-back.jpg"
         ],
         category: "Festival",
         categoryLocalized: { en: "Festival", mn: "Баярын" },
