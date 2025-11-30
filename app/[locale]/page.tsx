@@ -135,7 +135,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Boot Image */}
                             <div className="relative w-full h-full">
                                 <Image
-                                    src="/images/PNG images/khans-legacy.png"
+                                    src="/images/PNG images/khans-legacy.png (2).png"
                                     alt={t.heritage_image_alt}
                                     fill
                                     className="object-contain drop-shadow-2xl"
