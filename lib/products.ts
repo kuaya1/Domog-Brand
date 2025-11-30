@@ -100,10 +100,10 @@ export const products: Product[] = [
     // ============================================================================
     {
         id: "1",
-        name: "Steppe Rider Boot",
+        name: "TENGER",
         nameLocalized: {
-            en: "Steppe Rider Boot",
-            mn: "Тал нутгийн унагчийн гутал"
+            en: "TENGER",
+            mn: "ТЭНГЭР"
         },
         price: 290,
         description: "Built for riders who measure distance in days, not miles. Triple-reinforced leather soles grip the stirrup through forty-below windstorms, while the hand-felted wool lining holds warmth like a second skin. Our founder tested these himself across 400 kilometers of open steppe—they returned home before he did.",
@@ -124,10 +124,10 @@ export const products: Product[] = [
     },
     {
         id: "2",
-        name: "Khan's Legacy Boot",
+        name: "ALTAN",
         nameLocalized: {
-            en: "Khan's Legacy Boot",
-            mn: "Хааны өвийн гутал"
+            en: "ALTAN",
+            mn: "АЛТАН"
         },
         price: 420,
         description: "A forty-hour masterpiece. Gold thread spirals across midnight-black calf leather in patterns that mirror the constellation maps used by Mongol astronomers. The leather is selected from a single hide, ensuring perfect color harmony. Only twelve pairs are produced each year—and we never rush the gold work.",
@@ -148,10 +148,10 @@ export const products: Product[] = [
     },
     {
         id: "3",
-        name: "Genghis Ceremonial Boot",
+        name: "ANU",
         nameLocalized: {
-            en: "Genghis Ceremonial Boot",
-            mn: "Чингисийн ёслолын гутал"
+            en: "ANU",
+            mn: "АНУ"
         },
         price: 450,
         description: "Reserved for moments that demand presence. Hand-stitched from vegetable-tanned cowhide using techniques unchanged for eight generations, these boots feature our signature silver-inlay work depicting the eternal flame of the Mongol Empire. Presidents and heads of state have stood in these boots during ceremonies where history was made.",
@@ -173,10 +173,10 @@ export const products: Product[] = [
     },
     {
         id: "4",
-        name: "Altai Mountain Boot",
+        name: "ALTAI",
         nameLocalized: {
-            en: "Altai Mountain Boot",
-            mn: "Алтайн уулын гутал"
+            en: "ALTAI",
+            mn: "АЛТАЙ"
         },
         price: 320,
         description: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees. The geometric embroidery tells the story of mountain spirits who guide travelers home.",
@@ -197,10 +197,10 @@ export const products: Product[] = [
     },
     {
         id: "5",
-        name: "Burkhan Khaldun Sacred Boot",
+        name: "BATU",
         nameLocalized: {
-            en: "Burkhan Khaldun Sacred Boot",
-            mn: "Бурхан Халдуны ариун гутал"
+            en: "BATU",
+            mn: "БАТУ"
         },
         price: 520,
         description: "Named for the sacred mountain where Temüjin became Genghis Khan. Each pair features hand-tooled depictions of the mountain's three peaks and is blessed by a local shaman before shipping. The leather is cured using ancient mineral techniques that create a patina deepening with every wear—your journey written on your feet.",
@@ -222,10 +222,10 @@ export const products: Product[] = [
     },
     {
         id: "6",
-        name: "Naadam Festival Boot",
+        name: "NAADAM",
         nameLocalized: {
-            en: "Naadam Festival Boot",
-            mn: "Наадмын баярын гутал"
+            en: "NAADAM",
+            mn: "НААДАМ"
         },
         price: 380,
         description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
