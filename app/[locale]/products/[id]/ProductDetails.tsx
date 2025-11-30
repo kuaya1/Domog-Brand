@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { Product } from '@/lib/data';
+import { Product } from '@/lib/products';
 import { useCartStore } from '@/lib/stores/cart-store';
 import { useWishlistStore, useIsInWishlist } from '@/lib/stores/wishlist-store';
 import { useUIStore } from '@/lib/stores/ui-store';

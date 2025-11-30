@@ -136,7 +136,7 @@ export const products: Product[] = [
             mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
         },
         images: [
-            "/images/PNG images/khans-legacy.png",
+            "/images/PNG images/khans-legacy.png.png",
             "/images/boots/khans-legacy-left.jpg",
             "/images/boots/khans-legacy-right.jpg",
             "/images/boots/khans-legacy-back.jpg"
@@ -160,7 +160,7 @@ export const products: Product[] = [
             mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
         },
         images: [
-            "/images/PNG images/Genghis Ceremonial Boot png",
+            "/images/PNG images/Genghis Ceremonial png.png",
             "/images/boots/genghis-ceremonial-left.jpg",
             "/images/boots/genghis-ceremonial-right.jpg",
             "/images/boots/genghis-ceremonial-back.jpg"

@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import { useParams } from 'next/navigation';
-import { products } from '@/lib/data';
+import { products } from '@/lib/products';
 import ProductGrid from '@/components/ProductGrid';
 import ProductFilters from '@/components/ProductFilters';
 import ProductSort from '@/components/ProductSort';

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { products } from '@/lib/data';
+import { products } from '@/lib/products';
 import ProductDetails from './ProductDetails';
 import ProductGrid from '@/components/ProductGrid';
 import { ArrowLeft } from 'lucide-react';
