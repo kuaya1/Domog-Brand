@@ -136,6 +136,7 @@ export const products: Product[] = [
             mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
         },
         images: [
+            "/images/PNG images/khans-legacy.png",
             "/images/boots/khans-legacy-left.jpg",
             "/images/boots/khans-legacy-right.jpg",
             "/images/boots/khans-legacy-back.jpg"
@@ -159,6 +160,7 @@ export const products: Product[] = [
             mn: "Төр соёлын хүндэтгэл шаардсан мөчүүдэд зориулсан. Найман үеийн турш өөрчлөгдөөгүй арга техникээр ургамлаар идээшүүлсэн үхрийн арьсаар гараар оёсон."
         },
         images: [
+            "/images/PNG images/Genghis Ceremonial Boot png",
             "/images/boots/genghis-ceremonial-left.jpg",
             "/images/boots/genghis-ceremonial-right.jpg",
             "/images/boots/genghis-ceremonial-back.jpg"
@@ -183,6 +185,7 @@ export const products: Product[] = [
             mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
         },
         images: [
+            "/images/PNG images/altai-mountain (1).png",
             "/images/boots/altai-mountain-left.jpg",
             "/images/boots/altai-mountain-right.jpg",
             "/images/boots/altai-mountain-back.jpg"
@@ -206,6 +209,7 @@ export const products: Product[] = [
             mn: "Тэмүжин Чингис хаан болсон ариун уулын нэрээр нэрлэгдсэн. Гутал бүр уулын гурван оргилын гар урлалын дүрслэлтэй бөгөөд илгээхээс өмнө орон нутгийн бөөгөөр ариусгагддаг."
         },
         images: [
+            "/images/PNG images/Burkhan Khalduun sacred boot .png",
             "/images/boots/burkhan-khaldun-left.jpg",
             "/images/boots/burkhan-khaldun-right.jpg",
             "/images/boots/burkhan-khaldun-back.jpg"
@@ -230,6 +234,7 @@ export const products: Product[] = [
             mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
         },
         images: [
+            "/images/PNG images/Naadam Festival png.png",
             "/images/boots/naadam-festival-left.jpg",
             "/images/boots/naadam-festival-right.jpg",
             "/images/boots/naadam-festival-back.jpg"
