@@ -112,6 +112,7 @@ export const products: Product[] = [
             mn: "Зайг бус өдрөөр хэмждэг унагчдад зориулсан. Гурав дахин бэхжүүлсэн арьсан ул нь дөч хасах хүйтэнд дөрөөг барьж, гараар эсгийсэн ноосон дотор нь хоёр дахь арьс шиг дулаан хадгалдаг."
         },
         images: [
+            "/images/PNG images/steppe-rider (1).png",
             "/images/boots/steppe-rider-left.jpg",
             "/images/boots/steppe-rider-right.jpg",
             "/images/boots/steppe-rider-back.jpg"
