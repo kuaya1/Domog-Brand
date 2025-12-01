@@ -1275,5 +1275,22 @@
         "1920": "/images/optimized/14348976537658544434771593973242007797716341n-1920.avif"
       }
     }
+  },
+  "khans-legacypng-2-1": {
+    "originalPath": "PNG images\\khans-legacy.png (2) (1).png",
+    "sanitizedId": "khans-legacypng-2-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2ElEQVR4nGNgwA0Y4ayJE3PZl83plJpal5gcbSPlDBZctSqUGUSfOrje6ti6jk/r+pP+l4drXgwNteBkWBUKkVw3t9nmxKKsf6tafP9XhKudT0tL42Kor69nAklumFFq0pbh9Ksq0vB/rJvKXoixUJ3rp5W5J7lr/k8LMPmvI8+/CeYWpv//P4kcXlK6ektX0P8pBbb/GxMMz8vIyHAydGWFSjQkOj1dUhv4f0WDz58cP+3/+vICd0W4uCQZQCoE2Jj9zdWku3SleHYKsDHVMTAwyOLxPwQAAPkoS17W5Le5AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacypng-2-1-640.webp",
+        "960": "/images/optimized/khans-legacypng-2-1-960.webp",
+        "1280": "/images/optimized/khans-legacypng-2-1-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacypng-2-1-640.avif",
+        "960": "/images/optimized/khans-legacypng-2-1-960.avif",
+        "1280": "/images/optimized/khans-legacypng-2-1-1280.avif"
+      }
+    }
   }
 }
