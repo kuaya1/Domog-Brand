@@ -13,6 +13,9 @@ export function OptimizedImage({ src, alt, ...props }: OptimizedImageProps) {
   
   if (!optimized) {
     // Fallback to original Next/Image for dev mode or non-optimized images
+    if (process.env.NODE_ENV === 'production') {
+      console.error(`[OptimizedImage] Missing optimized data for: ${src}`);
+    }
     return <Image src={src} alt={alt} {...props} />;
   }
   
