@@ -65,7 +65,7 @@ const ProductCard = memo(function ProductCard({
                 className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-4"
                 aria-label={`View ${localizedName} - $${product.price}`}
             >
-                article className="
+                <article className="
                     relative bg-white
                     shadow-card-warm hover:shadow-card-warm-hover
                     transition-all duration-500 ease-out
