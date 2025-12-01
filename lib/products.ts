@@ -113,9 +113,9 @@ export const products: Product[] = [
         },
         images: [
             "/images/PNG images/steppe-rider (1).png",
-            "/images/boots/steppe-rider-left.jpg",
-            "/images/boots/steppe-rider-right.jpg",
-            "/images/boots/steppe-rider-back.jpg"
+            "/images/PNG images/steppe-rider (1).png",
+            "/images/PNG images/steppe-rider (1).png",
+            "/images/PNG images/steppe-rider (1).png"
         ],
         category: "Riding",
         categoryLocalized: { en: "Riding", mn: "Унах" },
