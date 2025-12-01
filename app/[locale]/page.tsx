@@ -136,7 +136,8 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                     src="/images/PNG images/khans-legacy.png (2) (1).png"
                                     alt="Khan's Legacy - Handcrafted Mongolian ceremonial boot showcasing centuries of traditional craftsmanship by Domog artisans"
                                     fill
-                                    className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"
+                                    className="object-contain filter-heritage-enhance drop-shadow-heritage-gold mix-blend-screen"
+                                    style={{ filter: 'drop-shadow(0 0 30px rgba(201, 169, 97, 0.4)) brightness(1.1) contrast(1.05)' }}
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </div>
