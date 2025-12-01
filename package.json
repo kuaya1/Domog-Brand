@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "optimize": "tsx scripts/optimize-images.ts",
-    "audit": "tsx scripts/audit-contrast.ts"
+    "audit": "tsx scripts/audit-contrast.ts",
+    "prebuild": "npm run optimize"
   },
   "dependencies": {
     "clsx": "^2.1.1",

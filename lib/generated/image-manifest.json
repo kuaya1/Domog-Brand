@@ -1,0 +1,1279 @@
+{
+  "hero-image": {
+    "originalPath": "hero-image.jpg",
+    "sanitizedId": "hero-image",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkUlEQVR4nGP4DwM/vn5+dPPS1ZMH3799A+L/+/f//38GMAPEevfswfoSv+Vlofdv3YALIqTfPH3QF24xJc375fNnqNJ///7////1wzvxjkZFQU4fXj2HSP/7948Bourzx4/LW4uyreQXFgbvWzbl7ZvX//////v3L1T63ds3R3ZtPX/m9NUL584d2f/m9SuINACNu5t5KYtIjwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/hero-image-640.webp",
+        "960": "/images/optimized/hero-image-960.webp",
+        "1280": "/images/optimized/hero-image-1280.webp",
+        "1920": "/images/optimized/hero-image-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/hero-image-640.avif",
+        "960": "/images/optimized/hero-image-960.avif",
+        "1280": "/images/optimized/hero-image-1280.avif",
+        "1920": "/images/optimized/hero-image-1920.avif"
+      }
+    }
+  },
+  "hero-bootsjpg": {
+    "originalPath": "hero-boots.jpg.jpeg",
+    "sanitizedId": "hero-bootsjpg",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAsElEQVR4nGMQ4hcTRCBRIQFxHWVVFVk5fj4RIUFxBkE+UQgS4hfl5RaSlpDb0pA4McVDRkySn08ULM0PQkIConw8wtISsjNSXLui7EUFxQT4RRn4eIT4eIX5eIUF+IS5uQXlpWRr/c39jdV4eYSFBEQZFORUFBXVlBTVlBRUZWWVA8y0V2S6NobaSImJKctIM1hY2pmaWRsZmuvrGmlr6emqqxuqKxuqK2sqK+ipqQAAJ38ZkZtcBgcAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/hero-bootsjpg-640.webp",
+        "960": "/images/optimized/hero-bootsjpg-960.webp",
+        "1280": "/images/optimized/hero-bootsjpg-1280.webp",
+        "1920": "/images/optimized/hero-bootsjpg-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/hero-bootsjpg-640.avif",
+        "960": "/images/optimized/hero-bootsjpg-960.avif",
+        "1280": "/images/optimized/hero-bootsjpg-1280.avif",
+        "1920": "/images/optimized/hero-bootsjpg-1920.avif"
+      }
+    }
+  },
+  "hero-bg": {
+    "originalPath": "hero-bg.jpg",
+    "sanitizedId": "hero-bg",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMElEQVR4nGP4DQOvHt9/+vDBpw/vzuzb/vrl83///v/69Yvh969fv37//v7t26MjqybFmN3ZMasvyvji0b3/////9esnVPrH92/Xt81cEST5aHldf4zZ9TNHQdI/IdK/fv388ePiys4+W56z/emTEyyuXziNkP79+9fvP3/PLmnL0WVbkOk+M9Xx3vVLYMN/Mfz+/fvXz1////1d2pyvLSXqb6kfoivx8sEtqN2/fv368/ff3///pmb5BpiodKQFdgQb37947P///79//QJJ//z68eHh9YvDlSpNuVZnuzxfU3dh7YRX967++PaV4d///zOaSgpsZIrdtSMcTcoj3fszAlY1JFdHuRw/uI/h798/jx4/vnz12qMnz99//vb6/cfHz57fu3P31u27X758AQDw5uDjzOOZIQAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/hero-bg-640.webp",
+        "960": "/images/optimized/hero-bg-960.webp",
+        "1280": "/images/optimized/hero-bg-1280.webp",
+        "1920": "/images/optimized/hero-bg-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/hero-bg-640.avif",
+        "960": "/images/optimized/hero-bg-960.avif",
+        "1280": "/images/optimized/hero-bg-1280.avif",
+        "1920": "/images/optimized/hero-bg-1920.avif"
+      }
+    }
+  },
+  "heritage-craftsman": {
+    "originalPath": "heritage-craftsman.jpg",
+    "sanitizedId": "heritage-craftsman",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABPklEQVR4nCXQvUtCURiA8fNP1NrUYFFTRlMERWIYQeAQNgR9TBoWatQi6eDmYh9DFDg0KA0tgYjBBanNPkgsNSVN8wOKvPe877nnek83rPm3PDyEUgUAGEMZFJmjJnSqq5reBUCgCgEKAKAZ+vPNw1Ugmo4nkpF4KVtETQUKBBEpIDdEOf14MuFyDUzHFgPXnrNiNtcVeo8BUTNE9S6/a1qw9Y0eWt0XjuDrU64rxD8DN0TjpeIzzVv7TeGp9ejyXqvdUjkn8Meoc1r7WhmzzIyYj+2eoy0/UxkwJL0woNwQ7ULVNmieHR53W5a83m0hfiilBCgFWYHPTvY05Rya25l0SGuRS2+4I38zRKJ19VK+cODyh+yb+9bVW995bCMUXHE2m3VVZQQZVwCrH/Xye0WSpFQimbnPvDVqvR0Iv9xb5OvWjrhRAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/heritage-craftsman-640.webp",
+        "960": "/images/optimized/heritage-craftsman-960.webp",
+        "1280": "/images/optimized/heritage-craftsman-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/heritage-craftsman-640.avif",
+        "960": "/images/optimized/heritage-craftsman-960.avif",
+        "1280": "/images/optimized/heritage-craftsman-1280.avif"
+      }
+    }
+  },
+  "generated-image-november-27-2025---928am": {
+    "originalPath": "Generated Image November 27, 2025 - 9_28AM.jpeg",
+    "sanitizedId": "generated-image-november-27-2025---928am",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/APDv6/Dv6/T07/j48/38+Pb18e/u6gDw7+vu7ena2dW+vrulpKHS0c309O8A8fDs7ezoZmZkLCwrOTk3MTAw6+rmAO/u6vTz72ppZyIiITU1NDAwL+zr5wDu7ej8+/ZwcG4VFhUbGhlUU1H9/PgA7ezo///6fnx6GxkWJSMhg4KA//76APDv6////4KBfSMhHi0rKZiXlP38+ADr6uakoZ1zbmh4dXAaFxV0c3D8/fgA7e3qiomHb21phoN/fnx6s7Kv7+/qAPLx7fz8+Ozs6Ozs6P39+fr69vDv6/GWjaAICfXSAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-november-27-2025---928am-640.webp",
+        "960": "/images/optimized/generated-image-november-27-2025---928am-960.webp",
+        "1280": "/images/optimized/generated-image-november-27-2025---928am-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-november-27-2025---928am-640.avif",
+        "960": "/images/optimized/generated-image-november-27-2025---928am-960.avif",
+        "1280": "/images/optimized/generated-image-november-27-2025---928am-1280.avif"
+      }
+    }
+  },
+  "generated-image-november-23-2025---931pmjpeg": {
+    "originalPath": "Generated Image November 23, 2025 - 9_31PM.jpeg.jpg",
+    "sanitizedId": "generated-image-november-23-2025---931pmjpeg",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMElEQVR4nGP4DQOvHt9/+vDBpw/vzuzb/vrl83///v/69Yvh969fv37//v7t26MjqybFmN3ZMasvyvji0b3/////9esnVPrH92/Xt81cEST5aHldf4zZ9TNHQdI/IdK/fv388ePiys4+W56z/emTEyyuXziNkP79+9fvP3/PLmnL0WVbkOk+M9Xx3vVLYMN/Mfz+/fvXz1////1d2pyvLSXqb6kfoivx8sEtqN2/fv368/ff3///pmb5BpiodKQFdgQb37947P///79//QJJ//z68eHh9YvDlSpNuVZnuzxfU3dh7YRX967++PaV4d///zOaSgpsZIrdtSMcTcoj3fszAlY1JFdHuRw/uI/h798/jx4/vnz12qMnz99//vb6/cfHz57fu3P31u27X758AQDw5uDjzOOZIQAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-november-23-2025---931pmjpeg-640.webp",
+        "960": "/images/optimized/generated-image-november-23-2025---931pmjpeg-960.webp",
+        "1280": "/images/optimized/generated-image-november-23-2025---931pmjpeg-1280.webp",
+        "1920": "/images/optimized/generated-image-november-23-2025---931pmjpeg-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-november-23-2025---931pmjpeg-640.avif",
+        "960": "/images/optimized/generated-image-november-23-2025---931pmjpeg-960.avif",
+        "1280": "/images/optimized/generated-image-november-23-2025---931pmjpeg-1280.avif",
+        "1920": "/images/optimized/generated-image-november-23-2025---931pmjpeg-1920.avif"
+      }
+    }
+  },
+  "copper-boots-isolatedpng": {
+    "originalPath": "copper-boots-isolated.png.jpeg",
+    "sanitizedId": "copper-boots-isolatedpng",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAs0lEQVR4nGP4DwOPb1y4c+3iq0d3j+7c9P///79///7584fh//////79+////+Vt8xsCjY/PqphWmQ6S/gMCYOm/f/7//39sxeTueNfDUyuWdFX9////z5/ff/7+BUn/BUvPb6uYUFO0tLexrSAVYuS/f/9A0j9//Hhw7nBbsFlvTuSRBV3zc7zP7t387evX////g6Q/vX+3sK9lyZTug7u2nTly4PCGZUsndz68f+////8A5C6R86HjBfoAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/copper-boots-isolatedpng-640.webp",
+        "960": "/images/optimized/copper-boots-isolatedpng-960.webp",
+        "1280": "/images/optimized/copper-boots-isolatedpng-1280.webp",
+        "1920": "/images/optimized/copper-boots-isolatedpng-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/copper-boots-isolatedpng-640.avif",
+        "960": "/images/optimized/copper-boots-isolatedpng-960.avif",
+        "1280": "/images/optimized/copper-boots-isolatedpng-1280.avif",
+        "1920": "/images/optimized/copper-boots-isolatedpng-1920.avif"
+      }
+    }
+  },
+  "boot-5": {
+    "originalPath": "boot-5.jpg",
+    "sanitizedId": "boot-5",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABAklEQVR4nAXBzUrDMAAA4DyZ111VBNGDeBvbDmqZupamP0maNG2aJW0to7SCeBkIQz3KjnpSEHZUkIkKG/hHfQG/D2B4TH0rxJBjSH0bDg6RY0GzDzhxBENKhDqJZMwogqmMwwABGQW5EoqhJCSpTiQPOPHMIwMMBT+vR5nTo7YhOFGeUSoGbRNoGVcnqqR7qcBJFHCrk4Yu9h1QZEogF/e2ykLlOjHbmyJwOSNAS1HlMvP2JXM7O6vt9VZMfUI8cDU+LYd4Oqm7263dtZWS9c3uRl0w8Dy7u7+9mV6PE+dgFA4uz7JKBxc1A8338u9n2XwtXl+eZo8PH2/z5vdz8T7/B7Fch8kAxcRUAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/boot-5-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/boot-5-640.avif"
+      }
+    }
+  },
+  "boot-4": {
+    "originalPath": "boot-4.jpg",
+    "sanitizedId": "boot-4",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AF9cWGpmYnVybnx5dXl3c21rZ2hlYnFwbgBpZ2N+eXWOiISTkIyUkY6IhICFgn5+fnsAeHVxlJCMnZuXm5qWlZSQkpCNi4eEamllAIiFgYF8eVdUUZKRjUpHQ2RhX5mWk3d2cgCKh4RbWVglJCOcm5dKSUhBQkKbmpaAfnoAj4yJUVFQKCgonp2agIB+NDMylJKOhYN/AIeDgWlmYzk2M5ual4uFfTk2NHBvbYB/fACgm5V/eHJHR0d4c2tPRDUqKitRS0CBemwA2tbOfXZvUlFPKCcjNDIvfXx4p6KYh35uANLPytnW0MfEvqqppsbFwePi3tnY1cvKxqH3cozNeVr/AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/boot-4-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/boot-4-640.avif"
+      }
+    }
+  },
+  "boot-3": {
+    "originalPath": "boot-3.jpg",
+    "sanitizedId": "boot-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AImCfIyHgI+NhpSOiJKHgKWShZyWj4+NhpyXkZuUjwCKhX+LiIOimpHZuZ2xi3HjpXy5p5qQjoypp6KmoZwAiIR9iYiEp5uQ6LmSo419ypNvtZyMlZOSl5KNkI2GAIeDfIyKhZiOiLqJaqGSiaaJdp+AbpuampWQjY+LhgCBfXeKhoGMiIWMa1mWhXmHblnRn36PiH2TkIyOi4gAy8jDyMS+n4+A3bCNrYVkhVw+tZN7fW9Zrp6Jy8O6APLt5+/o4tvSyceypL+chq+XidXPytfSzMy/sOrczlbFflu0jKxJAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/boot-3-640.webp",
+        "960": "/images/optimized/boot-3-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/boot-3-640.avif",
+        "960": "/images/optimized/boot-3-960.avif"
+      }
+    }
+  },
+  "boot-2": {
+    "originalPath": "boot-2.jpg",
+    "sanitizedId": "boot-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AJmUkKKdmKWfm52YlKCbl6GcmJmUkJaRjQCZlJBpZ2VlY2GinZiWko6FgX+emZWblpIAlZGNFRUVICEgiIWBGhoZGRoZlZKNo52ZAJmYkyAgIC4uLXt6dwICAhcXF42MiKeknwCcm5clJSQuLi2JiYQICAgUFBSIiIOmpaAAoJ+bMTEwMDAvmZiUEhIRDg4Oh4aDpqWgAJubmCorKjY1NKmopCUlJAsLC4KAe6SkoACIg34cGRg5NzeCf3keHRoVFRdmYFaak4IAtaydbWZfFxQVGRYUIB4cFhQUFRIRMSsiAOrq5ePi3bWyr62sqMrLx7e3s5KQjYKBf1tDYhwe3M/fAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/boot-2-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/boot-2-640.avif"
+      }
+    }
+  },
+  "boot-1": {
+    "originalPath": "boot-1.jpg",
+    "sanitizedId": "boot-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AJaPhpmUjKCdm6OfnqijoKmlo6Wgnp6ZlqKclaGbkwCXkYmgm5eUhn2dh3ielIuPbVKdj4WmoqC0sK2xrKYAlZGKp6GdhGFBjGZLiX92ckkkppqQqqelpZ+cnZmUAJSPiKKenYVnS3taQJOLg3FTN6mlnqinpaOfnJuXlACKhX2XlZOSfWqCZEuThnluTzOZj4CjopydnJmYk5AAzcvG0NDMlYBrZ0InZk05W0Apc2BJoJR/yb+z0M3JAPXz7/Px7dLNxrqxqLuwp8K9t8rFv9nVzebby/Px7GQpe8arLsfrAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/boot-1-640.webp",
+        "960": "/images/optimized/boot-1-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/boot-1-640.avif",
+        "960": "/images/optimized/boot-1-960.avif"
+      }
+    }
+  },
+  "88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e": {
+    "originalPath": "88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e.jpg",
+    "sanitizedId": "88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVR4nAG6AEX/AN/Ms+bXwdPDr829qOfZxeDQvuLUwfPm1eraxePSuQDi0bvm2cqYh3OpmYXz6tzf0cDWxrXt4tPq3czj0rsA6NnF9Ona69/RwbirhX9zyruqzsCw7uPV5NbG5NS+AN3OuuXWxuXay9nQxJmRhbysmsq9rtfNwK6gkcCwnQDBr5qMeWh5aVjPw7Tg1MbLvrDe08XKvrCPgnWdjn0A6NW+4NG+0sOx49bG4dTF9Onb7uPW6t7Ozr+t0sCptVSJessh9DUAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-640.webp",
+        "960": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-960.webp",
+        "1280": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-1280.webp",
+        "1920": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-640.avif",
+        "960": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-960.avif",
+        "1280": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-1280.avif",
+        "1920": "/images/optimized/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e-1920.avif"
+      }
+    }
+  },
+  "steppe-rider-1": {
+    "originalPath": "PNG images\\steppe-rider (1).png",
+    "sanitizedId": "steppe-rider-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtUlEQVR4nGNgwA4YUXj19fUs9fVpXD4+PiJwSXt7exYQ7enpmaKmpvZEW0vrm4uLfSaKpLW1bbqYmNh/FRWV/zHRkRtQJA0MDKL4+Pn/y8jI/Pfw8JgNlgwNDWUG0YaGhkEiIiL/FRTk/jvbW9ai6DQxN08UFRX9Ly8n+9/Bzjof7tIQf690XW3t5woK8v+tLEz/R4b6zYFLRvi6N7ramG61MzU47O9uvy421DOcgYEBbB1OAAA70i9yVvzfGwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-rider-1-640.webp",
+        "960": "/images/optimized/steppe-rider-1-960.webp",
+        "1280": "/images/optimized/steppe-rider-1-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-rider-1-640.avif",
+        "960": "/images/optimized/steppe-rider-1-960.avif",
+        "1280": "/images/optimized/steppe-rider-1-1280.avif"
+      }
+    }
+  },
+  "naadam-festival-png": {
+    "originalPath": "PNG images\\Naadam Festival png.png",
+    "sanitizedId": "naadam-festival-png",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVR4nGNggIL6+nqm0NBQZhAbRjPgBSAdYLq52yEhNXOmsprGQXV1zTyYJAuIzskvLnX39PsvISX738XZ/d7///+FGOzt7cGSlpY2ecoqGv9FRCX+O9g7nfr//z87XFJXVzdfVlH5v5SM3H8TM7N1MGvBksqqqp3iMrL/VTTV/lvaW/aCZezt7QXy83OrXV3dXqipafyXk5X7b2drvQgs6e7uLunl67vcPyDgo5ub229jE7PnNnZ2Xf//MzDCvSQpKamhrq6u27tqFSdUiAkAuNQ//bmmdQoAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-festival-png-640.webp",
+        "960": "/images/optimized/naadam-festival-png-960.webp",
+        "1280": "/images/optimized/naadam-festival-png-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-festival-png-640.avif",
+        "960": "/images/optimized/naadam-festival-png-960.avif",
+        "1280": "/images/optimized/naadam-festival-png-1280.avif"
+      }
+    }
+  },
+  "khans-legacypng-2": {
+    "originalPath": "PNG images\\khans-legacy.png (2).png",
+    "sanitizedId": "khans-legacypng-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2ElEQVR4nGNgIAasWlXPtmxOp9S0+qSkaBspZ7Dg///1TCD66pmd5sfWd35c15/0vyJC80JoaCgnw/96iOSuFRMtTi7O/ruqxfd/VYTamfr6eg6Geqjk7mU1hu0ZTj+rIg3/x7ur7oTYFRrKDKI3zalwS3LX/J8WYPJfV0FgPViynoGB6f//TyLHlpat2tIV9H9Kge3/xgSjc/Ly9hwM0+pjxBqTnR8tqQ38v6LB50+On/Z/A3mBGxI8PKIMKioq7MLszM52WnL1+tI8m4XZmCoYGBgkCXoeAGz9TsVtfcJ2AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacypng-2-640.webp",
+        "960": "/images/optimized/khans-legacypng-2-960.webp",
+        "1280": "/images/optimized/khans-legacypng-2-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacypng-2-640.avif",
+        "960": "/images/optimized/khans-legacypng-2-960.avif",
+        "1280": "/images/optimized/khans-legacypng-2-1280.avif"
+      }
+    }
+  },
+  "genghis-ceremonial-png": {
+    "originalPath": "PNG images\\Genghis Ceremonial png.png",
+    "sanitizedId": "genghis-ceremonial-png",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgQAWMDPjAqtBVzCB6YWZn+Oywuj2tntn585PbV84pmuAMEv///z/EgP9QhUeLF8ZuCGj6n6/k/nt/xsz/+0sWfMq08dVDMjEUrHBNbIt7rX7ofzde1d8zvIr+ro1u+VHvGWsCV1hfX88EopdG1ptV6wf9dxFS/TvFNev/vMDi124WFkIYCq9VLtJJM/f+byar9mRqcNH/Gr/4s2iegVh9pnqRU4Sh839LWfW3pT5x/21sLLaghMaV+lVs/9c+kDxZtWJjuUnI/zKbqJ8n8+b+XxxXdQ0lyFJ8g7VbwrPvNfimfWn0TP1zrm7d/9VpHX8KPcJuOjubCiPbzsLAwCDJwMAgrKGh4eNuZeUvIyOjy8DAwA1TAQDwvm67qzKU+AAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-ceremonial-png-640.webp",
+        "960": "/images/optimized/genghis-ceremonial-png-960.webp",
+        "1280": "/images/optimized/genghis-ceremonial-png-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-ceremonial-png-640.avif",
+        "960": "/images/optimized/genghis-ceremonial-png-960.avif",
+        "1280": "/images/optimized/genghis-ceremonial-png-1280.avif"
+      }
+    }
+  },
+  "generated-image-november-27-2025---1019am-edit": {
+    "originalPath": "PNG images\\Generated Image November 27, 2025 - 10_19AM-EDIT.png",
+    "sanitizedId": "generated-image-november-27-2025---1019am-edit",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4ElEQVR4nGNgwA/+M4JI54BYNX1L12wNY+t4aQVVfbBUaGgoM4g2tg8KkFDU+y8ip/mfg1fko6qqtiZIFiypoGMXxisi959HWOYfEzvvZxEpDTUGBnt7FpCktKpxHK+I7H92XrH/zJwCV/7//8/IYGxszAqSlFTRS+YVkvqvoKj0X0dDYz7MRWBj+cQV+jj4RP+LSUj/l1dUbADLODsHCCvpWEwTldP8xSOu/IdDUPq/kKTCYrCkh0eoqJKqzhwJWZVbAhLyV+QVVKfIyys7MjAwMMF9a8zAwLoqFGIFDAAA++svpgymR3gAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-november-27-2025---1019am-edit-640.webp",
+        "960": "/images/optimized/generated-image-november-27-2025---1019am-edit-960.webp",
+        "1280": "/images/optimized/generated-image-november-27-2025---1019am-edit-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-november-27-2025---1019am-edit-640.avif",
+        "960": "/images/optimized/generated-image-november-27-2025---1019am-edit-960.avif",
+        "1280": "/images/optimized/generated-image-november-27-2025---1019am-edit-1280.avif"
+      }
+    }
+  },
+  "generated-image-november-23-2025---931pm": {
+    "originalPath": "PNG images\\Generated Image November 23, 2025 - 9_31PM.png",
+    "sanitizedId": "generated-image-november-23-2025---931pm",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQElEQVR4nGNgQAKr2ouNY1zNFLct7pAp9jYO0eBlEIZKMcIJELi9dcrJnjCDb3c2TXgyL9v1f4ACiz1IPDSUgRlZIdPZBVWn1sdq/H+9rvHvpETbf6HKLJYgifp6BiYUhUcmpJ6c7C7x/+LElL9TU+3+mHIxGIAVMqAqZNjZHH2gxFzo/7wUx2/Tkux+GvIxqKArZPz//z9jZ5zrMXle9l9W8iKXIo1k/xdayIAVhjIwMDP8h5r4//9/jtZQk/tmokwvs+zVDk1Ndv4/IcLYFRwaoaHMIAWM+7O0ePY3hFVuTjP4X23K8XNjruPbn/sm/D81t+xgT7CmoZOOojjYbbHWakuq3TX+JxkK39cXYj6UYK16scbP5M6quoRvxYHW3yQ5mf1h/hBjYGCQZWBg4IDyQeHGzsDAIMjAwCADYgMAZUZsoigQTMMAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-november-23-2025---931pm-640.webp",
+        "960": "/images/optimized/generated-image-november-23-2025---931pm-960.webp",
+        "1280": "/images/optimized/generated-image-november-23-2025---931pm-1280.webp",
+        "1920": "/images/optimized/generated-image-november-23-2025---931pm-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-november-23-2025---931pm-640.avif",
+        "960": "/images/optimized/generated-image-november-23-2025---931pm-960.avif",
+        "1280": "/images/optimized/generated-image-november-23-2025---931pm-1280.avif",
+        "1920": "/images/optimized/generated-image-november-23-2025---931pm-1920.avif"
+      }
+    }
+  },
+  "burkhan-khalduun-sacred-boot-": {
+    "originalPath": "PNG images\\Burkhan Khalduun sacred boot .png",
+    "sanitizedId": "burkhan-khalduun-sacred-boot-",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtElEQVR4nGNgwA4YMTiTmqsVC3PSzZAlmECEm7Njp6WZ6WtNdfX/DrZW/iiSGurqqxTlFf7LyMj+d7C1jYdJMoMIZSWlxTLSMv/l5eT+O9jY2KNIaqiqLFJSUPhvbKD3zcvLSx5u6ZkzZ1iN9XUPq6uq/jfW1/0R5O2tCpZIjg3QjAryPxHi6/nf39P1r52Fyf/M2PBQsKSFhZZQqK9HTGKYf29KZGBVdLC7g729PQ8O/yMAALb9L8seq1KrAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/burkhan-khalduun-sacred-boot--640.webp",
+        "960": "/images/optimized/burkhan-khalduun-sacred-boot--960.webp",
+        "1280": "/images/optimized/burkhan-khalduun-sacred-boot--1280.webp",
+        "1920": "/images/optimized/burkhan-khalduun-sacred-boot--1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/burkhan-khalduun-sacred-boot--640.avif",
+        "960": "/images/optimized/burkhan-khalduun-sacred-boot--960.avif",
+        "1280": "/images/optimized/burkhan-khalduun-sacred-boot--1280.avif",
+        "1920": "/images/optimized/burkhan-khalduun-sacred-boot--1920.avif"
+      }
+    }
+  },
+  "altai-mountain-1": {
+    "originalPath": "PNG images\\altai-mountain (1).png",
+    "sanitizedId": "altai-mountain-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAYAAAB4zEQNAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuUlEQVR4nGNgQAAmY2NjVgYGBmYGBgZGBjyAEaaACUQYaGubmpualluamvrI8/MLgJXY29uzgGgVFY0sNTXN/1LSMv8FBPhyIQaEhoLsYFBX1woRE5P4LyAk/J+Xnz8RZj5YUlNT005EVOy/hIT4f1VVRVuoRohObW29IBkZ+f/iYmJfddTU9OBOiw508XN2sPyprq72T01Z7r+htnI4XDLI2041Mdy1ITrQYX58qFOyh4cZHz5/ggEApy4i+Pg0/5sAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/altai-mountain-1-640.webp",
+        "960": "/images/optimized/altai-mountain-1-960.webp",
+        "1280": "/images/optimized/altai-mountain-1-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/altai-mountain-1-640.avif",
+        "960": "/images/optimized/altai-mountain-1-960.avif",
+        "1280": "/images/optimized/altai-mountain-1-1280.avif"
+      }
+    }
+  },
+  "steppe-rider": {
+    "originalPath": "boots\\steppe-rider.jpg",
+    "sanitizedId": "steppe-rider",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nD3KPWvCQBgA4NsUC8nFFgyl/8KKi/6dTt06lYIgJUo/oHOHooOgXqFCQkpdBAd/imC3au+93EfuXomC68NDpOJKc21AG8itVJorDeSgIMT2n/9tftdSgdaCiGyHiGmatFut63p99vWJiATEFhHZdFIqlcMwjKLHoxY3jmeVyhkNgueXp5Pa+fybBrRK/cHH+0HheGNK6UX1nLFxocaonzRpNhqe519d1t5e+4VaZ9ho2Ovc393e9LsPq+UikxmREpyziC7PpXO5dVYq2AMTk5iIW2dREwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-rider-640.webp",
+        "960": "/images/optimized/steppe-rider-960.webp",
+        "1280": "/images/optimized/steppe-rider-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-rider-640.avif",
+        "960": "/images/optimized/steppe-rider-960.avif",
+        "1280": "/images/optimized/steppe-rider-1280.avif"
+      }
+    }
+  },
+  "steppe-rider-right": {
+    "originalPath": "boots\\steppe-rider-right.jpg",
+    "sanitizedId": "steppe-rider-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA70lEQVR4nGP4Bwb//////v3bp0+f/v37++fPH4jgv3//GP7+/fv///+nT58UlxT7B/hFRUedPXv6////EEUMv3///v///7Jly6xt7NTV1ZmYmE+dPIEuvXbtOkMjE1VVVQ4OjgsXziOk//z58////2PHj2vr6MrKyHBwcF67dg1d+tHD+55ujmJiory8PLdv30ZIQ5z2/Pmz4KAAPT0dCQmJu3fvoOu+fPmSnb1dRGSkkrJyRWXFndu3//79i5C+dul8VJB3SICXs625kY5aaV7G379//v37zwAPls8f3186e+rE4f2XL5x98/oVJFgANqLgTmbwKuYAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-rider-right-640.webp",
+        "960": "/images/optimized/steppe-rider-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-rider-right-640.avif",
+        "960": "/images/optimized/steppe-rider-right-960.avif"
+      }
+    }
+  },
+  "steppe-rider-left": {
+    "originalPath": "boots\\steppe-rider-left.jpg",
+    "sanitizedId": "steppe-rider-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAx0lEQVR4nGP4hwT+w8A/GGD49+/f379//////+njxyNHjixZsvjYsaP/////+/cvVPrPnz////+/e/euhISEqKhogL8vRP/fv38R0o8ePZKRkREREfHwcPv16yfEAIT0kydPFOQVODk5fXy8/oFMhklD7H7x4oWWliYnJ3taSjxEK4ruS5cuSctICwkLJScnIqQhcrt3bDUx0BXg55OSEo8OD/j06SPUbojJ58+cXDxv5txpE2ZM7j13+tiPHz8Q/kYOELRgAQCca/CRv8MOCwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-rider-left-640.webp",
+        "960": "/images/optimized/steppe-rider-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-rider-left-640.avif",
+        "960": "/images/optimized/steppe-rider-left-960.avif"
+      }
+    }
+  },
+  "steppe-rider-back": {
+    "originalPath": "boots\\steppe-rider-back.jpg",
+    "sanitizedId": "steppe-rider-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4ElEQVR4nG2QTUsCURSG/VuCZOh1o4ka82FzG244O9sUOSSYRQbhjyyiFhIuanbJveecN+44UYtezu45vDzn1ESEy7HWURlrLUuVGjMLYJ0zxixvFvP5dRyFRVEAYGaPGSJAv3/UPGyaM9No1He7rx8sQswAojju9rqXV7NOR4nfL7GIOCKPx3EQhsvbO6XaALxThZ0DoPVJkiT3qwelWv/gLJtorR/X6yA4/sX+JPJ4ej4dDIezPE/TUwDknf+oLfKL1kE9GPWyNNr3VeVcen5uN28vTx/b983rMxHt3/IN5KfrWzGTajgAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-rider-back-640.webp",
+        "960": "/images/optimized/steppe-rider-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-rider-back-640.avif",
+        "960": "/images/optimized/steppe-rider-back-960.avif"
+      }
+    }
+  },
+  "steppe-3": {
+    "originalPath": "boots\\steppe-3.jpg",
+    "sanitizedId": "steppe-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKecf5+Vf7mwlrGqlJ6Xgm9oYYiCeXNtdQCJe2RwcWBkdGyBh4GLh313bmh7dXJxbXUAUkhIECs1GUNSJE5aR1pec19YZ1xZZV1cAHNueSA4PixUXSVVX196hZeXn46PlZKTmABxZHApNTYmS08jTlVedX2amKCbnKSdn6kAcGBjOi8tJjIwHTY6XmtwnJeck5KXfn2EAG5hZ0A3MiUrJhw8PU5iXYp6dXJmaWxcWwCUZzBJQTIWNUBrjG55lmpmeWdwX0pZRj0AzXsBoGYZeVwve3tXdIBplXhB45AKxn4PAPCTAPmaAPudAeWXBNKQCPanAvmgAPOTAEbXY+3nL9b4AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-3-640.webp",
+        "960": "/images/optimized/steppe-3-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-3-640.avif",
+        "960": "/images/optimized/steppe-3-960.avif"
+      }
+    }
+  },
+  "steppe-2": {
+    "originalPath": "boots\\steppe-2.jpg",
+    "sanitizedId": "steppe-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/ALChhI6DcE1CRpOIdrisiIFyZJKHeXFqcQCsmXOilXimnojTz7XGvZ6il4CEgHiSjokAiXVVfm5Vj4NrioV1Tk5IU1hUdm9od3FtAF5VWWdbXHBoaSMdIBcSFR4pMV5gYn9+fgBtY21tYmuLhIhENzUvHx1HRUaMj5Ofpa0AY1ZbWklMem9vOiwoKRoXR0FBjY2Pg4aMAFVJUVZITGBTTSAVFikkIkJCQmthZ3VpZQB4USyZZilcTzdFOiktNkRUVUufdi5bUU0A6X4B94wAiWY0bmVSV1BOdVhB24cNw3oNAOiDAfOLAPaSBPKaCd6FC9J5COmLB/+bAQD6YZ/WMO+qAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-2-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-2-640.avif"
+      }
+    }
+  },
+  "steppe-1": {
+    "originalPath": "boots\\steppe-1.jpg",
+    "sanitizedId": "steppe-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AK+nnnNpZFJFRpiMeJWIcn9zZIZ9cnZvcACypIehl4BfVFSimIq8sJeCd2uHf3VzbXAAt6J6rZ9+raOJo5+Rf3x1gYF7fXhudXBvAHloVnNjV2ZcVBQVHyUvO1xudnFpZHl2cwB7c3p4bXVvaG4UFRwuNz1SXF+WmJiorKwAfHR8bWBmdWltGhkdISQnVVdYq66vpKipAHZqcGJRVGpZVxUWHiwxNWVnaoJ/hXhvbQBUS1VcS0hjWE45NzJNVl1FQkWKakpZTEgAnGMij1oUTzwnXVpTbGRWfFMk4Y0Sw3wPAOmHCfCOANF/Aa5vDt+MBvufAPmiAPqcCqYOZNDL7qUZAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/steppe-1-640.webp",
+        "960": "/images/optimized/steppe-1-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/steppe-1-640.avif",
+        "960": "/images/optimized/steppe-1-960.avif"
+      }
+    }
+  },
+  "naadam-festival-right": {
+    "originalPath": "boots\\naadam-festival-right.jpg",
+    "sanitizedId": "naadam-festival-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA2ElEQVR4nGP4BwN///379evX////4SL//v1j+Pv37////799/z599pzC4tIJk6fcvnPn////f//+BUn/+fPn////9+7fDw4N19M3EBWTOHv23P/////8+YOQfvr0qYurq7qGpqSUzNWr1xDSEMM/fvzg6ekhKycvISV97dp1FOl///79//8/IT9HRkFeWk72xnUk6X///kHMzy8tUlBUEJcQP336FBbdcbFR3t6ehkaG0TFR589DXQfSDfL0n78nTp7o6esrKStrbm07dOQwijTEAEiYIIcMAE8u7ziFrH+5AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-festival-right-640.webp",
+        "960": "/images/optimized/naadam-festival-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-festival-right-640.avif",
+        "960": "/images/optimized/naadam-festival-right-960.avif"
+      }
+    }
+  },
+  "naadam-festival-left": {
+    "originalPath": "boots\\naadam-festival-left.jpg",
+    "sanitizedId": "naadam-festival-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+klEQVR4nGP4BwN//vz5++/fg0ePT50+8/379//////9+5fh379/f//+/f///5u37wpLywOCQ1nZOSqrqv/////nzx+E9IsXL6ysbQ2NTdk5uZKTUxG6//z58////0ePHunqGaioabBzcJWWlCF0Q6Tv3bunrKYuJSPLyclVV1eHkP79+/f///+vX7smr6Eup6wsKCE2fc6s//////79GyG9Yf0GNi4eaTlZaXnp5StXQKX/////+PGjlStXREdHmZubq6iosDAz9fZ2I6Tv3r1TU1sTFBJkZW1pYWnp6eU1Z+4cdH/fvn1r957dV69d/f7jxz+w3L9//wB9HNVh+FCUjwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-festival-left-640.webp",
+        "960": "/images/optimized/naadam-festival-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-festival-left-640.avif",
+        "960": "/images/optimized/naadam-festival-left-960.avif"
+      }
+    }
+  },
+  "naadam-festival-back": {
+    "originalPath": "boots\\naadam-festival-back.jpg",
+    "sanitizedId": "naadam-festival-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nFXQz2rCQBAGcB9nPdTC2oC1CF7U0vi3MXhoYxUiueSod0WL+HKBHGt9B63GkLA7+4ldITjH+TEfM5NT/0VEf6coFSKKz/vjUZDU/RwRAZBE/nQ29jzP9wfDr/3hAICIrqyUAvDxOcwzZppmvfYaReeMdUC70+VPRcvqVyrVOI5vrJSSUgLo9d4Nw3Ach/NikqQZCyEAjMaj51JpMnE557pzx4vFvPxSdl230agD0OdkvNmsGWOtdsu2LT16x6vv5UPh8a3ZtAd2miRZuN78d7cLw/Bnuw2CQMrbWy7FzeWS+T5eIwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-festival-back-640.webp",
+        "960": "/images/optimized/naadam-festival-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-festival-back-640.avif",
+        "960": "/images/optimized/naadam-festival-back-960.avif"
+      }
+    }
+  },
+  "naadam-3": {
+    "originalPath": "boots\\naadam-3.jpg",
+    "sanitizedId": "naadam-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKqakbytn7akk6qWhZ6IdKqPdJyAZKmMawCqmpG7rJ62pJazoI+ciHmciXahg2q0l3cAr5+Uvq6guquddnp2XWJdVGBdaVxIvp6AAKuajr2rm7utn0BkbB9FUChUYEFBMMCggQCkkH+8qJPAsZ4xYGwTSFslVWFGQCiyjmYAmoRuvaeMu6yUOFpeIEdPOFZUYUwtpoBTAJN7Y76jhaiejClNVCNETEFXT2JNMqB7UgCKe22dkXl8j4gvU1VKbWwmQkNLRDKXf2IAyM/MeIiCVmtkS2heTmNUVl5Ymp+bw8vJAPj42/Hw0+PjzbO1p7a1pt7e09/j3dLV0Pr0fCcabo+3AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-3-640.webp",
+        "960": "/images/optimized/naadam-3-960.webp",
+        "1280": "/images/optimized/naadam-3-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-3-640.avif",
+        "960": "/images/optimized/naadam-3-960.avif",
+        "1280": "/images/optimized/naadam-3-1280.avif"
+      }
+    }
+  },
+  "naadam-2": {
+    "originalPath": "boots\\naadam-2.jpg",
+    "sanitizedId": "naadam-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AF5cWGpmYnVybnx6dXp4c21qZ2hmYnJxbgBpZ2N+eXWOiYWTkYyTkY2Hg4CFgn6BgHwAeHVxk46LmpiVnJuXlZSQkpCMi4eDaWhkAIiFgYF9eltXVJKRjUtHRGJhXpmXlHh3cwCKiIVaWFYnJiWbmpZMS0o/QECcm5iAfnoAjouIU1JRKSornJuXf39+ODY1kpGNhYSAAIeDgWpnZDk2M5mYlo2Hfzc0Mm9vbYCAfAChnZaAeXFHR0Z4dGxPQzQqKitPST+AeWsA2tbOfXdvUlBOKykmNDIvfXx5pqKZiH9wANLPytjUz8jGwKqppsXEweLh3drZ1svKx68gcqgOZ561AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-2-640.webp",
+        "960": "/images/optimized/naadam-2-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-2-640.avif",
+        "960": "/images/optimized/naadam-2-960.avif"
+      }
+    }
+  },
+  "naadam-1": {
+    "originalPath": "boots\\naadam-1.jpg",
+    "sanitizedId": "naadam-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AJ+NgqyajamWh7KaiKOMe5p9aaeJcI9zWQCgjIGvm4yvnI2DhX2Qe2aNf3GSfmSae2AAmoR4q5eGsaCQMVdmJSomPlRcPUI7oH5kAIRrV6uTfbKgizhWXxwhHzVHSz03K5VxVQCBZU2uknexm4IwSE0uMCg2PjpINyOFX0AAgmVMq45wppJ5OElKPT02NDs6V0QvhGFFAH1qWaWNdZGOfyU6PCYvLzJAQUEyI3hbRAC/wbt4gn5NX1suOTYyPDQ0PTh1c2yxsa4A5d/CqquYs6yQxsKthYmBn5yNzcu+wsO8APv30P/+1f/4z/TpxO/mxunjydXRvcXDtA+BdSF2eNkjAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/naadam-1-640.webp",
+        "960": "/images/optimized/naadam-1-960.webp",
+        "1280": "/images/optimized/naadam-1-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/naadam-1-640.avif",
+        "960": "/images/optimized/naadam-1-960.avif",
+        "1280": "/images/optimized/naadam-1-1280.avif"
+      }
+    }
+  },
+  "khans-legacy": {
+    "originalPath": "boots\\khans-legacy.jpg",
+    "sanitizedId": "khans-legacy",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/APv37Pz47Pv36/r26vn16vv37Pv37AD79+z79+z8+e3++vD//vX8+e779usA+/fs/Pjt9fHl5+DTxLik8Ozf/fnuAPr26/778ObaxbuddYFiOs7Crf//9QD69ur//fXjzq+yiVOHZjrc0Lz//fMA+fTo///2xbKZcE4rYEYp4trM//3yAPr26////62YfWpLLFU/KOHb0P//9AD38OPj07y8lmarg1J4VSvAs6D18ecA3M++jW1Ok29IclMxYlA9ubCk9vHlAPr26/fz6c3Ctce+svXy5//+9Pz47N+2pkdO126ZAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacy-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacy-640.avif"
+      }
+    }
+  },
+  "khans-legacy-right": {
+    "originalPath": "boots\\khans-legacy-right.jpg",
+    "sanitizedId": "khans-legacy-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVR4nGP4BwP///+Hk3DAAGfdvX7hzctnXz6+//PnD0L679+///////7u4bLetAklvpNrE3/++AYy4+9fiPSf/////3h3f31/co6HVFWS0/9/IAm4NEj3j0+v1/ampHko1mX4gHWCAEL6w7v3U6qTAq0VMiNc/v/7A3chw79/IOlf3z/fODB7aU/6pLKA759e/vr999u3r0i637zcM7f8+r5pc2pDJ5YGbV677Oev33///oV77P+dK6e3L+puLs2c2Nly+8a1////I0uDrAO7GMSABw4ACkIDg0dOWgcAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacy-right-640.webp",
+        "960": "/images/optimized/khans-legacy-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacy-right-640.avif",
+        "960": "/images/optimized/khans-legacy-right-960.avif"
+      }
+    }
+  },
+  "khans-legacy-left": {
+    "originalPath": "boots\\khans-legacy-left.jpg",
+    "sanitizedId": "khans-legacy-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA40lEQVR4nGP4hwT+w8A/GGCAUH///v3z5/ePH9/vXD1749Lp//////nzByb99++fv39///p5auu0Vf1pnQV+f/78/gsGUOm/f//9/P7l4Ly85S2BM+pj//z5g5D++/fv7z9/f//8PKk0sDBQc0pTzv///3/9+gU1HGT2//9fP7zIDDALtVMty0mC2Q3R/efP//9/b57YsLk7oj/HYUpVxNu3bz99+gTR/f/vn9/LJ5RPynOdlGOX4aOZFu55+/atz58/Izz2/PGjUwd3zZ/SuW/Xti9fv8G9DpWGBwgEgHwClgYAam0CfuzStZMAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacy-left-640.webp",
+        "960": "/images/optimized/khans-legacy-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacy-left-640.avif",
+        "960": "/images/optimized/khans-legacy-left-960.avif"
+      }
+    }
+  },
+  "khans-legacy-back": {
+    "originalPath": "boots\\khans-legacy-back.jpg",
+    "sanitizedId": "khans-legacy-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA30lEQVR4nGP4BwP/kcA/GGD49+/f379/f//5c2j7+jvnjxzfu+3m6f1///798+fPX5A0SO73////+4qCZlWFrOjN7S0K/vPnz+8/f/7+/QvS/evXz////6+fVjKjJmzLrIrpTan/////9evX339I0sfW9i7rztg8s2Lj7Hqw9E+w4TDpMztmr5mQu21u3Y7l/f/////58weK9LndC2ZVhS7rztq7djpEN9TlEOk9S9tDLOXyg00m1mU8ff7y1cuXUKdBXL5r7eKFsyavXzxryZypHz99/vkTphszWOCBAwCb8QEMrAuK8gAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khans-legacy-back-640.webp",
+        "960": "/images/optimized/khans-legacy-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khans-legacy-back-640.avif",
+        "960": "/images/optimized/khans-legacy-back-960.avif"
+      }
+    }
+  },
+  "khaan-3": {
+    "originalPath": "boots\\khaan-3.jpg",
+    "sanitizedId": "khaan-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIWAeoiCfIiFf4eHgoeGg4KAfI2Lh399egCJhX+LiIOMi4eNjIiPjoqJiISfnpuNjIgAi4mGj46Lk5KOmJeTlZSQj46JjYyIgoF9AI6NiZaVkX99eWVjX0dGQlxaVZWUkIeHgwCMi4eamZViYV8lJCMJCQlRUE+amZaHiIMAjYyInZyYW1tZNzc3MjEuWlpYn56bioqGAIaFgZmYlGRjYVVSTUtJRklEPJSPhYaHhADJyMTIx8JZWFc/PDdQTUUZFxNgWEehm40A+/r1hYOATk1Kj46JxcS9jYyJjImBvKyWAPLw7N7c2Orp5Pj49PT18Pr69fT18Ofl395MfpIoH3TpAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khaan-3-640.webp",
+        "960": "/images/optimized/khaan-3-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khaan-3-640.avif",
+        "960": "/images/optimized/khaan-3-960.avif"
+      }
+    }
+  },
+  "khaan-2": {
+    "originalPath": "boots\\khaan-2.jpg",
+    "sanitizedId": "khaan-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/ANPIqbGoh2xgUVFDPbChc6qYZ4J0XaaZcgC5p3KtoXeZjm+noIbGu5O0pXaRiW2TkH4AjHhQkH1Th3hUqp19saOEmopolopuj4qAAG9kWnBlXXlxaGFUTE9BOGlfVpOQjJWUlACSk5OGgoSQjZFnYF44LyqAe3m+x8rBzM8Ai4mKYVZVXU9MWU5KNywolIyLucDCvsnLAHh3fElCSWRSSmdbUFxQR5eQkZCXoIiLkQBmYF9yVjl1aV57bV2TiX2pjXK2iFaQgnEAzIYl5JMixZBHt4dJ3q5t9qtD/7VF+qtMAPSWF/icJf+lKf2kJ/6jJ/+qNPyxQv6ySkeQet0ZfhooAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khaan-2-640.webp",
+        "960": "/images/optimized/khaan-2-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khaan-2-640.avif",
+        "960": "/images/optimized/khaan-2-960.avif"
+      }
+    }
+  },
+  "khaan-1": {
+    "originalPath": "boots\\khaan-1.jpg",
+    "sanitizedId": "khaan-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKyhi3ltWC8iIXlmRp6HUXBfQnhpS1pNPwCgkG+LfV9xZFCXiWuVgVZ9a0ZrYlCLgWQAhG9KdmVEfm9RlIdsgnlmfHdlal5Mdm9hAFFFO1VIPmFVSXhyb4aGhK6/umNeWm5tbABqYmJjWlxxZ2eDeG2PjH61vrOMkJCboaMAY11dSkA+YFZSUkg+a2ZdiIJ+i42NmZ+gAFNKSjMnKF1STlhQRW9waYKFhHt/hHh5ewA6NTpUSEGainOynW69wLCcnptnUUJeW1oAiVMOfVowe2NIqZ6DpZiAonI71YUhxIM3AMd1AMV0AK9nBa5vGM6BGOWNE+eQE+eOIB7CaFRJte9zAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/khaan-1-640.webp",
+        "960": "/images/optimized/khaan-1-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/khaan-1-640.avif",
+        "960": "/images/optimized/khaan-1-960.avif"
+      }
+    }
+  },
+  "golden-3": {
+    "originalPath": "boots\\golden-3.jpg",
+    "sanitizedId": "golden-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIeCf4qEgoqGg4qIhIqJhYSBfZSQjZORjwCLhYKNiYaNjYmOjYmRkIyNjYmYl5OTko8AjYqHkY+LlJOQmZiUkI+MiIeDjo2JhYSAAI+OipaVkXZ0cF1bV0RCPlRRTZOSj4uKhwCOjIiZmJRaWVcnJSQHBwhFRUSamZaKiYYAj46Knp2ZUVFQNTY3MzIvT05OoKCejIuJAIaEgJaUkFlYVldUUE5NS0VAOpKNg4qLiQC8urbEwr5YV1dIRD9LR0EcGhZhWUmZk4cA9PPugn99PDo5bGllramiZmVjYl5Yr6CLAOno5KuppcvKxu3s6PHy7vLy7enq5tzWzYlFemh1q5fOAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/golden-3-640.webp",
+        "960": "/images/optimized/golden-3-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/golden-3-640.avif",
+        "960": "/images/optimized/golden-3-960.avif"
+      }
+    }
+  },
+  "golden-2": {
+    "originalPath": "boots\\golden-2.jpg",
+    "sanitizedId": "golden-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AJmUkKOemaWgnJ2YlKCbl6GcmJqUkZaSjQCYk49qZ2VkY2CkoJuUkYyDgH2emZWblpIAk46LFRUWHh4diYaCGhoaHR0dlpOPop2ZAJqXlB4eHi4uLXd2cwYGBhgYGI6MiaajngCdnJgiIiIyMTCEg38KCgoWFhaJiISmpaAAn56aMC8uNjY1l5aSDQ0MERESh4eDpaSgAJublygpKDw7OqenoyAgHw4ODoOBfKSkoACFgHsdGRg5NzeDf3gbGhkWFRdmYVaclIMAtayda2RdGBQVHBoXHx4cFxUVFBIRMCsiAOvq5uPi3bSxrauqp8vMyLW1sZCPjIKAfl0OYhBuLWfSAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/golden-2-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/golden-2-640.avif"
+      }
+    }
+  },
+  "golden-1": {
+    "originalPath": "boots\\golden-1.jpg",
+    "sanitizedId": "golden-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AMO5qq2fil1IR452Y8+3e6yRZ6ONdpOEfQDErX6xoIWnl3+upI1ZWFRrbmeMg3yvqJoAo4ZZl3xbnIZqNzQ2ERosSmN4cW9tfG1nAHReWXVeW39raiolLBwhLVFjcH6CipuZoACLf4yHd4Sjlpw7ODoYGiJDTFeQk5+zuskAgXN/eGVsmoeJOzY5GhwhRlBZmZ6soqm5AGpfbG1gaIFvbSUkKisyOVJga3d9jm5ugwCBY1SGZ0x4cFhtZUxHVmhab4ecf1+acUEA8IQC4X0ChWM6j35an4RZrXQ33Ica/qcBAPqNAP2SAPiPAPyZBP+fAP+hAP+cAP6YAKhjbFezdT1dAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/golden-1-640.webp",
+        "960": "/images/optimized/golden-1-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/golden-1-640.avif",
+        "960": "/images/optimized/golden-1-960.avif"
+      }
+    }
+  },
+  "genghis-ceremonial": {
+    "originalPath": "boots\\genghis-ceremonial.jpg",
+    "sanitizedId": "genghis-ceremonial",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nC3Pv07CUBiG8XMXMEEFG/40JAYdSAwzMQ6MJF5FB1hc7WKvQNDZ1MWAMYRoHIgJGuM1QLkDDP2+03Pantc0uv7yLI8gySQ51srAAEizhGISJEklarNdv7y9Tu5ul+/L1CQi4gjAfLFon3RqzWavd5YhExETgOnsqeG0Go4zGFwARuwpb++DoGwdVKqHrusC+NfgIShZVtW2fd//071OlX991T4+KhSLnufluvvZ3Ywn/f5597RTt+vD0SWxFMS8DsPV5/fj9Hn18bUJQ5IkWLJOdGbyBQOjU8Ux/QISZpgsDJVoxwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-ceremonial-640.webp",
+        "960": "/images/optimized/genghis-ceremonial-960.webp",
+        "1280": "/images/optimized/genghis-ceremonial-1280.webp",
+        "1920": "/images/optimized/genghis-ceremonial-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-ceremonial-640.avif",
+        "960": "/images/optimized/genghis-ceremonial-960.avif",
+        "1280": "/images/optimized/genghis-ceremonial-1280.avif",
+        "1920": "/images/optimized/genghis-ceremonial-1920.avif"
+      }
+    }
+  },
+  "genghis-ceremonial-right": {
+    "originalPath": "boots\\genghis-ceremonial-right.jpg",
+    "sanitizedId": "genghis-ceremonial-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDklEQVR4nGP4BwZ//v59/fLVzx8/fv7+9ePHj////0PEGf79/fv////zu45vqF1wcO32ra2LLm4//v///79//oCk/////+3b11U1U/fXr0zUceo2S7m24yRI+jdY+t/ff3///13bOnNVRl+OlW+ButflPSDdfyC6//758////11Tly1ObOlKLSrS9r5x/BxC+s/v3////180a05LYFZvQ6unutmDM1cRdkOkVy1aMjGuYlbXhHA128enrqNLr+iZvDq1a2pCVbyi7aHmZY+u3v7169f/f/+hdq9ZtrQ+NKU9KCslOKIptaizqv7L1y////9nAHke7PWXb14dO3Xy0ZPHf/7///nn9/9/oJABAGfz70mKoUCNAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-ceremonial-right-640.webp",
+        "960": "/images/optimized/genghis-ceremonial-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-ceremonial-right-640.avif",
+        "960": "/images/optimized/genghis-ceremonial-right-960.avif"
+      }
+    }
+  },
+  "genghis-ceremonial-left": {
+    "originalPath": "boots\\genghis-ceremonial-left.jpg",
+    "sanitizedId": "genghis-ceremonial-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nGP4Bwb//////vXb9+8/Ht198PHDx////0PEGf79+/f3z5////+fXn9gfnLLxtKZe/vWPH3w8P///3///kVIX991KlHUckpI2a7SeQdXbPr///+f378R0nePXwoRNay1j10S03Rq5z6w9B+E9JubjxOVbAuN/ZdF1dy/cg1k+B+o9N////9/efTaTdM81tg9zSv0+bNnyHaDpF9eue8ip1/gEJYbGvf+w3uo9P///3/++PHh4YujPaubnVOO162cE15y//oNqOH///9/9fJla1ZZdXDq/KSGlYV9NYmZN65eBTkNavffv19+fLv94M6R40dv3bn17fdPSJj8+/cPALxJ8hEJLJWvAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-ceremonial-left-640.webp",
+        "960": "/images/optimized/genghis-ceremonial-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-ceremonial-left-640.avif",
+        "960": "/images/optimized/genghis-ceremonial-left-960.avif"
+      }
+    }
+  },
+  "genghis-ceremonial-back": {
+    "originalPath": "boots\\genghis-ceremonial-back.jpg",
+    "sanitizedId": "genghis-ceremonial-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzUlEQVR4nFWQ3QqCQBCFe8iuCouKoEIo1ISigqw00koQtbSIksoH6KIn60d3d2K3H+3czXzMnDOTIV8hJsz0a2beBQBwBU7Xddu2uQIHtAEY4wR3cnVTHG4Us52txnH0wYQQjDEAeM2RL2nhyHZq/RijFEa02Amq21L2PcNvDAgAdU7joGtsxcmxtzjIOgICbGuCz1NnJYw9WQtVFwAIy5TgixVoJWmQ56/WiRqjBNNo69lSKNf4YsXV5n/T9DACt+fjiaIIxffowazpW17hs/th+lWcSgAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-ceremonial-back-640.webp",
+        "960": "/images/optimized/genghis-ceremonial-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-ceremonial-back-640.avif",
+        "960": "/images/optimized/genghis-ceremonial-back-960.avif"
+      }
+    }
+  },
+  "genghis-4": {
+    "originalPath": "boots\\genghis-4.jpg",
+    "sanitizedId": "genghis-4",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIN9d4aAe4iDfYmEfoaCfH55dYJ9en56dQCJhH6Mh4KPjIiRjoqOi4eGgn2SjouIhYIAj4qFlZCNjoR/jIaCkpKOjYiFiYSAeXVyAJCMiaSemJaDboZ9dIiFgJeIeZiPhn58eQCRjoublY+ahW+TjYWHhH+Nfm2RiH+CgX4AlpOQjIN/f2dUnpqUlJGNemdYjYeAiIiEAJGOjJ2Uj5J/cI6IgGtfUWZRR4uFgYSEgACxqJ6Zj4K8rp5pWEVhUT6aiHV4alSelogA29LGysS7vLGnjn9ymYl6sKGTnJKFq52IAPLu6fTv6fLt5+Hd2NPRzOXj4PLw7Obj3r7vh+CX8Yh5AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-4-640.webp",
+        "960": "/images/optimized/genghis-4-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-4-640.avif",
+        "960": "/images/optimized/genghis-4-960.avif"
+      }
+    }
+  },
+  "genghis-3": {
+    "originalPath": "boots\\genghis-3.jpg",
+    "sanitizedId": "genghis-3",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AK6kgJeOcjktL39zXbmsf39wV4uBa21kYAClmXCimXaXj3TAvZrHv5OonnuBfGqemoAAlIJUgnZViYZto5x6TE5FcG9kfHRlfnhmAFxOR1xQSSMmKlBJQywyOE5XYW5nY3pxawB3c3J7dnUsKytiYV04PD9bZGqYmJaqq6kAbWhkc2xoOjc1aGNeJSUmPz09oqGempubAFBOVGJfYlRKQmBSSS8sKlBPUn18gXJqaABtTjCKZDB4XjliRBk1PEh0a1WRdkdJQUMA/5IArHQRbl5Db2VPQ1Bla1pA6pYFf1smAP+XAOKQBH1dGX1bJpZkJatqGOSIA9OFE3r7YhC4K2shAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-3-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-3-640.avif"
+      }
+    }
+  },
+  "genghis-2": {
+    "originalPath": "boots\\genghis-2.jpg",
+    "sanitizedId": "genghis-2",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AIiBfIuHgI+NhpSOiJGGgKWRhZyVj4+NhpuWkJuVkACKhX+LiIOimpHZuZ6xi3HjpXy5p5uPjoyppqKmoZwAiIR9iYiEp5uQ6LiRoox9ypNvtZyMlJORlpKNkI2GAIaCe4yKhZeOiLqJa6GSiKeJdp5/bpuampSQjY+LhQCAfXaJhoCMiIaLalmWhnmHblnRn32QiH2Sj4yOi4gAysfCx8O9no9/3rCNrYVkhFw/tZJ6fW9ZrJ2JycK5APLt5u/o4trRyMaxo7+bhK2VhtPOyNXRysu+rurczEMqfg7UXfWdAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-2-640.webp",
+        "960": "/images/optimized/genghis-2-960.webp",
+        "1280": "/images/optimized/genghis-2-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-2-640.avif",
+        "960": "/images/optimized/genghis-2-960.avif",
+        "1280": "/images/optimized/genghis-2-1280.avif"
+      }
+    }
+  },
+  "genghis-1": {
+    "originalPath": "boots\\genghis-1.jpg",
+    "sanitizedId": "genghis-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AJWPhpiTjKGdm6KfnqijoKmkoqWgnZ+alqCak6OdlQCXkYmgm5iUh32ahHSgl4+Mak+gk4mmoqCyraqzrqkAlZGKp6GdhGBAiGJGj4V8bkYjqJuQqqempaCdnpmUAJOPhqKenIJlS3lXPJaPiHFRN6ikn6inpKKem5uWkwCNiH+Zl5aTfWqDZEuShnluTzOZj4ChoJqenZualpMAzcrFzs/LmIJsbEYqYUk1XEIreGRNpJmExryvz83IAPTz7/Lw7M/Kxbevpr6yqL+6tMnDvdjUy+TZyPPw62RJe7nQy6CSAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/genghis-1-640.webp",
+        "960": "/images/optimized/genghis-1-960.webp",
+        "1280": "/images/optimized/genghis-1-1280.webp",
+        "1920": "/images/optimized/genghis-1-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/genghis-1-640.avif",
+        "960": "/images/optimized/genghis-1-960.avif",
+        "1280": "/images/optimized/genghis-1-1280.avif",
+        "1920": "/images/optimized/genghis-1-1920.avif"
+      }
+    }
+  },
+  "burkhan-khaldun": {
+    "originalPath": "boots\\burkhan-khaldun.jpg",
+    "sanitizedId": "burkhan-khaldun",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/APn69v///v7++v///vv8+ff58/j59ADz8+6cnZxnaGmWlpXR0s79/vn29/MAuru3AAAADAwPCgkMnJ2a////9fbxAMrLxgEBAQ8PEAQEBaCgnv////X28QDh4t0ZGhkDAwUCAgOhop/////19vEA9/jzVVRQDg0MBgYGpqek////9PXxAP///3p5cxcWEgAAAI2Ni/////f49AD///xUVFAiIiFPT09nZ2PBwbvo6eQA+PnzfX13Pz86ZmVfTUxIW1pU1NTOAPj59Pn69e3t6MnKxcLDvfDw6vv99yq7hIGsUAMdAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/burkhan-khaldun-640.webp",
+        "960": "/images/optimized/burkhan-khaldun-960.webp",
+        "1280": "/images/optimized/burkhan-khaldun-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/burkhan-khaldun-640.avif",
+        "960": "/images/optimized/burkhan-khaldun-960.avif",
+        "1280": "/images/optimized/burkhan-khaldun-1280.avif"
+      }
+    }
+  },
+  "burkhan-khaldun-right": {
+    "originalPath": "boots\\burkhan-khaldun-right.jpg",
+    "sanitizedId": "burkhan-khaldun-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA60lEQVR4nGP4Bwb/IQDM+IcEGP78+fP///+DB/ZHRoR1d7ZNnNB7587t//////37FyT969ev////V1ZW8PLyqKurSUiInT596v///3/+/AFJ//79+////9OnTZOQENfV0VZRVrx86SK69I7t28TEhNXVVOVkpa9fu4qQhth9+/YtHS11LS11NVXlO7dBdkOl//79+////1evXro42WlqqKqrqdy9cwdd9717d3S01Zwc7NTVVOfNmfX716+/f5GkL1887+PhZGasZ2th7O5oM6GrFRIADPAQePf29bHD+/ft3nHzxvUnjx9DpAFXtOBwcLkVGwAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/burkhan-khaldun-right-640.webp",
+        "960": "/images/optimized/burkhan-khaldun-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/burkhan-khaldun-right-640.avif",
+        "960": "/images/optimized/burkhan-khaldun-right-960.avif"
+      }
+    }
+  },
+  "burkhan-khaldun-left": {
+    "originalPath": "boots\\burkhan-khaldun-left.jpg",
+    "sanitizedId": "burkhan-khaldun-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nGP4hwT+////98+fv3/+/P//HyLC8O/fv79///7////jhw+bN22or6vx8/G6cP7c//////z5g5B+8eK5kaG+tJQUKyvr5MmT/v///+vXL4T069evLS0tpKWlBQQEVq5c+f///9+/fyOkP3x4b2FuJiwsJCkpefDgQXTpd+/e2tvZSEqIGRvp37t7B2H3H7BT79+7Z6Cvo6Qob2aif+/eXRSnnTh6OCcrzchAx8LMWEJUYPuWjQjD////v2n96prywty0+IqinHkzp967cxsUBn//gqQhKn7//v3ly2cIGx5QAEtK5qOy8g5GAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/burkhan-khaldun-left-640.webp",
+        "960": "/images/optimized/burkhan-khaldun-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/burkhan-khaldun-left-640.avif",
+        "960": "/images/optimized/burkhan-khaldun-left-960.avif"
+      }
+    }
+  },
+  "burkhan-khaldun-back": {
+    "originalPath": "boots\\burkhan-khaldun-back.jpg",
+    "sanitizedId": "burkhan-khaldun-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6UlEQVR4nFWPzU7CUBCF+yhGtkWoRLRd1EsXXZBQCTWEFyCaAL6AiD+w5idoIuq7yaJJE0vayA7uvXNMe42ms5hMzpc5Z0YjIklpAVAd2aB0TUoJII7j0d3t+9vr83JxPxput98ApJSaEALAev1ZODxwauy0elI60jeb6Ber7SRJirpu27ZhGJZl7va7f0xZmFNjruuapun7LRWfYiJS/p1O22s0GDsf9HsAhBBElGLOOYDrq26z6TkOGz89AOCc5/DNoGdZZ5Xj8nw2zWFlPnkcti8vWl79Y/WSM1fHh2EYRV9BEPx9RUQ/g1DoXvmyq/UAAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/burkhan-khaldun-back-640.webp",
+        "960": "/images/optimized/burkhan-khaldun-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/burkhan-khaldun-back-640.avif",
+        "960": "/images/optimized/burkhan-khaldun-back-960.avif"
+      }
+    }
+  },
+  "altai-mountain": {
+    "originalPath": "boots\\altai-mountain.jpg",
+    "sanitizedId": "altai-mountain",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nB3KzUoCURiH8YMxrcyFeGbclffQSvDauoJW2UYDh27AoIKRCjMonZ1Ze3ch6OZ4Pt73zIf/GJ/lj0ewN+yNI22dcqSINXsj2BtinRcex7KciLVwtAfK7+UyjuOP2Wy722S5E9YqAIPhXb3eCILTfv8GgLBuD+Dx6bklo9pJMBrFlRJpAGmatmQUheF8/lWpO77J5CWM2p2L89+fFVAKoFx8vve6l1KGsnk2fZtUb1bQ5m+dPNzfXl+9JmOldt5bQayzgoEDUAIHnzti8w/H3aHp6BJHzAAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/altai-mountain-640.webp",
+        "960": "/images/optimized/altai-mountain-960.webp",
+        "1280": "/images/optimized/altai-mountain-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/altai-mountain-640.avif",
+        "960": "/images/optimized/altai-mountain-960.avif",
+        "1280": "/images/optimized/altai-mountain-1280.avif"
+      }
+    }
+  },
+  "altai-mountain-right": {
+    "originalPath": "boots\\altai-mountain-right.jpg",
+    "sanitizedId": "altai-mountain-right",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6ElEQVR4nGP4Bwb/////9/fv3z9/QAwkwPAHLHT27Bl/f//gsNComOibN2/+////z98/IOnfv3////+/u6eHR0CIjZOblZ3zxo0bIOk/SNLz5i8Ql5Lh4uGTlpV98fLl//////79i5Deu2+fgIgYMyubhpb2+w8fENIQux8/um9jZczAwGBhafnt27f//0AORUg/fPhQ30BPQEhYWUXtwYOH6HYfPrSfh5dbUERUSkbW0tLs4IE9YBW/Gf7+/fv///+Xz5/OmtKRHB+UkRRclB19aN8OiAEM8BAA8X9/f/Xy+Y+fP+GBAwCkGeDtMwefOQAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/altai-mountain-right-640.webp",
+        "960": "/images/optimized/altai-mountain-right-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/altai-mountain-right-640.avif",
+        "960": "/images/optimized/altai-mountain-right-960.avif"
+      }
+    }
+  },
+  "altai-mountain-left": {
+    "originalPath": "boots\\altai-mountain-left.jpg",
+    "sanitizedId": "altai-mountain-left",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nGP4BwM/f/749vXr/3///v//Dxdk+Pfv3+/fv////9/S0mJkYpyQEF9YWPD+/fv//////fsXIV1b38DMyi4mLsnEzHz27Nn/////+fMHIT195ixWdg4pGVl+AcEHDx6iS69dt56VjYObl19NQ+vbt2/ohu/avZuHj1dQUCA5IRos9w8q/efPn////0+cNFlEVIyHlzc6OgqiFST9////Hz++V1aUqKiqycgpsrJz6GqrvX/3Fmo4SPr7t8Vz+ouyY9ydzBKj/dauWPD9+3eE3f/AQfH925c3r578/AFyFDxYADdW3gkPmu4NAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/altai-mountain-left-640.webp",
+        "960": "/images/optimized/altai-mountain-left-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/altai-mountain-left-640.avif",
+        "960": "/images/optimized/altai-mountain-left-960.avif"
+      }
+    }
+  },
+  "altai-mountain-back": {
+    "originalPath": "boots\\altai-mountain-back.jpg",
+    "sanitizedId": "altai-mountain-back",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVR4nGP4BwP/kcA/GGD4+/fv////P336VFRUVFNbk52TU1RU9OP79//////9+xcq/ebNG20dHUUlJRlZWRU1tU+fPqFI//jxw9DETE1DQ05R2cLK5s+f3whpiAo7JxdDE1MNbV0Pb1+IHEj6379/v3+D1IZHRdk5OllY2yQlJ//////37z8gp8GlM7NzzS2tLW3s8ouK/////+vXLxTp7Kx0IUE+aWnx5KS4//////nz5x/E8L9///z//3/frs2zpvXNnz1507plf//C/I0/WABxR+fIpP5nIAAAAABJRU5ErkJggg==",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/altai-mountain-back-640.webp",
+        "960": "/images/optimized/altai-mountain-back-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/altai-mountain-back-640.avif",
+        "960": "/images/optimized/altai-mountain-back-960.avif"
+      }
+    }
+  },
+  "58534630713860140933161823601461256116766404n": {
+    "originalPath": "boots\\585346307_1386014093316182_3601461256116766404_n.jpg",
+    "sanitizedId": "58534630713860140933161823601461256116766404n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLklEQVR4nE2NsUsCURyA358SbfU/BEERLUlRk04SQoRklkNBVNAJkSBZEA4tDW3RYEM0VDYUTnGDkEWKVuipd/fu3b173p3vvV9kBH3rx8eHAEBKKaR4Kz2X7x7L909atQEADBNXx0gOAIBqSVVvHtTrovZeB4CAeXaziwCgrWkZRbkqFOAfggunbaBOS0uEI2NDw7Gp6VrldSD475F2TbS7kYpNTG6F5k+SKUbpX8qlEK5hoXg0nFlbj8/O7Swv+az34/q8ZzmSC4YJ2k+sGp3OdnJlcSFUf6kAQN/zfcp86vqUobPDHABEZ0LjI6Ob4cjt5QUlRAScB31m2eg0m7UwPkjv5Y9zR2nlPJ8n2BJceC6jOkaU2LZuusQJeh6zHGraxmdL/2pptQ+j0fwGSkv0pAgIUw0AAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/58534630713860140933161823601461256116766404n-640.webp",
+        "960": "/images/optimized/58534630713860140933161823601461256116766404n-960.webp",
+        "1280": "/images/optimized/58534630713860140933161823601461256116766404n-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/58534630713860140933161823601461256116766404n-640.avif",
+        "960": "/images/optimized/58534630713860140933161823601461256116766404n-960.avif",
+        "1280": "/images/optimized/58534630713860140933161823601461256116766404n-1280.avif"
+      }
+    }
+  },
+  "514421737125993125259113499422211068387088n": {
+    "originalPath": "boots\\514421737_1259931252591134_99422211068387088_n.jpg",
+    "sanitizedId": "514421737125993125259113499422211068387088n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AC8aCX1iO4hxUIRuTcGja4dvVM+xc3RgTW9MOVo1IgBCHQl4UDTQuX2giHqjiHK/qH6zpIetnGtlVElQPzUARygHhF44yLd+vouSuGiUvpKJqGqYsJBobVI1LiEUAGhWT3djXH9sZn9YZIRCZYhdaqFYgoJraXpmYGhaVQBgUlFkU1RlXFdyWF9oQlV1VGRuTF1nXlhpW1pnWFcAST48UkRDfFVlhlZucj5ahU5ummSGgFZqV0pKTUJAAC8rJoZYc8x2r6ZdjpNTfaVfj65ll8tvrpBYejUwLVPzV1NX+Gz2AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/514421737125993125259113499422211068387088n-640.webp",
+        "960": "/images/optimized/514421737125993125259113499422211068387088n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/514421737125993125259113499422211068387088n-640.avif",
+        "960": "/images/optimized/514421737125993125259113499422211068387088n-960.avif"
+      }
+    }
+  },
+  "51428538012599312825911315681381096961154168n": {
+    "originalPath": "boots\\514285380_1259931282591131_5681381096961154168_n.jpg",
+    "sanitizedId": "51428538012599312825911315681381096961154168n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/AJmUjpqVkJmWkpeVkZOPi5eSjZmVkQCcl5SempefnZmdnJicmpegnZmcmpYAoJyZn5uYmpqWoqKdkIyIlZKPj46KAKSkoJ6Xj6pyc3RWU21EPpqSjZeYlACkpaGfmpKrZ2dnPDllPzmknZmXmJQApaWiopyVlmBcd1xVZUxEp6Gem5uXAKGinqifm3VaVXNkWnRQRIh8bJiYkQDPz8qxloymX2F/XlNsS0BZQTOWjHcAuq6onXdxo4qDt6+qu7Wwo5aRsqueAO3r5+7u6vT39Pj59fn59fv8+PHx7kCBeur7VbqwAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/51428538012599312825911315681381096961154168n-640.webp",
+        "960": "/images/optimized/51428538012599312825911315681381096961154168n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/51428538012599312825911315681381096961154168n-640.avif",
+        "960": "/images/optimized/51428538012599312825911315681381096961154168n-960.avif"
+      }
+    }
+  },
+  "51426780412599312459244689207799229791337156n": {
+    "originalPath": "boots\\514267804_1259931245924468_9207799229791337156_n.jpg",
+    "sanitizedId": "51426780412599312459244689207799229791337156n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AJaOiZmTjqCdm6Ogn6ijoKikoqWgnZ6ZlqOcmKKblACYkYufm5iVh36XgXKhl4+ObVKekIWno6GzrqyyrKgAlZGMpqGch2NDgV1DkYZ7c0woo5mOqqelpZ+cnpqWAJSPiaKem4NlTHZVO5iQhnFSOKqmoainpaGempuWkwCNiIGZmJaSfWuEZEuRhXhtTzSYjn6hoJqfnpual5MAzcrGz8/Ll4JtbkgsYkk2X0Qtd2RNpJiEyL+y0M3JAPTz7/Hw7M/Lxriwqb+0q8C8tsrFv9fUzeXZyfLw6nb2e/0BqQJ+AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/51426780412599312459244689207799229791337156n-640.webp",
+        "960": "/images/optimized/51426780412599312459244689207799229791337156n-960.webp",
+        "1280": "/images/optimized/51426780412599312459244689207799229791337156n-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/51426780412599312459244689207799229791337156n-640.avif",
+        "960": "/images/optimized/51426780412599312459244689207799229791337156n-960.avif",
+        "1280": "/images/optimized/51426780412599312459244689207799229791337156n-1280.avif"
+      }
+    }
+  },
+  "51426097012599311859244746893689318733823126n": {
+    "originalPath": "boots\\514260970_1259931185924474_6893689318733823126_n.jpg",
+    "sanitizedId": "51426097012599311859244746893689318733823126n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIWAeoiCfIiFf4eHgoeGg4KAfI2Lh399egCJhX+LiIOMi4eNjIiPjoqJiISfnpuNjIgAi4mGj46Lk5KOmJeTlZSQj46JjYyIgoF9AI6NiZaVkX99eWVjX0dGQlxaVZWUkIeHgwCMi4eamZViYV8lJCMJCQlRUE+amZaHiIMAjYyInZyYW1tZNzc3MjEuWlpYn56bioqGAIaFgZmYlGRjYVVSTUtJRklEPJSPhYaHhADJyMTIx8JZWFc/PDdQTUUZFxNgWEehm40A+/r1hYOATk1Kj46JxcS9jYyJjImBvKyWAPLw7N7c2Orp5Pj49PT18Pr69fT18Ofl395MfpIoH3TpAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/51426097012599311859244746893689318733823126n-640.webp",
+        "960": "/images/optimized/51426097012599311859244746893689318733823126n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/51426097012599311859244746893689318733823126n-640.avif",
+        "960": "/images/optimized/51426097012599311859244746893689318733823126n-960.avif"
+      }
+    }
+  },
+  "51426097012599311859244746893689318733823126n-1": {
+    "originalPath": "boots\\514260970_1259931185924474_6893689318733823126_n (1).jpg",
+    "sanitizedId": "51426097012599311859244746893689318733823126n-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIWAeoiCfIiFf4eHgoeGg4KAfI2Lh399egCJhX+LiIOMi4eNjIiPjoqJiISfnpuNjIgAi4mGj46Lk5KOmJeTlZSQj46JjYyIgoF9AI6NiZaVkX99eWVjX0dGQlxaVZWUkIeHgwCMi4eamZViYV8lJCMJCQlRUE+amZaHiIMAjYyInZyYW1tZNzc3MjEuWlpYn56bioqGAIaFgZmYlGRjYVVSTUtJRklEPJSPhYaHhADJyMTIx8JZWFc/PDdQTUUZFxNgWEehm40A+/r1hYOATk1Kj46JxcS9jYyJjImBvKyWAPLw7N7c2Orp5Pj49PT18Pr69fT18Ofl395MfpIoH3TpAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/51426097012599311859244746893689318733823126n-1-640.webp",
+        "960": "/images/optimized/51426097012599311859244746893689318733823126n-1-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/51426097012599311859244746893689318733823126n-1-640.avif",
+        "960": "/images/optimized/51426097012599311859244746893689318733823126n-1-960.avif"
+      }
+    }
+  },
+  "49773440212190782900097644695535303849218382n": {
+    "originalPath": "boots\\497734402_1219078290009764_4695535303849218382_n.jpg",
+    "sanitizedId": "49773440212190782900097644695535303849218382n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/ANPIqbGoh2xgUVFDPbChc6qYZ4J0XaaZcgC5p3KtoXeZjm+noIbGu5O0pXaRiW2TkH4AjHhQkH1Th3hUqp19saOEmopolopuj4qAAG9kWnBlXXlxaGFUTE9BOGlfVpOQjJWUlACSk5OGgoSQjZFnYF44LyqAe3m+x8rBzM8Ai4mKYVZVXU9MWU5KNywolIyLucDCvsnLAHh3fElCSWRSSmdbUFxQR5eQkZCXoIiLkQBmYF9yVjl1aV57bV2TiX2pjXK2iFaQgnEAzIYl5JMixZBHt4dJ3q5t9qtD/7VF+qtMAPSWF/icJf+lKf2kJ/6jJ/+qNPyxQv6ySkeQet0ZfhooAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/49773440212190782900097644695535303849218382n-640.webp",
+        "960": "/images/optimized/49773440212190782900097644695535303849218382n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/49773440212190782900097644695535303849218382n-640.avif",
+        "960": "/images/optimized/49773440212190782900097644695535303849218382n-960.avif"
+      }
+    }
+  },
+  "49743671812190782233431044688948429633127002n": {
+    "originalPath": "boots\\497436718_1219078223343104_4688948429633127002_n.jpg",
+    "sanitizedId": "49743671812190782233431044688948429633127002n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKyhi3ltWC8iIXlmRp6HUXBfQnhpS1pNPwCgkG+LfV9xZFCXiWuVgVZ9a0ZrYlCLgWQAhG9KdmVEfm9RlIdsgnlmfHdlal5Mdm9hAFFFO1VIPmFVSXhyb4aGhK6/umNeWm5tbABqYmJjWlxxZ2eDeG2PjH61vrOMkJCboaMAY11dSkA+YFZSUkg+a2ZdiIJ+i42NmZ+gAFNKSjMnKF1STlhQRW9waYKFhHt/hHh5ewA6NTpUSEGainOynW69wLCcnptnUUJeW1oAiVMOfVowe2NIqZ6DpZiAonI71YUhxIM3AMd1AMV0AK9nBa5vGM6BGOWNE+eQE+eOIB7CaFRJte9zAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/49743671812190782233431044688948429633127002n-640.webp",
+        "960": "/images/optimized/49743671812190782233431044688948429633127002n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/49743671812190782233431044688948429633127002n-640.avif",
+        "960": "/images/optimized/49743671812190782233431044688948429633127002n-960.avif"
+      }
+    }
+  },
+  "4920478681201835731734020818059840349293828n": {
+    "originalPath": "boots\\492047868_1201835731734020_818059840349293828_n.jpg",
+    "sanitizedId": "4920478681201835731734020818059840349293828n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIeCf4qEgoqGg4qIhIqJhYSBfZSQjZORjwCLhYKNiYaNjYmOjYmRkIyNjYmYl5OTko8AjYqHkY+LlJOQmZiUkI+MiIeDjo2JhYSAAI+OipaVkXZ0cF1bV0RCPlRRTZOSj4uKhwCOjIiZmJRaWVcnJSQHBwhFRUSamZaKiYYAj46Knp2ZUVFQNTY3MzIvT05OoKCejIuJAIaEgJaUkFlYVldUUE5NS0VAOpKNg4qLiQC8urbEwr5YV1dIRD9LR0EcGhZhWUmZk4cA9PPugn99PDo5bGllramiZmVjYl5Yr6CLAOno5KuppcvKxu3s6PHy7vLy7enq5tzWzYlFemh1q5fOAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/4920478681201835731734020818059840349293828n-640.webp",
+        "960": "/images/optimized/4920478681201835731734020818059840349293828n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/4920478681201835731734020818059840349293828n-640.avif",
+        "960": "/images/optimized/4920478681201835731734020818059840349293828n-960.avif"
+      }
+    }
+  },
+  "49199785912018357117340221249149962331854893n": {
+    "originalPath": "boots\\491997859_1201835711734022_1249149962331854893_n.jpg",
+    "sanitizedId": "49199785912018357117340221249149962331854893n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AJmUkKOemaWgnJ2YlKCbl6GcmJqUkZaSjQCYk49qZ2VkY2CkoJuUkYyDgH2emZWblpIAk46LFRUWHh4diYaCGhoaHR0dlpOPop2ZAJqXlB4eHi4uLXd2cwYGBhgYGI6MiaajngCdnJgiIiIyMTCEg38KCgoWFhaJiISmpaAAn56aMC8uNjY1l5aSDQ0MERESh4eDpaSgAJublygpKDw7OqenoyAgHw4ODoOBfKSkoACFgHsdGRg5NzeDf3gbGhkWFRdmYVaclIMAtayda2RdGBQVHBoXHx4cFxUVFBIRMCsiAOvq5uPi3bSxrauqp8vMyLW1sZCPjIKAfl0OYhBuLWfSAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/49199785912018357117340221249149962331854893n-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/49199785912018357117340221249149962331854893n-640.avif"
+      }
+    }
+  },
+  "48750948611805510138624926970716865384612864n": {
+    "originalPath": "boots\\487509486_1180551013862492_6970716865384612864_n.jpg",
+    "sanitizedId": "48750948611805510138624926970716865384612864n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AMO5qq2fil1IR452Y8+3e6yRZ6ONdpOEfQDErX6xoIWnl3+upI1ZWFRrbmeMg3yvqJoAo4ZZl3xbnIZqNzQ2ERosSmN4cW9tfG1nAHReWXVeW39raiolLBwhLVFjcH6CipuZoACLf4yHd4Sjlpw7ODoYGiJDTFeQk5+zuskAgXN/eGVsmoeJOzY5GhwhRlBZmZ6soqm5AGpfbG1gaIFvbSUkKisyOVJga3d9jm5ugwCBY1SGZ0x4cFhtZUxHVmhab4ecf1+acUEA8IQC4X0ChWM6j35an4RZrXQ33Ica/qcBAPqNAP2SAPiPAPyZBP+fAP+hAP+cAP6YAKhjbFezdT1dAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48750948611805510138624926970716865384612864n-640.webp",
+        "960": "/images/optimized/48750948611805510138624926970716865384612864n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48750948611805510138624926970716865384612864n-640.avif",
+        "960": "/images/optimized/48750948611805510138624926970716865384612864n-960.avif"
+      }
+    }
+  },
+  "48649301611769697408872865014076719034897869n": {
+    "originalPath": "boots\\486493016_1176969740887286_5014076719034897869_n.jpg",
+    "sanitizedId": "48649301611769697408872865014076719034897869n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKecf5+Vf7mwlrGqlJ6Xgm9oYYiCeXNtdQCJe2RwcWBkdGyBh4GLh313bmh7dXJxbXUAUkhIECs1GUNSJE5aR1pec19YZ1xZZV1cAHNueSA4PixUXSVVX196hZeXn46PlZKTmABxZHApNTYmS08jTlVedX2amKCbnKSdn6kAcGBjOi8tJjIwHTY6XmtwnJeck5KXfn2EAG5hZ0A3MiUrJhw8PU5iXYp6dXJmaWxcWwCUZzBJQTIWNUBrjG55lmpmeWdwX0pZRj0AzXsBoGYZeVwve3tXdIBplXhB45AKxn4PAPCTAPmaAPudAeWXBNKQCPanAvmgAPOTAEbXY+3nL9b4AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48649301611769697408872865014076719034897869n-640.webp",
+        "960": "/images/optimized/48649301611769697408872865014076719034897869n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48649301611769697408872865014076719034897869n-640.avif",
+        "960": "/images/optimized/48649301611769697408872865014076719034897869n-960.avif"
+      }
+    }
+  },
+  "48644692011757833510059255343847789287187547n": {
+    "originalPath": "boots\\486446920_1175783351005925_5343847789287187547_n.jpg",
+    "sanitizedId": "48644692011757833510059255343847789287187547n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/ALChhI6DcE1CRpOIdrisiIFyZJKHeXFqcQCsmXOilXimnojTz7XGvZ6il4CEgHiSjokAiXVVfm5Vj4NrioV1Tk5IU1hUdm9od3FtAF5VWWdbXHBoaSMdIBcSFR4pMV5gYn9+fgBtY21tYmuLhIhENzUvHx1HRUaMj5Ofpa0AY1ZbWklMem9vOiwoKRoXR0FBjY2Pg4aMAFVJUVZITGBTTSAVFikkIkJCQmthZ3VpZQB4USyZZilcTzdFOiktNkRUVUufdi5bUU0A6X4B94wAiWY0bmVSV1BOdVhB24cNw3oNAOiDAfOLAPaSBPKaCd6FC9J5COmLB/+bAQD6YZ/WMO+qAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48644692011757833510059255343847789287187547n-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48644692011757833510059255343847789287187547n-640.avif"
+      }
+    }
+  },
+  "48616447911769696975539578214863396152291166n": {
+    "originalPath": "boots\\486164479_1176969697553957_8214863396152291166_n.jpg",
+    "sanitizedId": "48616447911769696975539578214863396152291166n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AK+nnnNpZFJFRpiMeJWIcn9zZIZ9cnZvcACypIehl4BfVFSimIq8sJeCd2uHf3VzbXAAt6J6rZ9+raOJo5+Rf3x1gYF7fXhudXBvAHloVnNjV2ZcVBQVHyUvO1xudnFpZHl2cwB7c3p4bXVvaG4UFRwuNz1SXF+WmJiorKwAfHR8bWBmdWltGhkdISQnVVdYq66vpKipAHZqcGJRVGpZVxUWHiwxNWVnaoJ/hXhvbQBUS1VcS0hjWE45NzJNVl1FQkWKakpZTEgAnGMij1oUTzwnXVpTbGRWfFMk4Y0Sw3wPAOmHCfCOANF/Aa5vDt+MBvufAPmiAPqcCqYOZNDL7qUZAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48616447911769696975539578214863396152291166n-640.webp",
+        "960": "/images/optimized/48616447911769696975539578214863396152291166n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48616447911769696975539578214863396152291166n-640.avif",
+        "960": "/images/optimized/48616447911769696975539578214863396152291166n-960.avif"
+      }
+    }
+  },
+  "48565430495164552550836874502141555169857172n": {
+    "originalPath": "boots\\485654304_9516455255083687_4502141555169857172_n.jpg",
+    "sanitizedId": "48565430495164552550836874502141555169857172n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AKqakbytn7akk6qWhZ6IdKqPdJyAZKmMawCqmpG7rJ62pJazoI+ciHmciXahg2q0l3cAr5+Uvq6guquddnp2XWJdVGBdaVxIvp6AAKuajr2rm7utn0BkbB9FUChUYEFBMMCggQCkkH+8qJPAsZ4xYGwTSFslVWFGQCiyjmYAmoRuvaeMu6yUOFpeIEdPOFZUYUwtpoBTAJN7Y76jhaiejClNVCNETEFXT2JNMqB7UgCKe22dkXl8j4gvU1VKbWwmQkNLRDKXf2IAyM/MeIiCVmtkS2heTmNUVl5Ymp+bw8vJAPj42/Hw0+PjzbO1p7a1pt7e09/j3dLV0Pr0fCcabo+3AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48565430495164552550836874502141555169857172n-640.webp",
+        "960": "/images/optimized/48565430495164552550836874502141555169857172n-960.webp",
+        "1280": "/images/optimized/48565430495164552550836874502141555169857172n-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48565430495164552550836874502141555169857172n-640.avif",
+        "960": "/images/optimized/48565430495164552550836874502141555169857172n-960.avif",
+        "1280": "/images/optimized/48565430495164552550836874502141555169857172n-1280.avif"
+      }
+    }
+  },
+  "48453071211715075814335023122378893366180333n": {
+    "originalPath": "boots\\484530712_1171507581433502_3122378893366180333_n.jpg",
+    "sanitizedId": "48453071211715075814335023122378893366180333n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AF5cWGpmYnVybnx6dXp4c21qZ2hmYnJxbgBpZ2N+eXWOiYWTkYyTkY2Hg4CFgn6BgHwAeHVxk46LmpiVnJuXlZSQkpCMi4eDaWhkAIiFgYF9eltXVJKRjUtHRGJhXpmXlHh3cwCKiIVaWFYnJiWbmpZMS0o/QECcm5iAfnoAjouIU1JRKSornJuXf39+ODY1kpGNhYSAAIeDgWpnZDk2M5mYlo2Hfzc0Mm9vbYCAfAChnZaAeXFHR0Z4dGxPQzQqKitPST+AeWsA2tbOfXdvUlBOKykmNDIvfXx5pqKZiH9wANLPytjUz8jGwKqppsXEweLh3drZ1svKx68gcqgOZ561AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48453071211715075814335023122378893366180333n-640.webp",
+        "960": "/images/optimized/48453071211715075814335023122378893366180333n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48453071211715075814335023122378893366180333n-640.avif",
+        "960": "/images/optimized/48453071211715075814335023122378893366180333n-960.avif"
+      }
+    }
+  },
+  "48445979495048279995797467213539205048919231n": {
+    "originalPath": "boots\\484459794_9504827999579746_7213539205048919231_n.jpg",
+    "sanitizedId": "48445979495048279995797467213539205048919231n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AJ+NgqyajamWh7KaiKOMe5p9aaeJcI9zWQCgjIGvm4yvnI2DhX2Qe2aNf3GSfmSae2AAmoR4q5eGsaCQMVdmJSomPlRcPUI7oH5kAIRrV6uTfbKgizhWXxwhHzVHSz03K5VxVQCBZU2uknexm4IwSE0uMCg2PjpINyOFX0AAgmVMq45wppJ5OElKPT02NDs6V0QvhGFFAH1qWaWNdZGOfyU6PCYvLzJAQUEyI3hbRAC/wbt4gn5NX1suOTYyPDQ0PTh1c2yxsa4A5d/CqquYs6yQxsKthYmBn5yNzcu+wsO8APv30P/+1f/4z/TpxO/mxunjydXRvcXDtA+BdSF2eNkjAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48445979495048279995797467213539205048919231n-640.webp",
+        "960": "/images/optimized/48445979495048279995797467213539205048919231n-960.webp",
+        "1280": "/images/optimized/48445979495048279995797467213539205048919231n-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48445979495048279995797467213539205048919231n-640.avif",
+        "960": "/images/optimized/48445979495048279995797467213539205048919231n-960.avif",
+        "1280": "/images/optimized/48445979495048279995797467213539205048919231n-1280.avif"
+      }
+    }
+  },
+  "48444228411715076147668328935493112331554515n": {
+    "originalPath": "boots\\484442284_1171507614766832_8935493112331554515_n.jpg",
+    "sanitizedId": "48444228411715076147668328935493112331554515n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AIN9d4aAe4iDfYmEfoaCfH55dYJ9en56dQCJhH6Mh4KPjIiRjoqOi4eGgn2SjouIhYIAj4qFlZCNjoR/jIaCkpKOjYiFiYSAeXVyAJCMiaSemJaDboZ9dIiFgJeIeZiPhn58eQCRjoublY+ahW+TjYWHhH+Nfm2RiH+CgX4AlpOQjIN/f2dUnpqUlJGNemdYjYeAiIiEAJGOjJ2Uj5J/cI6IgGtfUWZRR4uFgYSEgACxqJ6Zj4K8rp5pWEVhUT6aiHV4alSelogA29LGysS7vLGnjn9ymYl6sKGTnJKFq52IAPLu6fTv6fLt5+Hd2NPRzOXj4PLw7Obj3r7vh+CX8Yh5AAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48444228411715076147668328935493112331554515n-640.webp",
+        "960": "/images/optimized/48444228411715076147668328935493112331554515n-960.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48444228411715076147668328935493112331554515n-640.avif",
+        "960": "/images/optimized/48444228411715076147668328935493112331554515n-960.avif"
+      }
+    }
+  },
+  "48100210111563757896133481285499936471083914n": {
+    "originalPath": "boots\\481002101_1156375789613348_1285499936471083914_n.jpg",
+    "sanitizedId": "48100210111563757896133481285499936471083914n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAIAAAAGpYjXAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nAH6AAX/AK6kgJeOcjktL39zXbmsf39wV4uBa21kYAClmXCimXaXj3TAvZrHv5OonnuBfGqemoAAlIJUgnZViYZto5x6TE5FcG9kfHRlfnhmAFxOR1xQSSMmKlBJQywyOE5XYW5nY3pxawB3c3J7dnUsKytiYV04PD9bZGqYmJaqq6kAbWhkc2xoOjc1aGNeJSUmPz09oqGempubAFBOVGJfYlRKQmBSSS8sKlBPUn18gXJqaABtTjCKZDB4XjliRBk1PEh0a1WRdkdJQUMA/5IArHQRbl5Db2VPQ1Bla1pA6pYFf1smAP+XAOKQBH1dGX1bJpZkJatqGOSIA9OFE3r7YhC4K2shAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/48100210111563757896133481285499936471083914n-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/48100210111563757896133481285499936471083914n-640.avif"
+      }
+    }
+  },
+  "14398912437658545668104805331162506333706984n": {
+    "originalPath": "boots\\143989124_3765854566810480_5331162506333706984_n.jpg",
+    "sanitizedId": "14398912437658545668104805331162506333706984n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AIiBfIuHgI+NhpSOiJGGgKWRhZyVj4+NhpuWkJuVkACKhX+LiIOimpHZuZ6xi3HjpXy5p5uPjoyppqKmoZwAiIR9iYiEp5uQ6LiRoox9ypNvtZyMlJORlpKNkI2GAIaCe4yKhZeOiLqJa6GSiKeJdp5/bpuampSQjY+LhQCAfXaJhoCMiIaLalmWhnmHblnRn32QiH2Sj4yOi4gAysfCx8O9no9/3rCNrYVkhFw/tZJ6fW9ZrJ2JycK5APLt5u/o4trRyMaxo7+bhK2VhtPOyNXRysu+rurczEMqfg7UXfWdAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/14398912437658545668104805331162506333706984n-640.webp",
+        "960": "/images/optimized/14398912437658545668104805331162506333706984n-960.webp",
+        "1280": "/images/optimized/14398912437658545668104805331162506333706984n-1280.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/14398912437658545668104805331162506333706984n-640.avif",
+        "960": "/images/optimized/14398912437658545668104805331162506333706984n-960.avif",
+        "1280": "/images/optimized/14398912437658545668104805331162506333706984n-1280.avif"
+      }
+    }
+  },
+  "14348976537658544434771593973242007797716341n": {
+    "originalPath": "boots\\143489765_3765854443477159_3973242007797716341_n.jpg",
+    "sanitizedId": "14348976537658544434771593973242007797716341n",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5ElEQVR4nAHZACb/AJWPhpiTjKGdm6KfnqijoKmkoqWgnZ+alqCak6OdlQCXkYmgm5iUh32ahHSgl4+Mak+gk4mmoqCyraqzrqkAlZGKp6GdhGBAiGJGj4V8bkYjqJuQqqempaCdnpmUAJOPhqKenIJlS3lXPJaPiHFRN6ikn6inpKKem5uWkwCNiH+Zl5aTfWqDZEuShnluTzOZj4ChoJqenZualpMAzcrFzs/LmIJsbEYqYUk1XEIreGRNpJmExryvz83IAPTz7/Lw7M/Kxbevpr6yqL+6tMnDvdjUy+TZyPPw62RJe7nQy6CSAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/14348976537658544434771593973242007797716341n-640.webp",
+        "960": "/images/optimized/14348976537658544434771593973242007797716341n-960.webp",
+        "1280": "/images/optimized/14348976537658544434771593973242007797716341n-1280.webp",
+        "1920": "/images/optimized/14348976537658544434771593973242007797716341n-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/14348976537658544434771593973242007797716341n-640.avif",
+        "960": "/images/optimized/14348976537658544434771593973242007797716341n-960.avif",
+        "1280": "/images/optimized/14348976537658544434771593973242007797716341n-1280.avif",
+        "1920": "/images/optimized/14348976537658544434771593973242007797716341n-1920.avif"
+      }
+    }
+  }
+}

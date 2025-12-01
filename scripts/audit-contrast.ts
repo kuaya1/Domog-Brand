@@ -74,7 +74,7 @@ const PAIRS_TO_AUDIT: AuditPair[] = [
   { name: 'Gold on Charcoal', fg: PALETTE.text.gold600, bg: PALETTE.bg.charcoal900 },
   { name: 'Warm on Cream', fg: PALETTE.text.warm600, bg: PALETTE.bg.cream50 },
   { name: 'Cream Text (60%) on Charcoal', fg: PALETTE.text.creamText, bg: PALETTE.bg.charcoal900 },
-  { name: 'Gold on Cream (Large Text)', fg: PALETTE.text.gold600, bg: PALETTE.bg.cream50, isLargeText: true },
+  { name: 'Gold Text Accessible on Cream (Large Text)', fg: '#856404', bg: PALETTE.bg.cream50, isLargeText: true },
 ];
 
 function runAudit() {

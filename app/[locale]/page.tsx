@@ -92,7 +92,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="py-32 lg:py-40 px-6 lg:px-8 bg-cream-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <p className="text-label-md text-gold-700 mb-4">
+                        <p className="text-label-md text-gold-text-accessible mb-4">
                             {t.collection_label}
                         </p>
                         <h2 className="text-display-sm md:text-display-md font-serif font-semibold text-charcoal-900 mb-8">

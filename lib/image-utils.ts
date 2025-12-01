@@ -1,5 +1,3 @@
-import manifestData from './generated/image-manifest.json';
-
 export interface OptimizedImageVariant {
   [width: number]: string;
 }
@@ -14,8 +12,18 @@ export interface OptimizedImageEntry {
   };
 }
 
-// Type assertion for the imported JSON
-const manifest = manifestData as Record<string, OptimizedImageEntry>;
+// Dynamically load manifest to avoid build-time errors
+let manifest: Record<string, OptimizedImageEntry> = {};
+
+// Only load in browser/Node runtime, not during build type-checking
+if (typeof window !== 'undefined' || typeof process !== 'undefined') {
+  try {
+    // Use require for Node.js compatibility
+    manifest = require('./generated/image-manifest.json');
+  } catch (e) {
+    console.warn('Image manifest not found. Run `npm run optimize` to generate it.');
+  }
+}
 
 /**
  * Retrieves the optimized image data for a given source path.

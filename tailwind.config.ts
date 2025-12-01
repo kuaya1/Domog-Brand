@@ -81,6 +81,7 @@ const config: Config = {
                 },
                 // Accessible Colors
                 "gold-accessible": "#A1823D",
+                "gold-text-accessible": "#856404", // Dark antique gold for text on light backgrounds
                 "cognac-accessible": "#6B5435",
                 
                 // Legacy support

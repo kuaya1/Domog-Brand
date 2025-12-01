@@ -1,7 +1,7 @@
 'use client';
 
 import Image, { ImageProps } from 'next/image';
-import { getOptimizedImage } from '@/lib/image-manifest';
+import { getOptimizedImage } from '@/lib/image-utils';
 
 interface OptimizedImageProps extends Omit<ImageProps, 'src'> {
   src: string;
@@ -12,35 +12,40 @@ export function OptimizedImage({ src, alt, ...props }: OptimizedImageProps) {
   const optimized = getOptimizedImage(src);
   
   if (!optimized) {
-    // Fallback to original
+    // Fallback to original Next/Image for dev mode or non-optimized images
     return <Image src={src} alt={alt} {...props} />;
   }
   
+  // Get available widths and sort descending
+  const avifWidths = Object.keys(optimized.variants.avif).map(Number).sort((a, b) => b - a);
+  const webpWidths = Object.keys(optimized.variants.webp).map(Number).sort((a, b) => b - a);
+  
+  // Build srcSet strings
+  const avifSrcSet = avifWidths.map(w => `${optimized.variants.avif[w]} ${w}w`).join(', ');
+  const webpSrcSet = webpWidths.map(w => `${optimized.variants.webp[w]} ${w}w`).join(', ');
+  
+  // Fallback src: largest WebP
+  const fallbackSrc = webpWidths.length > 0 ? optimized.variants.webp[webpWidths[0]] : src;
+  
   return (
     <picture>
-      <source
-        type="image/avif"
-        srcSet={`
-          ${optimized.sources.avif.sm} 384w,
-          ${optimized.sources.avif.md} 640w,
-          ${optimized.sources.avif.lg} 960w,
-          ${optimized.sources.avif.xl} 1920w
-        `}
-      />
-      <source
-        type="image/webp"
-        srcSet={`
-          ${optimized.sources.webp.sm} 384w,
-          ${optimized.sources.webp.md} 640w,
-          ${optimized.sources.webp.lg} 960w,
-          ${optimized.sources.webp.xl} 1920w
-        `}
-      />
+      {avifWidths.length > 0 && (
+        <source
+          type="image/avif"
+          srcSet={avifSrcSet}
+        />
+      )}
+      {webpWidths.length > 0 && (
+        <source
+          type="image/webp"
+          srcSet={webpSrcSet}
+        />
+      )}
       <Image
-        src={optimized.sources.webp.lg}
+        src={fallbackSrc}
         alt={alt}
         placeholder="blur"
-        blurDataURL={optimized.blur}
+        blurDataURL={optimized.blurDataUrl}
         {...props}
       />
     </picture>

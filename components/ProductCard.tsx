@@ -190,7 +190,7 @@ const ProductCard = memo(function ProductCard({
                         {/* Product Name */}
                         <h3 className="
                             text-xl font-serif text-charcoal-900
-                            group-hover:text-gold-700
+                            group-hover:text-gold-text-accessible
                             transition-colors duration-500
                             leading-tight
                         ">
@@ -213,7 +213,7 @@ const ProductCard = memo(function ProductCard({
                             <div className="
                                 flex items-center gap-1
                                 text-[11px] uppercase tracking-[0.15em]
-                                text-gold-700 font-medium
+                                text-gold-text-accessible font-medium
                                 opacity-0 group-hover:opacity-100
                                 translate-x-2 group-hover:translate-x-0
                                 transition-all duration-500
