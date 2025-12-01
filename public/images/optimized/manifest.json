@@ -1,0 +1,202 @@
+{
+  "steppe-rider-1": {
+    "id": "steppe-rider-1",
+    "originalName": "steppe-rider (1)",
+    "blur": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4WAoAAAAQAAAACQAADgAAQUxQSHcAAAABgFtt2/Lk/qSKe9Jng1TublTQUrGTj8EE1FS0WobWne9Bd4iICQCMMZZ/Ddb8ssRLBnBsn56EI8Czow+pD44tvX1o49dUnwrNXy0F3ZfBUlXQOgqerj51bsGyqzetM7A4+1SQRrB5e/30eXPcACKRSjULYPhtDABWUDggTgAAANABAJ0BKgoADwAFQHwlnAAPiKx4KS2gAP7R+GlmnH/awQRaR7B5ON2HmveDkEpFSgMC74H4R0FSu6ydQT+aV2bI/JmHoTlxVdj8jAgAAA==",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/steppe-rider-1-sm.webp",
+        "md": "/images/optimized/steppe-rider-1-md.webp",
+        "lg": "/images/optimized/steppe-rider-1-lg.webp",
+        "xl": "/images/optimized/steppe-rider-1-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/steppe-rider-1-sm.avif",
+        "md": "/images/optimized/steppe-rider-1-md.avif",
+        "lg": "/images/optimized/steppe-rider-1-lg.avif",
+        "xl": "/images/optimized/steppe-rider-1-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "naadam-festival-png": {
+    "id": "naadam-festival-png",
+    "originalName": "Naadam Festival png",
+    "blur": "data:image/webp;base64,UklGRuAAAABXRUJQVlA4WAoAAAAQAAAACQAADAAAQUxQSG0AAAABcFpr25s8f5IDrhdZbUagd5DswGENDiuhkH0FiMOBR9Wfl7pDREwAYIzjGv4b8xUO+eUIBpfO7qigCC4D2YeGXx1ZPUpfDT11zn61ZRW44DHSTXOMMZmtLlpgmOghq1Mc/PHeHmbTDECqEAcAAFZQOCBMAAAA8AEAnQEqCgANAAVAfCWcAAMAK8+D2J4AAP6I3fFaBgakPa1UdGRUZ3qy9nPm5p5leRx8GG/pPgrpWOqlYfm0GTOHrDkmkoCCreLAAA==",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/naadam-festival-png-sm.webp",
+        "md": "/images/optimized/naadam-festival-png-md.webp",
+        "lg": "/images/optimized/naadam-festival-png-lg.webp",
+        "xl": "/images/optimized/naadam-festival-png-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/naadam-festival-png-sm.avif",
+        "md": "/images/optimized/naadam-festival-png-md.avif",
+        "lg": "/images/optimized/naadam-festival-png-lg.avif",
+        "xl": "/images/optimized/naadam-festival-png-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "khans-legacypng-2": {
+    "id": "khans-legacypng-2",
+    "originalName": "khans-legacy.png (2)",
+    "blur": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4WAoAAAAQAAAACQAADAAAQUxQSGsAAAABcFpt27I8v+Duzd11ARqRJahEhvAIi2n7G9rcH3yGiJgAAJAkCAK+ihEHAAFya3Ceej5MCu+sfBhmfJzLH9oRufV+6Kfk3AyI8O3IuQkQ0OeNhyxQ3T5u9xvrQE1ZkZthEBB1xWYjiT9FAQBWUDggWAAAABACAJ0BKgoADQAFQHwlsAJ0Bivtrt2lOAAA+Ne+CnV+uUd97hAt+DhOu3Ku6Tv4U911PgldyTKvXgyq8qBix6oHr4daW+Rv21q55WPnU3X2hUzPj0ffgAA=",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/khans-legacypng-2-sm.webp",
+        "md": "/images/optimized/khans-legacypng-2-md.webp",
+        "lg": "/images/optimized/khans-legacypng-2-lg.webp",
+        "xl": "/images/optimized/khans-legacypng-2-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/khans-legacypng-2-sm.avif",
+        "md": "/images/optimized/khans-legacypng-2-md.avif",
+        "lg": "/images/optimized/khans-legacypng-2-lg.avif",
+        "xl": "/images/optimized/khans-legacypng-2-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "hero-bg": {
+    "id": "hero-bg",
+    "originalName": "hero-bg",
+    "blur": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSGQAAAANcFpt27Lcv+NW/0SlemMNFmABqL4ByXagklmCrsndfn3XiIgAilevtrwoijCuvxiuVFAlkhEPAUQhdABCJ+roP0DB8LYFFwWJ5I5KJr+GRBPXprPYy4zNwXYaozateYS3c49bVlA4IFIAAADwAQCdASoKAAoABUB8JbACdADdg1i5c4AA/q2SrnzjYhubiVjxUFtIYQpfDqSbfuY4O+grjkdDtkBxV19869N5ivxuaON61pe5YghBr5ycxgAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/hero-bg-sm.webp",
+        "md": "/images/optimized/hero-bg-md.webp",
+        "lg": "/images/optimized/hero-bg-lg.webp",
+        "xl": "/images/optimized/hero-bg-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/hero-bg-sm.avif",
+        "md": "/images/optimized/hero-bg-md.avif",
+        "lg": "/images/optimized/hero-bg-lg.avif",
+        "xl": "/images/optimized/hero-bg-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "genghis-ceremonial-png": {
+    "id": "genghis-ceremonial-png",
+    "originalName": "Genghis Ceremonial png",
+    "blur": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSGAAAAANcFNt27Lcv+OuqwVgtQAUsFVr0IOJDsyEYGRyd3eHEBGRgPDiT3qkSrVopS4AaiJJttwAph6eOq68WNlFNjOAo2Hk7wLCy4OeEQKSJ4WJQOtJuHp46B+qdUkz14/QEQBWUDggSgAAANABAJ0BKgoACgAFQHwlsAJ0ANwSOySYAP1NnfkRcukw7ei11B9/xN/EgBmWasEcpzV8GSEXXpBV/v+wxUwJ9h7v5r7q2Z5bJAAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/genghis-ceremonial-png-sm.webp",
+        "md": "/images/optimized/genghis-ceremonial-png-md.webp",
+        "lg": "/images/optimized/genghis-ceremonial-png-lg.webp",
+        "xl": "/images/optimized/genghis-ceremonial-png-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/genghis-ceremonial-png-sm.avif",
+        "md": "/images/optimized/genghis-ceremonial-png-md.avif",
+        "lg": "/images/optimized/genghis-ceremonial-png-lg.avif",
+        "xl": "/images/optimized/genghis-ceremonial-png-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "generated-image-november-27-2025---928am": {
+    "id": "generated-image-november-27-2025---928am",
+    "originalName": "Generated Image November 27, 2025 - 9_28AM",
+    "blur": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4WAoAAAAQAAAACQAADAAAQUxQSGwAAAABcFpr25u8f0lTofg6AWwRLHOg+wDIrnFdwRzNMgESnZ6XPkNETAAAoQSkwNdqSeJzdLjHGxcQODLO6AEKS0b064DGmCEfxY8hQ57w0WbIFSQ0+gy4gIJs3OhzDwEvZpby6gBua7roNGsC/wJWUDggMgAAADABAJ0BKgoADQAFQHwlpAADcAD+71/3+P6r1VJx1yvV12X6m3CuNUOnbvwX366EAAAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/generated-image-november-27-2025---928am-sm.webp",
+        "md": "/images/optimized/generated-image-november-27-2025---928am-md.webp",
+        "lg": "/images/optimized/generated-image-november-27-2025---928am-lg.webp",
+        "xl": "/images/optimized/generated-image-november-27-2025---928am-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/generated-image-november-27-2025---928am-sm.avif",
+        "md": "/images/optimized/generated-image-november-27-2025---928am-md.avif",
+        "lg": "/images/optimized/generated-image-november-27-2025---928am-lg.avif",
+        "xl": "/images/optimized/generated-image-november-27-2025---928am-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "generated-image-november-27-2025---1019am-edit": {
+    "id": "generated-image-november-27-2025---1019am-edit",
+    "originalName": "Generated Image November 27, 2025 - 10_19AM-EDIT",
+    "blur": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4WAoAAAAQAAAACQAADgAAQUxQSHwAAAABgFpt2/Lm/iDkkgHQxaGLjGKVlGkOdDRBPdkOQbJDVLP++SnuEBETAGC994b/DRhql/snexWw9DMlurNYBkkc6qWMYyglegTHSFmsi19zZYl2f60qVdCGPMeK9FbB0HxWrI8qpZtPJZm0dPb2LVL8dN4CiovNjgMw/HYWVlA4IEwAAADwAQCdASoKAA8ABUB8JQBOgMVLs3uwMgAA/un3etgpJ+buUjZYc/C6iTQnEl5dy6FvJ204zE3oHv1IB0dOJt2tcdroscSTVGCAXXAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/generated-image-november-27-2025---1019am-edit-sm.webp",
+        "md": "/images/optimized/generated-image-november-27-2025---1019am-edit-md.webp",
+        "lg": "/images/optimized/generated-image-november-27-2025---1019am-edit-lg.webp",
+        "xl": "/images/optimized/generated-image-november-27-2025---1019am-edit-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/generated-image-november-27-2025---1019am-edit-sm.avif",
+        "md": "/images/optimized/generated-image-november-27-2025---1019am-edit-md.avif",
+        "lg": "/images/optimized/generated-image-november-27-2025---1019am-edit-lg.avif",
+        "xl": "/images/optimized/generated-image-november-27-2025---1019am-edit-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "generated-image-november-23-2025---931pm": {
+    "id": "generated-image-november-23-2025---931pm",
+    "originalName": "Generated Image November 23, 2025 - 9_31PM",
+    "blur": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSGQAAAANcFpt27Lcv+NW/0SlemMNFmABqL4ByXagklmCrsndfn3XiIgAilevtrwoijCuvxiuVFAlkhEPAUQhdABCJ+roP0DB8LYFFwWJ5I5KJr+GRBPXprPYy4zNwXYaozateYS3c49bVlA4IFIAAADwAQCdASoKAAoABUB8JbACdADdg1i5c4AA/q2SrnzjYhubiVjxUFtIYQpfDqSbfuY4O+grjkdDtkBxV19869N5ivxuaON61pe5YghBr5ycxgAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/generated-image-november-23-2025---931pm-sm.webp",
+        "md": "/images/optimized/generated-image-november-23-2025---931pm-md.webp",
+        "lg": "/images/optimized/generated-image-november-23-2025---931pm-lg.webp",
+        "xl": "/images/optimized/generated-image-november-23-2025---931pm-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/generated-image-november-23-2025---931pm-sm.avif",
+        "md": "/images/optimized/generated-image-november-23-2025---931pm-md.avif",
+        "lg": "/images/optimized/generated-image-november-23-2025---931pm-lg.avif",
+        "xl": "/images/optimized/generated-image-november-23-2025---931pm-xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "burkhan-khalduun-sacred-boot-": {
+    "id": "burkhan-khalduun-sacred-boot-",
+    "originalName": "Burkhan Khalduun sacred boot ",
+    "blur": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4WAoAAAAQAAAACQAADAAAQUxQSG0AAAABcFpr25s8//v/58RlgNhEx+NysDiYAMsIeJC9WJboAzAOqF7Td4iICQBkkaiWATA0OrtNiLCs0kc6wGGZpde0j8MxSp9pt2KYvtMEi8co/d0jBBzT3yNGNNef3zft4Rhf3un51Ebgt5LAUC8BAFZQOCBIAAAAsAEAnQEqCgANAAVAfCWUAAKf5sk1QAD+wAqEb4QGVjffd3Qo41IXcy4sMq7reTsEmEaubObbD/PkPLpeABhQKM6N0YAAGoAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/burkhan-khalduun-sacred-boot--sm.webp",
+        "md": "/images/optimized/burkhan-khalduun-sacred-boot--md.webp",
+        "lg": "/images/optimized/burkhan-khalduun-sacred-boot--lg.webp",
+        "xl": "/images/optimized/burkhan-khalduun-sacred-boot--xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/burkhan-khalduun-sacred-boot--sm.avif",
+        "md": "/images/optimized/burkhan-khalduun-sacred-boot--md.avif",
+        "lg": "/images/optimized/burkhan-khalduun-sacred-boot--lg.avif",
+        "xl": "/images/optimized/burkhan-khalduun-sacred-boot--xl.avif"
+      },
+      "jpg": {}
+    }
+  },
+  "altai-mountain-1": {
+    "id": "altai-mountain-1",
+    "originalName": "altai-mountain (1)",
+    "blur": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4WAoAAAAQAAAACQAADgAAQUxQSHwAAAABgFvb1rLo3O/h7hI7ORXQA4sOrA0PKQFSOqAIMptJmQYmcsN7iIgJABAPZU66cysJkWoWPZLDQ/f0+jJHGJ3T7+loYLROP6cNwtH4/TutMETh7e80xIOj/PV7GuCTssvTx2mGl8Dz6e/3tI4Kay+O20kJh3BBBwjMgRkAVlA4IEwAAADQAQCdASoKAA8ABUB8JZwAAt0B0roqAAD+6PwdKR1HYkHfFz/tSB6jugrVRGV/7/oSw0BGxk8C2/CYQ+dimacVNChRCf6hEjc0AAAA",
+    "sources": {
+      "webp": {
+        "sm": "/images/optimized/altai-mountain-1-sm.webp",
+        "md": "/images/optimized/altai-mountain-1-md.webp",
+        "lg": "/images/optimized/altai-mountain-1-lg.webp",
+        "xl": "/images/optimized/altai-mountain-1-xl.webp"
+      },
+      "avif": {
+        "sm": "/images/optimized/altai-mountain-1-sm.avif",
+        "md": "/images/optimized/altai-mountain-1-md.avif",
+        "lg": "/images/optimized/altai-mountain-1-lg.avif",
+        "xl": "/images/optimized/altai-mountain-1-xl.avif"
+      },
+      "jpg": {}
+    }
+  }
+}

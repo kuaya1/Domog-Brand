@@ -62,10 +62,18 @@ async function optimizeImage(inputPath: string): Promise<ManifestEntry> {
       const outputFilename = `${sanitizedName}${size.suffix}.${format}`;
       const outputPath = path.join(config.outputDir, outputFilename);
       
-      await sharp(inputPath)
-        .resize(size.width, null, { withoutEnlargement: true })
-        [format]({ quality: config.quality[format] })
-        .toFile(outputPath);
+      const pipeline = sharp(inputPath)
+        .resize(size.width, null, { withoutEnlargement: true });
+
+      if (format === 'webp') {
+        pipeline.webp({ quality: config.quality.webp });
+      } else if (format === 'avif') {
+        pipeline.avif({ quality: config.quality.avif });
+      } else if (format === 'jpg') {
+        pipeline.jpeg({ quality: config.quality.jpg });
+      }
+
+      await pipeline.toFile(outputPath);
         
       sources[format][size.suffix.replace('-', '')] = `/images/optimized/${outputFilename}`;
     }
