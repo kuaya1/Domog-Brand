@@ -34,9 +34,12 @@ if (typeof window !== 'undefined' || typeof process !== 'undefined') {
 export function getOptimizedImage(src: string): OptimizedImageEntry | null {
   if (!src) return null;
 
+  // Decode URL-encoded paths (e.g., %20 -> space)
+  const decodedSrc = decodeURIComponent(src);
+
   // Extract filename to match sanitized ID logic
   // Logic must match scripts/optimize-images.ts
-  const filename = src.split('/').pop()?.split('.')[0] || '';
+  const filename = decodedSrc.split('/').pop()?.split('.')[0] || '';
   
   const sanitizedId = filename
     .toLowerCase()
@@ -44,7 +47,13 @@ export function getOptimizedImage(src: string): OptimizedImageEntry | null {
     .replace(/[()]/g, '')
     .replace(/[^a-z0-9-]/g, '');
 
-  return manifest[sanitizedId] || null;
+  const entry = manifest[sanitizedId];
+  
+  if (!entry && process.env.NODE_ENV === 'production') {
+    console.warn('[getOptimizedImage] Cache miss:', { src, sanitizedId, availableKeys: Object.keys(manifest).slice(0, 5) });
+  }
+
+  return entry || null;
 }
 
 /**

@@ -9,14 +9,21 @@ interface OptimizedImageProps extends Omit<ImageProps, 'src'> {
 }
 
 export function OptimizedImage({ src, alt, ...props }: OptimizedImageProps) {
+  // Ensure src is valid before attempting optimization lookup
+  if (!src || typeof src !== 'string') {
+    console.error('[OptimizedImage] Invalid src:', src);
+    return null;
+  }
+
   const optimized = getOptimizedImage(src);
   
   if (!optimized) {
-    // Fallback to original Next/Image for dev mode or non-optimized images
+    // Fallback to original Next/Image - this MUST always work
     if (process.env.NODE_ENV === 'production') {
-      console.error(`[OptimizedImage] Missing optimized data for: ${src}`);
+      console.error(`[OptimizedImage] No optimized data for: ${src}. Using original.`);
     }
-    return <Image src={src} alt={alt} {...props} />;
+    // Use the original src directly - Next.js will handle the image
+    return <Image src={src} alt={alt || ''} {...props} />;
   }
   
   // Get available widths and sort descending
