@@ -38,7 +38,7 @@ export default function ProductFilters({
                             'block text-sm transition-colors duration-300',
                             selectedCategory === null
                                 ? 'text-black font-medium'
-                                : 'text-stone-warm hover:text-cognac'
+                                : 'text-stone-warm hover:text-cognac-accessible'
                         )}
                     >
                         All Collections
@@ -53,7 +53,7 @@ export default function ProductFilters({
                                 'block text-sm transition-colors duration-300',
                                 selectedCategory === category
                                     ? 'text-black font-medium'
-                                    : 'text-stone-warm hover:text-cognac'
+                                    : 'text-stone-warm hover:text-cognac-accessible'
                             )}
                         >
                             {category}

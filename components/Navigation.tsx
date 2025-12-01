@@ -339,7 +339,7 @@ function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: Mobile
                 onClick={onClick}
                 className="group flex items-center justify-between py-3.5 px-4 -mx-4 rounded-lg hover:bg-black/5 transition-colors duration-200"
             >
-                <span className="font-sans text-base font-medium text-black group-hover:text-cognac transition-colors">
+                <span className="font-sans text-base font-medium text-black group-hover:text-cognac-accessible transition-colors">
                     {children}
                 </span>
                 <div className="flex items-center gap-2">
@@ -348,7 +348,7 @@ function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: Mobile
                             {badge}
                         </span>
                     )}
-                    <ArrowRight size={14} className="text-stone-muted group-hover:text-cognac group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight size={14} className="text-stone-muted group-hover:text-cognac-accessible group-hover:translate-x-0.5 transition-all" />
                 </div>
             </Link>
         </li>
