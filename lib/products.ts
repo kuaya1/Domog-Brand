@@ -137,9 +137,9 @@ export const products: Product[] = [
         },
         images: [
             "/images/PNG images/khans-legacy.png (2) (1).png",
-            "/images/boots/khans-legacy-left.jpg",
-            "/images/boots/khans-legacy-right.jpg",
-            "/images/boots/khans-legacy-back.jpg"
+            "/images/PNG images/khans-legacy.png (2) (1).png",
+            "/images/PNG images/khans-legacy.png (2) (1).png",
+            "/images/PNG images/khans-legacy.png (2) (1).png"
         ],
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
