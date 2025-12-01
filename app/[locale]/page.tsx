@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/OptimizedImage";
-import { products } from "@/lib/products";
+import { products, getLocalizedName, getLocalizedDescription } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ProductGridErrorFallback } from "@/components/ProductGridErrorFallback";
@@ -29,8 +29,42 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
     // Get translations from JSON files
     const t = getNamespace(locale, 'home');
 
+    // Generate Structured Data for Featured Products
+    const featuredProducts = products.slice(0, 6);
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        itemListElement: featuredProducts.map((product, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+                '@type': 'Product',
+                name: getLocalizedName(product, locale as Locale),
+                description: getLocalizedDescription(product, locale as Locale),
+                image: product.images[0],
+                sku: product.id,
+                brand: {
+                    '@type': 'Brand',
+                    name: 'Domog Brand'
+                },
+                offers: {
+                    '@type': 'Offer',
+                    url: `https://domogbrand.com/${locale}/products/${product.id}`,
+                    priceCurrency: 'USD',
+                    price: product.price,
+                    availability: product.inStock !== false ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+                    itemCondition: 'https://schema.org/NewCondition'
+                }
+            }
+        }))
+    };
+
     return (
         <main className="min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Hero Section */}
             <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
                 <div className="relative z-10 w-full">

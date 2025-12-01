@@ -85,8 +85,33 @@ export default async function ProductPage({ params }: ProductPageProps) {
     
     const displayProducts = [...relatedProducts, ...fillerProducts];
 
+    // Generate Product JSON-LD
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.name,
+        image: product.images,
+        description: product.description,
+        brand: {
+            '@type': 'Brand',
+            name: 'Domog Brand'
+        },
+        offers: {
+            '@type': 'Offer',
+            url: `https://domogbrand.com/products/${product.id}`,
+            priceCurrency: 'USD',
+            price: product.price,
+            availability: 'https://schema.org/InStock',
+            itemCondition: 'https://schema.org/NewCondition'
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumb - Server rendered */}
                 <Link
