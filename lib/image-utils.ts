@@ -39,7 +39,9 @@ export function getOptimizedImage(src: string): OptimizedImageEntry | null {
 
   // Extract filename to match sanitized ID logic
   // Logic must match scripts/optimize-images.ts
-  const filename = decodedSrc.split('/').pop()?.split('.')[0] || '';
+  // Use regex to remove only the final extension (.png, .jpg, .jpeg)
+  const fullFilename = decodedSrc.split('/').pop() || '';
+  const filename = fullFilename.replace(/\.(png|jpg|jpeg)$/i, '');
   
   const sanitizedId = filename
     .toLowerCase()
