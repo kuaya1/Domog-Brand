@@ -133,7 +133,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Boot Image */}
                             <div className="relative w-full h-full">
                                 <OptimizedImage
-                                    src="/images/PNG images/khans-legacy.png (2).png"
+                                    src="/images/PNG images/khans-legacy.png (2) (1).png"
                                     alt="Khan's Legacy - Handcrafted Mongolian ceremonial boot showcasing centuries of traditional craftsmanship by Domog artisans"
                                     fill
                                     className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"

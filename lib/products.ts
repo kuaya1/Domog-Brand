@@ -136,7 +136,7 @@ export const products: Product[] = [
             mn: "Дөчин цагийн мастерын бүтээл. Монгол одон орны зураглалын хээгээр алтан утас хар тугалын арьсан дээр мушгирдаг. Арьс нь нэг ширхэг арьснаас сонгогдож, төгс өнгөний зохицол хангадаг."
         },
         images: [
-            "/images/PNG images/khans-legacy.png (2).png",
+            "/images/PNG images/khans-legacy.png (2) (1).png",
             "/images/boots/khans-legacy-left.jpg",
             "/images/boots/khans-legacy-right.jpg",
             "/images/boots/khans-legacy-back.jpg"

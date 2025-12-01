@@ -159,7 +159,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         {/* Image Side */}
                         <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
                             <Image
-                                src="/images/PNG images/khans-legacy.png (2).png"
+                                src="/images/PNG images/khans-legacy.png (2) (1).png"
                                 alt={t.heritage_image_alt}
                                 fill
                                 className="object-cover object-center"
