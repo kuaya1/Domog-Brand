@@ -45,7 +45,7 @@ export function ProductGridErrorFallback({ onRetry }: { onRetry?: () => void }) 
                         Unable to Load Collection
                     </h3>
                     <p className="font-sans text-base text-stone-warm leading-relaxed">
-                        We're experiencing difficulty displaying our products. 
+                        We&apos;re experiencing difficulty displaying our products. 
                         Please check your connection and try again.
                     </p>
                 </div>
