@@ -11,13 +11,17 @@
  * 
  * @example
  * // Import all components
- * import { Button, Input, Badge, Card, ImageGallery } from '@/components/ui';
+ * import { Button, Input, Badge, Card, Typography, ImageGallery } from '@/components/ui';
  * 
  * // Import specific component
  * import Button from '@/components/ui/Button';
  * 
- * @version 1.0.0
+ * @version 2.0.0
  */
+
+// Typography Component
+export { default as Typography } from './Typography';
+export type { TypographyProps, TypographyVariant, TypographyColor } from './Typography';
 
 // Button Component
 export { default as Button } from './Button';

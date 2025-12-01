@@ -5,6 +5,7 @@ import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ProductGridErrorFallback } from "@/components/ProductGridErrorFallback";
+import { Button } from "@/components/ui";
 import { locales, isValidLocale, type Locale } from "@/lib/i18n/config";
 import { getNamespace } from "@/lib/i18n/translations";
 import { notFound } from "next/navigation";
@@ -50,23 +51,22 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Text Content - 40% on Desktop */}
                             <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
                                 <div className="space-y-3">
-                                    <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac font-medium">
+                                    <p className="text-label-md text-cognac">
                                         {t.tagline}
                                     </p>
-                                    <h1 className="font-serif text-5xl lg:text-6xl text-black font-medium leading-tight">
+                                    <h1 className="text-display-md lg:text-display-lg font-serif font-medium text-black">
                                         {t.hero_title}
                                     </h1>
                                 </div>
 
-                                <p className="font-sans text-base text-stone-warm leading-relaxed max-w-lg lg:max-w-none">
+                                <p className="text-body-md text-stone-warm max-w-lg lg:max-w-none">
                                     {t.hero_description}
                                 </p>
 
-                                <Link
-                                    href={`/${locale}/shop`}
-                                    className="inline-block font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-black pb-2 hover:text-cognac hover:border-cognac transition-all duration-300"
-                                >
-                                    {t.cta_button}
+                                <Link href={`/${locale}/shop`}>
+                                    <Button variant="link" size="md" icon={<ArrowRight className="w-4 h-4" />}>
+                                        {t.cta_button}
+                                    </Button>
                                 </Link>
                             </div>
 
@@ -91,10 +91,10 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="py-32 lg:py-40 px-6 lg:px-8 bg-cream-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <p className="text-xs uppercase tracking-[0.3em] text-gold-700 mb-4 font-medium">
+                        <p className="text-label-md text-gold-700 mb-4">
                             {t.collection_label}
                         </p>
-                        <h2 className="text-5xl md:text-6xl font-serif font-semibold text-charcoal-900 mb-8 leading-tight">
+                        <h2 className="text-display-sm md:text-display-md font-serif font-semibold text-charcoal-900 mb-8">
                             {t.collection_title}
                         </h2>
                         <div className="w-24 h-px bg-gold-600 mx-auto" />
@@ -110,16 +110,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                     <div className="text-center mt-20">
                         <Link href={`/${locale}/shop`}>
-                            <button className="
-                                px-12 py-4
-                                border-2 border-charcoal-900
-                                text-sm uppercase tracking-[0.2em] font-medium
-                                text-charcoal-900
-                                hover:bg-charcoal-900 hover:text-cream-50
-                                transition-all duration-400
-                            ">
+                            <Button variant="outline" size="lg">
                                 {t.view_all_products}
-                            </button>
+                            </Button>
                         </Link>
                     </div>
                 </div>
@@ -152,32 +145,25 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         {/* Content Side */}
                         <div className="space-y-8">
                             <div>
-                                <p className="text-xs uppercase tracking-[0.3em] text-gold-500 mb-6 font-medium">
+                                <p className="text-label-md text-gold-500 mb-6">
                                     {t.heritage_label}
                                 </p>
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold leading-tight mb-8">
+                                <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-serif font-semibold leading-tight mb-8">
                                     {t.heritage_title}
                                 </h2>
                                 <div className="w-20 h-px bg-gold-600 mb-8" />
                             </div>
                             
-                            <div className="space-y-6 text-base lg:text-lg leading-relaxed text-cream-200 font-light">
+                            <div className="space-y-6 text-body-md lg:text-body-lg text-cream-200 font-light">
                                 <p>{t.heritage_p1}</p>
                                 <p>{t.heritage_p2}</p>
                                 <p className="text-cream-50 font-normal">{t.heritage_p3}</p>
                             </div>
 
                             <Link href={`/${locale}/about`}>
-                                <button className="
-                                    mt-8 px-10 py-4
-                                    border-2 border-cream-50
-                                    text-sm uppercase tracking-[0.2em] font-medium
-                                    text-cream-50
-                                    hover:bg-cream-50 hover:text-charcoal-900
-                                    transition-all duration-400
-                                ">
+                                <Button variant="dark" size="lg" className="mt-8">
                                     {t.heritage_cta}
-                                </button>
+                                </Button>
                             </Link>
                         </div>
                     </div>
@@ -188,10 +174,10 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="py-32 lg:py-40 bg-warm-50">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-20">
-                        <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-6">
+                        <span className="inline-block text-label-md text-cognac mb-6">
                             {t.promise_label}
                         </span>
-                        <h2 className="font-serif text-4xl lg:text-5xl text-black font-medium tracking-tight">
+                        <h2 className="text-display-sm lg:text-display-md font-serif font-medium text-black">
                             {t.promise_title}
                         </h2>
                     </div>
@@ -199,40 +185,40 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
                                     01
                                 </span>
                             </div>
-                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
                                 {t.pillar_1_title}
                             </h3>
-                            <p className="font-sans text-stone-warm leading-relaxed">
+                            <p className="text-body-md text-stone-warm">
                                 {t.pillar_1_desc}
                             </p>
                         </div>
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
                                     02
                                 </span>
                             </div>
-                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
                                 {t.pillar_2_title}
                             </h3>
-                            <p className="font-sans text-stone-warm leading-relaxed">
+                            <p className="text-body-md text-stone-warm">
                                 {t.pillar_2_desc}
                             </p>
                         </div>
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-5xl lg:text-6xl text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
                                     03
                                 </span>
                             </div>
-                            <h3 className="font-serif text-2xl text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
                                 {t.pillar_3_title}
                             </h3>
-                            <p className="font-sans text-stone-warm leading-relaxed">
+                            <p className="text-body-md text-stone-warm">
                                 {t.pillar_3_desc}
                             </p>
                         </div>

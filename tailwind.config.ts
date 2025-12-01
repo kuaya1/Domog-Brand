@@ -89,10 +89,27 @@ const config: Config = {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
             },
             fontSize: {
-                "display-xl": ["7rem", { lineHeight: "1", letterSpacing: "-0.02em" }],
-                "display-lg": ["5.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
-                "display-md": ["4rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
-                "display-sm": ["3rem", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
+                // Display sizes - Luxury headline typography with optical adjustments
+                // Used for hero headlines and major section titles
+                "display-xl": ["5.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+                "display-lg": ["4.5rem", { lineHeight: "1.08", letterSpacing: "-0.015em" }],
+                "display-md": ["3.5rem", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
+                "display-sm": ["2.75rem", { lineHeight: "1.15", letterSpacing: "-0.005em" }],
+                
+                // Heading sizes - Section and component headings
+                "heading-xl": ["2rem", { lineHeight: "1.2", letterSpacing: "0" }],
+                "heading-lg": ["1.5rem", { lineHeight: "1.25", letterSpacing: "0" }],
+                "heading-md": ["1.25rem", { lineHeight: "1.3", letterSpacing: "0" }],
+                
+                // Body sizes - Paragraph and content text
+                "body-lg": ["1.125rem", { lineHeight: "1.7", letterSpacing: "0.01em" }],
+                "body-md": ["1rem", { lineHeight: "1.7", letterSpacing: "0.01em" }],
+                "body-sm": ["0.875rem", { lineHeight: "1.6", letterSpacing: "0.01em" }],
+                
+                // Label/Caption sizes - UI elements, buttons, badges
+                "label-lg": ["0.8125rem", { lineHeight: "1.4", letterSpacing: "0.15em" }],
+                "label-md": ["0.6875rem", { lineHeight: "1.4", letterSpacing: "0.2em" }],
+                "label-sm": ["0.625rem", { lineHeight: "1.4", letterSpacing: "0.25em" }],
             },
             spacing: {
                 "18": "4.5rem",
