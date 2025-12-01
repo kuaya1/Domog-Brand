@@ -37,14 +37,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
 
-                            {/* Mobile: Image First - Scaled down 30% */}
-                            <div className="lg:hidden w-full mb-12">
+                            {/* Mobile: Image First - Scaled down 40% (30% + 10%) and moved down 18px (0.7 inch) */}
+                            <div className="lg:hidden w-full mb-12 mt-[18px]">
                                 <OptimizedImage
                                     src="/images/PNG images/Generated Image November 23, 2025 - 9_31PM.png"
                                     alt="Handcrafted Mongolian traditional boots by Domog - Premium leather heritage footwear"
                                     width={720}
                                     height={840}
-                                    className="w-full max-w-xl mx-auto h-auto scale-[1.008] origin-center"
+                                    className="w-full max-w-xl mx-auto h-auto scale-[0.9] origin-center"
                                     priority
                                 />
                             </div>
