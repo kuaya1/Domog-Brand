@@ -29,7 +29,7 @@ const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup').the
 });
 
 const inter = Inter({ 
-    subsets: ["latin"], 
+    subsets: ["latin", "cyrillic"], 
     variable: "--font-inter",
     weight: ["300", "400", "500", "600"],
     display: "swap",
@@ -37,7 +37,7 @@ const inter = Inter({
 });
 
 const playfair = Playfair_Display({ 
-    subsets: ["latin"], 
+    subsets: ["latin", "cyrillic"], 
     variable: "--font-playfair",
     weight: ["400", "500", "600", "700"],
     display: "swap",
