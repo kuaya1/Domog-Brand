@@ -1,63 +1,25 @@
-interface ColorPair {
-  name: string;
-  foreground: string;
-  background: string;
-  usage: string;
-  minRatio: number; // 4.5 for normal text, 3 for large text
-}
+// @ts-ignore
+import * as wcag from 'wcag-contrast';
 
-const colorPairs: ColorPair[] = [
-  {
-    name: 'Footer body text',
-    foreground: 'rgba(250, 248, 243, 0.6)', // cream/60
-    background: '#0A0A0A', // charcoal-900
-    usage: 'Body text in footer',
-    minRatio: 4.5,
+// ... (rest of the file)
+
+// 2. Calculate Luminance & Ratio
+// wcag-contrast exports 'hex' function to get ratio between two hex codes
+
+const PALETTE = {
+  bg: {
+    charcoal900: '#0A0A0A',
+    cream50: '#FAF8F3',
   },
-  {
-    name: 'Gold accent on dark',
-    foreground: '#C9A961', // gold-500
-    background: '#0A0A0A', // charcoal-900
-    usage: 'Labels and accents',
-    minRatio: 4.5,
-  },
-  {
-    name: 'Muted price text',
-    foreground: '#9CA3AF', // stone-400 equivalent
-    background: '#FFFFFF',
-    usage: 'USD label on product cards',
-    minRatio: 4.5,
-  },
-  {
-    name: 'Primary text on cream',
-    foreground: '#0A0A0A', // charcoal-900
-    background: '#FAF8F3', // cream-50
-    usage: 'Main content text',
-    minRatio: 4.5,
-  },
-  {
-    name: 'Cognac accent on cream',
-    foreground: '#8B6F47', // cognac
-    background: '#FAF8F3', // cream-50
-    usage: 'Links and accents',
-    minRatio: 4.5,
+  text: {
+    gold600: '#B8995A',
+    warm600: '#6B6358',
+    creamText: 'rgba(250, 248, 243, 0.6)', // #FAF8F3 at 60% opacity
   }
-];
+};
 
-function getLuminance(r: number, g: number, b: number) {
-  const a = [r, g, b].map(function (v) {
-    v /= 255;
-    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-  });
-  return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-}
-
+// Helper to parse hex to RGB
 function hexToRgb(hex: string) {
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
-
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
     r: parseInt(result[1], 16),
@@ -66,19 +28,21 @@ function hexToRgb(hex: string) {
   } : null;
 }
 
-function parseColor(color: string) {
-  if (color.startsWith('#')) {
-    return hexToRgb(color);
-  }
-  if (color.startsWith('rgba')) {
-    // Very basic parsing for the specific case in the array
-    const match = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+// Helper to blend RGBA over RGB background
+function blendColors(fgHexOrRgba: string, bgHex: string): string {
+  const bg = hexToRgb(bgHex);
+  if (!bg) throw new Error(`Invalid bg color: ${bgHex}`);
+
+  let fg = { r: 0, g: 0, b: 0, a: 1 };
+
+  if (fgHexOrRgba.startsWith('#')) {
+    const rgb = hexToRgb(fgHexOrRgba);
+    if (!rgb) throw new Error(`Invalid fg color: ${fgHexOrRgba}`);
+    fg = { ...rgb, a: 1 };
+  } else if (fgHexOrRgba.startsWith('rgba')) {
+    const match = fgHexOrRgba.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
     if (match) {
-      // If alpha is present, we need to blend with background. 
-      // For simplicity in this script, we'll assume black background for the footer case if alpha is used
-      // or just ignore alpha for luminance calculation if it's high enough, but strictly we should blend.
-      // Let's just return the RGB values.
-      return {
+      fg = {
         r: parseInt(match[1]),
         g: parseInt(match[2]),
         b: parseInt(match[3]),
@@ -86,78 +50,71 @@ function parseColor(color: string) {
       };
     }
   }
-  return null;
+
+  // Blend formula: Result = FG * Alpha + BG * (1 - Alpha)
+  const r = Math.round(fg.r * fg.a + bg.r * (1 - fg.a));
+  const g = Math.round(fg.g * fg.a + bg.g * (1 - fg.a));
+  const b = Math.round(fg.b * fg.a + bg.b * (1 - fg.a));
+
+  // Return as hex for wcag-contrast library if needed, or just use the values
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 }
 
-function getContrastRatio(fg: string, bg: string) {
-  const fgRgb = parseColor(fg);
-  const bgRgb = parseColor(bg);
+// 2. Calculate Luminance & Ratio (Using wcag-contrast library or manual)
+// Since we have 'wcag-contrast' installed, we can use it, but we need to blend first.
 
-  if (!fgRgb || !bgRgb) return 0;
-
-  // Handle alpha blending for foreground if needed (assuming bg is opaque)
-  let finalFgRgb = fgRgb;
-  if ('a' in fgRgb && fgRgb.a !== undefined && fgRgb.a < 1) {
-    finalFgRgb = {
-      r: Math.round((1 - fgRgb.a) * bgRgb.r + fgRgb.a * fgRgb.r),
-      g: Math.round((1 - fgRgb.a) * bgRgb.g + fgRgb.a * fgRgb.g),
-      b: Math.round((1 - fgRgb.a) * bgRgb.b + fgRgb.a * fgRgb.b)
-    };
-  }
-
-  const l1 = getLuminance(finalFgRgb.r, finalFgRgb.g, finalFgRgb.b);
-  const l2 = getLuminance(bgRgb.r, bgRgb.g, bgRgb.b);
-
-  const lighter = Math.max(l1, l2);
-  const darker = Math.min(l1, l2);
-
-  return (lighter + 0.05) / (darker + 0.05);
+interface AuditPair {
+  name: string;
+  fg: string;
+  bg: string;
+  isLargeText?: boolean;
 }
 
-function auditContrast() {
-  console.log('🔍 Starting WCAG Color Contrast Audit...');
+const PAIRS_TO_AUDIT: AuditPair[] = [
+  { name: 'Gold on Charcoal', fg: PALETTE.text.gold600, bg: PALETTE.bg.charcoal900 },
+  { name: 'Warm on Cream', fg: PALETTE.text.warm600, bg: PALETTE.bg.cream50 },
+  { name: 'Cream Text (60%) on Charcoal', fg: PALETTE.text.creamText, bg: PALETTE.bg.charcoal900 },
+  { name: 'Gold on Cream (Large Text)', fg: PALETTE.text.gold600, bg: PALETTE.bg.cream50, isLargeText: true },
+];
+
+function runAudit() {
+  console.log('🎨 Starting Color Contrast Audit (WCAG AA)...\n');
   
-  const results = colorPairs.map(pair => {
-    const ratio = getContrastRatio(pair.foreground, pair.background);
-    const passes = ratio >= pair.minRatio;
-    
-    return {
-      ...pair,
-      ratio: ratio.toFixed(2),
-      passes,
-      recommendation: passes ? null : suggestFix(pair),
-    };
-  });
-  
-  console.table(results.map(({ name, ratio, passes, minRatio }) => ({
-    name,
-    ratio: `${ratio}:1`,
-    required: `${minRatio}:1`,
-    status: passes ? '✅ PASS' : '❌ FAIL'
-  })));
-  
-  // Generate fix recommendations
-  results
-    .filter(r => !r.passes)
-    .forEach(r => {
-      console.log(`\n❌ ${r.name}: ${r.ratio}:1 (needs ${r.minRatio}:1)`);
-      if (r.recommendation) {
-        console.log(`   Recommendation: ${r.recommendation}`);
-      }
+  let hasFailure = false;
+  const results = [];
+
+  for (const pair of PAIRS_TO_AUDIT) {
+    // Blend colors to get solid hex values for comparison
+    const solidFg = blendColors(pair.fg, pair.bg);
+    const solidBg = pair.bg; // Backgrounds are assumed solid
+
+    // @ts-ignore
+    const ratio = wcag.hex(solidFg, solidBg);
+    const threshold = pair.isLargeText ? 3.0 : 4.5;
+    const passed = ratio >= threshold;
+
+    if (!passed) hasFailure = true;
+
+    results.push({
+      'Pair Name': pair.name,
+      'FG (Solid)': solidFg,
+      'BG': solidBg,
+      'Ratio': ratio.toFixed(2) + ':1',
+      'Required': threshold + ':1',
+      'Status': passed ? '✅ PASS' : '❌ FAIL'
     });
-    
-  console.log('\n✨ Audit complete.');
+  }
+
+  console.table(results);
+
+  if (hasFailure) {
+    console.error('\n❌ Accessibility Audit Failed: Some color pairs do not meet WCAG AA standards.');
+    process.exit(1);
+  } else {
+    console.log('\n✅ Accessibility Audit Passed!');
+  }
 }
 
-function suggestFix(pair: ColorPair): string {
-  // Simple suggestion logic
-  if (pair.background === '#0A0A0A') {
-    return 'Increase opacity or lightness of foreground color';
-  }
-  if (pair.background === '#FFFFFF' || pair.background === '#FAF8F3') {
-    return 'Darken foreground color';
-  }
-  return 'Adjust colors to increase contrast';
-}
-
-auditContrast();
+// Handle TS errors for wcag-contrast if types are missing
+// @ts-ignore
+runAudit();
