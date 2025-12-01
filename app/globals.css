@@ -93,6 +93,15 @@
         width: 100%;
     }
 
+    /* Product image enhancement filters */
+    .filter-product-enhance {
+        filter: contrast(1.05) saturate(1.08);
+    }
+
+    .filter-heritage-enhance {
+        filter: contrast(1.1) saturate(1.08);
+    }
+
     /* Skip link for accessibility */
     .sr-only {
         position: absolute;

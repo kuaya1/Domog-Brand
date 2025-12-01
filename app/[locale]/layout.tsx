@@ -1,17 +1,32 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import dynamic from "next/dynamic";
 import "../globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ToastProvider as LegacyToastProvider } from "@/components/ui";
 import { ToastProvider } from "@/components/ToastProvider";
-import { CartDrawer } from "@/components/CartDrawer";
-import { SmartSearch } from "@/components/SmartSearch";
-import { NewsletterPopup } from "@/components/NewsletterPopup";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { locales, isValidLocale, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/dictionaries';
 import { notFound } from 'next/navigation';
+
+// Dynamic imports for non-critical components
+// These components are not needed for initial render and can be lazy-loaded
+const CartDrawer = dynamic(() => import('@/components/CartDrawer').then(mod => ({ default: mod.CartDrawer })), {
+    ssr: false,
+    loading: () => null, // Cart drawer is hidden by default
+});
+
+const SmartSearch = dynamic(() => import('@/components/SmartSearch').then(mod => ({ default: mod.SmartSearch })), {
+    ssr: false,
+    loading: () => null,
+});
+
+const NewsletterPopup = dynamic(() => import('@/components/NewsletterPopup').then(mod => ({ default: mod.NewsletterPopup })), {
+    ssr: false,
+    loading: () => null,
+});
 
 const inter = Inter({ 
     subsets: ["latin"], 

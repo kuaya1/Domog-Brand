@@ -65,16 +65,13 @@ const ProductCard = memo(function ProductCard({
                 className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-4"
                 aria-label={`View ${localizedName} - $${product.price}`}
             >
-                <article className="
+                article className="
                     relative bg-white
-                    shadow-lg hover:shadow-2xl
+                    shadow-card-warm hover:shadow-card-warm-hover
                     transition-all duration-500 ease-out
                     hover:-translate-y-2
                     will-change-transform
                 "
-                style={{
-                    boxShadow: '0 4px 20px rgba(139, 111, 71, 0.08)',
-                }}
                 >
                     {/* Product Image - 3:4 aspect ratio with centered contain-fit */}
                     <div 
@@ -106,12 +103,9 @@ const ProductCard = memo(function ProductCard({
                                             object-contain
                                             transition-opacity duration-500 ease-out
                                             will-change-opacity
-                                            drop-shadow-lg
+                                            filter-product-enhance drop-shadow-product
                                             ${imageLoaded ? 'opacity-100' : 'opacity-0'}
                                         `}
-                                        style={{
-                                            filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15))'
-                                        }}
                                         onLoad={handleImageLoad}
                                         onError={handleImageError}
                                     />

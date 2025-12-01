@@ -106,6 +106,16 @@ const config: Config = {
                 "elegant": "0 4px 20px rgba(0, 0, 0, 0.08)",
                 "gold": "0 4px 20px rgba(201, 169, 97, 0.25)",
                 "3xl": "0 35px 120px rgba(0, 0, 0, 0.35)",
+                "card-warm": "0 4px 20px rgba(139, 111, 71, 0.08)",
+                "card-warm-hover": "0 8px 30px rgba(139, 111, 71, 0.15)",
+            },
+            dropShadow: {
+                "product": "0 10px 25px rgba(0, 0, 0, 0.15)",
+                "heritage-gold": "0 25px 50px rgba(201, 169, 97, 0.3)",
+            },
+            filter: {
+                "product-enhance": "contrast(1.05) saturate(1.08)",
+                "heritage-enhance": "contrast(1.1) saturate(1.08)",
             },
             transitionDuration: {
                 "400": "400ms",

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ProductGridErrorFallback } from "@/components/ProductGridErrorFallback";
 import { locales, isValidLocale, type Locale } from "@/lib/i18n/config";
 import { getNamespace } from "@/lib/i18n/translations";
 import { notFound } from "next/navigation";
@@ -98,11 +100,13 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         <div className="w-24 h-px bg-gold-600 mx-auto" />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-20">
-                        {products.slice(0, 6).map((product, index) => (
-                            <ProductCard key={product.id} product={product} locale={locale} priority={index < 3} />
-                        ))}
-                    </div>
+                    <ErrorBoundary fallback={<ProductGridErrorFallback />}>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-20">
+                            {products.slice(0, 6).map((product, index) => (
+                                <ProductCard key={product.id} product={product} locale={locale} priority={index < 3} />
+                            ))}
+                        </div>
+                    </ErrorBoundary>
 
                     <div className="text-center mt-20">
                         <Link href={`/${locale}/shop`}>
@@ -138,10 +142,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                     src="/images/PNG images/khans-legacy.png (2).png"
                                     alt={t.heritage_image_alt}
                                     fill
-                                    className="object-contain drop-shadow-2xl"
-                                    style={{ 
-                                        filter: 'contrast(1.1) saturate(1.08) drop-shadow(0 25px 50px rgba(201, 169, 97, 0.3))' 
-                                    }}
+                                    className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                     loading="lazy"
                                 />
