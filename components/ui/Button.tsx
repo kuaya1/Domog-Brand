@@ -83,7 +83,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     link: `
         bg-transparent text-charcoal-900
         border-b-2 border-charcoal-900
-        hover:text-cognac hover:border-cognac
+        hover:text-cognac-accessible hover:border-cognac-accessible
         focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2
         disabled:text-charcoal-900/40 disabled:border-charcoal-900/40
         !px-0 !py-0 pb-1

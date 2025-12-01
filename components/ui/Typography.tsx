@@ -75,7 +75,7 @@ const colorStyles: Record<TypographyColor, string> = {
     primary: 'text-charcoal-900',
     secondary: 'text-stone-warm',
     muted: 'text-warm-500',
-    accent: 'text-cognac',
+    accent: 'text-cognac-accessible',
     gold: 'text-gold-700',
     inverse: 'text-cream-50',
     inherit: 'text-inherit',

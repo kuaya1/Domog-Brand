@@ -206,7 +206,7 @@ const ProductCard = memo(function ProductCard({
                                 <span className="text-4xl font-serif font-light text-charcoal-900 tracking-tight">
                                     ${product.price.toLocaleString()}
                                 </span>
-                                <span className="text-[10px] uppercase tracking-widest text-stone-400 font-medium ml-1 -translate-y-3">
+                                <span className="text-[10px] uppercase tracking-widest text-stone-accessible font-medium ml-1 -translate-y-3">
                                     USD
                                 </span>
                             </div>

@@ -51,7 +51,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Text Content - 40% on Desktop */}
                             <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
                                 <div className="space-y-3">
-                                    <p className="text-label-md text-cognac">
+                                    <p className="text-label-md text-cognac-accessible">
                                         {t.tagline}
                                     </p>
                                     <h1 className="text-display-md lg:text-display-lg font-serif font-medium text-black">
@@ -174,7 +174,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="py-32 lg:py-40 bg-warm-50">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center mb-20">
-                        <span className="inline-block text-label-md text-cognac mb-6">
+                        <span className="inline-block text-label-md text-cognac-accessible mb-6">
                             {t.promise_label}
                         </span>
                         <h2 className="text-display-sm lg:text-display-md font-serif font-medium text-black">

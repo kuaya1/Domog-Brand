@@ -77,7 +77,12 @@ const config: Config = {
                     warm: "#5A5654",
                     light: "#8A8684",
                     muted: "#B8B4B0",
+                    accessible: "#57534E", // stone-600
                 },
+                // Accessible Colors
+                "gold-accessible": "#A1823D",
+                "cognac-accessible": "#6B5435",
+                
                 // Legacy support
                 primary: "#8B0000",
                 secondary: "#B8860B",
