@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/ProductCard";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
@@ -38,9 +39,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                             {/* Mobile: Image First - Scaled down 30% */}
                             <div className="lg:hidden w-full mb-12">
-                                <Image
+                                <OptimizedImage
                                     src="/images/PNG images/Generated Image November 23, 2025 - 9_31PM.png"
-                                    alt={t.hero_image_alt}
+                                    alt="Handcrafted Mongolian traditional boots by Domog - Premium leather heritage footwear"
                                     width={720}
                                     height={840}
                                     className="w-full max-w-xl mx-auto h-auto scale-[1.008] origin-center"
@@ -72,9 +73,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
                             {/* Desktop: Image on Right - 60% scaled to viewport, scaled down 30% */}
                             <div className="hidden lg:block lg:w-3/5 h-screen flex items-center justify-start">
-                                <Image
+                                <OptimizedImage
                                     src="/images/PNG images/Generated Image November 23, 2025 - 9_31PM.png"
-                                    alt={t.hero_image_alt}
+                                    alt="Handcrafted Mongolian traditional boots by Domog - Premium leather heritage footwear"
                                     width={960}
                                     height={1080}
                                     className="w-full h-full object-contain scale-[0.84] origin-center"
@@ -131,13 +132,12 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             
                             {/* Boot Image */}
                             <div className="relative w-full h-full">
-                                <Image
+                                <OptimizedImage
                                     src="/images/PNG images/khans-legacy.png (2).png"
-                                    alt={t.heritage_image_alt}
+                                    alt="Khan's Legacy - Handcrafted Mongolian ceremonial boot showcasing centuries of traditional craftsmanship by Domog artisans"
                                     fill
                                     className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
-                                    loading="lazy"
                                 />
                             </div>
                         </div>

@@ -3,6 +3,7 @@
 import { memo, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { OptimizedImage } from './ui/OptimizedImage';
 import { Product, getLocalizedName, getLocalizedCategory } from '@/lib/products';
 import { ArrowRight } from 'lucide-react';
 import { useLocale } from '@/lib/i18n/navigation';
@@ -91,13 +92,12 @@ const ProductCard = memo(function ProductCard({
                         ) : (
                             <div className="absolute inset-0 flex items-center justify-center p-8">
                                 <div className="relative w-full h-full">
-                                    <Image
+                                    <OptimizedImage
                                         key={displayImageIndex}
                                         src={product.images[displayImageIndex]}
-                                        alt={`${localizedName} - ${localizedCategory} - View ${displayImageIndex + 1}`}
+                                        alt={`${localizedName} - ${localizedCategory} - Handcrafted Mongolian Boot by Domog - View ${displayImageIndex + 1}`}
                                         fill
                                         priority={priority}
-                                        loading={priority ? 'eager' : 'lazy'}
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className={`
                                             object-contain
@@ -106,8 +106,6 @@ const ProductCard = memo(function ProductCard({
                                             filter-product-enhance drop-shadow-product
                                             ${imageLoaded ? 'opacity-100' : 'opacity-0'}
                                         `}
-                                        onLoad={handleImageLoad}
-                                        onError={handleImageError}
                                     />
                                 </div>
                             </div>
