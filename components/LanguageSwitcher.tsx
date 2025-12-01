@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
         <button
             onClick={switchLocale}
             disabled={isPending}
-            className="text-xs font-medium tracking-widest uppercase px-3 py-1.5 border border-cognac/30 text-cognac hover:bg-cognac/10 transition-all duration-300 disabled:opacity-50"
+            className="text-xs font-medium tracking-widest uppercase px-3 py-1.5 border border-cognac-accessible/30 text-cognac-accessible hover:bg-cognac-accessible/10 transition-all duration-300 disabled:opacity-50"
             aria-label={`Switch to ${localeNames[nextLocale]}`}
         >
             {isPending ? '...' : localeNames[nextLocale]}

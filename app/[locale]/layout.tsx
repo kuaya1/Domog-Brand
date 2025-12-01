@@ -140,20 +140,23 @@ const jsonLd = {
     name: 'Domog Brand',
     url: 'https://domogbrand.com',
     logo: 'https://domogbrand.com/images/logo.png',
-    description: 'Premium handcrafted Mongolian boots since 1990',
     foundingDate: '1990',
-    foundingLocation: {
-        '@type': 'Place',
-        address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Ulaanbaatar',
-            addressCountry: 'Mongolia'
+    founders: [
+        {
+            '@type': 'Person',
+            name: 'Master Craftsman'
         }
+    ],
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Ulaanbaatar',
+        addressCountry: 'MN'
     },
     sameAs: [
-        'https://www.facebook.com/mongolundesniieetengutal/',
-        'https://instagram.com/domogbrand'
-    ]
+        'https://instagram.com/domogbrand',
+        'https://facebook.com/mongolundesniieetengutal'
+    ],
+    description: 'Handcrafted Mongolian heritage footwear since 1990. Legacy carved by hand.'
 };
 
 interface LocaleLayoutProps {
