@@ -49,8 +49,8 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                 />
                             </div>
 
-                            {/* Text Content - 40% on Desktop */}
-                            <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12">
+                            {/* Text Content - 40% on Desktop, moved up 0.7in on mobile */}
+                            <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12 -mt-[18px] lg:mt-0">
                                 <div className="space-y-3">
                                     <p className="text-label-md text-cognac-accessible">
                                         {t.tagline}
