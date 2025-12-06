@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import { OptimizedImage } from "@/components/ui/OptimizedImage";
+import Link from "next/link";
+import { Button } from "@/components/ui";
 import { locales, isValidLocale } from "@/lib/i18n/config";
 import { getNamespace } from "@/lib/i18n/translations";
 import { notFound } from "next/navigation";
@@ -23,28 +26,84 @@ export default function AboutPage({ params: { locale } }: PageProps) {
 
     return (
         <div className="bg-cream">
-            {/* Brand Manifesto - Hero with Background Image */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                {/* Background Image with Light Overlay */}
-                <Image
-                    src="/images/88cd1cc8-dec1-4d2f-b1ab-0ba751f7862e.jpg"
-                    alt={t.manifesto_title}
-                    fill
-                    className="object-cover object-center"
-                    priority
-                />
-                {/* Light Overlay for Contrast */}
-                <div className="absolute inset-0 bg-white/40" />
+            {/* DARK HERITAGE HERO SECTION - Matching Main Page Heritage Section */}
+            <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
+                {/* Mobile: Background Image with Overlay */}
+                <div className="lg:hidden absolute inset-0">
+                    <OptimizedImage
+                        src="/images/Generated Image December 06, 2025 - 11_25AM.jpeg"
+                        alt="Heritage craftsmanship background"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority
+                    />
+                    {/* Cinematic overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/65" />
+                    {/* Christopher Nolan-inspired film grain: IMAX 70mm aesthetic */}
+                    <div 
+                        className="absolute inset-0 opacity-[0.25] mix-blend-soft-light pointer-events-none"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
+                            backgroundRepeat: 'repeat'
+                        }}
+                    />
+                </div>
                 
-                {/* Content */}
-                <div className="max-w-4xl mx-auto px-6 lg:px-8 py-32 text-center relative z-10">
-                    <p className="font-sans text-xs uppercase tracking-[0.3em] text-cognac mb-8">
-                        {t.manifesto_label}
-                    </p>
-                    <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-black font-medium leading-tight mb-12">
-                        {t.manifesto_title}
-                    </h1>
-                    <div className="w-16 h-px bg-gold mx-auto" />
+                {/* Desktop: Background Image with Cinematic Treatment */}
+                <div className="hidden lg:block absolute inset-0">
+                    <OptimizedImage
+                        src="/images/Generated Image December 06, 2025 - 11_41AM (1).jpeg"
+                        alt="Heritage craftsmanship workshop atmosphere"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority
+                    />
+                    {/* Cinematic vignette overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+                    {/* Film grain for desktop */}
+                    <div 
+                        className="absolute inset-0 opacity-[0.2] mix-blend-soft-light pointer-events-none"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
+                            backgroundRepeat: 'repeat'
+                        }}
+                    />
+                </div>
+                
+                <div className="relative w-full">
+                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+                        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0 min-h-[80vh]">
+                            {/* Content Side - Cinematic Typography - Matching Hero Layout: 40% width */}
+                            <div className="lg:w-2/5 space-y-10 lg:space-y-12 lg:pr-12">
+                            <div className="space-y-6">
+                                {/* Overline with glow */}
+                                <p className="text-label-md text-gold-500 tracking-[0.2em] uppercase mb-8 relative inline-block">
+                                    <span className="relative z-10">{t.manifesto_label}</span>
+                                    <span className="absolute inset-0 blur-md bg-gold-500/20 -z-10" aria-hidden="true" />
+                                </p>
+                                
+                                {/* Cinematic headline with text shadow */}
+                                <h1 className="text-display-sm md:text-display-md lg:text-display-lg font-serif font-semibold leading-[1.1] tracking-tight text-cream-50"
+                                    style={{ 
+                                        textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(201, 169, 97, 0.15)',
+                                        letterSpacing: '-0.02em'
+                                    }}>
+                                    {t.manifesto_title}
+                                </h1>
+                                
+                                {/* Elegant divider with subtle glow */}
+                                <div className="relative w-24 h-[2px] bg-gradient-to-r from-gold-500/80 to-gold-500/20">
+                                    <div className="absolute inset-0 blur-sm bg-gradient-to-r from-gold-500/40 to-transparent" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Right side - Empty space for image background to show through */}
+                        <div className="hidden lg:block lg:w-3/5" />
+                    </div>
+                    </div>
                 </div>
             </section>
 

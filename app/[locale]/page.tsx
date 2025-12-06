@@ -138,8 +138,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         className="absolute inset-0 opacity-[0.25] mix-blend-soft-light pointer-events-none"
                         style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
-                            backgroundRepeat: 'repeat',
-                            animation: 'grain-shift 8s steps(10) infinite'
+                            backgroundRepeat: 'repeat'
                         }}
                     />
                 </div>
@@ -161,8 +160,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         className="absolute inset-0 opacity-[0.2] mix-blend-soft-light pointer-events-none"
                         style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
-                            backgroundRepeat: 'repeat',
-                            animation: 'grain-shift 8s steps(10) infinite'
+                            backgroundRepeat: 'repeat'
                         }}
                     />
                 </div>
