@@ -167,13 +167,11 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     />
                 </div>
                 
-                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center min-h-[80vh]">
-                        {/* Image Side - Desktop only - Now just spacing */}
-                        <div className="hidden lg:block" />
-
-                        {/* Content Side - Cinematic Typography */}
-                        <div className="space-y-10 lg:space-y-12">
+                <div className="relative w-full">
+                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+                        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0 min-h-[80vh]">
+                            {/* Content Side - Cinematic Typography - Matching Hero Layout: 40% width */}
+                            <div className="lg:w-2/5 space-y-10 lg:space-y-12 lg:pr-12">
                             <div className="space-y-6">
                                 {/* Overline with glow */}
                                 <p className="text-label-md text-gold-500 tracking-[0.2em] uppercase mb-8 relative inline-block">
@@ -222,6 +220,10 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                 </Link>
                             </div>
                         </div>
+                        
+                        {/* Right side - Empty space for image background to show through */}
+                        <div className="hidden lg:block lg:w-3/5" />
+                    </div>
                     </div>
                 </div>
             </section>
