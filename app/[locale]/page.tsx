@@ -168,29 +168,55 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             </div>
                         </div>
 
-                        {/* Content Side */}
-                        <div className="space-y-8">
-                            <div>
-                                <p className="text-label-md text-gold-500 mb-6">
-                                    {t.heritage_label}
+                        {/* Content Side - Cinematic Typography */}
+                        <div className="space-y-10 lg:space-y-12">
+                            <div className="space-y-6">
+                                {/* Overline with glow */}
+                                <p className="text-label-md text-gold-500 tracking-[0.2em] uppercase mb-8 relative inline-block">
+                                    <span className="relative z-10">{t.heritage_label}</span>
+                                    <span className="absolute inset-0 blur-md bg-gold-500/20 -z-10" aria-hidden="true" />
                                 </p>
-                                <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-serif font-semibold leading-tight mb-8">
+                                
+                                {/* Cinematic headline with text shadow */}
+                                <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-serif font-semibold leading-[1.1] tracking-tight text-cream-50"
+                                    style={{ 
+                                        textShadow: '0 2px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(201, 169, 97, 0.15)',
+                                        letterSpacing: '-0.02em'
+                                    }}>
                                     {t.heritage_title}
                                 </h2>
-                                <div className="w-20 h-px bg-gold-600 mb-8" />
+                                
+                                {/* Elegant divider with subtle glow */}
+                                <div className="relative w-24 h-[2px] bg-gradient-to-r from-gold-500/80 to-gold-500/20">
+                                    <div className="absolute inset-0 blur-sm bg-gradient-to-r from-gold-500/40 to-transparent" />
+                                </div>
                             </div>
                             
-                            <div className="space-y-6 text-body-md lg:text-body-lg text-cream-200 font-light">
-                                <p>{t.heritage_p1}</p>
-                                <p>{t.heritage_p2}</p>
-                                <p className="text-cream-50 font-normal">{t.heritage_p3}</p>
+                            {/* Body text with enhanced readability */}
+                            <div className="space-y-6 text-body-md lg:text-body-lg leading-relaxed">
+                                <p className="text-cream-100/95 font-light" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)' }}>
+                                    {t.heritage_p1}
+                                </p>
+                                <p className="text-cream-100/90 font-light" style={{ textShadow: '0 1px 8px rgba(0, 0, 0, 0.7)' }}>
+                                    {t.heritage_p2}
+                                </p>
+                                <p className="text-cream-50 font-medium text-lg" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.8)' }}>
+                                    {t.heritage_p3}
+                                </p>
                             </div>
 
-                            <Link href={`/${locale}/about`}>
-                                <Button variant="dark" size="lg" className="mt-8">
-                                    {t.heritage_cta}
-                                </Button>
-                            </Link>
+                            {/* Premium CTA button with enhanced contrast */}
+                            <div className="pt-4">
+                                <Link href={`/${locale}/about`}>
+                                    <Button 
+                                        variant="dark" 
+                                        size="lg" 
+                                        className="shadow-2xl shadow-black/50 hover:shadow-gold-500/20 transition-shadow duration-500 backdrop-blur-sm bg-cream-50/10 hover:bg-cream-50/20 border-2 border-cream-50/80 hover:border-gold-500"
+                                    >
+                                        {t.heritage_cta}
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
