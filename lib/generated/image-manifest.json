@@ -1292,5 +1292,18 @@
         "1280": "/images/optimized/khans-legacypng-2-1-1280.avif"
       }
     }
+  },
+  "generated-image-december-06-2025---1125am": {
+    "originalPath": "Generated Image December 06, 2025 - 11_25AM.jpeg",
+    "sanitizedId": "generated-image-december-06-2025---1125am",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAKCAIAAAD3rtNaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVR4nAHcACP/ANja16Ckodve3JSdnUlWVyQ0Nx8uLwDq6uaxsq3o5+WKhoEeKy0JGRwFCwsA29zZnaCa5uTgooZ1CRMRBRUXAAUGAKCWi5uYjrmrpIBdSm9cUHRaS1JAMgConpetqqFtZFg6LB9LOS5XPC1EMiUAamppZVlKenVqWV9bDBcYAAcIAAICAHdrUYl4YUVAOCEtMFZbWU1ORhkhIgA6Mx5lWkx1YE4sJhorKyY+Rkc4RkwAOzoxXFBAmINwi3VdYlI+KigfHiMgAFhQS5RzXnJlVycpIUU+LFFDLTswHZpJS3orptIiAAAAAElFTkSuQmCC",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-december-06-2025---1125am-640.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-december-06-2025---1125am-640.avif"
+      }
+    }
   }
 }

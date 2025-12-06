@@ -120,11 +120,28 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             </section>
 
             {/* DARK HERITAGE SECTION - Visual Rhythm Contrast */}
-            <section className="py-32 lg:py-40 bg-charcoal-900 text-cream-50">
-                <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
+                {/* Mobile: Background Image with Overlay */}
+                <div className="lg:hidden absolute inset-0">
+                    <OptimizedImage
+                        src="/images/Generated Image December 06, 2025 - 11_25AM.jpeg"
+                        alt="Heritage craftsmanship background"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority
+                    />
+                    {/* Dark overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
+                </div>
+                
+                {/* Desktop: Solid background */}
+                <div className="hidden lg:block absolute inset-0 bg-charcoal-900" />
+                
+                <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        {/* Image Side - Transparent PNG with Spotlight */}
-                        <div className="relative aspect-[4/5] flex items-center justify-center p-12">
+                        {/* Image Side - Desktop only */}
+                        <div className="hidden lg:flex relative aspect-[4/5] items-center justify-center p-12">
                             {/* Spotlight Effect Behind Boot */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-2/3 h-2/3 bg-gold-600/[0.14] blur-3xl rounded-full" />
@@ -137,7 +154,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                     alt="Khan's Legacy - Handcrafted Mongolian ceremonial boot showcasing centuries of traditional craftsmanship by Domog artisans"
                                     fill
                                     className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    sizes="50vw"
                                 />
                             </div>
                         </div>
