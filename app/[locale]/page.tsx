@@ -144,29 +144,33 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     />
                 </div>
                 
-                {/* Desktop: Solid background */}
-                <div className="hidden lg:block absolute inset-0 bg-charcoal-900" />
+                {/* Desktop: Background Image with Cinematic Treatment */}
+                <div className="hidden lg:block absolute inset-0">
+                    <OptimizedImage
+                        src="/images/Generated Image December 06, 2025 - 11_41AM (1).jpeg"
+                        alt="Heritage craftsmanship workshop atmosphere"
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        priority
+                    />
+                    {/* Cinematic vignette overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+                    {/* Film grain for desktop */}
+                    <div 
+                        className="absolute inset-0 opacity-[0.2] mix-blend-soft-light pointer-events-none"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
+                            backgroundRepeat: 'repeat',
+                            animation: 'grain-shift 8s steps(10) infinite'
+                        }}
+                    />
+                </div>
                 
-                <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                        {/* Image Side - Desktop only */}
-                        <div className="hidden lg:flex relative aspect-[4/5] items-center justify-center p-12">
-                            {/* Spotlight Effect Behind Boot */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-2/3 h-2/3 bg-gold-600/[0.14] blur-3xl rounded-full" />
-                            </div>
-                            
-                            {/* Boot Image */}
-                            <div className="relative w-full h-full">
-                                <OptimizedImage
-                                    src="/images/PNG images/khans-legacy.png (2) (1).png"
-                                    alt="Khan's Legacy - Handcrafted Mongolian ceremonial boot showcasing centuries of traditional craftsmanship by Domog artisans"
-                                    fill
-                                    className="object-contain filter-heritage-enhance drop-shadow-heritage-gold"
-                                    sizes="50vw"
-                                />
-                            </div>
-                        </div>
+                <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center min-h-[80vh]">
+                        {/* Image Side - Desktop only - Now just spacing */}
+                        <div className="hidden lg:block" />
 
                         {/* Content Side - Cinematic Typography */}
                         <div className="space-y-10 lg:space-y-12">

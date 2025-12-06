@@ -1305,5 +1305,24 @@
         "640": "/images/optimized/generated-image-december-06-2025---1125am-640.avif"
       }
     }
+  },
+  "generated-image-december-06-2025---1141am-1": {
+    "originalPath": "Generated Image December 06, 2025 - 11_41AM (1).jpeg",
+    "sanitizedId": "generated-image-december-06-2025---1141am-1",
+    "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAIAAAB1kpiRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVR4nAG6AEX/ALaomJ6JdJtpPoxnQ8OOarB8XFdKQWdVR1Q0IyQNBgB7TzDCp4vIoX2TXjCUbUplUD9cRzyNVz+rd2FjQzMAi1MjjFwrkWA2VjskalE6aWFXfVdBTicZOiYbDwUCAJZcKIxXKbR1O1MpCZlfRJ6BbmJTSXdVRCASCwEAAABXMxGebT7RlV6CTSJgKxSda1EfHhtAPTs7ODcOCwkAZTgXpm890pBTgUwbTiIInWdKFRIPLikmXFpXEA8OyH06x+K2kv0AAAAASUVORK5CYII=",
+    "variants": {
+      "webp": {
+        "640": "/images/optimized/generated-image-december-06-2025---1141am-1-640.webp",
+        "960": "/images/optimized/generated-image-december-06-2025---1141am-1-960.webp",
+        "1280": "/images/optimized/generated-image-december-06-2025---1141am-1-1280.webp",
+        "1920": "/images/optimized/generated-image-december-06-2025---1141am-1-1920.webp"
+      },
+      "avif": {
+        "640": "/images/optimized/generated-image-december-06-2025---1141am-1-640.avif",
+        "960": "/images/optimized/generated-image-december-06-2025---1141am-1-960.avif",
+        "1280": "/images/optimized/generated-image-december-06-2025---1141am-1-1280.avif",
+        "1920": "/images/optimized/generated-image-december-06-2025---1141am-1-1920.avif"
+      }
+    }
   }
 }
