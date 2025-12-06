@@ -133,6 +133,14 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     />
                     {/* Dark overlay for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
+                    {/* Film grain texture */}
+                    <div 
+                        className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                            backgroundRepeat: 'repeat'
+                        }}
+                    />
                 </div>
                 
                 {/* Desktop: Solid background */}
