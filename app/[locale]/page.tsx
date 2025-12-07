@@ -121,30 +121,8 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
 
             {/* DARK HERITAGE SECTION - Visual Rhythm Contrast */}
             <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
-                {/* Mobile: Background Image with Overlay */}
-                <div className="lg:hidden absolute inset-0">
-                    <OptimizedImage
-                        src="/images/Generated Image December 06, 2025 - 11_25AM.jpeg"
-                        alt="Heritage craftsmanship background"
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                        priority
-                    />
-                    {/* Cinematic overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/60 to-black/65" />
-                    {/* Christopher Nolan-inspired film grain: IMAX 70mm aesthetic */}
-                    <div 
-                        className="absolute inset-0 opacity-[0.25] mix-blend-soft-light pointer-events-none"
-                        style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
-                            backgroundRepeat: 'repeat'
-                        }}
-                    />
-                </div>
-                
-                {/* Desktop: Background Image with Cinematic Treatment */}
-                <div className="hidden lg:block absolute inset-0">
+                {/* Background Image with Overlay - Same for mobile and desktop */}
+                <div className="absolute inset-0">
                     <OptimizedImage
                         src="/images/Generated Image December 06, 2025 - 11_41AM (1).jpeg"
                         alt="Heritage craftsmanship workshop atmosphere"
@@ -153,11 +131,11 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         sizes="100vw"
                         priority
                     />
-                    {/* Cinematic vignette overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-                    {/* Film grain for desktop */}
+                    {/* Cinematic overlay - adjusted opacity for mobile/desktop */}
+                    <div className="absolute inset-0 lg:bg-gradient-to-br lg:from-black/70 lg:via-black/50 lg:to-black/70 bg-gradient-to-b from-black/55 via-black/60 to-black/65" />
+                    {/* Film grain - static texture */}
                     <div 
-                        className="absolute inset-0 opacity-[0.2] mix-blend-soft-light pointer-events-none"
+                        className="absolute inset-0 opacity-[0.25] lg:opacity-[0.2] mix-blend-soft-light pointer-events-none"
                         style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nolanGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='5' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='discrete' tableValues='0 0 1 1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nolanGrain)'/%3E%3C/svg%3E")`,
                             backgroundRepeat: 'repeat'
