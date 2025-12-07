@@ -123,15 +123,27 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
                 {/* Background Image with Overlay - Scaled out on mobile for dramatic effect */}
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 scale-[1.3] lg:scale-100 origin-center">
-                        <OptimizedImage
-                            src="/images/Generated Image December 06, 2025 - 11_04PM (1).jpeg"
-                            alt="Heritage craftsmanship workshop atmosphere"
-                            fill
-                            className="object-cover"
-                            sizes="100vw"
-                            priority
-                        />
+                    <div className="absolute inset-0 lg:inset-0" style={{ transform: 'scale(1.5)', transformOrigin: 'center' }}>
+                        <div className="hidden lg:block absolute inset-0" style={{ transform: 'scale(0.6667)', transformOrigin: 'center' }}>
+                            <OptimizedImage
+                                src="/images/Generated Image December 06, 2025 - 11_04PM (1).jpeg"
+                                alt="Heritage craftsmanship workshop atmosphere"
+                                fill
+                                className="object-cover"
+                                sizes="100vw"
+                                priority
+                            />
+                        </div>
+                        <div className="lg:hidden absolute inset-0">
+                            <OptimizedImage
+                                src="/images/Generated Image December 06, 2025 - 11_04PM (1).jpeg"
+                                alt="Heritage craftsmanship workshop atmosphere"
+                                fill
+                                className="object-cover"
+                                sizes="100vw"
+                                priority
+                            />
+                        </div>
                     </div>
                     {/* Cinematic overlay - best-fit gradient for new image */}
                     <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-black/35 to-black/50" />
