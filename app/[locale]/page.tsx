@@ -136,7 +136,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         </div>
                         <div className="lg:hidden absolute inset-0">
                             <OptimizedImage
-                                src="/images/Generated Image December 06, 2025 - 11_04PM (1).jpeg"
+                                src="/images/Generated Image December 06, 2025 - 11_25AM.jpeg"
                                 alt="Heritage craftsmanship workshop atmosphere"
                                 fill
                                 className="object-cover"
