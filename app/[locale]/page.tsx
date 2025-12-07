@@ -124,15 +124,15 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                 {/* Background Image with Overlay - Same for mobile and desktop */}
                 <div className="absolute inset-0">
                     <OptimizedImage
-                        src="/images/Generated Image December 06, 2025 - 11_41AM (1).jpeg"
+                        src="/images/Generated Image December 06, 2025 - 11_04PM (1).jpeg"
                         alt="Heritage craftsmanship workshop atmosphere"
                         fill
                         className="object-cover"
                         sizes="100vw"
                         priority
                     />
-                    {/* Cinematic overlay - adjusted opacity for mobile/desktop */}
-                    <div className="absolute inset-0 lg:bg-gradient-to-br lg:from-black/70 lg:via-black/50 lg:to-black/70 bg-gradient-to-b from-black/55 via-black/60 to-black/65" />
+                    {/* Cinematic overlay - best-fit gradient for new image */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-black/35 to-black/50" />
                     {/* Film grain - static texture */}
                     <div 
                         className="absolute inset-0 opacity-[0.25] lg:opacity-[0.2] mix-blend-soft-light pointer-events-none"
