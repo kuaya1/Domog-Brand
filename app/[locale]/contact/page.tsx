@@ -1,25 +1,36 @@
 'use client';
 
-import { useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useParams, useSearchParams } from 'next/navigation';
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getNamespace } from '@/lib/i18n/translations';
 import { isValidLocale } from '@/lib/i18n/config';
 
-export default function ContactPage() {
+function ContactPageContent() {
     const params = useParams();
+    const searchParams = useSearchParams();
     const locale = typeof params.locale === 'string' ? params.locale : 'en';
     const t = isValidLocale(locale) ? getNamespace(locale, 'contact') : getNamespace('en', 'contact');
+    
+    // Check for inquiry type from URL (e.g., from cart checkout)
+    const inquiryType = searchParams.get('inquiry');
     
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
-        subject: 'general',
+        subject: inquiryType === 'order' ? 'order' : 'general',
         message: '',
     });
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    
+    // Update subject when URL parameter changes
+    useEffect(() => {
+        if (inquiryType === 'order') {
+            setFormData(prev => ({ ...prev, subject: 'order' }));
+        }
+    }, [inquiryType]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -198,6 +209,7 @@ export default function ContactPage() {
                                                 className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
                                             >
                                                 <option value="general">{t.subject_general}</option>
+                                                <option value="order">{t.subject_order || 'Place an Order'}</option>
                                                 <option value="bespoke">{t.subject_bespoke}</option>
                                                 <option value="sizing">{t.subject_sizing}</option>
                                                 <option value="care">{t.subject_care}</option>
@@ -249,6 +261,28 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
+        </div>
+    );
+}
+
+// Wrap in Suspense for useSearchParams
+export default function ContactPage() {
+    return (
+        <Suspense fallback={<ContactPageSkeleton />}>
+            <ContactPageContent />
+        </Suspense>
+    );
+}
+
+function ContactPageSkeleton() {
+    return (
+        <div className="min-h-screen bg-cream animate-pulse">
+            <div className="bg-black py-24 lg:py-32" />
+            <div className="py-16 lg:py-24">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className="h-96 bg-cream-200 rounded" />
+                </div>
+            </div>
         </div>
     );
 }

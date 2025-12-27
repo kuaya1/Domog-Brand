@@ -7,6 +7,7 @@ import { Sparkles, Eye, TrendingUp, Heart } from 'lucide-react';
 import { products, type Product } from '@/lib/products';
 import { useRecentlyViewedStore } from '@/lib/stores/recently-viewed-store';
 import { useWishlistStore } from '@/lib/stores/wishlist-store';
+import { useLocale } from '@/lib/i18n/navigation';
 import { cn } from '@/lib/utils';
 
 // ============================================================================
@@ -249,6 +250,7 @@ export function ProductRecommendations({
 // ============================================================================
 
 function RecommendationCard({ product }: { product: Product }) {
+    const locale = useLocale();
     const toggleWishlist = useWishlistStore((state) => state.toggleItem);
     const isInWishlist = useWishlistStore((state) => 
         state.items.some((item) => item.productId === product.id)
@@ -257,7 +259,7 @@ function RecommendationCard({ product }: { product: Product }) {
     return (
         <div className="group relative">
             {/* Image */}
-            <Link href={`/products/${product.id}`} className="block relative aspect-[3/4] bg-cream-100 overflow-hidden mb-3">
+            <Link href={`/${locale}/products/${product.id}`} className="block relative aspect-[3/4] bg-cream-100 overflow-hidden mb-3">
                 {product.images[0] ? (
                     <Image
                         src={product.images[0]}
@@ -306,14 +308,14 @@ function RecommendationCard({ product }: { product: Product }) {
             </Link>
             
             {/* Product Info */}
-            <Link href={`/products/${product.id}`} className="block">
-                <h3 className="font-serif text-sm md:text-base text-black mb-1 group-hover:text-cognac-600 transition-colors line-clamp-1">
+            <Link href={`/${locale}/products/${product.id}`} className="block">
+                <h3 className="font-serif text-sm md:text-base text-black mb-1 group-hover:text-cognac transition-colors line-clamp-1">
                     {product.name}
                 </h3>
                 <p className="text-xs text-cream-500 mb-1">
                     {product.category}
                 </p>
-                <p className="font-serif text-sm md:text-base text-cognac-600">
+                <p className="font-serif text-sm md:text-base text-cognac">
                     ${product.price}
                 </p>
             </Link>

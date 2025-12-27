@@ -16,11 +16,11 @@ export default function QuantitySelector({
     max = 10,
 }: QuantitySelectorProps) {
     return (
-        <div className="flex items-center border border-gray-300 rounded-md w-fit">
+        <div className="flex items-center border border-cream-300 rounded-md w-fit">
             <button
                 onClick={onDecrease}
                 disabled={quantity <= 1}
-                className="p-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-l-md"
+                className="p-2 hover:bg-cream-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-l-md"
                 aria-label="Decrease quantity"
             >
                 <Minus size={16} />
@@ -29,7 +29,7 @@ export default function QuantitySelector({
             <button
                 onClick={onIncrease}
                 disabled={quantity >= max}
-                className="p-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-r-md"
+                className="p-2 hover:bg-cream-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors rounded-r-md"
                 aria-label="Increase quantity"
             >
                 <Plus size={16} />

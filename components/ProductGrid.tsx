@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { Product } from '@/lib/products';
 import { memo } from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { useLocale } from '@/lib/i18n/navigation';
 
 interface ProductGridProps {
     products: Product[];
+    locale?: string;
 }
 
 /**
@@ -18,14 +20,18 @@ interface ProductGridProps {
  * 2. Images use proper `sizes` prop for responsive loading
  * 3. First 4 images are priority loaded (above the fold)
  * 4. Proper alt text for accessibility
+ * 5. Locale-aware routing for i18n support
  */
-function ProductGridComponent({ products }: ProductGridProps) {
+function ProductGridComponent({ products, locale: propLocale }: ProductGridProps) {
+    const hookLocale = useLocale();
+    const locale = propLocale || hookLocale;
+    
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {products.map((product, index) => (
                 <Link
                     key={product.id}
-                    href={`/products/${product.id}`}
+                    href={`/${locale}/products/${product.id}`}
                     className="group block bg-cream border border-gold/10 overflow-hidden hover:border-gold/30 hover:shadow-luxury transition-all duration-500"
                 >
                     <div className="relative aspect-[4/5] bg-cream-sand overflow-hidden">

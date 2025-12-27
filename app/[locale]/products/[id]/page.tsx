@@ -20,7 +20,7 @@ import { ArrowLeft } from 'lucide-react';
  */
 
 interface ProductPageProps {
-    params: Promise<{ id: string }>;
+    params: Promise<{ id: string; locale: string }>;
 }
 
 // Generate static paths for all products at build time
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-    const { id } = await params;
+    const { id, locale } = await params;
     const product = products.find((p) => p.id === id);
 
     if (!product) {
@@ -107,7 +107,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     };
 
     return (
-        <div className="min-h-screen bg-white py-12">
+        <div className="min-h-screen bg-cream py-12">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -115,11 +115,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Breadcrumb - Server rendered */}
                 <Link
-                    href="/shop"
-                    className="inline-flex items-center text-sm text-gray-500 hover:text-amber-700 mb-8 transition-colors"
+                    href={`/${locale}/shop`}
+                    className="inline-flex items-center text-body-sm text-stone-warm hover:text-cognac transition-colors mb-8"
                 >
                     <ArrowLeft size={16} className="mr-2" />
-                    Back to Shop
+                    Back to Collection
                 </Link>
 
                 {/* Product Details - Client component island */}
@@ -127,11 +127,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                 {/* Related Products - Server rendered */}
                 {displayProducts.length > 0 && (
-                    <div className="border-t border-gray-100 pt-16 mt-16">
-                        <h2 className="text-2xl font-serif font-bold text-gray-900 mb-8">
-                            You May Also Like
+                    <div className="border-t border-cream-200 pt-16 mt-16">
+                        <h2 className="text-heading-xl font-serif font-medium text-charcoal-900 mb-8">
+                            From the Same Atelier
                         </h2>
-                        <ProductGrid products={displayProducts} />
+                        <ProductGrid products={displayProducts} locale={locale} />
                     </div>
                 )}
             </div>

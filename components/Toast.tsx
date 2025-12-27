@@ -24,14 +24,14 @@ export default function Toast({ message, isVisible, onClose }: ToastProps) {
 
     return (
         <div className="fixed bottom-4 right-4 z-50 animate-in slide-in-from-bottom-5 fade-in duration-300">
-            <div className="bg-gray-900 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-4 min-w-[300px] border border-amber-500/20">
+            <div className="bg-charcoal-900 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-4 min-w-[300px] border border-gold/20">
                 <div className="flex-1">
-                    <p className="font-medium text-amber-500">Success</p>
-                    <p className="text-sm text-gray-300">{message}</p>
+                    <p className="font-medium text-gold">Success</p>
+                    <p className="text-sm text-cream-300">{message}</p>
                 </div>
                 <button
                     onClick={onClose}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-cream-400 hover:text-white transition-colors"
                 >
                     <X size={18} />
                 </button>

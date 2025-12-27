@@ -22,8 +22,8 @@ export default function SizeSelector({
                     className={cn(
                         'py-2 px-4 border rounded-md text-sm font-medium transition-all duration-200',
                         selectedSize === size
-                            ? 'border-amber-600 bg-amber-50 text-amber-900 ring-1 ring-amber-600'
-                            : 'border-gray-200 hover:border-amber-600 hover:text-amber-900'
+                            ? 'border-cognac bg-cognac-50 text-cognac-800 ring-1 ring-cognac'
+                            : 'border-cream-300 hover:border-cognac hover:text-cognac-800'
                     )}
                 >
                     {size}

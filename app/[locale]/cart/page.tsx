@@ -181,14 +181,13 @@ export default function CartPage() {
                             </dl>
 
                             <div className="mt-8">
-                                <button
-                                    type="button"
-                                    disabled
-                                    className="w-full bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-3"
+                                <Link
+                                    href={`/${locale}/contact?inquiry=order`}
+                                    className="w-full bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 transition-colors flex items-center justify-center gap-3"
                                 >
                                     {t.checkout}
                                     <ArrowRight className="h-4 w-4" />
-                                </button>
+                                </Link>
                             </div>
 
                             {/* Trust Signals */}

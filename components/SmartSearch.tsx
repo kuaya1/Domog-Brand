@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Search, X, Clock, TrendingUp, ArrowRight, Loader2 } from 'lucide-react';
 import { products, productCategories, type Product } from '@/lib/products';
 import { useUIStore } from '@/lib/stores/ui-store';
+import { useLocale } from '@/lib/i18n/navigation';
 import { cn } from '@/lib/utils';
 
 // ============================================================================
@@ -127,6 +128,7 @@ function searchProducts(query: string, priceRange?: PriceRange, category?: strin
 
 export function SmartSearch() {
     const router = useRouter();
+    const locale = useLocale();
     const inputRef = useRef<HTMLInputElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     
@@ -222,11 +224,11 @@ export function SmartSearch() {
         const term = searchTerm || query;
         if (term.trim()) {
             saveRecentSearch(term);
-            router.push(`/shop?search=${encodeURIComponent(term)}`);
+            router.push(`/${locale}/shop?search=${encodeURIComponent(term)}`);
             setSearchOpen(false);
             setQuery('');
         }
-    }, [query, router, saveRecentSearch, setSearchOpen]);
+    }, [query, router, locale, saveRecentSearch, setSearchOpen]);
     
     // Handle product click
     const handleProductClick = useCallback((product: Product) => {
@@ -255,13 +257,13 @@ export function SmartSearch() {
             setFocusedIndex(prev => (prev - 1 + totalItems) % totalItems);
         } else if (e.key === 'Enter') {
             if (focusedIndex >= 0 && results[focusedIndex]) {
-                router.push(`/products/${results[focusedIndex].product.id}`);
+                router.push(`/${locale}/products/${results[focusedIndex].product.id}`);
                 handleProductClick(results[focusedIndex].product);
             } else {
                 handleSearch();
             }
         }
-    }, [results, focusedIndex, router, handleProductClick, handleSearch]);
+    }, [results, focusedIndex, router, locale, handleProductClick, handleSearch]);
     
     const showEmptyState = debouncedQuery && results.length === 0 && !isLoading;
     const showInitialState = !debouncedQuery && !selectedPriceRange && !selectedCategory;
@@ -433,7 +435,7 @@ export function SmartSearch() {
                                     {results.map((result, idx) => (
                                         <Link
                                             key={result.product.id}
-                                            href={`/products/${result.product.id}`}
+                                            href={`/${locale}/products/${result.product.id}`}
                                             onClick={() => handleProductClick(result.product)}
                                             className={cn(
                                                 "flex gap-4 p-4 bg-white border transition-all",

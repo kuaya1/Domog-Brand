@@ -39,7 +39,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
             {/* Main Image - Studio style with cream background */}
             <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-cream-50">
                 {imageError[selectedImage] ? (
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-400 bg-cream-50">
+                    <div className="absolute inset-0 flex items-center justify-center text-cream-400 bg-cream-50">
                         <span className="text-lg">Image unavailable</span>
                     </div>
                 ) : (
@@ -77,7 +77,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                         )}
                     >
                         {imageError[index] ? (
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-xs">
+                            <div className="absolute inset-0 flex items-center justify-center text-cream-400 text-xs">
                                 N/A
                             </div>
                         ) : (

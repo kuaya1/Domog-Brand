@@ -33,11 +33,17 @@ const config: Config = {
                     rich: "#1A1816",
                     soft: "#2C2824",
                 },
-                // Refined Cream Tones
+                // Refined Cream Tones - Complete scale for design system integrity
                 cream: {
                     50: "#FAF8F3",
                     100: "#F5F2E9",
                     200: "#EDE9DF",
+                    300: "#DDD8CE",  // Borders, dividers
+                    400: "#B8B4AE",  // Muted text, icons
+                    500: "#8A8680",  // Secondary text
+                    600: "#6B6760",  // Body text on light
+                    700: "#4A4740",  // Strong text
+                    800: "#2A2825",  // Near-black
                     DEFAULT: "#FAF8F3",
                     sand: "#F5F2E9",
                     warm: "#EDE8DD",
@@ -51,13 +57,29 @@ const config: Config = {
                     600: "#6B6358",
                     700: "#5A5654",
                 },
-                // Accent Colors
+                // Accent Colors - Complete scale
                 cognac: {
                     DEFAULT: "#8B6F47",
+                    50: "#FAF7F2",    // Very light tint
+                    100: "#F0E8DC",   // Light tint
+                    200: "#D9C9B0",   // Muted
+                    300: "#B8A07A",   // Light
+                    400: "#A68B5B",   // Medium-light
+                    500: "#8B6F47",   // Base (same as DEFAULT)
+                    600: "#6B5535",   // Dark
+                    700: "#5A4830",   // Darker
+                    800: "#4A3A28",   // Very dark
                     light: "#A68B5B",
                     dark: "#6B5535",
                 },
                 burgundy: {
+                    50: "#FDF5F7",    // Very light tint
+                    100: "#F8E8EB",   // Light tint
+                    200: "#EBCCD2",   // Muted
+                    300: "#D4949F",   // Light
+                    400: "#B05C6A",   // Medium
+                    500: "#8B3347",   // Darker than default
+                    600: "#6B2737",   // Default value
                     700: "#6B2737",
                     DEFAULT: "#6B2737",
                     light: "#8B3347",
