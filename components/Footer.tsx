@@ -18,8 +18,8 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
     return (
         <footer className="bg-black text-cream">
             {/* Main Footer */}
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+            <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-8">
                     {/* Brand Column */}
                     <div className="lg:col-span-1">
                         <Link href={localizedPath('/')} className="inline-block mb-6">
@@ -120,15 +120,15 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
                         <p className="font-sans text-cream-200 text-sm leading-relaxed mb-6">
                             {t.newsletter_description}
                         </p>
-                        <form className="flex gap-3">
+                        <form className="flex flex-col sm:flex-row gap-3">
                             <input
                                 type="email"
                                 placeholder={t.email_placeholder}
-                                className="flex-1 bg-transparent border border-cream/20 px-4 py-3 text-cream text-sm placeholder:text-cream-200/70 focus:outline-none focus:border-gold transition-colors"
+                                className="flex-1 bg-transparent border border-cream/20 px-4 py-3.5 min-h-[48px] text-cream text-sm placeholder:text-cream-200/70 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 transition-colors"
                             />
                             <button
                                 type="submit"
-                                className="px-6 py-3 bg-gold text-black text-xs uppercase tracking-widest font-medium hover:bg-gold-light transition-colors"
+                                className="px-6 py-3.5 min-h-[48px] bg-gold text-black text-xs uppercase tracking-widest font-medium hover:bg-gold-light active:bg-gold-dark transition-colors"
                             >
                                 {t.subscribe}
                             </button>
@@ -183,7 +183,7 @@ function SocialLink({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="w-10 h-10 flex items-center justify-center border border-cream/20 text-cream-200 hover:border-gold hover:text-gold transition-all duration-300"
+            className="w-11 h-11 sm:w-10 sm:h-10 flex items-center justify-center border border-cream/20 text-cream-200 hover:border-gold hover:text-gold active:bg-gold/10 transition-all duration-300"
         >
             {children}
         </a>
@@ -201,7 +201,7 @@ function FooterLink({
         <li>
             <Link
                 href={href}
-                className="font-sans text-sm text-cream-200 hover:text-gold transition-colors duration-300"
+                className="font-sans text-sm text-cream-200 hover:text-gold active:text-gold-light transition-colors duration-300 block py-1.5 -my-1.5"
             >
                 {children}
             </Link>

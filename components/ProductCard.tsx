@@ -60,7 +60,7 @@ const ProductCard = memo(function ProductCard({
 
     return (
         <div className="group cursor-pointer">
-            {/* Card container - Warm shadow, dramatic lift */}
+            {/* Card container - Warm shadow, dramatic lift, touch feedback */}
             <Link
                 href={`/${locale}/products/${product.id}`}
                 className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-4"
@@ -70,7 +70,7 @@ const ProductCard = memo(function ProductCard({
                     relative bg-white
                     shadow-card-warm hover:shadow-card-warm-hover
                     transition-all duration-500 ease-out
-                    hover:-translate-y-2
+                    hover:-translate-y-2 active:translate-y-0 active:shadow-card-warm
                     will-change-transform
                 "
                 >
@@ -115,9 +115,9 @@ const ProductCard = memo(function ProductCard({
                         {product.images.length > 1 && (
                             <div className="
                                 absolute bottom-4 left-0 right-0 z-10
-                                flex items-center justify-center gap-2
+                                flex items-center justify-center gap-3
                                 px-4
-                                opacity-0 group-hover:opacity-100
+                                opacity-100 sm:opacity-0 sm:group-hover:opacity-100
                                 transition-opacity duration-500
                             ">
                                 {product.images.map((img, index) => (
@@ -125,14 +125,14 @@ const ProductCard = memo(function ProductCard({
                                         key={index}
                                         onClick={(e) => handleThumbnailClick(index, e)}
                                         className={`
-                                            relative w-12 h-12 sm:w-14 sm:h-14
+                                            relative w-12 h-12 min-w-[48px] min-h-[48px]
                                             bg-white
-                                            rounded-sm
+                                            rounded-md
                                             overflow-hidden
                                             transition-all duration-300
-                                            hover:scale-110
+                                            active:scale-95
                                             ${currentImageIndex === index 
-                                                ? 'ring-2 ring-gold-700 shadow-lg' 
+                                                ? 'ring-2 ring-gold-700 shadow-lg scale-105' 
                                                 : 'ring-1 ring-stone-200 hover:ring-gold-400 shadow-md'
                                             }
                                         `}
@@ -142,7 +142,7 @@ const ProductCard = memo(function ProductCard({
                                             src={img}
                                             alt={`${localizedName} angle ${index + 1}`}
                                             fill
-                                            sizes="56px"
+                                            sizes="48px"
                                             className="object-contain p-1"
                                         />
                                     </button>
@@ -185,14 +185,14 @@ const ProductCard = memo(function ProductCard({
                         )}
                     </div>
                     
-                    {/* Product Info */}
-                    <div className="p-6 space-y-3">
+                    {/* Product Info - Better mobile padding */}
+                    <div className="p-5 sm:p-6 space-y-3">
                         {/* Product Name */}
                         <h3 className="
-                            text-xl font-serif text-charcoal-900
+                            text-lg sm:text-xl font-serif text-charcoal-900
                             group-hover:text-gold-text-accessible
                             transition-colors duration-500
-                            leading-tight
+                            leading-snug
                         ">
                             {localizedName}
                         </h3>
@@ -201,21 +201,21 @@ const ProductCard = memo(function ProductCard({
                         <div className="flex items-end justify-between pt-2">
                             {/* Price - MASSIVE serif with USD superscript */}
                             <div className="flex items-baseline">
-                                <span className="text-4xl font-serif font-light text-charcoal-900 tracking-tight">
+                                <span className="text-3xl sm:text-4xl font-serif font-light text-charcoal-900 tracking-tight">
                                     ${product.price.toLocaleString()}
                                 </span>
-                                <span className="text-[10px] uppercase tracking-widest text-stone-accessible font-medium ml-1 -translate-y-3">
+                                <span className="text-[10px] uppercase tracking-widest text-stone-accessible font-medium ml-1 -translate-y-2.5 sm:-translate-y-3">
                                     USD
                                 </span>
                             </div>
                             
-                            {/* Hover CTA - Study This Pair with arrow */}
+                            {/* Mobile: Always visible CTA, Desktop: Hover CTA */}
                             <div className="
                                 flex items-center gap-1
                                 text-[11px] uppercase tracking-[0.15em]
                                 text-gold-text-accessible font-medium
-                                opacity-0 group-hover:opacity-100
-                                translate-x-2 group-hover:translate-x-0
+                                opacity-100 sm:opacity-0 sm:group-hover:opacity-100
+                                sm:translate-x-2 sm:group-hover:translate-x-0
                                 transition-all duration-500
                             ">
                                 <span>{t.view_details || 'Study'}</span>

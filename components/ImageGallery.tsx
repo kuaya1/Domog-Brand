@@ -62,18 +62,20 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                 )}
             </div>
 
-            {/* Thumbnails */}
-            <div className="grid grid-cols-4 gap-4">
+            {/* Thumbnails - 48px+ touch targets on mobile */}
+            <div className="grid grid-cols-4 gap-2 sm:gap-4">
                 {images.map((image, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
                         aria-label={`View ${productName} image ${index + 1}`}
                         className={cn(
-                            'relative aspect-square overflow-hidden rounded-md bg-cream-50 p-2',
+                            // Minimum 48px touch target, comfortable spacing
+                            'relative aspect-square min-h-[48px] overflow-hidden rounded-lg bg-cream-50 p-1 sm:p-2',
+                            'transition-all duration-200 active:scale-95',
                             selectedImage === index
                                 ? 'ring-2 ring-gold-700 shadow-lg'
-                                : 'ring-1 ring-stone-200 hover:ring-gold-400 shadow-md'
+                                : 'ring-1 ring-stone-200 hover:ring-gold-400 active:ring-gold-500 shadow-md'
                         )}
                     >
                         {imageError[index] ? (
@@ -85,8 +87,8 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                                 src={image}
                                 alt={`${productName} thumbnail ${index + 1}`}
                                 fill
-                                sizes="(max-width: 768px) 25vw, 150px"
-                                className="object-contain p-1"
+                                sizes="(max-width: 768px) 22vw, 150px"
+                                className="object-contain p-0.5 sm:p-1"
                                 loading="lazy"
                                 onError={() => handleImageError(index)}
                             />

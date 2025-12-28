@@ -101,11 +101,11 @@ export default function Navigation({ dictionary }: NavigationProps) {
             >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    {/* Mobile: Menu Button (Left) */}
+                    {/* Mobile: Menu Button (Left) - 48px touch target */}
                     <div className="flex lg:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="text-charcoal-800 hover:text-burgundy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
+                            className="-ml-2 w-12 h-12 flex items-center justify-center text-charcoal-800 hover:text-burgundy-700 active:bg-cream-100 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-expanded={isMenuOpen}
                             aria-controls="mobile-menu"
                             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -161,16 +161,16 @@ export default function Navigation({ dictionary }: NavigationProps) {
                         </Link>
                     </div>
 
-                    {/* Mobile Cart Button (Right) */}
+                    {/* Mobile Cart Button (Right) - 48px touch target */}
                     <div className="flex lg:hidden">
                         <Link 
                             href={localizedPath('/cart')} 
-                            className="relative text-charcoal-800 hover:text-burgundy-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
+                            className="-mr-2 w-12 h-12 flex items-center justify-center relative text-charcoal-800 hover:text-burgundy-700 active:bg-cream-100 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600"
                             aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
                         >
                             <ShoppingBag size={22} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute -top-1 -right-1 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute top-1 right-1 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}
@@ -337,18 +337,18 @@ function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: Mobile
             <Link
                 href={href}
                 onClick={onClick}
-                className="group flex items-center justify-between py-3.5 px-4 -mx-4 rounded-lg hover:bg-black/5 transition-colors duration-200"
+                className="group flex items-center justify-between min-h-[52px] py-4 px-4 -mx-4 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors duration-200"
             >
-                <span className="font-sans text-base font-medium text-black group-hover:text-cognac-accessible transition-colors">
+                <span className="font-sans text-lg font-medium text-black group-hover:text-cognac-accessible transition-colors">
                     {children}
                 </span>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                     {badge && (
-                        <span className="w-5 h-5 bg-gold text-black text-xs font-medium flex items-center justify-center rounded-full">
+                        <span className="w-6 h-6 bg-gold text-black text-sm font-medium flex items-center justify-center rounded-full">
                             {badge}
                         </span>
                     )}
-                    <ArrowRight size={14} className="text-stone-muted group-hover:text-cognac-accessible group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight size={18} className="text-stone-muted group-hover:text-cognac-accessible group-hover:translate-x-0.5 transition-all" />
                 </div>
             </Link>
         </li>

@@ -114,40 +114,40 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     }, []);
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {/* Gallery */}
             <ImageGallery images={product.images} productName={product.name} />
 
             {/* Details */}
-            <div>
+            <div className="px-1 sm:px-0">
                 <div className="mb-2">
                     <span className="text-cognac-600 font-medium text-sm tracking-wide uppercase">
                         {product.category}
                     </span>
                 </div>
-                <h1 className="text-4xl font-serif font-bold text-black mb-4">
+                <h1 className="text-3xl sm:text-4xl font-serif font-bold text-black mb-4">
                     {product.name}
                 </h1>
-                <p className="text-2xl text-black font-bold mb-6">
+                <p className="text-xl sm:text-2xl text-black font-bold mb-6">
                     ${product.price.toLocaleString()}
                 </p>
 
-                <div className="prose prose-stone mb-8 text-cream-700">
+                <div className="prose prose-stone mb-8 text-cream-700 text-base leading-relaxed">
                     <p>{product.description}</p>
                 </div>
 
                 {/* Selectors */}
-                <div className="space-y-6 mb-8 border-t border-b border-cream-200 py-8">
+                <div className="space-y-8 mb-8 border-t border-b border-cream-200 py-8">
                     <div>
-                        <div className="flex justify-between mb-2">
+                        <div className="flex justify-between items-center mb-3">
                             <span className="font-medium text-black">Find Your Fit</span>
                             <button 
                                 type="button"
                                 onClick={() => setIsSizeGuideOpen(true)}
-                                className="text-sm text-cream-600 underline hover:text-cognac-600 transition-colors flex items-center gap-1"
+                                className="min-h-[44px] px-3 -mr-3 text-sm text-cream-600 hover:text-cognac-600 active:text-cognac-700 transition-colors flex items-center gap-1.5"
                             >
                                 <Ruler className="h-4 w-4" />
-                                Size Guide
+                                <span className="underline">Size Guide</span>
                             </button>
                         </div>
                         <SizeSelector
@@ -156,7 +156,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                             onSelect={setSelectedSize}
                         />
                         {!selectedSize && (
-                            <p className="text-cognac-600 text-sm mt-2">
+                            <p className="text-cognac-600 text-sm mt-3">
                                 Choose your size to proceed
                             </p>
                         )}
@@ -175,14 +175,14 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                     </div>
                 </div>
 
-                {/* Actions */}
-                <div className="flex gap-4 mb-8">
+                {/* Actions - Mobile-optimized touch targets */}
+                <div className="flex gap-3 sm:gap-4 mb-8">
                     <button
                         type="button"
                         onClick={handleAddToCart}
                         disabled={!selectedSize || !product.inStock || isAdding}
                         aria-disabled={!selectedSize || !product.inStock || isAdding}
-                        className="flex-1 bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
+                        className="flex-1 bg-black text-white min-h-[56px] py-4 px-6 sm:px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich active:bg-charcoal-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
                     >
                         {!product.inStock 
                             ? 'Currently at the Bench' 
@@ -191,36 +191,36 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                                 : 'Reserve This Pair'}
                     </button>
                     
-                    {/* Wishlist Button */}
+                    {/* Wishlist Button - 56px touch target */}
                     <button
                         type="button"
                         onClick={handleToggleWishlist}
                         className={cn(
-                            "p-4 border-2 transition-all focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
+                            "w-14 h-14 sm:w-auto sm:h-auto sm:p-4 flex items-center justify-center border-2 transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
                             isInWishlist 
                                 ? "border-burgundy-500 bg-burgundy-50 text-burgundy-600" 
-                                : "border-cream-300 text-cream-500 hover:border-burgundy-500 hover:text-burgundy-600"
+                                : "border-cream-300 text-cream-500 hover:border-burgundy-500 hover:text-burgundy-600 active:bg-burgundy-50"
                         )}
                         aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
                     >
                         <Heart 
-                            className={cn("h-5 w-5", isInWishlist && "fill-current")} 
+                            className={cn("h-5 w-5 sm:h-5 sm:w-5", isInWishlist && "fill-current")} 
                         />
                     </button>
                 </div>
 
-                {/* Features */}
+                {/* Features - Better mobile layout */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-cream-600">
-                    <div className="flex items-center gap-2">
-                        <ShieldCheck className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
+                    <div className="flex items-center gap-3 py-2">
+                        <ShieldCheck className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
                         <span>Forty Hours of Craft</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <Truck className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
+                    <div className="flex items-center gap-3 py-2">
+                        <Truck className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
                         <span>Delivered to Your Door</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <Clock className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
+                    <div className="flex items-center gap-3 py-2">
+                        <Clock className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
                         <span>Craftsmanship for Life</span>
                     </div>
                 </div>

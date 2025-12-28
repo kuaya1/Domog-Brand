@@ -100,12 +100,13 @@ const variantStyles: Record<ButtonVariant, string> = {
 
 /**
  * Size styles with optical adjustments for each size
+ * All sizes ensure minimum 44px touch target for mobile accessibility
  */
 const sizeStyles: Record<ButtonSize, string> = {
-    sm: 'px-4 py-2 text-label-md gap-1.5',
-    md: 'px-6 py-3 text-label-lg gap-2',
-    lg: 'px-10 py-4 text-label-lg gap-2.5',
-    xl: 'px-12 py-5 text-label-lg gap-3',
+    sm: 'px-4 py-2.5 min-h-[44px] text-label-md gap-1.5',
+    md: 'px-6 py-3 min-h-[48px] text-label-lg gap-2',
+    lg: 'px-10 py-4 min-h-[52px] text-label-lg gap-2.5',
+    xl: 'px-12 py-5 min-h-[56px] text-label-lg gap-3',
 };
 
 /**

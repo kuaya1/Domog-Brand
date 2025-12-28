@@ -34,7 +34,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             {/* Hero Section */}
             <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
                 <div className="relative z-10 w-full">
-                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12 py-12 lg:py-0">
+                    <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-12 py-12 lg:py-0">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
 
                             {/* Mobile: Image First - Scaled down 40% (30% + 10%) and moved down 1.7 inches total (0.7in + 1in) */}
@@ -89,27 +89,27 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             </section>
 
             {/* Featured Collection - Cream Background */}
-            <section className="py-32 lg:py-40 px-6 lg:px-8 bg-cream-50">
+            <section className="py-20 sm:py-32 lg:py-40 px-5 sm:px-6 lg:px-8 bg-cream-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20">
-                        <p className="text-label-md text-gold-text-accessible mb-4">
+                    <div className="text-center mb-12 sm:mb-20">
+                        <p className="text-label-md text-gold-text-accessible mb-3 sm:mb-4">
                             {t.collection_label}
                         </p>
-                        <h2 className="text-display-sm md:text-display-md font-serif font-semibold text-charcoal-900 mb-8">
+                        <h2 className="text-display-sm md:text-display-md font-serif font-semibold text-charcoal-900 mb-6 sm:mb-8">
                             {t.collection_title}
                         </h2>
-                        <div className="w-24 h-px bg-gold-600 mx-auto" />
+                        <div className="w-16 sm:w-24 h-px bg-gold-600 mx-auto" />
                     </div>
 
                     <ErrorBoundary fallback={<ProductGridErrorFallback />}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 lg:gap-x-12 lg:gap-y-20">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-x-8 sm:gap-y-16 lg:gap-x-12 lg:gap-y-20">
                             {products.slice(0, 6).map((product, index) => (
                                 <ProductCard key={product.id} product={product} locale={locale} priority={index < 3} />
                             ))}
                         </div>
                     </ErrorBoundary>
 
-                    <div className="text-center mt-20">
+                    <div className="text-center mt-12 sm:mt-20">
                         <Link href={`/${locale}/shop`}>
                             <Button variant="outline" size="lg">
                                 {t.view_all_products}
@@ -158,7 +158,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                 </div>
                 
                 <div className="relative w-full">
-                    <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+                    <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-12">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0 min-h-[80vh]">
                             {/* Content Side - Cinematic Typography - Matching Hero Layout: 40% width */}
                             <div className="lg:w-2/5 space-y-10 lg:space-y-12 lg:pr-12">

@@ -48,27 +48,27 @@ function ContactPageContent() {
     return (
         <div className="min-h-screen bg-cream">
             {/* Hero Header */}
-            <section className="bg-black py-24 lg:py-32 relative overflow-hidden">
+            <section className="bg-black py-20 sm:py-24 lg:py-32 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" aria-hidden="true">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(201,169,97,0.4)_0%,_transparent_50%)]" />
                 </div>
-                <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-                    <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-6">
+                <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-4 sm:mb-6">
                         {t.hero_label}
                     </span>
-                    <h1 className="font-serif text-4xl lg:text-5xl xl:text-6xl text-cream font-medium tracking-tight mb-6">
+                    <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-cream font-medium tracking-tight mb-4 sm:mb-6">
                         {t.hero_title}
                     </h1>
-                    <p className="text-cream/70 text-lg leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
                         {t.hero_description}
                     </p>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="py-16 lg:py-24">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+            <section className="py-12 sm:py-16 lg:py-24">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 sm:gap-12 lg:gap-16">
                         
                         {/* Contact Information - Left Column */}
                         <div className="lg:col-span-2 space-y-10">
@@ -131,7 +131,7 @@ function ContactPageContent() {
 
                         {/* Contact Form - Right Column */}
                         <div className="lg:col-span-3">
-                            <div className="bg-white border border-cream-200 p-8 lg:p-12">
+                            <div className="bg-white border border-cream-200 p-6 sm:p-8 lg:p-12">
                                 <h2 className="font-serif text-2xl text-black mb-2">
                                     {t.form_title}
                                 </h2>
@@ -165,7 +165,7 @@ function ContactPageContent() {
                                                     required
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                    className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                                 />
                                             </div>
                                             <div>
@@ -178,7 +178,7 @@ function ContactPageContent() {
                                                     required
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                    className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                                 />
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@ function ContactPageContent() {
                                                 id="phone"
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                             />
                                         </div>
 
@@ -206,7 +206,7 @@ function ContactPageContent() {
                                                 id="subject"
                                                 value={formData.subject}
                                                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
                                             >
                                                 <option value="general">{t.subject_general}</option>
                                                 <option value="order">{t.subject_order || 'Place an Order'}</option>
@@ -228,7 +228,7 @@ function ContactPageContent() {
                                                 rows={5}
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 py-4 px-4 text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[140px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
                                                 placeholder={t.message_placeholder}
                                             />
                                         </div>
@@ -238,8 +238,8 @@ function ContactPageContent() {
                                             type="submit"
                                             disabled={status === 'submitting'}
                                             className={cn(
-                                                "w-full bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest",
-                                                "hover:bg-black-rich transition-all duration-300",
+                                                "w-full bg-black text-white min-h-[56px] py-4 px-8 font-sans text-sm uppercase tracking-widest",
+                                                "hover:bg-black-rich active:bg-charcoal-800 transition-all duration-300",
                                                 "focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
                                                 "disabled:opacity-70 disabled:cursor-not-allowed",
                                                 "flex items-center justify-center gap-3"
