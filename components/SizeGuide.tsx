@@ -46,12 +46,17 @@ const SIZE_CHART: SizeData[] = [
 ];
 
 const FIT_TIPS: Record<string, string> = {
-    'Riding Boots': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Size up.',
-    'Winter Boots': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you at forty below.',
-    'Ceremonial Boots': 'Ceremony demands precision. True to size creates the silhouette that turns heads in the ger.',
+    'Riding': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Consider sizing up.',
+    'Riding Boots': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Consider sizing up.',
+    'Winter': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you when the temperature drops.',
+    'Winter Boots': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you when the temperature drops.',
+    'Ceremonial': 'Ceremony demands precision. True to size creates the silhouette that commands presence.',
+    'Ceremonial Boots': 'Ceremony demands precision. True to size creates the silhouette that commands presence.',
+    'Luxury': 'Heritage leather remembers. A brief break-in period is not discomfort—it is the boot learning the shape of you.',
     'Heritage Collection': 'Heritage leather remembers. A brief break-in period is not discomfort—it is the boot learning the shape of you.',
+    'Festival': 'Festival boots balance movement and presence. Standard fit honors both the dance and the ceremony.',
     'Everyday': 'A boot worn daily becomes an extension of the foot. Standard fit balances the support you need with the comfort you deserve.',
-    default: 'Our boots are shaped on European lasts. Measure your foot, trust your measurement, and the leather will do the rest.',
+    default: 'Our boots are shaped on European lasts by master hands. Measure your foot, trust your measurement, and the leather will do the rest.',
 };
 
 // ============================================================================
@@ -128,18 +133,22 @@ export function SizeGuide({
             {/* Modal */}
             <div className="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[90vh] bg-cream shadow-2xl overflow-hidden flex flex-col animate-fade-in">
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-cream-200">
-                    <h2 className="font-serif text-xl md:text-2xl text-black flex items-center gap-2">
-                        <Ruler className="h-5 w-5 text-cognac-500" />
-                        Size Guide
-                    </h2>
-                    <button
-                        onClick={onClose}
-                        className="p-2 text-cream-500 hover:text-black transition-colors"
-                        aria-label="Close"
-                    >
-                        <X className="h-5 w-5" />
-                    </button>
+                <div className="px-6 py-5 border-b border-cream-200 bg-cream-sand">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <span className="text-xs uppercase tracking-[0.2em] text-cognac block mb-1">Finding Your Fit</span>
+                            <h2 className="font-serif text-xl md:text-2xl text-black">
+                                Size Guide
+                            </h2>
+                        </div>
+                        <button
+                            onClick={onClose}
+                            className="p-2 text-cream-500 hover:text-black transition-colors rounded-full hover:bg-cream-200"
+                            aria-label="Close"
+                        >
+                            <X className="h-5 w-5" />
+                        </button>
+                    </div>
                 </div>
                 
                 {/* Tabs */}
@@ -147,10 +156,10 @@ export function SizeGuide({
                     <button
                         onClick={() => setActiveTab('chart')}
                         className={cn(
-                            "flex-1 py-3 text-sm font-medium transition-colors",
+                            "flex-1 py-4 text-sm font-medium transition-colors uppercase tracking-wider",
                             activeTab === 'chart'
-                                ? "text-black border-b-2 border-black"
-                                : "text-cream-500 hover:text-black"
+                                ? "text-black border-b-2 border-cognac bg-cream"
+                                : "text-stone-warm hover:text-black bg-cream-50"
                         )}
                     >
                         Size Chart
@@ -158,10 +167,10 @@ export function SizeGuide({
                     <button
                         onClick={() => setActiveTab('measure')}
                         className={cn(
-                            "flex-1 py-3 text-sm font-medium transition-colors",
+                            "flex-1 py-4 text-sm font-medium transition-colors uppercase tracking-wider",
                             activeTab === 'measure'
-                                ? "text-black border-b-2 border-black"
-                                : "text-cream-500 hover:text-black"
+                                ? "text-black border-b-2 border-cognac bg-cream"
+                                : "text-stone-warm hover:text-black bg-cream-50"
                         )}
                     >
                         Find Your Size
@@ -257,10 +266,13 @@ export function SizeGuide({
                             </div>
                             
                             {/* Fit Tip */}
-                            <div className="bg-cream-100 p-4 flex gap-3">
-                                <Info className="h-5 w-5 text-cognac-500 flex-shrink-0 mt-0.5" />
-                                <div>
-                                    <p className="text-sm text-cream-700">{fitTip}</p>
+                            <div className="bg-cream-sand border-l-2 border-cognac/30 p-5">
+                                <div className="flex gap-3">
+                                    <Info className="h-5 w-5 text-cognac flex-shrink-0 mt-0.5" />
+                                    <div>
+                                        <span className="text-xs uppercase tracking-wider text-cognac mb-1 block">Craftsman's Note</span>
+                                        <p className="text-sm text-stone-warm leading-relaxed">{fitTip}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -269,9 +281,9 @@ export function SizeGuide({
                     {activeTab === 'measure' && (
                         <div className="space-y-6">
                             {/* Instructions */}
-                            <div className="bg-cream-100 p-4">
-                                <h3 className="font-medium text-black mb-2">How to Measure Your Foot</h3>
-                                <ol className="text-sm text-cream-600 space-y-2 list-decimal list-inside">
+                            <div className="bg-cream-sand p-5">
+                                <h3 className="font-serif text-lg text-black mb-3">How to Measure Your Foot</h3>
+                                <ol className="text-sm text-stone-warm space-y-2 list-decimal list-inside leading-relaxed">
                                     <li>Place a piece of paper against a wall</li>
                                     <li>Stand on the paper with your heel against the wall</li>
                                     <li>Mark the longest part of your foot (usually the big toe)</li>

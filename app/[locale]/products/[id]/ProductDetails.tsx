@@ -120,34 +120,45 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
             {/* Details */}
             <div className="px-1 sm:px-0">
-                <div className="mb-2">
-                    <span className="text-cognac-600 font-medium text-sm tracking-wide uppercase">
+                {/* Category Badge */}
+                <div className="mb-4">
+                    <span className="inline-block text-xs uppercase tracking-[0.25em] text-cognac-600 border border-cognac-200 px-3 py-1">
                         {product.category}
                     </span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl font-serif font-bold text-black mb-4">
+                
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-black mb-3 tracking-tight">
                     {product.name}
                 </h1>
-                <p className="text-xl sm:text-2xl text-black font-bold mb-6">
+                
+                <p className="text-2xl sm:text-3xl text-black mb-8">
                     ${product.price.toLocaleString()}
                 </p>
 
-                <div className="prose prose-stone mb-8 text-cream-700 text-base leading-relaxed">
-                    <p>{product.description}</p>
+                {/* The Craft Story */}
+                <div className="mb-10">
+                    <p className="text-stone-warm text-lg leading-relaxed mb-6">
+                        {product.description}
+                    </p>
+                    <div className="border-l-2 border-gold/30 pl-5">
+                        <p className="text-sm text-stone-warm italic">
+                            "Leather pulled by human muscle, not machines. A dialogue measured in millimeters."
+                        </p>
+                    </div>
                 </div>
 
                 {/* Selectors */}
-                <div className="space-y-8 mb-8 border-t border-b border-cream-200 py-8">
+                <div className="space-y-8 mb-10 border-t border-b border-cream-200 py-8">
                     <div>
-                        <div className="flex justify-between items-center mb-3">
-                            <span className="font-medium text-black">Find Your Fit</span>
+                        <div className="flex justify-between items-center mb-4">
+                            <span className="font-serif text-lg text-black">Find Your Fit</span>
                             <button 
                                 type="button"
                                 onClick={() => setIsSizeGuideOpen(true)}
-                                className="min-h-[44px] px-3 -mr-3 text-sm text-cream-600 hover:text-cognac-600 active:text-cognac-700 transition-colors flex items-center gap-1.5"
+                                className="min-h-[44px] px-3 -mr-3 text-sm text-cognac hover:text-cognac-dark active:text-cognac-700 transition-colors flex items-center gap-1.5"
                             >
                                 <Ruler className="h-4 w-4" />
-                                <span className="underline">Size Guide</span>
+                                <span className="underline underline-offset-4">Size Guide</span>
                             </button>
                         </div>
                         <SizeSelector
@@ -156,15 +167,16 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                             onSelect={setSelectedSize}
                         />
                         {!selectedSize && (
-                            <p className="text-cognac-600 text-sm mt-3">
+                            <p className="text-cognac-600 text-sm mt-4 flex items-center gap-2">
+                                <span className="inline-block w-1.5 h-1.5 rounded-full bg-cognac-600"></span>
                                 Choose your size to proceed
                             </p>
                         )}
                     </div>
 
                     <div>
-                        <span className="block font-medium text-black mb-2">
-                            Pairs
+                        <span className="block font-serif text-lg text-black mb-3">
+                            Quantity
                         </span>
                         <QuantitySelector
                             quantity={quantity}
@@ -176,19 +188,19 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 </div>
 
                 {/* Actions - Mobile-optimized touch targets */}
-                <div className="flex gap-3 sm:gap-4 mb-8">
+                <div className="flex gap-3 sm:gap-4 mb-10">
                     <button
                         type="button"
                         onClick={handleAddToCart}
                         disabled={!selectedSize || !product.inStock || isAdding}
                         aria-disabled={!selectedSize || !product.inStock || isAdding}
-                        className="flex-1 bg-black text-white min-h-[56px] py-4 px-6 sm:px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich active:bg-charcoal-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
+                        className="flex-1 bg-black text-white min-h-[56px] py-4 px-6 sm:px-8 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 active:bg-charcoal-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
                     >
                         {!product.inStock 
                             ? 'Currently at the Bench' 
                             : isAdding 
                                 ? 'Reserving...' 
-                                : 'Reserve This Pair'}
+                                : 'Commission This Pair'}
                     </button>
                     
                     {/* Wishlist Button - 56px touch target */}
@@ -209,19 +221,34 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                     </button>
                 </div>
 
-                {/* Features - Better mobile layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-cream-600">
-                    <div className="flex items-center gap-3 py-2">
-                        <ShieldCheck className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
-                        <span>Forty Hours of Craft</span>
+                {/* Features - Heritage Value Propositions */}
+                <div className="grid grid-cols-1 gap-4 py-6 border-t border-cream-200">
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 flex items-center justify-center bg-cream-sand rounded-full">
+                            <ShieldCheck className="text-cognac-600" size={20} aria-hidden="true" />
+                        </div>
+                        <div>
+                            <span className="block text-sm font-medium text-black">Forty Hours of Devotion</span>
+                            <span className="text-xs text-stone-warm">Each pair shaped by master hands</span>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3 py-2">
-                        <Truck className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
-                        <span>Delivered to Your Door</span>
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 flex items-center justify-center bg-cream-sand rounded-full">
+                            <Truck className="text-cognac-600" size={20} aria-hidden="true" />
+                        </div>
+                        <div>
+                            <span className="block text-sm font-medium text-black">Worldwide Delivery</span>
+                            <span className="text-xs text-stone-warm">From Ulaanbaatar to your door</span>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-3 py-2">
-                        <Clock className="text-cognac-600 flex-shrink-0" size={22} aria-hidden="true" />
-                        <span>Craftsmanship for Life</span>
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 flex items-center justify-center bg-cream-sand rounded-full">
+                            <Clock className="text-cognac-600" size={20} aria-hidden="true" />
+                        </div>
+                        <div>
+                            <span className="block text-sm font-medium text-black">Lifetime Craftsmanship</span>
+                            <span className="text-xs text-stone-warm">We stand behind every stitch</span>
+                        </div>
                     </div>
                 </div>
                 

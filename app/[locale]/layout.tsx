@@ -10,6 +10,7 @@ import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { locales, isValidLocale, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/dictionaries';
 import { notFound } from 'next/navigation';
+import { getHomePageSchema } from '@/lib/seo/structured-data';
 
 // Dynamic imports for non-critical components
 // These components are not needed for initial render and can be lazy-loaded
@@ -129,35 +130,14 @@ export async function generateMetadata({ params }: { params: { locale: string } 
             languages: {
                 'en': 'https://domogbrand.com/en',
                 'mn': 'https://domogbrand.com/mn',
+                'x-default': 'https://domogbrand.com/en',
             },
         },
     };
 }
 
-const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Domog Brand',
-    url: 'https://domogbrand.com',
-    logo: 'https://domogbrand.com/images/logo.png',
-    foundingDate: '1990',
-    founders: [
-        {
-            '@type': 'Person',
-            name: 'Master Craftsman'
-        }
-    ],
-    address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Ulaanbaatar',
-        addressCountry: 'MN'
-    },
-    sameAs: [
-        'https://instagram.com/domogbrand',
-        'https://facebook.com/mongolundesniieetengutal'
-    ],
-    description: 'Handcrafted Mongolian heritage footwear since 1990. Legacy carved by hand.'
-};
+// Get comprehensive structured data from SEO library
+const getStructuredData = () => getHomePageSchema();
 
 interface LocaleLayoutProps {
     children: React.ReactNode;
@@ -181,7 +161,7 @@ export default function LocaleLayout({ children, params: { locale } }: LocaleLay
                 <link rel="manifest" href="/manifest.json" />
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData()) }}
                 />
             </head>
             <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-black antialiased`}>

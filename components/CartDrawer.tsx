@@ -226,23 +226,23 @@ function EmptyCart({ onClose, t }: { onClose: () => void; t: CartDictionary }) {
     const localizedPath = useLocalizedPath();
     
     return (
-        <div className="flex flex-1 flex-col items-center justify-center px-6 py-16">
-            <div className="mb-6 rounded-full bg-cream-100 p-6">
-                <ShoppingBag className="h-12 w-12 text-cream-400" />
+        <div className="flex flex-1 flex-col items-center justify-center px-8 py-16">
+            <div className="mb-8 w-20 h-20 flex items-center justify-center bg-cream-100 rounded-full">
+                <ShoppingBag className="h-10 w-10 text-cream-400" />
             </div>
-            <h3 className="mb-2 font-serif text-xl font-medium text-black">
+            <h3 className="mb-3 font-serif text-2xl font-medium text-black text-center">
                 {t.empty_cart_title}
             </h3>
-            <p className="mb-8 text-center text-sm text-cream-600">
+            <p className="mb-10 text-center text-sm text-stone-warm leading-relaxed max-w-xs">
                 {t.empty_cart_description}
             </p>
             <Link 
                 href={localizedPath('/shop')}
                 onClick={onClose}
-                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-black font-sans text-sm uppercase tracking-widest transition-all duration-300 hover:bg-gold-light focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center px-8 py-4 bg-black text-cream font-sans text-sm uppercase tracking-[0.15em] transition-all duration-300 hover:bg-charcoal-800 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
                 {t.browse_collection}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-3 h-4 w-4" />
             </Link>
         </div>
     );
@@ -253,26 +253,26 @@ function EmptyCart({ onClose, t }: { onClose: () => void; t: CartDictionary }) {
 // ============================================================================
 
 const defaultDict: CartDictionary = {
-    your_cart: "Your Selection",
-    empty_cart_title: "The workshop awaits your commission",
+    your_cart: "Your Commission",
+    empty_cart_title: "The workshop awaits",
     empty_cart_description: "Each pair in our collection carries forty hours of handcraft. When you find the right one, it will know.",
-    browse_collection: "Enter the Atelier",
+    browse_collection: "Explore the Collection",
     size: "Size",
     remove: "Release",
     subtotal: "Subtotal",
     shipping: "Delivery",
-    shipping_calculated: "Arranged at completion",
-    free_shipping: "Complimentary",
+    shipping_calculated: "Final arrangements made upon commission",
+    free_shipping: "With our compliments",
     tax: "Tax",
     discount: "Consideration",
     total: "Total",
-    checkout: "Complete Your Commission",
-    continue_shopping: "Return to Collection",
+    checkout: "Proceed to Commission",
+    continue_shopping: "Continue Exploring",
     promo_code: "Private Code",
     apply: "Apply",
     promo_applied: "honored",
-    items_in_cart: "pairs",
-    item_in_cart: "pair",
+    items_in_cart: "pairs reserved",
+    item_in_cart: "pair reserved",
 };
 
 // ============================================================================

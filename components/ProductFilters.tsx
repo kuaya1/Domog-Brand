@@ -25,20 +25,20 @@ export default function ProductFilters({
     onPriceRangeChange,
 }: ProductFiltersProps) {
     return (
-        <div className="space-y-10">
+        <div className="space-y-10 lg:space-y-12">
             {/* Categories */}
             <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-black mb-5 pb-3 border-b border-cream-200">
                     Collection
                 </h3>
                 <div className="space-y-3">
                     <button
                         onClick={() => onCategoryChange(null)}
                         className={cn(
-                            'block text-sm transition-colors duration-300',
+                            'block w-full text-left text-sm py-1.5 transition-colors duration-300',
                             selectedCategory === null
                                 ? 'text-black font-medium'
-                                : 'text-stone-warm hover:text-cognac-accessible'
+                                : 'text-stone-warm hover:text-cognac'
                         )}
                     >
                         All Collections
@@ -50,10 +50,10 @@ export default function ProductFilters({
                                 onCategoryChange(selectedCategory === category ? null : category)
                             }
                             className={cn(
-                                'block text-sm transition-colors duration-300',
+                                'block w-full text-left text-sm py-1.5 transition-colors duration-300',
                                 selectedCategory === category
                                     ? 'text-black font-medium'
-                                    : 'text-stone-warm hover:text-cognac-accessible'
+                                    : 'text-stone-warm hover:text-cognac'
                             )}
                         >
                             {category}
@@ -64,7 +64,7 @@ export default function ProductFilters({
 
             {/* Sizes */}
             <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-black mb-5 pb-3 border-b border-cream-200">
                     Size (EU)
                 </h3>
                 <div className="grid grid-cols-4 gap-2">
@@ -73,10 +73,10 @@ export default function ProductFilters({
                             key={size}
                             onClick={() => onSizeChange(selectedSize === size ? null : size)}
                             className={cn(
-                                'py-3 px-2 border text-sm transition-all duration-300',
+                                'py-3 px-2 border text-sm transition-all duration-200',
                                 selectedSize === size
-                                    ? 'bg-black text-white border-black'
-                                    : 'border-cream-300 text-stone-warm hover:border-black'
+                                    ? 'bg-black text-cream border-black'
+                                    : 'border-cream-300 text-stone-warm hover:border-cognac hover:text-cognac'
                             )}
                         >
                             {size}
@@ -87,24 +87,24 @@ export default function ProductFilters({
 
             {/* Price Range */}
             <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-stone-warm mb-6">
-                    Price Range
+                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-black mb-5 pb-3 border-b border-cream-200">
+                    Investment
                 </h3>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-black">
-                        <span>${priceRange[0]}</span>
-                        <span>${priceRange[1]}</span>
+                    <div className="flex items-center justify-between text-sm">
+                        <span className="text-stone-warm">${priceRange[0]}</span>
+                        <span className="text-black font-medium">${priceRange[1]}</span>
                     </div>
                     <input
                         type="range"
                         min="0"
-                        max="500"
+                        max="600"
                         step="10"
                         value={priceRange[1]}
                         onChange={(e) =>
                             onPriceRangeChange([priceRange[0], parseInt(e.target.value)])
                         }
-                        className="w-full h-1 bg-cream-300 rounded-none appearance-none cursor-pointer accent-black"
+                        className="w-full h-1 bg-cream-300 rounded-none appearance-none cursor-pointer accent-cognac"
                     />
                 </div>
             </div>

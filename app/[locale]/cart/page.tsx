@@ -22,24 +22,34 @@ export default function CartPage() {
 
     if (cart.length === 0) {
         return (
-            <div className="min-h-screen bg-cream py-24 lg:py-32">
-                <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
-                    <div className="w-20 h-20 bg-cream-sand flex items-center justify-center mx-auto mb-8">
-                        <ShoppingBag className="h-10 w-10 text-cream-400" />
+            <div className="min-h-screen bg-cream">
+                {/* Header */}
+                <div className="bg-cream-sand border-b border-cream-200 py-12 lg:py-16">
+                    <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+                        <span className="text-xs uppercase tracking-[0.25em] text-cognac mb-4 block">
+                            Your Commission
+                        </span>
+                        <h1 className="font-serif text-3xl lg:text-4xl text-black">
+                            {t.empty_title}
+                        </h1>
                     </div>
-                    <h1 className="font-serif text-3xl lg:text-4xl text-black mb-4">
-                        {t.empty_title}
-                    </h1>
-                    <p className="text-stone-warm text-lg mb-10 max-w-md mx-auto">
-                        {t.empty_description}
-                    </p>
-                    <Link
-                        href={`/${locale}/shop`}
-                        className="inline-flex items-center gap-3 bg-black text-white py-4 px-10 font-sans text-sm uppercase tracking-widest hover:bg-black-rich transition-colors"
-                    >
-                        {t.explore_collection}
-                        <ArrowRight className="h-4 w-4" />
-                    </Link>
+                </div>
+                <div className="py-16 lg:py-24">
+                    <div className="max-w-md mx-auto px-6 lg:px-8 text-center">
+                        <div className="w-20 h-20 bg-cream-100 flex items-center justify-center mx-auto mb-8 rounded-full">
+                            <ShoppingBag className="h-10 w-10 text-cream-400" />
+                        </div>
+                        <p className="text-stone-warm text-lg mb-10 leading-relaxed">
+                            {t.empty_description}
+                        </p>
+                        <Link
+                            href={`/${locale}/shop`}
+                            className="inline-flex items-center gap-3 bg-black text-cream py-4 px-10 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 transition-colors"
+                        >
+                            {t.explore_collection}
+                            <ArrowRight className="h-4 w-4" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         );
@@ -48,13 +58,16 @@ export default function CartPage() {
     return (
         <div className="min-h-screen bg-cream">
             {/* Header */}
-            <div className="bg-cream-sand border-b border-cream-200 py-12">
+            <div className="bg-cream-sand border-b border-cream-200 py-12 lg:py-16">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <span className="text-xs uppercase tracking-[0.25em] text-cognac mb-3 block">
+                        Your Commission
+                    </span>
                     <h1 className="font-serif text-3xl lg:text-4xl text-black">
                         {t.page_title}
                     </h1>
-                    <p className="text-stone-warm mt-2">
-                        {cart.length} {cart.length === 1 ? t.item_count : t.items_count}
+                    <p className="text-stone-warm mt-3">
+                        {cart.length} {cart.length === 1 ? t.item_count : t.items_count} reserved
                     </p>
                 </div>
             </div>

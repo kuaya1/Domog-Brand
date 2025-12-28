@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ImageGalleryProps {
     images: string[];
@@ -12,22 +13,47 @@ interface ImageGalleryProps {
 /**
  * OPTIMIZED IMAGE GALLERY
  * 
- * Key fixes for Vercel deployment:
- * 1. Added proper `sizes` prop for responsive image loading
- * 2. Main image is priority loaded (above the fold)
- * 3. Thumbnails are lazy loaded
- * 4. Proper error handling with onError fallback
- * 5. Multi-angle support with object-contain for studio look
+ * Features:
+ * 1. Touch swipe navigation for mobile
+ * 2. Responsive image loading with proper sizes
+ * 3. Main image priority loaded (above the fold)
+ * 4. Thumbnails lazy loaded
+ * 5. Error handling with graceful fallback
+ * 6. Studio-style presentation with drop shadow
  */
 export default function ImageGallery({ images, productName }: ImageGalleryProps) {
     const [selectedImage, setSelectedImage] = useState(0);
     const [imageError, setImageError] = useState<Record<number, boolean>>({});
+    const touchStartX = useRef(0);
+    const touchEndX = useRef(0);
+    
+    // Handle touch swipe for mobile navigation
+    const handleTouchStart = useCallback((e: React.TouchEvent) => {
+        touchStartX.current = e.targetTouches[0].clientX;
+    }, []);
+    
+    const handleTouchMove = useCallback((e: React.TouchEvent) => {
+        touchEndX.current = e.targetTouches[0].clientX;
+    }, []);
+    
+    const handleTouchEnd = useCallback(() => {
+        const diff = touchStartX.current - touchEndX.current;
+        const threshold = 50;
+        
+        if (diff > threshold && selectedImage < images.length - 1) {
+            setSelectedImage(prev => prev + 1);
+        } else if (diff < -threshold && selectedImage > 0) {
+            setSelectedImage(prev => prev - 1);
+        }
+    }, [selectedImage, images.length]);
 
-    // Debug: Log the image paths being loaded
-    useEffect(() => {
-        console.log('ImageGallery - Product:', productName);
-        console.log('ImageGallery - Images:', images);
-    }, [images, productName]);
+    const goToNext = useCallback(() => {
+        setSelectedImage(prev => (prev < images.length - 1 ? prev + 1 : prev));
+    }, [images.length]);
+
+    const goToPrev = useCallback(() => {
+        setSelectedImage(prev => (prev > 0 ? prev - 1 : prev));
+    }, []);
 
     const handleImageError = useCallback((index: number) => {
         console.error(`ImageGallery - Failed to load image ${index}:`, images[index]);
@@ -36,21 +62,26 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
 
     return (
         <div className="flex flex-col gap-4">
-            {/* Main Image - Studio style with cream background */}
-            <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-cream-50">
+            {/* Main Image - Studio style with touch swipe support */}
+            <div 
+                className="relative aspect-square w-full overflow-hidden rounded-lg bg-cream-50"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
                 {imageError[selectedImage] ? (
                     <div className="absolute inset-0 flex items-center justify-center text-cream-400 bg-cream-50">
                         <span className="text-lg">Image unavailable</span>
                     </div>
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-8">
+                    <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-8">
                         <div className="relative w-full h-full">
                             <Image
                                 src={images[selectedImage]}
                                 alt={`${productName} - View ${selectedImage + 1}`}
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                                className="object-contain drop-shadow-lg transition-opacity duration-500"
+                                className="object-contain drop-shadow-lg transition-all duration-300"
                                 style={{
                                     filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15))'
                                 }}
@@ -60,22 +91,62 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                         </div>
                     </div>
                 )}
+                
+                {/* Navigation Arrows - Subtle, appear on hover/focus */}
+                {images.length > 1 && (
+                    <>
+                        <button
+                            onClick={goToPrev}
+                            disabled={selectedImage === 0}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed lg:opacity-0 lg:hover:opacity-100"
+                            aria-label="Previous image"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-black" />
+                        </button>
+                        <button
+                            onClick={goToNext}
+                            disabled={selectedImage === images.length - 1}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed lg:opacity-0 lg:hover:opacity-100"
+                            aria-label="Next image"
+                        >
+                            <ChevronRight className="w-5 h-5 text-black" />
+                        </button>
+                    </>
+                )}
+                
+                {/* Mobile Image Indicator Dots */}
+                {images.length > 1 && (
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 lg:hidden">
+                        {images.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setSelectedImage(index)}
+                                className={cn(
+                                    "w-2 h-2 rounded-full transition-all",
+                                    selectedImage === index 
+                                        ? "bg-cognac w-4" 
+                                        : "bg-black/20"
+                                )}
+                                aria-label={`Go to image ${index + 1}`}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
 
-            {/* Thumbnails - 48px+ touch targets on mobile */}
-            <div className="grid grid-cols-4 gap-2 sm:gap-4">
+            {/* Thumbnails - Desktop focused, hidden on smallest screens if many images */}
+            <div className="hidden sm:grid grid-cols-4 gap-2 sm:gap-3">
                 {images.map((image, index) => (
                     <button
                         key={index}
                         onClick={() => setSelectedImage(index)}
                         aria-label={`View ${productName} image ${index + 1}`}
                         className={cn(
-                            // Minimum 48px touch target, comfortable spacing
                             'relative aspect-square min-h-[48px] overflow-hidden rounded-lg bg-cream-50 p-1 sm:p-2',
                             'transition-all duration-200 active:scale-95',
                             selectedImage === index
-                                ? 'ring-2 ring-gold-700 shadow-lg'
-                                : 'ring-1 ring-stone-200 hover:ring-gold-400 active:ring-gold-500 shadow-md'
+                                ? 'ring-2 ring-cognac shadow-lg'
+                                : 'ring-1 ring-cream-200 hover:ring-cognac/50 shadow-sm'
                         )}
                     >
                         {imageError[index] ? (

@@ -5,10 +5,18 @@ import { Button } from "@/components/ui";
 import { locales, isValidLocale } from "@/lib/i18n/config";
 import { getNamespace } from "@/lib/i18n/translations";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import { getAboutMetadata } from "@/lib/seo/metadata";
+import { getAboutPageSchema, generateBreadcrumbSchema } from "@/lib/seo/structured-data";
 
 // Generate static params for both locales
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
+}
+
+// SEO Metadata for About/Heritage page
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    return getAboutMetadata(params.locale);
 }
 
 interface PageProps {
@@ -23,11 +31,29 @@ export default function AboutPage({ params: { locale } }: PageProps) {
 
     // Get translations
     const t = getNamespace(locale, 'about');
+    
+    // Structured data for About page
+    const aboutSchema = getAboutPageSchema();
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: `/${locale}` },
+        { name: locale === 'mn' ? 'Бидний тухай' : 'Our Heritage', url: `/${locale}/about` },
+    ], locale);
 
     return (
-        <div className="bg-cream">
-            {/* DARK HERITAGE HERO SECTION - Matching Main Page Heritage Section */}
-            <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
+        <>
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            
+            <div className="bg-cream">
+                {/* DARK HERITAGE HERO SECTION - Matching Main Page Heritage Section */}
+                <section className="relative py-32 lg:py-40 text-cream-50 overflow-hidden">
                 {/* Mobile: Background Image with Overlay */}
                 <div className="lg:hidden absolute inset-0">
                     <OptimizedImage
@@ -276,6 +302,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                     </p>
                 </div>
             </section>
-        </div>
+            </div>
+        </>
     );
 }
