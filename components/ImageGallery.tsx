@@ -142,11 +142,11 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                         onClick={() => setSelectedImage(index)}
                         aria-label={`View ${productName} image ${index + 1}`}
                         className={cn(
-                            'relative aspect-square min-h-[48px] overflow-hidden rounded-lg bg-cream-50 p-1 sm:p-2',
+                            'relative aspect-square min-h-[48px] overflow-hidden rounded bg-transparent p-1 sm:p-2',
                             'transition-all duration-200 active:scale-95',
                             selectedImage === index
-                                ? 'ring-2 ring-cognac shadow-lg'
-                                : 'ring-1 ring-cream-200 hover:ring-cognac/50 shadow-sm'
+                                ? 'ring-2 ring-gold-600'
+                                : 'ring-1 ring-cream-200/50 hover:ring-gold-600/50'
                         )}
                     >
                         {imageError[index] ? (
