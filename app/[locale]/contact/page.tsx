@@ -32,8 +32,6 @@ function ContactPageContent() {
             setFormData(prev => ({ ...prev, subject: 'order' }));
         }
     }, [inquiryType]);
-
-    const [errorMessage, setErrorMessage] = useState<string>('');
     
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
