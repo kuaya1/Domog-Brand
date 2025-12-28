@@ -76,7 +76,7 @@ const ProductCard = memo(function ProductCard({
                 >
                     {/* Product Image - 3:4 aspect ratio with centered contain-fit */}
                     <div 
-                        className="relative aspect-[3/4] bg-cream-50 overflow-hidden"
+                        className="relative aspect-[3/4] bg-transparent overflow-hidden"
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
                     >
@@ -100,10 +100,9 @@ const ProductCard = memo(function ProductCard({
                                         priority={priority}
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className={`
-                                            object-contain
+                                            object-contain mix-blend-multiply
                                             transition-opacity duration-500 ease-out
                                             will-change-opacity
-                                            filter-product-enhance drop-shadow-product
                                             ${imageLoaded ? 'opacity-100' : 'opacity-0'}
                                         `}
                                     />
