@@ -174,8 +174,8 @@ export default function WarrantyPage({ params: { locale } }: PageProps) {
                             {[
                                 {
                                     step: 1,
-                                    en: { title: 'Contact Us', desc: 'Email warranty@domogbrand.com with photos of the issue and your order number.' },
-                                    mn: { title: 'Бидэнтэй холбогдоно уу', desc: 'Асуудлын зураг, захиалгын дугаартай имэйлийг warranty@domogbrand.com руу илгээнэ үү.' }
+                                    en: { title: 'Contact Us', desc: 'Email domogbrand@gmail.com with photos of the issue and your order number.' },
+                                    mn: { title: 'Бидэнтэй холбогдоно уу', desc: 'Асуудлын зураг, захиалгын дугаартай имэйлийг domogbrand@gmail.com руу илгээнэ үү.' }
                                 },
                                 {
                                     step: 2,

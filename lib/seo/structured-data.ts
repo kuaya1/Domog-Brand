@@ -46,7 +46,7 @@ export const organizationSchema = {
     contactPoint: [
         {
             '@type': 'ContactPoint',
-            telephone: '+976-9911-2345',
+            telephone: '+976-9919-9462',
             contactType: 'customer service',
             availableLanguage: ['English', 'Mongolian'],
             areaServed: 'Worldwide',
@@ -82,8 +82,8 @@ export const localBusinessSchema = {
     description: 'The workshop where 35 years of Mongolian bootmaking tradition continues. Visit our atelier to witness master craftsmanship firsthand.',
     image: 'https://domogbrand.com/images/atelier.jpg',
     url: 'https://domogbrand.com/en/contact',
-    telephone: '+976-9911-2345',
-    email: 'atelier@domogbrand.com',
+    telephone: '+976-9919-9462',
+    email: 'domogbrand@gmail.com',
     address: {
         '@type': 'PostalAddress',
         streetAddress: 'Khan-Uul District, 15th Khoroo',

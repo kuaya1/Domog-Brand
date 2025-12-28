@@ -79,7 +79,7 @@ export async function POST(request: Request) {
         // 
         // await resend.emails.send({
         //     from: 'Domog Contact Form <noreply@domogbrand.com>',
-        //     to: 'atelier@domogbrand.com',
+        //     to: 'domogbrand@gmail.com',
         //     subject: `[${sanitizedData.subject}] New inquiry from ${sanitizedData.name}`,
         //     html: `
         //         <h2>New Contact Form Submission</h2>
@@ -124,7 +124,7 @@ export async function POST(request: Request) {
         return NextResponse.json(
             { 
                 success: false, 
-                errors: ['An unexpected error occurred. Please try again or email us directly at atelier@domogbrand.com'] 
+                errors: ['An unexpected error occurred. Please try again or email us directly at domogbrand@gmail.com'] 
             },
             { status: 500 }
         );

@@ -90,7 +90,7 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
                             </li>
                             <li className="flex items-center gap-3 text-cream-200 text-sm">
                                 <Phone size={18} className="text-gold flex-shrink-0" strokeWidth={1.5} />
-                                <span>+976 9911-XXXX</span>
+                                <span>+976 9919-9462</span>
                             </li>
                             <li className="flex items-center gap-3 text-cream-200 text-sm">
                                 <Mail size={18} className="text-gold flex-shrink-0" strokeWidth={1.5} />

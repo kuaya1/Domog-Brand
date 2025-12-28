@@ -115,13 +115,13 @@ function ContactPageContent() {
                                 <ContactInfoItem
                                     icon={<Phone className="h-5 w-5" />}
                                     label={t.telephone_label}
-                                    value="+976 9911-2345"
+                                    value="+976 9919-9462"
                                     subtext={t.telephone_subtext}
                                 />
                                 <ContactInfoItem
                                     icon={<Mail className="h-5 w-5" />}
                                     label={t.email_label}
-                                    value="atelier@domogbrand.com"
+                                    value="domogbrand@gmail.com"
                                     subtext={t.email_subtext}
                                 />
                                 <ContactInfoItem
