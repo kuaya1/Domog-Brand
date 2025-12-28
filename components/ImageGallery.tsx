@@ -64,7 +64,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
         <div className="flex flex-col gap-4">
             {/* Main Image - Studio style with touch swipe support */}
             <div 
-                className="relative aspect-square w-full overflow-hidden rounded-lg bg-cream-50"
+                className="relative aspect-square w-full overflow-hidden bg-transparent"
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
