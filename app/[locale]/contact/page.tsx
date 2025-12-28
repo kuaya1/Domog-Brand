@@ -20,10 +20,11 @@ function ContactPageContent() {
         name: '',
         email: '',
         phone: '',
-        subject: inquiryType === 'order' ? 'order' : 'general',
+        subject: inquiryType === 'order' ? 'order' : (inquiryType === 'sizing' ? 'custom' : 'general'),
         message: '',
     });
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState<string>('');
     
     // Update subject when URL parameter changes
     useEffect(() => {
@@ -32,17 +33,38 @@ function ContactPageContent() {
         }
     }, [inquiryType]);
 
+    const [errorMessage, setErrorMessage] = useState<string>('');
+    
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('submitting');
+        setErrorMessage('');
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', subject: 'general', message: '' });
+            const data = await response.json();
 
-        setTimeout(() => setStatus('idle'), 4000);
+            if (data.success) {
+                setStatus('success');
+                setFormData({ name: '', email: '', phone: '', subject: 'general', message: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+                setErrorMessage(data.errors?.[0] || 'Failed to send message. Please try again.');
+                setTimeout(() => setStatus('idle'), 4000);
+            }
+        } catch {
+            setStatus('error');
+            setErrorMessage('Network error. Please check your connection and try again.');
+            setTimeout(() => setStatus('idle'), 4000);
+        }
     };
 
     return (
@@ -138,6 +160,12 @@ function ContactPageContent() {
                                 <p className="text-stone-warm text-sm mb-8">
                                     {t.form_required}
                                 </p>
+
+                                {status === 'error' && errorMessage && (
+                                    <div className="mb-6 p-4 bg-burgundy-700/10 border border-burgundy-700/20 text-burgundy-700">
+                                        <p className="text-sm">{errorMessage}</p>
+                                    </div>
+                                )}
 
                                 {status === 'success' ? (
                                     <div className="text-center py-12">
