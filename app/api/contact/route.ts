@@ -78,7 +78,7 @@ export async function POST(request: Request) {
         // const resend = new Resend(process.env.RESEND_API_KEY);
         // 
         // await resend.emails.send({
-        //     from: 'Domog Contact Form <noreply@domogbrand.com>',
+        //     from: 'Domog Contact Form <domogbrand@gmail.com>',
         //     to: 'domogbrand@gmail.com',
         //     subject: `[${sanitizedData.subject}] New inquiry from ${sanitizedData.name}`,
         //     html: `

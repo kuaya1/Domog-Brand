@@ -132,7 +132,7 @@ export default function TermsPage({ params: { locale } }: PageProps) {
                             <p className="text-charcoal-900 font-medium">Domog Brand</p>
                             <p className="text-stone-warm">Khan-Uul District, 15th Khoroo</p>
                             <p className="text-stone-warm">Ulaanbaatar, Mongolia</p>
-                            <p className="text-cognac mt-2">legal@domogbrand.com</p>
+                            <p className="text-cognac mt-2">domogbrand@gmail.com</p>
                         </div>
 
                         {/* Back Link */}

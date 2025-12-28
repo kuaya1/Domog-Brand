@@ -40,7 +40,7 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
                             <SocialLink href="https://www.facebook.com/mongolundesniieetengutal/" label="Facebook">
                                 <Facebook size={20} strokeWidth={1.5} />
                             </SocialLink>
-                            <SocialLink href="mailto:info@domogbrand.com" label="Email">
+                            <SocialLink href="mailto:domogbrand@gmail.com" label="Email">
                                 <Mail size={20} strokeWidth={1.5} />
                             </SocialLink>
                         </div>
@@ -94,7 +94,7 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
                             </li>
                             <li className="flex items-center gap-3 text-cream-200 text-sm">
                                 <Mail size={18} className="text-gold flex-shrink-0" strokeWidth={1.5} />
-                                <span>info@domogbrand.com</span>
+                                <span>domogbrand@gmail.com</span>
                             </li>
                         </ul>
 
