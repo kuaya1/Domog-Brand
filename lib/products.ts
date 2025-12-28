@@ -123,6 +123,31 @@ export const products: Product[] = [
         inStock: true,
     },
     {
+        id: "6",
+        name: "NAADAM",
+        nameLocalized: {
+            en: "NAADAM",
+            mn: "НААДАМ"
+        },
+        price: 380,
+        description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
+        descriptionLocalized: {
+            en: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup.",
+            mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
+        },
+        images: [
+            "/images/PNG images/Naadam Festival png.png",
+            "/images/boots/naadam-festival-left.jpg",
+            "/images/boots/naadam-festival-right.jpg",
+            "/images/boots/naadam-festival-back.jpg"
+        ],
+        category: "Festival",
+        categoryLocalized: { en: "Festival", mn: "Баярын" },
+        sizes: ["38", "39", "40", "41", "42", "43"],
+        isNew: true,
+        inStock: true,
+    },
+    {
         id: "2",
         name: "ALTAN",
         nameLocalized: {
@@ -144,6 +169,30 @@ export const products: Product[] = [
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["40", "41", "42", "43", "44"],
+        inStock: true,
+    },
+    {
+        id: "4",
+        name: "ALTAI",
+        nameLocalized: {
+            en: "ALTAI",
+            mn: "АЛТАЙ"
+        },
+        price: 320,
+        description: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees. The geometric embroidery tells the story of mountain spirits who guide travelers home.",
+        descriptionLocalized: {
+            en: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees.",
+            mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
+        },
+        images: [
+            "/images/PNG images/altai-mountain (1).png",
+            "/images/boots/altai-mountain-left.jpg",
+            "/images/boots/altai-mountain-right.jpg",
+            "/images/boots/altai-mountain-back.jpg"
+        ],
+        category: "Winter",
+        categoryLocalized: { en: "Winter", mn: "Өвөл" },
+        sizes: ["38", "39", "40", "41", "42"],
         inStock: true,
     },
     {
@@ -172,30 +221,6 @@ export const products: Product[] = [
         inStock: true,
     },
     {
-        id: "4",
-        name: "ALTAI",
-        nameLocalized: {
-            en: "ALTAI",
-            mn: "АЛТАЙ"
-        },
-        price: 320,
-        description: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees. The geometric embroidery tells the story of mountain spirits who guide travelers home.",
-        descriptionLocalized: {
-            en: "Where the Altai Mountains touch the eternal blue sky, temperatures test both resolve and craftsmanship. These boots emerge from that challenge: double-walled construction, yak-wool insulation, and soles that flex at negative forty degrees.",
-            mn: "Алтай уул мөнх хөх тэнгэртэй уулзах газар температур нь шийдэмжийг ч, урлалыг ч шалгадаг. Эдгээр гутал тэр сорилтоос гарч ирсэн: давхар хананы бүтэц, сарлагийн ноосон дулаалга, хасах дөч градуст уян хатан ул."
-        },
-        images: [
-            "/images/PNG images/altai-mountain (1).png",
-            "/images/boots/altai-mountain-left.jpg",
-            "/images/boots/altai-mountain-right.jpg",
-            "/images/boots/altai-mountain-back.jpg"
-        ],
-        category: "Winter",
-        categoryLocalized: { en: "Winter", mn: "Өвөл" },
-        sizes: ["38", "39", "40", "41", "42"],
-        inStock: true,
-    },
-    {
         id: "5",
         name: "BATU",
         nameLocalized: {
@@ -217,31 +242,6 @@ export const products: Product[] = [
         category: "Luxury",
         categoryLocalized: { en: "Luxury", mn: "Люкс" },
         sizes: ["39", "40", "41", "42", "43", "44"],
-        isNew: true,
-        inStock: true,
-    },
-    {
-        id: "6",
-        name: "NAADAM",
-        nameLocalized: {
-            en: "NAADAM",
-            mn: "НААДАМ"
-        },
-        price: 380,
-        description: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup. Olympic champions have trusted these boots in competition. Their secret? A break-in period of exactly zero.",
-        descriptionLocalized: {
-            en: "Born from the three manly arts of wrestling, archery, and horsemanship. The flexible sole allows the agility Naadam demands, while the upturned toe—a sacred design honoring the earth—ensures you never miss a stirrup.",
-            mn: "Бөх, сурын харваа, морины уралдаан гэсэн гурван эрийн наадмаас төрсөн. Уян хатан ул нь Наадамд шаардагдах хөнгөн чадлыг олгодог, газрыг хүндэтгэсэн ариун загвар болох өргөсөн үзүүр нь дөрөөг хэзээ ч алдахгүй байхыг баталгаажуулдаг."
-        },
-        images: [
-            "/images/PNG images/Naadam Festival png.png",
-            "/images/boots/naadam-festival-left.jpg",
-            "/images/boots/naadam-festival-right.jpg",
-            "/images/boots/naadam-festival-back.jpg"
-        ],
-        category: "Festival",
-        categoryLocalized: { en: "Festival", mn: "Баярын" },
-        sizes: ["38", "39", "40", "41", "42", "43"],
         isNew: true,
         inStock: true,
     },
