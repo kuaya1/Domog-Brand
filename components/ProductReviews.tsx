@@ -247,8 +247,8 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
     if (reviews.length === 0) {
         return (
             <section className={cn('py-12', className)}>
-                <h2 className="font-serif text-2xl text-black mb-4">Customer Reviews</h2>
-                <p className="text-cream-500">No reviews yet. Be the first to share your experience.</p>
+                <h2 className="font-serif text-2xl text-black mb-4">From Those Who Wear Them</h2>
+                <p className="text-cream-500">These boots are waiting to write their first story. Perhaps yours?</p>
             </section>
         );
     }
@@ -259,7 +259,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
                 {/* Overall Rating */}
                 <div>
-                    <h2 className="font-serif text-2xl text-black mb-4">Customer Reviews</h2>
+                    <h2 className="font-serif text-2xl text-black mb-4">From Those Who Wear Them</h2>
                     <div className="flex items-center gap-4">
                         <div className="text-center">
                             <p className="font-serif text-5xl text-black">{stats.average.toFixed(1)}</p>

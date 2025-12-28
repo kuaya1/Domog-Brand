@@ -159,10 +159,10 @@ function getWishlistBasedRecommendations(
 // ============================================================================
 
 const TYPE_CONFIG: Record<RecommendationType, { icon: typeof Sparkles; defaultTitle: string }> = {
-    'similar': { icon: Sparkles, defaultTitle: 'You May Also Like' },
-    'recently-viewed': { icon: Eye, defaultTitle: 'Recently Viewed' },
-    'trending': { icon: TrendingUp, defaultTitle: 'Trending Now' },
-    'wishlist-based': { icon: Heart, defaultTitle: 'Based on Your Wishlist' },
+    'similar': { icon: Sparkles, defaultTitle: 'From the Same Hands' },
+    'recently-viewed': { icon: Eye, defaultTitle: 'Recently Considered' },
+    'trending': { icon: TrendingUp, defaultTitle: 'Drawing Attention' },
+    'wishlist-based': { icon: Heart, defaultTitle: 'Set Aside for You' },
 };
 
 export function ProductRecommendations({

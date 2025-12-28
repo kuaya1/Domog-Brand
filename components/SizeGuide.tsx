@@ -46,12 +46,12 @@ const SIZE_CHART: SizeData[] = [
 ];
 
 const FIT_TIPS: Record<string, string> = {
-    'Riding Boots': 'Riding boots should fit snugly through the calf. Consider sizing up if you prefer wearing thick socks.',
-    'Winter Boots': 'Winter boots benefit from a slightly roomier fit to accommodate thermal socks and allow air circulation.',
-    'Ceremonial Boots': 'Ceremonial boots should fit true to size for the most elegant silhouette.',
-    'Heritage Collection': 'Heritage styles are traditionally crafted and may require a brief break-in period.',
-    'Everyday': 'Everyday boots should balance comfort with support. Standard fit recommended.',
-    default: 'Our boots are handcrafted in European sizing. We recommend measuring your foot for the best fit.',
+    'Riding Boots': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Size up.',
+    'Winter Boots': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you at forty below.',
+    'Ceremonial Boots': 'Ceremony demands precision. True to size creates the silhouette that turns heads in the ger.',
+    'Heritage Collection': 'Heritage leather remembers. A brief break-in period is not discomfort—it is the boot learning the shape of you.',
+    'Everyday': 'A boot worn daily becomes an extension of the foot. Standard fit balances the support you need with the comfort you deserve.',
+    default: 'Our boots are shaped on European lasts. Measure your foot, trust your measurement, and the leather will do the rest.',
 };
 
 // ============================================================================

@@ -82,13 +82,13 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         const result = addToCart(product, selectedSize, quantity);
         
         if (result.success) {
-            toast.success('Added to cart', result.message);
+            toast.success('Reserved', result.message);
             // Open cart drawer to show the item
             setTimeout(() => {
                 setCartDrawerOpen(true);
             }, 300);
         } else {
-            toast.error('Could not add to cart', result.error);
+            toast.error('Could not reserve', result.error);
         }
         
         // Reset adding state
@@ -99,9 +99,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         const result = toggleWishlist(product);
         
         if (result.action === 'added') {
-            toast.success('Added to wishlist', `${product.name} saved for later`);
+            toast.success('Saved for later', `${product.name} set aside for you`);
         } else {
-            toast.info('Removed from wishlist', `${product.name} removed`);
+            toast.info('Released', `${product.name} returned to the collection`);
         }
     }, [product, toggleWishlist, toast]);
 
@@ -140,7 +140,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 <div className="space-y-6 mb-8 border-t border-b border-cream-200 py-8">
                     <div>
                         <div className="flex justify-between mb-2">
-                            <span className="font-medium text-black">Select Size</span>
+                            <span className="font-medium text-black">Find Your Fit</span>
                             <button 
                                 type="button"
                                 onClick={() => setIsSizeGuideOpen(true)}
@@ -157,14 +157,14 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                         />
                         {!selectedSize && (
                             <p className="text-cognac-600 text-sm mt-2">
-                                Please select a size to continue
+                                Choose your size to proceed
                             </p>
                         )}
                     </div>
 
                     <div>
                         <span className="block font-medium text-black mb-2">
-                            Quantity
+                            Pairs
                         </span>
                         <QuantitySelector
                             quantity={quantity}
@@ -185,10 +185,10 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                         className="flex-1 bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
                     >
                         {!product.inStock 
-                            ? 'Out of Stock' 
+                            ? 'Currently at the Bench' 
                             : isAdding 
-                                ? 'Adding...' 
-                                : 'Add to Cart'}
+                                ? 'Reserving...' 
+                                : 'Reserve This Pair'}
                     </button>
                     
                     {/* Wishlist Button */}
@@ -213,15 +213,15 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-cream-600">
                     <div className="flex items-center gap-2">
                         <ShieldCheck className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
-                        <span>Authentic Craftsmanship</span>
+                        <span>Forty Hours of Craft</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Truck className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
-                        <span>Free Shipping</span>
+                        <span>Delivered to Your Door</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <Clock className="text-cognac-600 flex-shrink-0" size={20} aria-hidden="true" />
-                        <span>Lifetime Warranty</span>
+                        <span>Craftsmanship for Life</span>
                     </div>
                 </div>
                 
@@ -256,7 +256,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 <ProductRecommendations
                     currentProduct={product as import('@/lib/products').Product}
                     type="similar"
-                    title="You May Also Like"
+                    title="From the Same Hands"
                     className="border-t border-cream-200"
                 />
                 

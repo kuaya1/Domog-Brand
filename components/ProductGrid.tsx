@@ -53,10 +53,10 @@ function ProductGridComponent({ products, locale: propLocale }: ProductGridProps
                             </span>
                         )}
                         
-                        {/* View Details on hover */}
+                        {/* Study This Pair on hover */}
                         <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                             <span className="inline-flex items-center gap-2 text-cream font-sans text-xs uppercase tracking-widest">
-                                <span>View Details</span>
+                                <span>Study This Pair</span>
                                 <ArrowUpRight size={14} aria-hidden="true" />
                             </span>
                         </div>

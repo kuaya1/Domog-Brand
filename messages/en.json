@@ -1,9 +1,9 @@
 {
     "common": {
-        "shop_now": "Shop Now",
-        "view_all": "View All",
-        "add_to_cart": "Add to Cart",
-        "learn_more": "Learn More"
+        "shop_now": "Enter the Atelier",
+        "view_all": "See the Collection",
+        "add_to_cart": "Reserve This Pair",
+        "learn_more": "The Full Story"
     },
     "navigation": {
         "shop": "Shop",
@@ -72,13 +72,13 @@
     },
     "shop": {
         "hero_label": "The Collection",
-        "hero_title": "Shop All Boots",
-        "hero_description": "Discover our collection of handcrafted Mongolian boots, blending centuries of tradition with modern comfort and style.",
+        "hero_title": "Forty Hours, One Pair",
+        "hero_description": "Each boot in our collection carries the same promise: leather shaped by hand, stitched in the old way, built to outlast the trends that come and go. Browse slowly. These were not made quickly.",
         "showing": "Showing",
         "piece": "piece",
         "pieces": "pieces",
-        "no_results": "No boots found matching your criteria.",
-        "clear_filters": "Clear all filters"
+        "no_results": "Nothing here matches your search. Perhaps the right pair is still on the workbench.",
+        "clear_filters": "Start fresh"
     },
     "contact": {
         "hero_label": "The Atelier",
@@ -115,54 +115,54 @@
         "success_message": "Thank you for reaching out. A member of our team will respond within 24 hours."
     },
     "cartPage": {
-        "empty_title": "Your Cart is Empty",
-        "empty_description": "It appears you haven't added any pieces to your collection yet.",
-        "explore_collection": "Explore the Collection",
-        "page_title": "Shopping Cart",
-        "items_count": "items in your cart",
-        "item_count": "item in your cart",
+        "empty_title": "The Workshop Awaits",
+        "empty_description": "Your collection has not yet begun. When you find the right pair, it will know.",
+        "explore_collection": "Browse the Atelier",
+        "page_title": "Your Selection",
+        "items_count": "pairs reserved",
+        "item_count": "pair reserved",
         "size_label": "Size: EU",
-        "remove": "Remove",
-        "continue_shopping": "Continue Shopping",
-        "order_summary": "Order Summary",
+        "remove": "Release",
+        "continue_shopping": "Return to Collection",
+        "order_summary": "Your Commission",
         "subtotal": "Subtotal",
-        "shipping": "Shipping",
-        "shipping_free": "FREE",
-        "shipping_note": "Free shipping on orders over $500",
+        "shipping": "Delivery",
+        "shipping_free": "Complimentary",
+        "shipping_note": "Complimentary delivery on orders over $500",
         "total": "Total",
-        "checkout": "Proceed to Checkout",
-        "secure_checkout": "Secure Checkout",
-        "secure_note": "256-bit SSL encryption protects your information",
-        "free_shipping_title": "Free Shipping",
-        "free_shipping_note": "On orders over $500 USD",
-        "returns_title": "Easy Returns",
-        "returns_note": "30-day return policy for unworn items"
+        "checkout": "Complete Your Commission",
+        "secure_checkout": "Secure Commission",
+        "secure_note": "Your details are protected as carefully as we protect our craft",
+        "free_shipping_title": "Delivered to Your Door",
+        "free_shipping_note": "Complimentary on orders over $500 USD",
+        "returns_title": "A Promise Kept",
+        "returns_note": "30 days to be certain. Unworn pairs welcomed home."
     },
     "product": {
         "size": "Size",
-        "quantity": "Quantity",
-        "in_stock": "In Stock",
-        "out_of_stock": "Out of Stock",
-        "add_to_wishlist": "Add to Wishlist",
-        "size_guide": "Size Guide",
-        "description": "Description",
-        "specifications": "Specifications",
-        "reviews": "Reviews"
+        "quantity": "Pairs",
+        "in_stock": "Ready for You",
+        "out_of_stock": "Currently at the Bench",
+        "add_to_wishlist": "Save for Later",
+        "size_guide": "Find Your Fit",
+        "description": "The Craft",
+        "specifications": "The Details",
+        "reviews": "From Those Who Wear Them"
     },
     "cart": {
-        "your_cart": "Your Cart",
-        "empty_cart": "Your cart is empty",
-        "continue_shopping": "Continue Shopping",
+        "your_cart": "Your Selection",
+        "empty_cart": "The workshop awaits your commission",
+        "continue_shopping": "Return to Collection",
         "subtotal": "Subtotal",
-        "shipping": "Shipping",
+        "shipping": "Delivery",
         "total": "Total",
-        "checkout": "Proceed to Checkout"
+        "checkout": "Complete Your Commission"
     },
     "footer": {
-        "newsletter_title": "Join Our Heritage",
-        "newsletter_description": "Receive exclusive updates on new collections, artisan stories, and early access to limited editions.",
-        "email_placeholder": "Enter your email",
-        "subscribe": "Subscribe",
+        "newsletter_title": "Stories from the Workshop",
+        "newsletter_description": "No discounts. No urgency. Just the occasional letter about leather, craft, and the hands that remember. Perhaps four times a year.",
+        "email_placeholder": "Your email",
+        "subscribe": "Join Us",
         "copyright": "© 2024 Domog Brand. All rights reserved."
     }
 }

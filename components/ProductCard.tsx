@@ -209,7 +209,7 @@ const ProductCard = memo(function ProductCard({
                                 </span>
                             </div>
                             
-                            {/* Hover CTA - View Details with arrow */}
+                            {/* Hover CTA - Study This Pair with arrow */}
                             <div className="
                                 flex items-center gap-1
                                 text-[11px] uppercase tracking-[0.15em]
@@ -218,7 +218,7 @@ const ProductCard = memo(function ProductCard({
                                 translate-x-2 group-hover:translate-x-0
                                 transition-all duration-500
                             ">
-                                <span>{t.view_details || 'View'}</span>
+                                <span>{t.view_details || 'Study'}</span>
                                 <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
                             </div>
                         </div>
