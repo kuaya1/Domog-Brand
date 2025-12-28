@@ -32,9 +32,9 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
+            <section className="relative min-h-screen bg-cream-50 flex items-center overflow-hidden">
                 <div className="relative z-10 w-full">
-                    <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-12 py-12 lg:py-0">
+                    <div className="mx-auto w-full max-w-container px-5 sm:px-6 lg:px-12 py-12 lg:py-0">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0">
 
                             {/* Mobile: Image First - Scaled down 40% (30% + 10%) and moved down 1.7 inches total (0.7in + 1in) */}
@@ -52,10 +52,10 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                             {/* Text Content - 40% on Desktop, moved up 0.7in on mobile */}
                             <div className="lg:w-2/5 text-left space-y-8 z-10 lg:pr-12 -mt-[18px] lg:mt-0">
                                 <div className="space-y-3">
-                                    <p className="text-label-md text-cognac-accessible">
+                                    <p className="text-label-md text-cognac">
                                         {t.tagline}
                                     </p>
-                                    <h1 className="text-display-md lg:text-display-lg font-serif font-medium text-black">
+                                    <h1 className="text-display-md lg:text-display-lg font-serif font-medium text-charcoal-900">
                                         {t.hero_title}
                                     </h1>
                                 </div>
@@ -89,10 +89,10 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             </section>
 
             {/* Featured Collection - Cream Background */}
-            <section className="py-20 sm:py-32 lg:py-40 px-5 sm:px-6 lg:px-8 bg-cream-50">
-                <div className="max-w-7xl mx-auto">
+            <section className="section-padding px-5 sm:px-6 lg:px-8 bg-cream-50">
+                <div className="max-w-container mx-auto">
                     <div className="text-center mb-12 sm:mb-20">
-                        <p className="text-label-md text-gold-text-accessible mb-3 sm:mb-4">
+                        <p className="eyebrow mb-3 sm:mb-4">
                             {t.collection_label}
                         </p>
                         <h2 className="text-display-sm md:text-display-md font-serif font-semibold text-charcoal-900 mb-6 sm:mb-8">
@@ -158,7 +158,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                 </div>
                 
                 <div className="relative w-full">
-                    <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-12">
+                    <div className="mx-auto w-full max-w-container px-5 sm:px-6 lg:px-12">
                         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-0 min-h-[80vh]">
                             {/* Content Side - Cinematic Typography - Matching Hero Layout: 40% width */}
                             <div className="lg:w-2/5 space-y-10 lg:space-y-12 lg:pr-12">
@@ -219,13 +219,13 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
             </section>
 
             {/* Craftsmanship Pillars - Light Background */}
-            <section className="py-32 lg:py-40 bg-warm-50">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <section className="section-padding-lg bg-cream-50">
+                <div className="max-w-container mx-auto px-6 lg:px-8">
                     <div className="text-center mb-20">
-                        <span className="inline-block text-label-md text-cognac-accessible mb-6">
+                        <span className="eyebrow mb-6 inline-block">
                             {t.promise_label}
                         </span>
-                        <h2 className="text-display-sm lg:text-display-md font-serif font-medium text-black">
+                        <h2 className="text-display-sm lg:text-display-md font-serif font-medium text-charcoal-900">
                             {t.promise_title}
                         </h2>
                     </div>
@@ -233,11 +233,11 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold-600/20 group-hover:text-gold-600/40 transition-default">
                                     01
                                 </span>
                             </div>
-                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-charcoal-900 font-medium mb-4">
                                 {t.pillar_1_title}
                             </h3>
                             <p className="text-body-md text-stone-warm">
@@ -246,11 +246,11 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         </div>
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold-600/20 group-hover:text-gold-600/40 transition-default">
                                     02
                                 </span>
                             </div>
-                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-charcoal-900 font-medium mb-4">
                                 {t.pillar_2_title}
                             </h3>
                             <p className="text-body-md text-stone-warm">
@@ -259,11 +259,11 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                         </div>
                         <div className="text-center group">
                             <div className="mb-6">
-                                <span className="font-serif text-display-sm lg:text-display-md text-gold/20 group-hover:text-gold/40 transition-colors duration-500">
+                                <span className="font-serif text-display-sm lg:text-display-md text-gold-600/20 group-hover:text-gold-600/40 transition-default">
                                     03
                                 </span>
                             </div>
-                            <h3 className="text-heading-xl font-serif text-black font-medium mb-4">
+                            <h3 className="text-heading-xl font-serif text-charcoal-900 font-medium mb-4">
                                 {t.pillar_3_title}
                             </h3>
                             <p className="text-body-md text-stone-warm">

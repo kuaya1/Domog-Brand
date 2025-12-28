@@ -126,24 +126,24 @@ export function SizeGuide({
         <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Size Guide">
             {/* Backdrop */}
             <div 
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm"
                 onClick={onClose}
             />
             
             {/* Modal */}
-            <div className="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[90vh] bg-cream shadow-2xl overflow-hidden flex flex-col animate-fade-in">
+            <div className="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[90vh] bg-cream-50 shadow-xl overflow-hidden flex flex-col animate-fade-in rounded">
                 {/* Header */}
                 <div className="px-6 py-5 border-b border-cream-200 bg-cream-sand">
                     <div className="flex items-center justify-between">
                         <div>
-                            <span className="text-xs uppercase tracking-[0.2em] text-cognac block mb-1">Finding Your Fit</span>
-                            <h2 className="font-serif text-xl md:text-2xl text-black">
+                            <span className="text-label-md uppercase text-cognac block mb-1">Finding Your Fit</span>
+                            <h2 className="font-serif text-xl md:text-2xl text-charcoal-900">
                                 Size Guide
                             </h2>
                         </div>
                         <button
                             onClick={onClose}
-                            className="p-2 text-cream-500 hover:text-black transition-colors rounded-full hover:bg-cream-200"
+                            className="p-2 text-stone-warm hover:text-charcoal-900 transition-default rounded hover:bg-cream-200"
                             aria-label="Close"
                         >
                             <X className="h-5 w-5" />
@@ -156,10 +156,10 @@ export function SizeGuide({
                     <button
                         onClick={() => setActiveTab('chart')}
                         className={cn(
-                            "flex-1 py-4 text-sm font-medium transition-colors uppercase tracking-wider",
+                            "flex-1 py-4 text-sm font-medium transition-default uppercase tracking-wider",
                             activeTab === 'chart'
-                                ? "text-black border-b-2 border-cognac bg-cream"
-                                : "text-stone-warm hover:text-black bg-cream-50"
+                                ? "text-charcoal-900 border-b-2 border-cognac bg-cream-50"
+                                : "text-stone-warm hover:text-charcoal-900 bg-cream-100"
                         )}
                     >
                         Size Chart
@@ -167,10 +167,10 @@ export function SizeGuide({
                     <button
                         onClick={() => setActiveTab('measure')}
                         className={cn(
-                            "flex-1 py-4 text-sm font-medium transition-colors uppercase tracking-wider",
+                            "flex-1 py-4 text-sm font-medium transition-default uppercase tracking-wider",
                             activeTab === 'measure'
-                                ? "text-black border-b-2 border-cognac bg-cream"
-                                : "text-stone-warm hover:text-black bg-cream-50"
+                                ? "text-charcoal-900 border-b-2 border-cognac bg-cream-50"
+                                : "text-stone-warm hover:text-charcoal-900 bg-cream-100"
                         )}
                     >
                         Find Your Size
@@ -183,16 +183,16 @@ export function SizeGuide({
                         <div>
                             {/* Size System Selector */}
                             <div className="flex items-center gap-2 mb-6">
-                                <span className="text-sm text-cream-500">Display in:</span>
+                                <span className="text-sm text-stone-warm">Display in:</span>
                                 {(['eu', 'us', 'uk'] as SizeSystem[]).map((system) => (
                                     <button
                                         key={system}
                                         onClick={() => setSizeSystem(system)}
                                         className={cn(
-                                            "px-3 py-1 text-sm border transition-colors uppercase",
+                                            "px-3 py-1 text-sm border transition-default uppercase rounded",
                                             sizeSystem === system
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                                : "bg-cream-50 text-charcoal-900 border-cream-300 hover:border-charcoal-900"
                                         )}
                                     >
                                         {system}
@@ -281,8 +281,8 @@ export function SizeGuide({
                     {activeTab === 'measure' && (
                         <div className="space-y-6">
                             {/* Instructions */}
-                            <div className="bg-cream-sand p-5">
-                                <h3 className="font-serif text-lg text-black mb-3">How to Measure Your Foot</h3>
+                            <div className="bg-cream-sand p-5 rounded">
+                                <h3 className="font-serif text-lg text-charcoal-900 mb-3">How to Measure Your Foot</h3>
                                 <ol className="text-sm text-stone-warm space-y-2 list-decimal list-inside leading-relaxed">
                                     <li>Place a piece of paper against a wall</li>
                                     <li>Stand on the paper with your heel against the wall</li>
@@ -307,14 +307,14 @@ export function SizeGuide({
                                             step="0.1"
                                             className="flex-1 px-4 py-3 border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                                         />
-                                        <div className="flex border border-l-0 border-cream-200">
+                                        <div className="flex border border-l-0 border-cream-300 rounded-r">
                                             <button
                                                 onClick={() => setMeasurementUnit('cm')}
                                                 className={cn(
-                                                    "px-3 py-2 text-sm transition-colors",
+                                                    "px-3 py-2 text-sm transition-default",
                                                     measurementUnit === 'cm'
-                                                        ? "bg-black text-white"
-                                                        : "bg-white text-cream-600 hover:bg-cream-50"
+                                                        ? "bg-charcoal-900 text-cream-50"
+                                                        : "bg-cream-50 text-charcoal-900 hover:bg-cream-100"
                                                 )}
                                             >
                                                 cm
@@ -322,10 +322,10 @@ export function SizeGuide({
                                             <button
                                                 onClick={() => setMeasurementUnit('in')}
                                                 className={cn(
-                                                    "px-3 py-2 text-sm transition-colors",
+                                                    "px-3 py-2 text-sm transition-default",
                                                     measurementUnit === 'in'
-                                                        ? "bg-black text-white"
-                                                        : "bg-white text-cream-600 hover:bg-cream-50"
+                                                        ? "bg-charcoal-900 text-cream-50"
+                                                        : "bg-cream-50 text-charcoal-900 hover:bg-cream-100"
                                                 )}
                                             >
                                                 in
@@ -344,10 +344,10 @@ export function SizeGuide({
                                                 key={fit}
                                                 onClick={() => setFitPreference(fit)}
                                                 className={cn(
-                                                    "flex-1 py-3 text-sm border transition-colors capitalize",
+                                                    "flex-1 py-3 text-sm border transition-default capitalize rounded",
                                                     fitPreference === fit
-                                                        ? "bg-black text-white border-black"
-                                                        : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                                        ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                                        : "bg-cream-50 text-charcoal-900 border-cream-300 hover:border-charcoal-900"
                                                 )}
                                             >
                                                 {fit}
@@ -362,9 +362,9 @@ export function SizeGuide({
                                 onClick={calculateSize}
                                 disabled={!footLength}
                                 className={cn(
-                                    "w-full py-4 font-medium transition-colors",
+                                    "w-full py-4 font-medium transition-default rounded",
                                     footLength
-                                        ? "bg-black text-white hover:bg-cream-800"
+                                        ? "bg-charcoal-900 text-cream-50 hover:bg-charcoal-800"
                                         : "bg-cream-200 text-cream-400 cursor-not-allowed"
                                 )}
                             >
@@ -373,24 +373,24 @@ export function SizeGuide({
                             
                             {/* Result */}
                             {recommendedSize && (
-                                <div className="bg-cognac-50 border border-cognac-200 p-6 text-center">
+                                <div className="bg-cognac-50 border border-cognac-200 p-6 text-center rounded">
                                     <div className="flex items-center justify-center gap-2 mb-2">
                                         <Check className="h-5 w-5 text-cognac-600" />
                                         <span className="text-sm text-cognac-600 uppercase tracking-wider">
                                             Recommended Size
                                         </span>
                                     </div>
-                                    <div className="font-serif text-4xl text-black mb-4">
+                                    <div className="font-serif text-4xl text-charcoal-900 mb-4">
                                         EU {recommendedSize.eu}
                                     </div>
-                                    <p className="text-sm text-cream-500 mb-4">
+                                    <p className="text-sm text-stone-warm mb-4">
                                         US {recommendedSize.us} • UK {recommendedSize.uk}
                                     </p>
                                     
                                     {availableSizes.length > 0 && (
                                         <button
                                             onClick={() => handleSelectSize(`EU ${recommendedSize.eu}`)}
-                                            className="bg-black text-white px-6 py-3 text-sm font-medium hover:bg-cream-800 transition-colors"
+                                            className="bg-charcoal-900 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-charcoal-800 transition-default rounded"
                                         >
                                             Select This Size
                                         </button>

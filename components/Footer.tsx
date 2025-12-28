@@ -16,7 +16,7 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
     const localizedPath = useLocalizedPath();
 
     return (
-        <footer className="bg-black text-cream">
+        <footer className="section-dark">
             {/* Main Footer */}
             <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-8">
@@ -128,7 +128,7 @@ export default function Footer({ dictionary: t, locale }: FooterProps) {
                             />
                             <button
                                 type="submit"
-                                className="px-6 py-3.5 min-h-[48px] bg-gold text-black text-xs uppercase tracking-widest font-medium hover:bg-gold-light active:bg-gold-dark transition-colors"
+                                className="px-6 py-3.5 min-h-[48px] bg-gold-600 text-charcoal-900 text-label-lg uppercase font-medium hover:bg-gold-400 transition-default rounded"
                             >
                                 {t.subscribe}
                             </button>

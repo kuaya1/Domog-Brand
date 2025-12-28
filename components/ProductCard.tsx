@@ -67,11 +67,11 @@ const ProductCard = memo(function ProductCard({
                 aria-label={`View ${localizedName} - $${product.price}`}
             >
                 <article className="
-                    relative bg-white
-                    shadow-card-warm hover:shadow-card-warm-hover
+                    relative bg-cream-50
+                    shadow-card hover:shadow-card-hover
                     transition-all duration-500 ease-out
-                    hover:-translate-y-2 active:translate-y-0 active:shadow-card-warm
-                    will-change-transform
+                    hover:-translate-y-2 active:translate-y-0 active:shadow-card
+                    will-change-transform rounded
                 "
                 >
                     {/* Product Image - 3:4 aspect ratio with centered contain-fit */}
@@ -126,14 +126,14 @@ const ProductCard = memo(function ProductCard({
                                         onClick={(e) => handleThumbnailClick(index, e)}
                                         className={`
                                             relative w-12 h-12 min-w-[48px] min-h-[48px]
-                                            bg-white
-                                            rounded-md
+                                            bg-cream-50
+                                            rounded
                                             overflow-hidden
-                                            transition-all duration-300
+                                            transition-default
                                             active:scale-95
                                             ${currentImageIndex === index 
-                                                ? 'ring-2 ring-gold-700 shadow-lg scale-105' 
-                                                : 'ring-1 ring-stone-200 hover:ring-gold-400 shadow-md'
+                                                ? 'ring-2 ring-gold-600 shadow-lg scale-105' 
+                                                : 'ring-1 ring-cream-300 hover:ring-gold-400 shadow-md'
                                             }
                                         `}
                                         aria-label={`View angle ${index + 1}`}
@@ -161,10 +161,10 @@ const ProductCard = memo(function ProductCard({
                         <div className="absolute top-4 left-4 z-10">
                             <span className="
                                 px-3 py-1.5
-                                bg-white/90 backdrop-blur-sm
-                                text-[10px] uppercase tracking-[0.25em]
+                                bg-cream-50/90 backdrop-blur-sm
+                                text-label-sm uppercase
                                 text-charcoal-900 font-medium
-                                shadow-sm
+                                shadow-sm rounded
                             ">
                                 {localizedCategory}
                             </span>
@@ -175,9 +175,9 @@ const ProductCard = memo(function ProductCard({
                             <div className="absolute top-4 right-4 z-10">
                                 <span className="
                                     px-3 py-1.5
-                                    bg-gold-700 text-white
-                                    text-[10px] uppercase tracking-[0.25em] font-semibold
-                                    shadow-md
+                                    bg-gold-600 text-charcoal-900
+                                    text-label-sm uppercase font-semibold
+                                    shadow-md rounded
                                 ">
                                     {t.new_badge}
                                 </span>

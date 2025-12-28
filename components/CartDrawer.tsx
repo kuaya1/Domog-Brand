@@ -82,7 +82,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove, t }: {
                 <div>
                     <Link 
                         href={localizedPath(`/products/${item.productId}`)}
-                        className="font-serif text-sm font-medium text-black hover:text-cognac-600 transition-colors line-clamp-2"
+                        className="font-serif text-sm font-medium text-charcoal-900 hover:text-cognac-600 transition-default line-clamp-2"
                     >
                         {item.name}
                     </Link>
@@ -116,7 +116,7 @@ function CartItemCard({ item, onUpdateQuantity, onRemove, t }: {
                     </div>
 
                     {/* Price */}
-                    <p className="font-medium text-black">
+                    <p className="font-medium text-charcoal-900">
                         ${(item.price * item.quantity).toFixed(2)}
                     </p>
                 </div>
@@ -210,7 +210,7 @@ function PromoCodeInput({ t }: { t: CartDictionary }) {
                 <button
                     onClick={handleApply}
                     disabled={!code.trim() || isApplying}
-                    className="px-4 py-2 border-2 border-gold text-gold text-sm uppercase tracking-widest transition-all duration-300 hover:bg-gold hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 border border-gold-600 text-gold-600 text-label-lg uppercase transition-default hover:bg-gold-600 hover:text-charcoal-900 disabled:opacity-50 disabled:cursor-not-allowed rounded"
                 >
                     {isApplying ? <Loader2 className="h-4 w-4 animate-spin" /> : t.apply}
                 </button>
@@ -230,7 +230,7 @@ function EmptyCart({ onClose, t }: { onClose: () => void; t: CartDictionary }) {
             <div className="mb-8 w-20 h-20 flex items-center justify-center bg-cream-100 rounded-full">
                 <ShoppingBag className="h-10 w-10 text-cream-400" />
             </div>
-            <h3 className="mb-3 font-serif text-2xl font-medium text-black text-center">
+            <h3 className="mb-3 font-serif text-2xl font-medium text-charcoal-900 text-center">
                 {t.empty_cart_title}
             </h3>
             <p className="mb-10 text-center text-sm text-stone-warm leading-relaxed max-w-xs">
@@ -239,7 +239,7 @@ function EmptyCart({ onClose, t }: { onClose: () => void; t: CartDictionary }) {
             <Link 
                 href={localizedPath('/shop')}
                 onClick={onClose}
-                className="inline-flex items-center justify-center px-8 py-4 bg-black text-cream font-sans text-sm uppercase tracking-[0.15em] transition-all duration-300 hover:bg-charcoal-800 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center px-8 py-4 bg-charcoal-900 text-cream-50 font-sans text-label-lg uppercase transition-default hover:bg-charcoal-800 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded"
             >
                 {t.browse_collection}
                 <ArrowRight className="ml-3 h-4 w-4" />
@@ -344,7 +344,7 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
             {/* Backdrop */}
             <div
                 className={cn(
-                    "fixed inset-0 z-50 bg-black/50 transition-opacity duration-300",
+                    "fixed inset-0 z-50 bg-charcoal-900/50 transition-opacity duration-medium",
                     isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
                 )}
                 onClick={handleClose}
@@ -354,7 +354,7 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
             {/* Drawer */}
             <div
                 className={cn(
-                    "fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-white shadow-2xl transition-transform duration-300 ease-out",
+                    "fixed inset-y-0 right-0 z-50 flex w-full max-w-md flex-col bg-cream-50 shadow-xl transition-transform duration-medium ease-symmetric",
                     isOpen ? "translate-x-0" : "translate-x-full",
                     className
                 )}
@@ -363,8 +363,8 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
                 aria-label={t.your_cart}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-cream-100 px-6 py-4">
-                    <h2 className="font-serif text-lg font-medium text-black">
+                <div className="flex items-center justify-between border-b border-cream-300 px-6 py-4">
+                    <h2 className="font-serif text-lg font-medium text-charcoal-900">
                         {t.your_cart}
                         {itemCount > 0 && (
                             <span className="ml-2 text-sm font-normal text-cream-500">
@@ -374,7 +374,7 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
                     </h2>
                     <button
                         onClick={handleClose}
-                        className="rounded-full p-2 text-cream-500 hover:bg-cream-50 hover:text-black transition-colors"
+                        className="rounded p-2 text-stone-warm hover:bg-cream-200 hover:text-charcoal-900 transition-default"
                         aria-label="Close cart"
                     >
                         <X className="h-5 w-5" />
@@ -433,9 +433,10 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
                                     <span>${tax.toFixed(2)}</span>
                                 </div>
                                 
-                                <div className="flex justify-between pt-2 border-t border-cream-100 text-base font-medium text-black">
+                                <div className="flex justify-between pt-2 border-t border-cream-300 text-base font-medium text-charcoal-900">
                                     <span>{t.total}</span>
-                                    <span>${total.toFixed(2)}</span>
+                                    <span>${total.toFixed(2)}
+                                </span>
                                 </div>
                             </div>
 
@@ -459,7 +460,7 @@ export function CartDrawer({ className, dictionary, locale }: CartDrawerProps) {
                             <Link 
                                 href={localizedPath('/cart')} 
                                 onClick={handleClose}
-                                className="w-full inline-flex items-center justify-center px-8 py-4 bg-black text-white font-sans text-sm uppercase tracking-widest transition-all duration-300 hover:bg-black-rich focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                                className="w-full inline-flex items-center justify-center px-8 py-4 bg-charcoal-900 text-cream-50 font-sans text-label-lg uppercase transition-default hover:bg-charcoal-800 focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded"
                             >
                                 {t.checkout}
                                 <ArrowRight className="ml-2 h-4 w-4" />

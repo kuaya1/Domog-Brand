@@ -2,20 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties */
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * DOMOG BRAND — GLOBAL STYLES
+ * Aligned with BRAND_AESTHETIC_IDENTITY.md v1.0
+ * "Does your screen feel like that room?"
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
+
+/* CSS Custom Properties — Design Tokens */
 :root {
-    --color-black: #0A0A0A;
-    --color-black-rich: #1A1816;
+    /* Primary Colors */
+    --color-charcoal: #0A0A0A;
+    --color-charcoal-800: #1A1816;
     --color-cream: #FAF8F3;
-    --color-cream-sand: #F5F2E9;
-    --color-cognac: #8B6F47;
-    --color-burgundy: #6B2737;
+    --color-cream-sand: #F5F0E8;
+    
+    /* Secondary Colors */
     --color-gold: #C9A961;
-    --color-stone: #5A5654;
-    --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1);
+    --color-cognac: #8B6F47;
+    
+    /* Supporting Colors */
+    --color-burgundy: #6B2737;
+    --color-stone: #78716C;
+    
+    /* Motion */
+    --duration-fast: 200ms;
+    --duration-default: 300ms;
+    --duration-medium: 400ms;
+    --duration-slow: 500ms;
+    --duration-slower: 700ms;
+    
+    /* Easings */
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-symmetric: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Spacing Base */
+    --space-unit: 8px;
+    
+    /* Container */
+    --container-max: 1280px;
 }
 
-/* Critical Base Styles */
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * BASE LAYER
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
 @layer base {
     html {
         scroll-behavior: smooth;
@@ -24,7 +57,7 @@
 
     body {
         background-color: var(--color-cream);
-        color: var(--color-black);
+        color: var(--color-charcoal);
         font-feature-settings: "kern" 1, "liga" 1;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -46,10 +79,10 @@
         }
     }
 
-    /* Selection */
+    /* Selection — Gold accent */
     ::selection {
         background-color: var(--color-gold);
-        color: var(--color-black);
+        color: var(--color-charcoal);
     }
 
     /* Focus styles for accessibility */
@@ -58,22 +91,72 @@
         outline-offset: 2px;
     }
 
-    /* Typography base */
+    /**
+     * TYPOGRAPHY BASE
+     * "A declaration made quietly."
+     */
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-playfair), Georgia, serif;
         font-weight: 500;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
         text-wrap: balance;
+        color: var(--color-charcoal);
     }
 
     p {
         line-height: 1.7;
         text-wrap: pretty;
     }
+    
+    /* Optimal reading width */
+    .prose {
+        max-width: 65ch;
+    }
 }
 
-/* Utility Classes */
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * UTILITIES LAYER
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
 @layer utilities {
+    /**
+     * LAYOUT UTILITIES
+     */
+    .container-luxury {
+        @apply max-w-container mx-auto px-6 lg:px-8;
+    }
+    
+    .container-wide {
+        @apply max-w-wide mx-auto px-6 lg:px-8;
+    }
+    
+    .container-readable {
+        @apply max-w-readable mx-auto px-6 lg:px-8;
+    }
+    
+    .container-narrow {
+        @apply max-w-narrow mx-auto px-6 lg:px-8;
+    }
+
+    /**
+     * SECTION SPACING — Responsive rhythm
+     * Mobile: py-16 (64px)
+     * Tablet: py-24 (96px)  
+     * Desktop: py-32 to py-40 (128-160px)
+     */
+    .section-padding {
+        @apply py-16 md:py-24 lg:py-32;
+    }
+    
+    .section-padding-lg {
+        @apply py-16 md:py-24 lg:py-40;
+    }
+
+    /**
+     * THE GOLD UNDERLINE
+     * "Gold must be earned."
+     */
     .gold-underline {
         position: relative;
     }
@@ -86,14 +169,28 @@
         width: 0;
         height: 1px;
         background-color: var(--color-gold);
-        transition: width 0.3s var(--ease-luxury);
+        transition: width var(--duration-default) var(--ease-out);
     }
 
     .gold-underline:hover::after {
         width: 100%;
     }
+    
+    /**
+     * GOLD DIVIDER
+     * "Dividers that matter. Elegant, not structural."
+     */
+    .gold-divider {
+        @apply w-16 h-px bg-gold mx-auto;
+    }
+    
+    .gold-divider-left {
+        @apply w-16 h-px bg-gold;
+    }
 
-    /* Product image enhancement filters */
+    /**
+     * IMAGE FILTERS
+     */
     .filter-product-enhance {
         filter: contrast(1.05) saturate(1.08);
     }
@@ -102,7 +199,9 @@
         filter: contrast(1.1) saturate(1.08);
     }
 
-    /* Skip link for accessibility */
+    /**
+     * ACCESSIBILITY
+     */
     .sr-only {
         position: absolute;
         width: 1px;
@@ -125,26 +224,125 @@
         clip: auto;
         white-space: normal;
     }
-
-    .container-luxury {
-        @apply max-w-7xl mx-auto px-6 lg:px-8;
+    
+    /**
+     * TYPOGRAPHY UTILITIES
+     * "Short sentences. Specific numbers."
+     */
+    .text-balance {
+        text-wrap: balance;
+    }
+    
+    .text-pretty {
+        text-wrap: pretty;
+    }
+    
+    /* Overline/eyebrow text */
+    .eyebrow {
+        @apply text-label-md uppercase tracking-widest text-cognac font-sans;
+    }
+    
+    /**
+     * MOTION UTILITIES
+     * "Motion should feel like breathing."
+     */
+    .transition-default {
+        transition-property: color, background-color, border-color, opacity, transform;
+        transition-duration: var(--duration-default);
+        transition-timing-function: var(--ease-out);
+    }
+    
+    .transition-fast {
+        transition-property: color, background-color, border-color, opacity, transform;
+        transition-duration: var(--duration-fast);
+        transition-timing-function: var(--ease-out);
+    }
+    
+    .transition-slow {
+        transition-property: color, background-color, border-color, opacity, transform;
+        transition-duration: var(--duration-slow);
+        transition-timing-function: var(--ease-out);
     }
 }
 
-/* Component Classes */
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * COMPONENTS LAYER
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
 @layer components {
+    /**
+     * BUTTONS
+     * Border radius: 4px (subtle softness)
+     */
     .btn-primary {
         @apply inline-flex items-center justify-center px-8 py-4 
-               bg-gold text-black font-sans text-sm uppercase tracking-widest
-               transition-all duration-300
-               hover:bg-gold-light focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+               bg-gold-600 text-charcoal-900 font-sans text-label-lg uppercase
+               rounded transition-default
+               hover:bg-gold-400 
+               focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
     }
 
     .btn-secondary {
         @apply inline-flex items-center justify-center px-8 py-4
-               border-2 border-gold text-gold font-sans text-sm uppercase tracking-widest
-               transition-all duration-300
-               hover:bg-gold hover:text-black;
+               border border-gold-600 text-gold-600 font-sans text-label-lg uppercase
+               rounded transition-default
+               hover:bg-gold-600 hover:text-charcoal-900
+               focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    }
+    
+    .btn-ghost {
+        @apply inline-flex items-center justify-center px-6 py-3
+               text-charcoal-900 font-sans text-label-lg uppercase
+               rounded transition-default
+               hover:bg-cream-200
+               focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    }
+    
+    /**
+     * CARDS
+     * Shadow: Warm, multi-layer
+     * Border radius: 4px default
+     */
+    .card {
+        @apply bg-cream-50 rounded shadow-card transition-default;
+    }
+    
+    .card-hover {
+        @apply bg-cream-50 rounded shadow-card transition-default
+               hover:shadow-card-hover;
+    }
+    
+    /**
+     * INPUTS
+     * "Functional but considered"
+     */
+    .input {
+        @apply w-full px-4 py-3 
+               bg-cream-50 border border-cream-300 rounded
+               text-body-md text-charcoal-900
+               placeholder:text-stone-warm
+               transition-default
+               focus:border-gold-600 focus:ring-1 focus:ring-gold-600 focus:outline-none;
+    }
+    
+    /**
+     * DARK SECTION
+     * "Dark sections are chapter breaks, not alternate reality"
+     */
+    .section-dark {
+        @apply bg-charcoal-900 text-cream-50;
+    }
+    
+    .section-dark h1,
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark h4 {
+        @apply text-cream-50;
+    }
+    
+    .section-dark .eyebrow {
+        @apply text-gold-600;
     }
 }
 

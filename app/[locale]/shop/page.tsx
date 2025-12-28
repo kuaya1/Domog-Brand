@@ -92,33 +92,33 @@ export default function ShopPage() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-cream">
+        <div className="min-h-screen bg-cream-50">
             {/* Hero Header */}
-            <div className="bg-cream-sand border-b border-cream-200">
-                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <div className="bg-cream-sand border-b border-cream-300">
+                <div className="max-w-container mx-auto px-5 sm:px-6 lg:px-8 py-16 lg:py-20">
                     <div className="max-w-2xl">
-                        <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-4">
+                        <span className="eyebrow mb-4 inline-block">
                             {t.hero_label}
                         </span>
-                        <h1 className="text-4xl lg:text-5xl font-serif font-medium text-black mb-5 tracking-tight">
+                        <h1 className="text-display-sm lg:text-display-md font-serif font-medium text-charcoal-900 mb-5">
                             {t.hero_title}
                         </h1>
-                        <p className="text-stone-warm max-w-xl text-lg leading-relaxed">
+                        <p className="text-body-lg text-stone-warm max-w-xl">
                             {t.hero_description}
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-16">
+            <div className="max-w-container mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-16">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
                     {/* Mobile Filter Toggle - Above content on mobile */}
                     <details className="lg:hidden mb-4 group">
-                        <summary className="flex items-center justify-between py-4 px-5 bg-cream-sand border border-cream-200 cursor-pointer select-none">
-                            <span className="font-sans text-sm uppercase tracking-wider">Filter & Sort</span>
-                            <span className="text-cognac text-xs">{filteredProducts.length} results</span>
+                        <summary className="flex items-center justify-between py-4 px-5 bg-cream-sand border border-cream-300 cursor-pointer select-none rounded">
+                            <span className="font-sans text-label-lg uppercase">Filter & Sort</span>
+                            <span className="text-cognac text-body-sm">{filteredProducts.length} results</span>
                         </summary>
-                        <div className="mt-4 p-5 bg-cream-50 border border-cream-200">
+                        <div className="mt-4 p-5 bg-cream-50 border border-cream-300 rounded">
                             <ProductFilters
                                 selectedCategory={selectedCategory}
                                 selectedSize={selectedSize}
@@ -127,7 +127,7 @@ export default function ShopPage() {
                                 onSizeChange={handleSizeChange}
                                 onPriceRangeChange={handlePriceRangeChange}
                             />
-                            <div className="mt-8 pt-8 border-t border-cream-200">
+                            <div className="mt-8 pt-8 border-t border-cream-300">
                                 <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
                             </div>
                         </div>
@@ -147,9 +147,9 @@ export default function ShopPage() {
 
                     {/* Main Content */}
                     <div className="flex-1">
-                        <div className="hidden lg:flex justify-between items-center mb-8 pb-6 border-b border-cream-200">
-                            <p className="text-sm text-stone-warm">
-                                {t.showing} <span className="text-black font-medium">{filteredProducts.length}</span> {filteredProducts.length === 1 ? t.piece : t.pieces}
+                        <div className="hidden lg:flex justify-between items-center mb-8 pb-6 border-b border-cream-300">
+                            <p className="text-body-sm text-stone-warm">
+                                {t.showing} <span className="text-charcoal-900 font-medium">{filteredProducts.length}</span> {filteredProducts.length === 1 ? t.piece : t.pieces}
                             </p>
                             <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
                         </div>
@@ -157,9 +157,9 @@ export default function ShopPage() {
                         {filteredProducts.length > 0 ? (
                             <ProductGrid products={filteredProducts} />
                         ) : (
-                            <div className="text-center py-20 lg:py-24 bg-cream-sand border border-cream-200">
+                            <div className="text-center py-20 lg:py-24 bg-cream-sand border border-cream-300 rounded">
                                 <div className="max-w-md mx-auto px-6">
-                                    <p className="font-serif text-xl text-black mb-3">
+                                    <p className="font-serif text-xl text-charcoal-900 mb-3">
                                         No boots match these criteria
                                     </p>
                                     <p className="text-stone-warm mb-8 leading-relaxed">
@@ -167,7 +167,7 @@ export default function ShopPage() {
                                     </p>
                                     <button
                                         onClick={handleClearFilters}
-                                        className="inline-flex items-center font-sans text-sm uppercase tracking-[0.15em] text-black border-b-2 border-cognac pb-1 hover:text-cognac transition-colors"
+                                        className="inline-flex items-center font-sans text-label-lg uppercase text-charcoal-900 border-b-2 border-cognac pb-1 hover:text-cognac transition-default"
                                     >
                                         {t.clear_filters}
                                     </button>

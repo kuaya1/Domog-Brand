@@ -92,14 +92,14 @@ export default function Navigation({ dictionary }: NavigationProps) {
     return (
         <header>
             <nav 
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-default ${
                     isScrolled 
-                        ? 'bg-cream-50/95 backdrop-blur-md border-b border-warm-200' 
+                        ? 'bg-cream-50/95 backdrop-blur-md border-b border-cream-300' 
                         : 'bg-cream-50/95 backdrop-blur-md'
                 }`}
                 aria-label="Main navigation"
             >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Mobile: Menu Button (Left) - 48px touch target */}
                     <div className="flex lg:hidden">
@@ -123,7 +123,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                         <span className="text-2xl font-serif font-semibold tracking-tight text-charcoal-900 group-hover:text-burgundy-700 transition-colors duration-300">
                             DOMOG
                         </span>
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-warm-600 hidden sm:block">
+                        <span className="text-label-md uppercase text-cognac hidden sm:block">
                             Since 1990
                         </span>
                     </Link>
@@ -198,22 +198,22 @@ export default function Navigation({ dictionary }: NavigationProps) {
 
                 {/* Drawer Panel - Frosted Glass */}
                 <div 
-                    className={`absolute top-0 left-0 min-h-screen h-full w-[85%] max-w-sm bg-white/90 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_35px_120px_rgba(0,0,0,0.35)] border-r border-white/30 transform transition-transform duration-500 ease-out ${
+                    className={`absolute top-0 left-0 min-h-screen h-full w-[85%] max-w-sm bg-cream-50/95 backdrop-blur-2xl backdrop-saturate-150 shadow-xl border-r border-cream-300 transform transition-all duration-medium ease-symmetric ${
                         isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
                 >
                     {/* Minimal Header */}
-                    <div className="flex items-center justify-between px-6 h-16 border-b border-gold/5">
+                    <div className="flex items-center justify-between px-6 h-16 border-b border-cream-300">
                         <Link 
                             href={localizedPath('/')}
                             onClick={closeMenu}
-                            className="font-serif text-xl font-semibold tracking-tight text-black"
+                            className="font-serif text-xl font-semibold tracking-tight text-charcoal-900"
                         >
                             DOMOG
                         </Link>
                         <button
                             onClick={closeMenu}
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black hover:bg-black/10 transition-colors"
+                            className="w-10 h-10 flex items-center justify-center rounded bg-cream-200 text-charcoal-900 hover:bg-cream-300 transition-default"
                             aria-label="Close menu"
                         >
                             <X size={20} strokeWidth={1.5} />
@@ -267,7 +267,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                                     closeMenu();
                                     setSearchOpen(true);
                                 }}
-                                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-black/5 text-stone-warm hover:bg-black/10 hover:text-black transition-colors"
+                                className="w-full flex items-center gap-3 px-4 py-3 rounded bg-cream-200 text-stone-warm hover:bg-cream-300 hover:text-charcoal-900 transition-default"
                             >
                                 <Search size={18} strokeWidth={1.5} />
                                 <span className="font-sans text-sm">{t.search_placeholder}</span>
@@ -281,7 +281,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                             <Link 
                                 href={localizedPath('/shop')}
                                 onClick={closeMenu}
-                                className="group flex items-center justify-center gap-2 w-full px-6 py-4 bg-black text-cream rounded-lg hover:bg-cognac transition-all duration-300"
+                                className="group flex items-center justify-center gap-2 w-full px-6 py-4 bg-charcoal-900 text-cream-50 rounded hover:bg-cognac transition-default"
                             >
                                 <span className="font-sans text-sm uppercase tracking-widest">{t.shop_now}</span>
                                 <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
@@ -290,7 +290,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                     </nav>
 
                     {/* Footer - Minimal */}
-                    <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-black/5">
+                    <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-cream-300">
                         {/* Language Switcher */}
                         <div className="flex items-center justify-between">
                             <span className="font-sans text-xs uppercase tracking-widest text-stone-muted">{t.language}</span>
@@ -308,11 +308,11 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     return (
         <Link
             href={href}
-            className="relative font-medium text-sm text-warm-700 hover:text-charcoal-900 transition-colors duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2"
+            className="relative font-medium text-sm text-stone-warm hover:text-charcoal-900 transition-default group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2"
             role="menuitem"
         >
             {children}
-            <span className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-300" />
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-charcoal-900 group-hover:w-full transition-all duration-default" />
         </Link>
     );
 }
@@ -329,7 +329,7 @@ interface MobileNavItemProps {
 function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: MobileNavItemProps) {
     return (
         <li 
-            className={`transform transition-all duration-500 ${
+            className={`transform transition-all duration-medium ${
                 isOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
             }`}
             style={{ transitionDelay: isOpen ? `${delay * 75}ms` : '0ms' }}
@@ -337,18 +337,18 @@ function MobileNavItem({ href, children, onClick, delay, isOpen, badge }: Mobile
             <Link
                 href={href}
                 onClick={onClick}
-                className="group flex items-center justify-between min-h-[52px] py-4 px-4 -mx-4 rounded-xl hover:bg-black/5 active:bg-black/10 transition-colors duration-200"
+                className="group flex items-center justify-between min-h-[52px] py-4 px-4 -mx-4 rounded hover:bg-cream-200 active:bg-cream-300 transition-default"
             >
-                <span className="font-sans text-lg font-medium text-black group-hover:text-cognac-accessible transition-colors">
+                <span className="font-sans text-lg font-medium text-charcoal-900 group-hover:text-cognac transition-default">
                     {children}
                 </span>
                 <div className="flex items-center gap-3">
                     {badge && (
-                        <span className="w-6 h-6 bg-gold text-black text-sm font-medium flex items-center justify-center rounded-full">
+                        <span className="w-6 h-6 bg-gold-600 text-charcoal-900 text-sm font-medium flex items-center justify-center rounded-full">
                             {badge}
                         </span>
                     )}
-                    <ArrowRight size={18} className="text-stone-muted group-hover:text-cognac-accessible group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight size={18} className="text-stone-warm group-hover:text-cognac group-hover:translate-x-0.5 transition-all" />
                 </div>
             </Link>
         </li>
