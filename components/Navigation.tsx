@@ -154,7 +154,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                         >
                             <ShoppingBag size={20} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-burgundy-700 text-cream-50 text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}
@@ -170,7 +170,7 @@ export default function Navigation({ dictionary }: NavigationProps) {
                         >
                             <ShoppingBag size={22} strokeWidth={1.5} aria-hidden="true" />
                             {isHydrated && itemCount > 0 && (
-                                <span className="absolute top-1 right-1 w-5 h-5 bg-burgundy-700 text-white text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
+                                <span className="absolute top-1 right-1 w-5 h-5 bg-burgundy-700 text-cream-50 text-[10px] font-semibold flex items-center justify-center rounded-full" aria-hidden="true">
                                     {itemCount}
                                 </span>
                             )}

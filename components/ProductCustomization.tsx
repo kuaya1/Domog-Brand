@@ -170,11 +170,11 @@ export function ProductCustomization({
             {/* Section Header */}
             <div className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-gold" />
-                <h3 className="font-serif text-lg text-black">Personalize Your Order</h3>
+                <h3 className="font-serif text-lg text-charcoal-900">Personalize Your Order</h3>
             </div>
             
             {/* Engraving Option */}
-            <div className="border border-cream-200 bg-white">
+            <div className="border border-cream-200 bg-cream-50">
                 <button
                     onClick={() => handleEngravingToggle(!showEngraving)}
                     className="w-full px-4 py-4 flex items-center justify-between hover:bg-cream-50 transition-colors"
@@ -182,13 +182,13 @@ export function ProductCustomization({
                     <div className="flex items-center gap-3">
                         <div className={cn(
                             "w-5 h-5 border flex items-center justify-center transition-colors",
-                            showEngraving ? "bg-black border-black" : "border-cream-300"
+                            showEngraving ? "bg-charcoal-900 border-charcoal-900" : "border-cream-300"
                         )}>
-                            {showEngraving && <Check className="h-3 w-3 text-white" />}
+                            {showEngraving && <Check className="h-3 w-3 text-cream-50" />}
                         </div>
                         <Type className="h-5 w-5 text-cognac-500" />
                         <div className="text-left">
-                            <p className="font-medium text-black">Personalized Engraving</p>
+                            <p className="font-medium text-charcoal-900">Personalized Engraving</p>
                             <p className="text-sm text-cream-500">Add initials or a short message</p>
                         </div>
                     </div>
@@ -225,8 +225,8 @@ export function ProductCustomization({
                                         className={cn(
                                             "flex-1 py-3 text-center border transition-colors",
                                             engraving?.font === font.id
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                                : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                                         )}
                                     >
                                         <span className={cn(
@@ -251,8 +251,8 @@ export function ProductCustomization({
                                     className={cn(
                                         "flex-1 py-3 text-sm border transition-colors",
                                         engraving?.position === 'inside'
-                                            ? "bg-black text-white border-black"
-                                            : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                            ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                            : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                                     )}
                                 >
                                     Inside (Hidden)
@@ -262,8 +262,8 @@ export function ProductCustomization({
                                     className={cn(
                                         "flex-1 py-3 text-sm border transition-colors",
                                         engraving?.position === 'outside'
-                                            ? "bg-black text-white border-black"
-                                            : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                            ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                            : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                                     )}
                                 >
                                     Outside (Visible)
@@ -278,7 +278,7 @@ export function ProductCustomization({
                                     Preview
                                 </span>
                                 <span className={cn(
-                                    "text-2xl text-black",
+                                    "text-2xl text-charcoal-900",
                                     engraving.font === 'script' && "font-serif italic",
                                     engraving.font === 'modern' && "font-sans tracking-wide"
                                 )}>
@@ -291,7 +291,7 @@ export function ProductCustomization({
             </div>
             
             {/* Gift Wrapping Option */}
-            <div className="border border-cream-200 bg-white">
+            <div className="border border-cream-200 bg-cream-50">
                 <button
                     onClick={() => handleGiftWrappingToggle(!showGiftWrapping)}
                     className="w-full px-4 py-4 flex items-center justify-between hover:bg-cream-50 transition-colors"
@@ -299,13 +299,13 @@ export function ProductCustomization({
                     <div className="flex items-center gap-3">
                         <div className={cn(
                             "w-5 h-5 border flex items-center justify-center transition-colors",
-                            showGiftWrapping ? "bg-black border-black" : "border-cream-300"
+                            showGiftWrapping ? "bg-charcoal-900 border-charcoal-900" : "border-cream-300"
                         )}>
-                            {showGiftWrapping && <Check className="h-3 w-3 text-white" />}
+                            {showGiftWrapping && <Check className="h-3 w-3 text-cream-50" />}
                         </div>
                         <Gift className="h-5 w-5 text-cognac-500" />
                         <div className="text-left">
-                            <p className="font-medium text-black">Gift Wrapping</p>
+                            <p className="font-medium text-charcoal-900">Gift Wrapping</p>
                             <p className="text-sm text-cream-500">Beautifully presented for gifting</p>
                         </div>
                     </div>
@@ -325,12 +325,12 @@ export function ProductCustomization({
                                     className={cn(
                                         "w-full px-4 py-3 flex items-center justify-between border transition-colors text-left",
                                         giftWrapping?.style === style.id
-                                            ? "bg-cream-50 border-black"
+                                            ? "bg-cream-50 border-charcoal-900"
                                             : "border-cream-200 hover:border-cream-300"
                                     )}
                                 >
                                     <div>
-                                        <p className="font-medium text-black">{style.name}</p>
+                                        <p className="font-medium text-charcoal-900">{style.name}</p>
                                         <p className="text-sm text-cream-500">{style.description}</p>
                                     </div>
                                     <span className="text-cognac-600 font-medium">+${style.price}</span>
@@ -360,9 +360,9 @@ export function ProductCustomization({
                         >
                             <div className={cn(
                                 "w-5 h-5 border flex items-center justify-center transition-colors",
-                                giftWrapping?.includeCard ? "bg-black border-black" : "border-cream-300"
+                                giftWrapping?.includeCard ? "bg-charcoal-900 border-charcoal-900" : "border-cream-300"
                             )}>
-                                {giftWrapping?.includeCard && <Check className="h-3 w-3 text-white" />}
+                                {giftWrapping?.includeCard && <Check className="h-3 w-3 text-cream-50" />}
                             </div>
                             <span className="text-sm text-cream-700">
                                 Include printed gift card
@@ -373,7 +373,7 @@ export function ProductCustomization({
             </div>
             
             {/* Express Shipping Option */}
-            <div className="border border-cream-200 bg-white">
+            <div className="border border-cream-200 bg-cream-50">
                 <button
                     onClick={() => setExpressShipping(!expressShipping)}
                     className="w-full px-4 py-4 flex items-center justify-between hover:bg-cream-50 transition-colors"
@@ -381,13 +381,13 @@ export function ProductCustomization({
                     <div className="flex items-center gap-3">
                         <div className={cn(
                             "w-5 h-5 border flex items-center justify-center transition-colors",
-                            expressShipping ? "bg-black border-black" : "border-cream-300"
+                            expressShipping ? "bg-charcoal-900 border-charcoal-900" : "border-cream-300"
                         )}>
-                            {expressShipping && <Check className="h-3 w-3 text-white" />}
+                            {expressShipping && <Check className="h-3 w-3 text-cream-50" />}
                         </div>
                         <Truck className="h-5 w-5 text-cognac-500" />
                         <div className="text-left">
-                            <p className="font-medium text-black">Express Shipping</p>
+                            <p className="font-medium text-charcoal-900">Express Shipping</p>
                             <p className="text-sm text-cream-500">2-3 business day delivery</p>
                         </div>
                     </div>
@@ -399,7 +399,7 @@ export function ProductCustomization({
             {additionalCost > 0 && (
                 <div className="bg-cream-100 px-4 py-3 flex items-center justify-between">
                     <span className="text-sm text-cream-600">Customization Total</span>
-                    <span className="font-serif text-lg text-black">+${additionalCost}</span>
+                    <span className="font-serif text-lg text-charcoal-900">+${additionalCost}</span>
                 </div>
             )}
             
@@ -407,7 +407,7 @@ export function ProductCustomization({
             <div className="pt-4 border-t border-cream-200">
                 <div className="flex items-center justify-between">
                     <span className="text-cream-500">Product Total</span>
-                    <span className="font-serif text-2xl text-black">
+                    <span className="font-serif text-2xl text-charcoal-900">
                         ${basePrice + additionalCost}
                     </span>
                 </div>

@@ -162,7 +162,7 @@ function WelcomeStage({
     onStart: () => void;
 }) {
     return (
-        <div className="bg-white border border-stone-200 rounded-sm overflow-hidden">
+        <div className="bg-cream-50 border border-stone-200 rounded-sm overflow-hidden">
             {/* Header */}
             <div className="px-8 py-12 text-center border-b border-stone-100">
                 <p className="text-xs uppercase tracking-[0.3em] text-amber-700 mb-4">
@@ -197,7 +197,7 @@ function WelcomeStage({
             <div className="px-8 py-8 bg-stone-50 border-t border-stone-100 text-center">
                 <button
                     onClick={onStart}
-                    className="px-8 py-3 bg-stone-900 text-white text-sm uppercase tracking-widest hover:bg-stone-800 transition-colors"
+                    className="px-8 py-3 bg-stone-900 text-cream-50 text-sm uppercase tracking-widest hover:bg-stone-800 transition-colors"
                 >
                     Begin the Passage
                 </button>
@@ -242,7 +242,7 @@ function QuestionStage({
     };
     
     return (
-        <div className="bg-white border border-stone-200 rounded-sm overflow-hidden">
+        <div className="bg-cream-50 border border-stone-200 rounded-sm overflow-hidden">
             {/* Progress */}
             <div className="px-8 py-4 bg-stone-50 border-b border-stone-100">
                 <div className="flex items-center justify-between text-xs text-stone-400">
@@ -318,7 +318,7 @@ function QuestionStage({
                 <button
                     onClick={handleSubmit}
                     disabled={!selectedOption && !openAnswer.trim()}
-                    className="px-6 py-2 bg-stone-900 text-white text-sm uppercase tracking-wider hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-6 py-2 bg-stone-900 text-cream-50 text-sm uppercase tracking-wider hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     Continue
                 </button>
@@ -365,9 +365,9 @@ function ResultStage({
     const { title, description, icon } = tierDisplay[result.tier];
     
     return (
-        <div className="bg-white border border-stone-200 rounded-sm overflow-hidden">
+        <div className="bg-cream-50 border border-stone-200 rounded-sm overflow-hidden">
             {/* Header */}
-            <div className="px-8 py-16 text-center bg-stone-900 text-white">
+            <div className="px-8 py-16 text-center bg-stone-900 text-cream-50">
                 <div className="text-4xl mb-4">{icon}</div>
                 <p className="text-xs uppercase tracking-[0.3em] text-amber-500 mb-3">
                     Your Standing
@@ -403,7 +403,7 @@ function ResultStage({
                 {result.tier !== 'blocked' && result.tier !== 'waitlist' ? (
                     <button
                         onClick={onContinue}
-                        className="px-8 py-3 bg-amber-700 text-white text-sm uppercase tracking-widest hover:bg-amber-800 transition-colors"
+                        className="px-8 py-3 bg-amber-700 text-cream-50 text-sm uppercase tracking-widest hover:bg-amber-800 transition-colors"
                     >
                         Continue to Drop
                     </button>

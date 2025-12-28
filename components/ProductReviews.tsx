@@ -247,7 +247,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
     if (reviews.length === 0) {
         return (
             <section className={cn('py-12', className)}>
-                <h2 className="font-serif text-2xl text-black mb-4">From Those Who Wear Them</h2>
+                <h2 className="font-serif text-2xl text-charcoal-900 mb-4">From Those Who Wear Them</h2>
                 <p className="text-cream-500">These boots are waiting to write their first story. Perhaps yours?</p>
             </section>
         );
@@ -259,10 +259,10 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
                 {/* Overall Rating */}
                 <div>
-                    <h2 className="font-serif text-2xl text-black mb-4">From Those Who Wear Them</h2>
+                    <h2 className="font-serif text-2xl text-charcoal-900 mb-4">From Those Who Wear Them</h2>
                     <div className="flex items-center gap-4">
                         <div className="text-center">
-                            <p className="font-serif text-5xl text-black">{stats.average.toFixed(1)}</p>
+                            <p className="font-serif text-5xl text-charcoal-900">{stats.average.toFixed(1)}</p>
                             <StarRating rating={Math.round(stats.average)} size="md" />
                             <p className="text-sm text-cream-500 mt-1">
                                 Based on {stats.total} review{stats.total !== 1 ? 's' : ''}
@@ -299,7 +299,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                 
                 {/* Fit Summary */}
                 <div className="bg-cream-100 p-4 md:min-w-[200px]">
-                    <h3 className="text-sm font-medium text-black mb-3">Size & Fit</h3>
+                    <h3 className="text-sm font-medium text-charcoal-900 mb-3">Size & Fit</h3>
                     <div className="flex justify-between mb-2">
                         <span className="text-xs text-cream-500">Runs small</span>
                         <span className="text-xs text-cream-500">True to size</span>
@@ -337,8 +337,8 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                         className={cn(
                             "px-3 py-1 text-xs border transition-colors",
                             filterBy === 'all'
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                         )}
                     >
                         All Reviews
@@ -348,8 +348,8 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                         className={cn(
                             "px-3 py-1 text-xs border transition-colors flex items-center gap-1",
                             filterBy === 'photos'
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                         )}
                     >
                         <Camera className="h-3 w-3" />
@@ -362,7 +362,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value as SortOption)}
-                        className="appearance-none bg-white border border-cream-200 px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
+                        className="appearance-none bg-cream-50 border border-cream-200 px-4 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
                     >
                         <option value="newest">Newest First</option>
                         <option value="highest">Highest Rated</option>
@@ -385,7 +385,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-2">
-                                        <span className="font-medium text-black">{review.author}</span>
+                                        <span className="font-medium text-charcoal-900">{review.author}</span>
                                         {review.isVerified && (
                                             <span className="flex items-center gap-1 text-xs text-cognac-600 bg-cognac-50 px-2 py-0.5 rounded-full">
                                                 <Check className="h-3 w-3" />
@@ -416,7 +416,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                         
                         {/* Review Content */}
                         <div className="ml-13">
-                            <h3 className="font-medium text-black mb-2">{review.title}</h3>
+                            <h3 className="font-medium text-charcoal-900 mb-2">{review.title}</h3>
                             <p className="text-cream-600 text-sm leading-relaxed mb-4">
                                 {review.content}
                             </p>
@@ -447,7 +447,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                                 <div className="bg-cream-50 border-l-2 border-gold p-4 mb-4">
                                     <div className="flex items-center gap-2 mb-2">
                                         <Award className="h-4 w-4 text-gold" />
-                                        <span className="text-sm font-medium text-black">
+                                        <span className="text-sm font-medium text-charcoal-900">
                                             {review.response.author}
                                         </span>
                                     </div>
@@ -463,7 +463,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
                                     "flex items-center gap-2 text-xs transition-colors",
                                     helpfulClicked.has(review.id)
                                         ? "text-cognac-600"
-                                        : "text-cream-500 hover:text-black"
+                                        : "text-cream-500 hover:text-charcoal-900"
                                 )}
                             >
                                 <ThumbsUp className={cn(
@@ -481,7 +481,7 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
             {filteredReviews.length > 3 && !showAll && (
                 <button
                     onClick={() => setShowAll(true)}
-                    className="w-full mt-6 py-3 border border-cream-200 text-sm font-medium text-cream-600 hover:border-black hover:text-black transition-colors"
+                    className="w-full mt-6 py-3 border border-cream-200 text-sm font-medium text-cream-600 hover:border-charcoal-900 hover:text-charcoal-900 transition-colors"
                 >
                     Show All {filteredReviews.length} Reviews
                 </button>
@@ -490,11 +490,11 @@ export function ProductReviews({ productId, reviews, className }: ProductReviews
             {/* Image Lightbox */}
             {expandedImages && (
                 <div
-                    className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+                    className="fixed inset-0 z-[100] bg-charcoal-900/90 flex items-center justify-center p-4"
                     onClick={() => setExpandedImages(null)}
                 >
                     <button
-                        className="absolute top-4 right-4 text-white p-2 hover:bg-white/10 transition-colors"
+                        className="absolute top-4 right-4 text-cream-50 p-2 hover:bg-cream-50/10 transition-colors"
                         aria-label="Close"
                     >
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

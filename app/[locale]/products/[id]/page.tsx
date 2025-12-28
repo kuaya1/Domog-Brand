@@ -198,7 +198,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 </Link>
                             </li>
                             <li className="text-cream-400">/</li>
-                            <li className="text-black font-medium" aria-current="page">
+                            <li className="text-charcoal-900 font-medium" aria-current="page">
                                 {product.name}
                             </li>
                         </ol>

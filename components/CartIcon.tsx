@@ -58,7 +58,7 @@ export default function CartIcon() {
             {count > 0 && (
                 <span
                     className={cn(
-                        'absolute top-0 right-0 bg-cognac-500 text-white text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full transition-transform duration-300',
+                        'absolute top-0 right-0 bg-cognac-500 text-cream-50 text-[10px] font-bold h-5 w-5 flex items-center justify-center rounded-full transition-transform duration-300',
                         animate ? 'scale-125' : 'scale-100'
                     )}
                 >

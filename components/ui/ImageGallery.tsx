@@ -162,7 +162,7 @@ export default function ImageGallery({
 
                 {/* Zoom indicator */}
                 {enableLightbox && (
-                    <div className="absolute bottom-4 right-4 bg-black/60 text-cream p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 right-4 bg-charcoal-900/60 text-cream-50 p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <ZoomIn size={20} />
                     </div>
                 )}
@@ -175,20 +175,20 @@ export default function ImageGallery({
                                 e.stopPropagation();
                                 goToPrevious();
                             }}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-300"
+                            className="absolute left-4 top-1/2 -translate-y-1/2 bg-cream-50/90 hover:bg-cream-50 p-2 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-300"
                             aria-label="Previous image"
                         >
-                            <ChevronLeft size={20} className="text-black" />
+                            <ChevronLeft size={20} className="text-charcoal-900" />
                         </button>
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 goToNext();
                             }}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-300"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 bg-cream-50/90 hover:bg-cream-50 p-2 rounded-full shadow-luxury opacity-0 group-hover:opacity-100 transition-all duration-300"
                             aria-label="Next image"
                         >
-                            <ChevronRight size={20} className="text-black" />
+                            <ChevronRight size={20} className="text-charcoal-900" />
                         </button>
                     </>
                 )}
@@ -227,7 +227,7 @@ export default function ImageGallery({
             {/* Lightbox */}
             {isLightboxOpen && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+                    className="fixed inset-0 z-50 bg-charcoal-900/95 flex items-center justify-center"
                     onClick={() => setIsLightboxOpen(false)}
                     role="dialog"
                     aria-modal="true"
@@ -236,14 +236,14 @@ export default function ImageGallery({
                     {/* Close button */}
                     <button
                         onClick={() => setIsLightboxOpen(false)}
-                        className="absolute top-4 right-4 text-white/70 hover:text-white p-2 transition-colors"
+                        className="absolute top-4 right-4 text-cream-50/70 hover:text-cream-50 p-2 transition-colors"
                         aria-label="Close lightbox"
                     >
                         <X size={32} />
                     </button>
 
                     {/* Image counter */}
-                    <div className="absolute top-4 left-4 text-white/70 font-sans text-sm tracking-wider">
+                    <div className="absolute top-4 left-4 text-cream-50/70 font-sans text-sm tracking-wider">
                         {currentIndex + 1} / {images.length}
                     </div>
 
@@ -270,7 +270,7 @@ export default function ImageGallery({
                                     e.stopPropagation();
                                     goToPrevious();
                                 }}
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 transition-colors"
+                                className="absolute left-4 top-1/2 -translate-y-1/2 text-cream-50/70 hover:text-cream-50 p-3 transition-colors"
                                 aria-label="Previous image"
                             >
                                 <ChevronLeft size={48} />
@@ -280,7 +280,7 @@ export default function ImageGallery({
                                     e.stopPropagation();
                                     goToNext();
                                 }}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white p-3 transition-colors"
+                                className="absolute right-4 top-1/2 -translate-y-1/2 text-cream-50/70 hover:text-cream-50 p-3 transition-colors"
                                 aria-label="Next image"
                             >
                                 <ChevronRight size={48} />

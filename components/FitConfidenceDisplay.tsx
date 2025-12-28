@@ -36,7 +36,7 @@ export default function FitConfidenceDisplay({
     return (
         <div className="bg-stone-50 border border-stone-200 rounded-sm overflow-hidden">
             {/* Header: The Grade */}
-            <div className="px-8 py-10 bg-white border-b border-stone-100">
+            <div className="px-8 py-10 bg-cream-50 border-b border-stone-100">
                 <div className="flex items-baseline justify-between mb-8">
                     <div>
                         <p className="text-xs uppercase tracking-[0.25em] text-stone-400 mb-2">
@@ -79,7 +79,7 @@ export default function FitConfidenceDisplay({
                     onClick={() => setActiveTab('now')}
                     className={`flex-1 px-6 py-4 text-xs uppercase tracking-widest transition-colors ${
                         activeTab === 'now' 
-                            ? 'text-stone-900 bg-white border-b-2 border-stone-900' 
+                            ? 'text-stone-900 bg-cream-50 border-b-2 border-stone-900' 
                             : 'text-stone-400 hover:text-stone-600'
                     }`}
                 >
@@ -89,7 +89,7 @@ export default function FitConfidenceDisplay({
                     onClick={() => setActiveTab('evolution')}
                     className={`flex-1 px-6 py-4 text-xs uppercase tracking-widest transition-colors ${
                         activeTab === 'evolution' 
-                            ? 'text-stone-900 bg-white border-b-2 border-stone-900' 
+                            ? 'text-stone-900 bg-cream-50 border-b-2 border-stone-900' 
                             : 'text-stone-400 hover:text-stone-600'
                     }`}
                 >
@@ -216,7 +216,7 @@ function EvolutionView({
     return (
         <div className="space-y-8">
             {/* Timeline */}
-            <div className="bg-white p-6 rounded-sm border border-stone-100">
+            <div className="bg-cream-50 p-6 rounded-sm border border-stone-100">
                 <h4 className="text-xs uppercase tracking-widest text-stone-400 mb-6">
                     The Journey
                 </h4>
@@ -239,7 +239,7 @@ function EvolutionView({
                 </h4>
                 <div className="grid grid-cols-2 gap-4">
                     {Object.entries(evolution.expectedStretch).map(([area, percent]) => (
-                        <div key={area} className="text-center p-4 bg-white rounded-sm border border-stone-100">
+                        <div key={area} className="text-center p-4 bg-cream-50 rounded-sm border border-stone-100">
                             <p className="text-2xl font-serif text-stone-900 mb-1">
                                 {percent.toFixed(1)}%
                             </p>
@@ -347,7 +347,7 @@ function RecommendationCard({ recommendation }: { recommendation: FitRecommendat
     const priorityStyles: Record<FitRecommendation['priority'], string> = {
         'essential': 'border-l-amber-600 bg-amber-50/50',
         'suggested': 'border-l-stone-400 bg-stone-50',
-        'optional': 'border-l-stone-200 bg-white'
+        'optional': 'border-l-stone-200 bg-cream-50'
     };
     
     const categoryLabels: Record<FitRecommendation['category'], string> = {
@@ -398,7 +398,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
     };
     
     return (
-        <div className="bg-white border border-stone-200 rounded-sm overflow-hidden">
+        <div className="bg-cream-50 border border-stone-200 rounded-sm overflow-hidden">
             {/* Header */}
             <div className="px-8 py-6 border-b border-stone-100">
                 <p className="text-xs uppercase tracking-[0.25em] text-amber-700 mb-2">
@@ -419,7 +419,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                         <div key={s} className="flex items-center gap-2">
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm ${
                                 s === step 
-                                    ? 'bg-stone-900 text-white' 
+                                    ? 'bg-stone-900 text-cream-50' 
                                     : s < step 
                                         ? 'bg-amber-100 text-amber-800' 
                                         : 'bg-stone-200 text-stone-400'
@@ -446,7 +446,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                             <button 
                                 onClick={() => setUnit('cm')}
                                 className={`px-3 py-1 text-xs uppercase tracking-wider ${
-                                    unit === 'cm' ? 'bg-stone-900 text-white' : 'text-stone-400'
+                                    unit === 'cm' ? 'bg-stone-900 text-cream-50' : 'text-stone-400'
                                 }`}
                             >
                                 CM
@@ -454,7 +454,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                             <button 
                                 onClick={() => setUnit('in')}
                                 className={`px-3 py-1 text-xs uppercase tracking-wider ${
-                                    unit === 'in' ? 'bg-stone-900 text-white' : 'text-stone-400'
+                                    unit === 'in' ? 'bg-stone-900 text-cream-50' : 'text-stone-400'
                                 }`}
                             >
                                 IN
@@ -495,7 +495,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                                         onClick={() => updateMeasurement('archProfile', arch)}
                                         className={`py-3 text-xs text-center border transition-colors ${
                                             measurements.archProfile === arch
-                                                ? 'border-stone-900 bg-stone-900 text-white'
+                                                ? 'border-stone-900 bg-stone-900 text-cream-50'
                                                 : 'border-stone-200 hover:border-stone-400'
                                         }`}
                                     >
@@ -568,7 +568,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                                         onClick={() => updateMeasurement('primaryUse', opt.value)}
                                         className={`py-3 text-sm border transition-colors ${
                                             measurements.primaryUse === opt.value
-                                                ? 'border-stone-900 bg-stone-900 text-white'
+                                                ? 'border-stone-900 bg-stone-900 text-cream-50'
                                                 : 'border-stone-200 hover:border-stone-400'
                                         }`}
                                     >
@@ -597,7 +597,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                 {step < 3 ? (
                     <button
                         onClick={() => setStep(s => s + 1)}
-                        className="px-6 py-2 bg-stone-900 text-white text-sm hover:bg-stone-800 transition-colors"
+                        className="px-6 py-2 bg-stone-900 text-cream-50 text-sm hover:bg-stone-800 transition-colors"
                     >
                         Continue
                     </button>
@@ -605,7 +605,7 @@ export function MeasurementForm({ onSubmit, isLoading }: MeasurementFormProps) {
                     <button
                         onClick={() => onSubmit(measurements)}
                         disabled={isLoading}
-                        className="px-6 py-2 bg-amber-700 text-white text-sm hover:bg-amber-800 transition-colors disabled:opacity-50"
+                        className="px-6 py-2 bg-amber-700 text-cream-50 text-sm hover:bg-amber-800 transition-colors disabled:opacity-50"
                     >
                         {isLoading ? 'Calculating...' : 'Calculate My Fit'}
                     </button>

@@ -203,7 +203,7 @@ export function NewsletterPopup({
         <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Newsletter">
             {/* Backdrop */}
             <div 
-                className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+                className="absolute inset-0 bg-charcoal-900/70 backdrop-blur-sm"
                 onClick={handleClose}
             />
             
@@ -213,7 +213,7 @@ export function NewsletterPopup({
                     {/* Close Button */}
                     <button
                         onClick={handleClose}
-                        className="absolute top-4 right-4 p-2 text-cream-500 hover:text-black transition-colors z-10"
+                        className="absolute top-4 right-4 p-2 text-cream-500 hover:text-charcoal-900 transition-colors z-10"
                         aria-label="Close"
                     >
                         <X className="h-5 w-5" />
@@ -225,13 +225,13 @@ export function NewsletterPopup({
                             <div className="w-16 h-16 bg-cognac-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <Check className="h-8 w-8 text-cognac-600" />
                             </div>
-                            <h2 className="font-serif text-2xl md:text-3xl text-black mb-4">
+                            <h2 className="font-serif text-2xl md:text-3xl text-charcoal-900 mb-4">
                                 Welcome to the Circle
                             </h2>
                             <p className="text-cream-600 mb-6">
                                 Your discount code has been sent to your inbox.
                             </p>
-                            <div className="bg-black text-white px-6 py-3 inline-block">
+                            <div className="bg-charcoal-900 text-cream-50 px-6 py-3 inline-block">
                                 <span className="text-cream-400 text-sm">Your code:</span>
                                 <span className="font-mono text-lg ml-2">{discountCode}</span>
                             </div>
@@ -244,7 +244,7 @@ export function NewsletterPopup({
                                 <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                     <Gift className="h-8 w-8 text-gold" />
                                 </div>
-                                <h2 className="font-serif text-2xl md:text-3xl text-black mb-3">
+                                <h2 className="font-serif text-2xl md:text-3xl text-charcoal-900 mb-3">
                                     Join the Quiet Circle
                                 </h2>
                                 <p className="text-cream-600">
@@ -256,7 +256,7 @@ export function NewsletterPopup({
                             {/* Discount Badge */}
                             <div className="bg-cognac-50 border border-cognac-200 p-4 text-center mb-6">
                                 <span className="text-cognac-600 text-sm">Exclusive Offer</span>
-                                <p className="font-serif text-3xl text-black mt-1">
+                                <p className="font-serif text-3xl text-charcoal-900 mt-1">
                                     {discountPercent}% OFF
                                 </p>
                                 <span className="text-xs text-cream-500">Your first purchase</span>
@@ -282,7 +282,7 @@ export function NewsletterPopup({
                                             }}
                                             placeholder="Enter your email"
                                             className={cn(
-                                                "w-full pl-12 pr-4 py-4 border bg-white",
+                                                "w-full pl-12 pr-4 py-4 border bg-cream-50",
                                                 "focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold",
                                                 status === 'error' 
                                                     ? "border-burgundy" 
@@ -303,11 +303,11 @@ export function NewsletterPopup({
                                         className={cn(
                                             "w-5 h-5 border flex-shrink-0 flex items-center justify-center mt-0.5 transition-colors",
                                             formData.gdprConsent 
-                                                ? "bg-black border-black" 
+                                                ? "bg-charcoal-900 border-charcoal-900" 
                                                 : "border-cream-300 hover:border-cream-400"
                                         )}
                                     >
-                                        {formData.gdprConsent && <Check className="h-3 w-3 text-white" />}
+                                        {formData.gdprConsent && <Check className="h-3 w-3 text-cream-50" />}
                                     </button>
                                     <label 
                                         onClick={() => setFormData(prev => ({ 
@@ -337,7 +337,7 @@ export function NewsletterPopup({
                                         "w-full py-4 font-medium transition-colors flex items-center justify-center gap-2",
                                         status === 'loading'
                                             ? "bg-cream-200 text-cream-400 cursor-not-allowed"
-                                            : "bg-black text-white hover:bg-cream-800"
+                                            : "bg-charcoal-900 text-cream-50 hover:bg-cream-800"
                                     )}
                                 >
                                     {status === 'loading' ? (

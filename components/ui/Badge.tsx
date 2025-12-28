@@ -28,10 +28,10 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-    gold: 'bg-gold text-black',
-    burgundy: 'bg-burgundy text-cream',
-    dark: 'bg-black text-cream',
-    cream: 'bg-cream-warm text-black border border-cream-dark',
+    gold: 'bg-gold text-charcoal-900',
+    burgundy: 'bg-burgundy text-cream-50',
+    dark: 'bg-charcoal-900 text-cream-50',
+    cream: 'bg-cream-warm text-charcoal-900 border border-cream-dark',
     outline: 'bg-transparent border border-gold text-gold',
 };
 
@@ -72,7 +72,7 @@ export default function Badge({
                     'w-2 h-2 rounded-full',
                     variant === 'gold' && 'bg-gold',
                     variant === 'burgundy' && 'bg-burgundy',
-                    variant === 'dark' && 'bg-black',
+                    variant === 'dark' && 'bg-charcoal-900',
                     variant === 'cream' && 'bg-cream-warm',
                     variant === 'outline' && 'border-2 border-gold',
                     pulse && 'animate-pulse',

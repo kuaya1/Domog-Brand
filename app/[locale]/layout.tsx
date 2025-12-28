@@ -164,10 +164,10 @@ export default function LocaleLayout({ children, params: { locale } }: LocaleLay
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData()) }}
                 />
             </head>
-            <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-black antialiased`}>
+            <body className={`${inter.variable} ${playfair.variable} font-sans bg-cream text-charcoal-900 antialiased`}>
                 <a 
                     href="#main-content" 
-                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-black"
+                    className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-charcoal-900"
                 >
                     Skip to main content
                 </a>

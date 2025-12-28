@@ -220,7 +220,7 @@ export function ProductRecommendations({
         <section className={cn('py-12', className)}>
             {/* Section Header */}
             <div className="flex items-center justify-between mb-8">
-                <h2 className="font-serif text-2xl md:text-3xl text-black flex items-center gap-3">
+                <h2 className="font-serif text-2xl md:text-3xl text-charcoal-900 flex items-center gap-3">
                     <Icon className="h-6 w-6 text-cognac-500" />
                     {displayTitle}
                 </h2>
@@ -228,7 +228,7 @@ export function ProductRecommendations({
                 {type === 'recently-viewed' && recommendations.length > 0 && (
                     <button
                         onClick={() => useRecentlyViewedStore.getState().clearHistory()}
-                        className="text-sm text-cream-500 hover:text-black transition-colors"
+                        className="text-sm text-cream-500 hover:text-charcoal-900 transition-colors"
                     >
                         Clear history
                     </button>
@@ -277,12 +277,12 @@ function RecommendationCard({ product }: { product: Product }) {
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-col gap-1">
                     {product.isNew && (
-                        <span className="bg-gold text-black text-[10px] uppercase tracking-wider px-2 py-1">
+                        <span className="bg-gold text-charcoal-900 text-[10px] uppercase tracking-wider px-2 py-1">
                             New
                         </span>
                     )}
                     {product.inStock === false && (
-                        <span className="bg-burgundy text-white text-[10px] uppercase tracking-wider px-2 py-1">
+                        <span className="bg-burgundy text-cream-50 text-[10px] uppercase tracking-wider px-2 py-1">
                             Sold Out
                         </span>
                     )}
@@ -298,8 +298,8 @@ function RecommendationCard({ product }: { product: Product }) {
                         "absolute top-3 right-3 p-2 rounded-full transition-all",
                         "opacity-0 group-hover:opacity-100",
                         isInWishlist 
-                            ? "bg-burgundy text-white" 
-                            : "bg-white/90 text-cream-600 hover:text-burgundy"
+                            ? "bg-burgundy text-cream-50" 
+                            : "bg-cream-50/90 text-cream-600 hover:text-burgundy"
                     )}
                     aria-label={isInWishlist ? "In wishlist" : "Add to wishlist"}
                 >
@@ -309,7 +309,7 @@ function RecommendationCard({ product }: { product: Product }) {
             
             {/* Product Info */}
             <Link href={`/${locale}/products/${product.id}`} className="block">
-                <h3 className="font-serif text-sm md:text-base text-black mb-1 group-hover:text-cognac transition-colors line-clamp-1">
+                <h3 className="font-serif text-sm md:text-base text-charcoal-900 mb-1 group-hover:text-cognac transition-colors line-clamp-1">
                     {product.name}
                 </h3>
                 <p className="text-xs text-cream-500 mb-1">

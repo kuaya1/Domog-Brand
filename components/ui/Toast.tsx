@@ -201,14 +201,14 @@ function ToastItem({ toast, onClose }: ToastItemProps) {
             <div className="flex items-start gap-3">
                 <Icon className={cn('w-5 h-5 flex-shrink-0 mt-0.5', iconColor)} />
                 <div className="flex-1 min-w-0">
-                    <p className="font-medium text-black text-sm">{toast.title}</p>
+                    <p className="font-medium text-charcoal-900 text-sm">{toast.title}</p>
                     {toast.message && (
                         <p className="text-stone-muted text-sm mt-1">{toast.message}</p>
                     )}
                 </div>
                 <button
                     onClick={onClose}
-                    className="flex-shrink-0 text-stone-muted hover:text-black transition-colors"
+                    className="flex-shrink-0 text-stone-muted hover:text-charcoal-900 transition-colors"
                     aria-label="Close notification"
                 >
                     <X className="w-4 h-4" />

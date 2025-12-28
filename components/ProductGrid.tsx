@@ -48,7 +48,7 @@ function ProductGridComponent({ products, locale: propLocale }: ProductGridProps
                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         
                         {product.isNew && (
-                            <span className="absolute top-4 right-4 bg-gold text-black font-sans text-xs uppercase tracking-wider px-3 py-1.5">
+                            <span className="absolute top-4 right-4 bg-gold text-charcoal-900 font-sans text-xs uppercase tracking-wider px-3 py-1.5">
                                 New
                             </span>
                         )}
@@ -65,7 +65,7 @@ function ProductGridComponent({ products, locale: propLocale }: ProductGridProps
                         <p className="font-sans text-xs uppercase tracking-[0.2em] text-cognac mb-2">
                             {product.category}
                         </p>
-                        <h3 className="font-serif text-xl text-black font-medium mb-3 line-clamp-2 group-hover:text-cognac transition-colors duration-300">
+                        <h3 className="font-serif text-xl text-charcoal-900 font-medium mb-3 line-clamp-2 group-hover:text-cognac transition-colors duration-300">
                             {product.name}
                         </h3>
                         <div className="flex items-baseline gap-2">

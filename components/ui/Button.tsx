@@ -54,7 +54,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     primary: `
         bg-charcoal-900 text-cream-50
         hover:bg-charcoal-800
-        active:bg-black
+        active:bg-charcoal-950
         focus-visible:ring-2 focus-visible:ring-gold-600 focus-visible:ring-offset-2
         disabled:bg-charcoal-900/50 disabled:text-cream-50/50
     `,

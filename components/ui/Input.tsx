@@ -102,7 +102,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, CombinedInputPr
             // Base
             'w-full bg-transparent',
             'border-b-2 transition-all duration-300 ease-luxury',
-            'text-black placeholder-transparent',
+            'text-charcoal-900 placeholder-transparent',
             'font-sans text-base',
             // Focus state
             'focus:outline-none focus:ring-2 focus:ring-offset-0',

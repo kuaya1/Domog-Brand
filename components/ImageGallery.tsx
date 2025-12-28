@@ -101,7 +101,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                             className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed lg:opacity-0 lg:hover:opacity-100"
                             aria-label="Previous image"
                         >
-                            <ChevronLeft className="w-5 h-5 text-black" />
+                            <ChevronLeft className="w-5 h-5 text-charcoal-900" />
                         </button>
                         <button
                             onClick={goToNext}
@@ -109,7 +109,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                             className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-30 disabled:cursor-not-allowed lg:opacity-0 lg:hover:opacity-100"
                             aria-label="Next image"
                         >
-                            <ChevronRight className="w-5 h-5 text-black" />
+                            <ChevronRight className="w-5 h-5 text-charcoal-900" />
                         </button>
                     </>
                 )}

@@ -12,7 +12,7 @@ export default function CareContent({ locale }: CareContentProps) {
     return (
         <div className="min-h-screen bg-cream">
             {/* Hero */}
-            <section className="bg-black py-24 lg:py-32 relative overflow-hidden">
+            <section className="bg-charcoal-900 py-24 lg:py-32 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" aria-hidden="true">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(201,169,97,0.4)_0%,_transparent_50%)]" />
                 </div>
@@ -36,7 +36,7 @@ export default function CareContent({ locale }: CareContentProps) {
             <section className="py-16 lg:py-24 border-b border-cream-200">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8">
                     <blockquote className="border-l-2 border-gold/30 pl-6 mb-12">
-                        <p className="font-serif text-2xl text-black italic">
+                        <p className="font-serif text-2xl text-charcoal-900 italic">
                             {isEN 
                                 ? '"We cure leather by seasons, not hours. Care for it the same way."'
                                 : '"Бид арьсаа цагаар бус, улирлаар хэмжиж идээлдэг. Түүнийг ч мөн адил цаг гарган хайрлаарай."'
@@ -60,7 +60,7 @@ export default function CareContent({ locale }: CareContentProps) {
                         <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
                             <Droplets className="w-5 h-5 text-gold" />
                         </div>
-                        <h2 className="font-serif text-2xl lg:text-3xl text-black font-medium">
+                        <h2 className="font-serif text-2xl lg:text-3xl text-charcoal-900 font-medium">
                             {isEN ? 'Daily Ritual' : 'Өдөр Тутмын Дэг'}
                         </h2>
                     </div>
@@ -89,7 +89,7 @@ export default function CareContent({ locale }: CareContentProps) {
                         <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
                             <Moon className="w-5 h-5 text-gold" />
                         </div>
-                        <h2 className="font-serif text-2xl lg:text-3xl text-black font-medium">
+                        <h2 className="font-serif text-2xl lg:text-3xl text-charcoal-900 font-medium">
                             {isEN ? 'Monthly Conditioning' : 'Сар Бүрийн Тосолгоо'}
                         </h2>
                     </div>
@@ -111,7 +111,7 @@ export default function CareContent({ locale }: CareContentProps) {
                     
                     {/* Product Recommendations */}
                     <div className="mt-10 bg-cream-sand rounded-lg p-6">
-                        <h3 className="font-medium text-black mb-4 flex items-center gap-2">
+                        <h3 className="font-medium text-charcoal-900 mb-4 flex items-center gap-2">
                             <Heart className="w-4 h-4 text-gold" />
                             {isEN ? 'Recommended Products' : 'Санал Болгох Бүтээгдэхүүн'}
                         </h3>
@@ -140,7 +140,7 @@ export default function CareContent({ locale }: CareContentProps) {
                         <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
                             <RefreshCw className="w-5 h-5 text-gold" />
                         </div>
-                        <h2 className="font-serif text-2xl lg:text-3xl text-black font-medium">
+                        <h2 className="font-serif text-2xl lg:text-3xl text-charcoal-900 font-medium">
                             {isEN ? 'Seasonal Storage' : 'Улирлын Хадгалалт'}
                         </h2>
                     </div>
@@ -169,7 +169,7 @@ export default function CareContent({ locale }: CareContentProps) {
                         <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center">
                             <Wind className="w-5 h-5 text-gold" />
                         </div>
-                        <h2 className="font-serif text-2xl lg:text-3xl text-black font-medium">
+                        <h2 className="font-serif text-2xl lg:text-3xl text-charcoal-900 font-medium">
                             {isEN ? 'Water & Weather' : 'Ус & Цаг Агаар'}
                         </h2>
                     </div>
@@ -206,7 +206,7 @@ export default function CareContent({ locale }: CareContentProps) {
             </section>
 
             {/* Heritage Note */}
-            <section className="py-16 lg:py-24 bg-black text-cream">
+            <section className="py-16 lg:py-24 bg-charcoal-900 text-cream-50">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8">
                     <blockquote className="border-l-2 border-gold/50 pl-6">
                         <p className="font-serif text-xl lg:text-2xl italic mb-4">
@@ -225,7 +225,7 @@ export default function CareContent({ locale }: CareContentProps) {
             {/* Closing */}
             <section className="py-16 lg:py-24">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-                    <blockquote className="font-serif text-2xl lg:text-3xl text-black italic mb-6">
+                    <blockquote className="font-serif text-2xl lg:text-3xl text-charcoal-900 italic mb-6">
                         {isEN
                             ? '"A machine can measure a boot. Only hands can know it."'
                             : '"Машин гутлыг хэмжиж чадна. Харин зөвхөн гар л түүнийг мэдэрнэ."'

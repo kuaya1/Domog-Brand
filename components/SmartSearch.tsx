@@ -63,7 +63,7 @@ function highlightMatch(text: string, query: string): JSX.Element {
         <>
             {parts.map((part, i) => 
                 regex.test(part) ? (
-                    <mark key={i} className="bg-gold/30 text-black rounded-sm px-0.5">
+                    <mark key={i} className="bg-gold/30 text-charcoal-900 rounded-sm px-0.5">
                         {part}
                     </mark>
                 ) : (
@@ -274,7 +274,7 @@ export function SmartSearch() {
         <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Search">
             {/* Backdrop */}
             <div 
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm"
                 onClick={() => setSearchOpen(false)}
             />
             
@@ -295,12 +295,12 @@ export function SmartSearch() {
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 placeholder="Search for boots, categories, or styles..."
-                                className="w-full pl-12 pr-12 py-4 bg-white border border-cream-200 text-lg placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                                className="w-full pl-12 pr-12 py-4 bg-cream-50 border border-cream-200 text-lg placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
                             />
                             {query && (
                                 <button
                                     onClick={() => setQuery('')}
-                                    className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-cream-400 hover:text-black transition-colors"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-cream-400 hover:text-charcoal-900 transition-colors"
                                 >
                                     <X className="h-5 w-5" />
                                 </button>
@@ -326,8 +326,8 @@ export function SmartSearch() {
                                         className={cn(
                                             "px-3 py-1 text-xs border transition-colors",
                                             selectedPriceRange?.label === range.label
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                                : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                                         )}
                                     >
                                         {range.label}
@@ -347,8 +347,8 @@ export function SmartSearch() {
                                         className={cn(
                                             "px-3 py-1 text-xs border transition-colors",
                                             selectedCategory === cat.slug
-                                                ? "bg-black text-white border-black"
-                                                : "bg-white text-cream-600 border-cream-200 hover:border-black"
+                                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
+                                                : "bg-cream-50 text-cream-600 border-cream-200 hover:border-charcoal-900"
                                         )}
                                     >
                                         {cat.name}
@@ -369,13 +369,13 @@ export function SmartSearch() {
                                 {recentSearches.length > 0 && (
                                     <div>
                                         <div className="flex items-center justify-between mb-4">
-                                            <h3 className="font-serif text-lg text-black flex items-center gap-2">
+                                            <h3 className="font-serif text-lg text-charcoal-900 flex items-center gap-2">
                                                 <Clock className="h-4 w-4 text-cognac-500" />
                                                 Recent Searches
                                             </h3>
                                             <button
                                                 onClick={clearRecentSearches}
-                                                className="text-xs text-cream-500 hover:text-black transition-colors"
+                                                className="text-xs text-cream-500 hover:text-charcoal-900 transition-colors"
                                             >
                                                 Clear all
                                             </button>
@@ -388,7 +388,7 @@ export function SmartSearch() {
                                                             setQuery(search);
                                                             handleSearch(search);
                                                         }}
-                                                        className="w-full text-left px-4 py-3 bg-white border border-cream-100 hover:border-cognac-300 transition-colors flex items-center justify-between group"
+                                                        className="w-full text-left px-4 py-3 bg-cream-50 border border-cream-100 hover:border-cognac-300 transition-colors flex items-center justify-between group"
                                                     >
                                                         <span className="text-cream-700">{search}</span>
                                                         <ArrowRight className="h-4 w-4 text-cream-300 group-hover:text-cognac-500 transition-colors" />
@@ -401,7 +401,7 @@ export function SmartSearch() {
                                 
                                 {/* Popular Searches */}
                                 <div>
-                                    <h3 className="font-serif text-lg text-black flex items-center gap-2 mb-4">
+                                    <h3 className="font-serif text-lg text-charcoal-900 flex items-center gap-2 mb-4">
                                         <TrendingUp className="h-4 w-4 text-gold" />
                                         Popular Searches
                                     </h3>
@@ -413,7 +413,7 @@ export function SmartSearch() {
                                                         setQuery(search);
                                                         handleSearch(search);
                                                     }}
-                                                    className="w-full text-left px-4 py-3 bg-white border border-cream-100 hover:border-gold transition-colors flex items-center justify-between group"
+                                                    className="w-full text-left px-4 py-3 bg-cream-50 border border-cream-100 hover:border-gold transition-colors flex items-center justify-between group"
                                                 >
                                                     <span className="text-cream-700 capitalize">{search}</span>
                                                     <ArrowRight className="h-4 w-4 text-cream-300 group-hover:text-gold transition-colors" />
@@ -438,7 +438,7 @@ export function SmartSearch() {
                                             href={`/${locale}/products/${result.product.id}`}
                                             onClick={() => handleProductClick(result.product)}
                                             className={cn(
-                                                "flex gap-4 p-4 bg-white border transition-all",
+                                                "flex gap-4 p-4 bg-cream-50 border transition-all",
                                                 focusedIndex === idx 
                                                     ? "border-gold ring-2 ring-gold/20" 
                                                     : "border-cream-100 hover:border-cognac-300"
@@ -463,7 +463,7 @@ export function SmartSearch() {
                                             
                                             {/* Product Info */}
                                             <div className="flex-1 min-w-0">
-                                                <h4 className="font-serif text-lg text-black">
+                                                <h4 className="font-serif text-lg text-charcoal-900">
                                                     {highlightMatch(result.product.name, debouncedQuery)}
                                                 </h4>
                                                 <p className="text-sm text-cognac-600 mb-1">
@@ -476,7 +476,7 @@ export function SmartSearch() {
                                             
                                             {/* Price */}
                                             <div className="text-right flex-shrink-0">
-                                                <p className="font-serif text-lg text-black">
+                                                <p className="font-serif text-lg text-charcoal-900">
                                                     ${result.product.price}
                                                 </p>
                                                 {result.product.isNew && (
@@ -495,7 +495,7 @@ export function SmartSearch() {
                         {showEmptyState && (
                             <div className="text-center py-12">
                                 <Search className="h-12 w-12 text-cream-300 mx-auto mb-4" />
-                                <h3 className="font-serif text-xl text-black mb-2">
+                                <h3 className="font-serif text-xl text-charcoal-900 mb-2">
                                     No results found
                                 </h3>
                                 <p className="text-cream-500 mb-6 max-w-md mx-auto">
@@ -524,7 +524,7 @@ export function SmartSearch() {
                 {/* Close Button */}
                 <button
                     onClick={() => setSearchOpen(false)}
-                    className="absolute top-6 right-6 p-2 text-cream-500 hover:text-black transition-colors"
+                    className="absolute top-6 right-6 p-2 text-cream-500 hover:text-charcoal-900 transition-colors"
                     aria-label="Close search"
                 >
                     <X className="h-6 w-6" />

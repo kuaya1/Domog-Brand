@@ -270,7 +270,7 @@ export function SizeGuide({
                                 <div className="flex gap-3">
                                     <Info className="h-5 w-5 text-cognac flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <span className="text-xs uppercase tracking-wider text-cognac mb-1 block">Craftsman's Note</span>
+                                        <span className="text-xs uppercase tracking-wider text-cognac mb-1 block">Craftsman&apos;s Note</span>
                                         <p className="text-sm text-stone-warm leading-relaxed">{fitTip}</p>
                                     </div>
                                 </div>

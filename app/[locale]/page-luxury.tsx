@@ -65,7 +65,7 @@ export default function LocaleHome({ params: { locale } }: PageProps) {
                                 px-10 py-5
                                 bg-charcoal-900 text-cream-50
                                 text-xs uppercase tracking-[0.25em] font-bold
-                                hover:bg-black hover:scale-105
+                                hover:bg-charcoal-800 hover:scale-105
                                 transition-all duration-500 ease-out
                                 shadow-2xl hover:shadow-3xl
                             "

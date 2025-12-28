@@ -35,10 +35,10 @@ interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles = {
-    default: 'bg-white',
-    elevated: 'bg-white shadow-luxury',
-    bordered: 'bg-white border border-cream-dark',
-    dark: 'bg-black text-cream',
+    default: 'bg-cream-50',
+    elevated: 'bg-cream-50 shadow-luxury',
+    bordered: 'bg-cream-50 border border-cream-dark',
+    dark: 'bg-charcoal-900 text-cream-50',
 };
 
 const paddingStyles = {

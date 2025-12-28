@@ -48,7 +48,7 @@ function ContactPageContent() {
     return (
         <div className="min-h-screen bg-cream">
             {/* Hero Header */}
-            <section className="bg-black py-20 sm:py-24 lg:py-32 relative overflow-hidden">
+            <section className="bg-charcoal-900 py-20 sm:py-24 lg:py-32 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10" aria-hidden="true">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(201,169,97,0.4)_0%,_transparent_50%)]" />
                 </div>
@@ -73,7 +73,7 @@ function ContactPageContent() {
                         {/* Contact Information - Left Column */}
                         <div className="lg:col-span-2 space-y-10">
                             <div>
-                                <h2 className="font-serif text-2xl text-black mb-8">
+                                <h2 className="font-serif text-2xl text-charcoal-900 mb-8">
                                     {t.visit_title}
                                 </h2>
                                 <p className="text-stone-warm leading-relaxed mb-8">
@@ -123,7 +123,7 @@ function ContactPageContent() {
 
                             {/* Quote */}
                             <blockquote className="border-l-2 border-gold/30 pl-6">
-                                <p className="font-serif text-lg text-black italic">
+                                <p className="font-serif text-lg text-charcoal-900 italic">
                                     &ldquo;{t.quote}&rdquo;
                                 </p>
                             </blockquote>
@@ -131,8 +131,8 @@ function ContactPageContent() {
 
                         {/* Contact Form - Right Column */}
                         <div className="lg:col-span-3">
-                            <div className="bg-white border border-cream-200 p-6 sm:p-8 lg:p-12">
-                                <h2 className="font-serif text-2xl text-black mb-2">
+                            <div className="bg-cream-50 border border-cream-200 p-6 sm:p-8 lg:p-12">
+                                <h2 className="font-serif text-2xl text-charcoal-900 mb-2">
                                     {t.form_title}
                                 </h2>
                                 <p className="text-stone-warm text-sm mb-8">
@@ -144,7 +144,7 @@ function ContactPageContent() {
                                         <div className="w-16 h-16 bg-cognac/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                             <Mail className="h-8 w-8 text-cognac" />
                                         </div>
-                                        <h3 className="font-serif text-2xl text-black mb-4">
+                                        <h3 className="font-serif text-2xl text-charcoal-900 mb-4">
                                             {t.success_title}
                                         </h3>
                                         <p className="text-stone-warm max-w-md mx-auto">
@@ -165,7 +165,7 @@ function ContactPageContent() {
                                                     required
                                                     value={formData.name}
                                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-charcoal-900 placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                                 />
                                             </div>
                                             <div>
@@ -178,7 +178,7 @@ function ContactPageContent() {
                                                     required
                                                     value={formData.email}
                                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                    className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-charcoal-900 placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                                 />
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@ function ContactPageContent() {
                                                 id="phone"
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-charcoal-900 placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
                                             />
                                         </div>
 
@@ -206,7 +206,7 @@ function ContactPageContent() {
                                                 id="subject"
                                                 value={formData.subject}
                                                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-black focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[52px] py-3.5 px-4 text-base text-charcoal-900 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors appearance-none"
                                             >
                                                 <option value="general">{t.subject_general}</option>
                                                 <option value="order">{t.subject_order || 'Place an Order'}</option>
@@ -228,7 +228,7 @@ function ContactPageContent() {
                                                 rows={5}
                                                 value={formData.message}
                                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                className="w-full border border-cream-200 bg-cream-50 min-h-[140px] py-3.5 px-4 text-base text-black placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
+                                                className="w-full border border-cream-200 bg-cream-50 min-h-[140px] py-3.5 px-4 text-base text-charcoal-900 placeholder:text-cream-400 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
                                                 placeholder={t.message_placeholder}
                                             />
                                         </div>
@@ -238,8 +238,8 @@ function ContactPageContent() {
                                             type="submit"
                                             disabled={status === 'submitting'}
                                             className={cn(
-                                                "w-full bg-black text-white min-h-[56px] py-4 px-8 font-sans text-sm uppercase tracking-widest",
-                                                "hover:bg-black-rich active:bg-charcoal-800 transition-all duration-300",
+                                                "w-full bg-charcoal-900 text-cream-50 min-h-[56px] py-4 px-8 font-sans text-sm uppercase tracking-widest",
+                                                "hover:bg-charcoal-800 active:bg-charcoal-800 transition-all duration-300",
                                                 "focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2",
                                                 "disabled:opacity-70 disabled:cursor-not-allowed",
                                                 "flex items-center justify-center gap-3"
@@ -277,7 +277,7 @@ export default function ContactPage() {
 function ContactPageSkeleton() {
     return (
         <div className="min-h-screen bg-cream animate-pulse">
-            <div className="bg-black py-24 lg:py-32" />
+            <div className="bg-charcoal-900 py-24 lg:py-32" />
             <div className="py-16 lg:py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="h-96 bg-cream-200 rounded" />
@@ -305,7 +305,7 @@ function ContactInfoItem({
             </div>
             <div>
                 <p className="text-xs uppercase tracking-wider text-stone-warm mb-1">{label}</p>
-                <p className="text-black">{value}</p>
+                <p className="text-charcoal-900">{value}</p>
                 {subtext && <p className="text-sm text-cream-500 mt-1">{subtext}</p>}
             </div>
         </div>

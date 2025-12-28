@@ -155,7 +155,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                             <div className="space-y-6 text-stone-warm text-lg leading-relaxed">
                                 <p>{t.nomadic_p1}</p>
                                 <p>{t.nomadic_p2}</p>
-                                <p className="text-black font-medium">{t.nomadic_p3}</p>
+                                <p className="text-charcoal-900 font-medium">{t.nomadic_p3}</p>
                             </div>
                         </div>
                         <div className="order-1 lg:order-2 relative h-[650px] flex items-center justify-center p-8">
@@ -201,7 +201,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                             <div className="space-y-6 text-stone-warm text-lg leading-relaxed">
                                 <p>{t.italian_p1}</p>
                                 <p>{t.italian_p2}</p>
-                                <p className="text-black font-medium">{t.italian_p3}</p>
+                                <p className="text-charcoal-900 font-medium">{t.italian_p3}</p>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ export default function AboutPage({ params: { locale } }: PageProps) {
             </section>
 
             {/* The Master's Touch - Central Feature */}
-            <section className="py-32 lg:py-40 bg-black text-white relative overflow-hidden">
+            <section className="py-32 lg:py-40 bg-charcoal-900 text-cream-50 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)]" />
                 </div>
@@ -262,17 +262,17 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                     <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-8">
                         {t.promise_label}
                     </p>
-                    <h2 className="font-serif text-3xl sm:text-4xl text-black font-medium leading-tight mb-12">
+                    <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 font-medium leading-tight mb-12">
                         {t.promise_title}
                     </h2>
                     <div className="space-y-8 text-stone-warm text-lg leading-relaxed">
                         <p>{t.promise_p1}</p>
                         <p>{t.promise_p2}</p>
-                        <p className="text-black font-medium text-xl">{t.promise_p3}</p>
+                        <p className="text-charcoal-900 font-medium text-xl">{t.promise_p3}</p>
                     </div>
                     
                     <div className="mt-16 pt-16 border-t border-cream-200">
-                        <p className="font-serif text-2xl text-black italic">
+                        <p className="font-serif text-2xl text-charcoal-900 italic">
                             Domog
                         </p>
                         <p className="text-stone-warm text-sm mt-2 tracking-wide">
@@ -288,13 +288,13 @@ export default function AboutPage({ params: { locale } }: PageProps) {
                     <p className="font-sans text-xs uppercase tracking-[0.25em] text-cognac mb-8">
                         {t.invitation_label}
                     </p>
-                    <h2 className="font-serif text-3xl sm:text-4xl text-black font-medium leading-tight mb-12">
+                    <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 font-medium leading-tight mb-12">
                         {t.invitation_title}
                     </h2>
                     <div className="space-y-8 text-stone-warm text-lg leading-relaxed">
                         <p>{t.invitation_p1}</p>
                         <p>{t.invitation_p2}</p>
-                        <p className="text-black font-medium text-xl italic">{t.invitation_p3}</p>
+                        <p className="text-charcoal-900 font-medium text-xl italic">{t.invitation_p3}</p>
                     </div>
                     
                     <p className="mt-16 text-stone-warm text-sm tracking-wide">

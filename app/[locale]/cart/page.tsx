@@ -29,7 +29,7 @@ export default function CartPage() {
                         <span className="text-xs uppercase tracking-[0.25em] text-cognac mb-4 block">
                             Your Commission
                         </span>
-                        <h1 className="font-serif text-3xl lg:text-4xl text-black">
+                        <h1 className="font-serif text-3xl lg:text-4xl text-charcoal-900">
                             {t.empty_title}
                         </h1>
                     </div>
@@ -44,7 +44,7 @@ export default function CartPage() {
                         </p>
                         <Link
                             href={`/${locale}/shop`}
-                            className="inline-flex items-center gap-3 bg-black text-cream py-4 px-10 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 transition-colors"
+                            className="inline-flex items-center gap-3 bg-charcoal-900 text-cream-50 py-4 px-10 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 transition-colors"
                         >
                             {t.explore_collection}
                             <ArrowRight className="h-4 w-4" />
@@ -63,7 +63,7 @@ export default function CartPage() {
                     <span className="text-xs uppercase tracking-[0.25em] text-cognac mb-3 block">
                         Your Commission
                     </span>
-                    <h1 className="font-serif text-3xl lg:text-4xl text-black">
+                    <h1 className="font-serif text-3xl lg:text-4xl text-charcoal-900">
                         {t.page_title}
                     </h1>
                     <p className="text-stone-warm mt-3">
@@ -99,7 +99,7 @@ export default function CartPage() {
                                                 <div>
                                                     <Link 
                                                         href={`/${locale}/products/${item.id}`}
-                                                        className="font-serif text-lg text-black hover:text-cognac transition-colors"
+                                                        className="font-serif text-lg text-charcoal-900 hover:text-cognac transition-colors"
                                                     >
                                                         {item.name}
                                                     </Link>
@@ -107,7 +107,7 @@ export default function CartPage() {
                                                         {t.size_label} {item.selectedSize}
                                                     </p>
                                                 </div>
-                                                <p className="font-serif text-lg text-black">
+                                                <p className="font-serif text-lg text-charcoal-900">
                                                     ${(item.price * item.quantity).toLocaleString()}
                                                 </p>
                                             </div>
@@ -163,19 +163,19 @@ export default function CartPage() {
                     {/* Order Summary */}
                     <section className="lg:col-span-5 mt-12 lg:mt-0">
                         <div className="bg-cream-sand border border-cream-200 p-8">
-                            <h2 className="font-serif text-xl text-black mb-6">
+                            <h2 className="font-serif text-xl text-charcoal-900 mb-6">
                                 {t.order_summary}
                             </h2>
 
                             <dl className="space-y-4 text-sm">
                                 <div className="flex items-center justify-between">
                                     <dt className="text-stone-warm">{t.subtotal}</dt>
-                                    <dd className="text-black">${subtotal.toLocaleString()}</dd>
+                                    <dd className="text-charcoal-900">${subtotal.toLocaleString()}</dd>
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <dt className="text-stone-warm">{t.shipping}</dt>
                                     <dd className={cn(
-                                        shipping === 0 ? "text-cognac" : "text-black"
+                                        shipping === 0 ? "text-cognac" : "text-charcoal-900"
                                     )}>
                                         {shipping === 0 ? t.shipping_free : `$${shipping}`}
                                     </dd>
@@ -186,8 +186,8 @@ export default function CartPage() {
                                     </p>
                                 )}
                                 <div className="pt-4 border-t border-cream-300 flex items-center justify-between">
-                                    <dt className="font-medium text-black">{t.total}</dt>
-                                    <dd className="font-serif text-xl text-black">
+                                    <dt className="font-medium text-charcoal-900">{t.total}</dt>
+                                    <dd className="font-serif text-xl text-charcoal-900">
                                         ${total.toLocaleString()}
                                     </dd>
                                 </div>
@@ -196,7 +196,7 @@ export default function CartPage() {
                             <div className="mt-8">
                                 <Link
                                     href={`/${locale}/contact?inquiry=order`}
-                                    className="w-full bg-black text-white py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-black-rich focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 transition-colors flex items-center justify-center gap-3"
+                                    className="w-full bg-charcoal-900 text-cream-50 py-4 px-8 font-sans text-sm uppercase tracking-widest hover:bg-charcoal-800 focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 transition-colors flex items-center justify-center gap-3"
                                 >
                                     {t.checkout}
                                     <ArrowRight className="h-4 w-4" />

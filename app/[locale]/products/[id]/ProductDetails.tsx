@@ -127,11 +127,11 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                     </span>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-black mb-3 tracking-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-medium text-charcoal-900 mb-3 tracking-tight">
                     {product.name}
                 </h1>
                 
-                <p className="text-2xl sm:text-3xl text-black mb-8">
+                <p className="text-2xl sm:text-3xl text-charcoal-900 mb-8">
                     ${product.price.toLocaleString()}
                 </p>
 
@@ -142,7 +142,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                     </p>
                     <div className="border-l-2 border-gold/30 pl-5">
                         <p className="text-sm text-stone-warm italic">
-                            "Leather pulled by human muscle, not machines. A dialogue measured in millimeters."
+                            &ldquo;Leather pulled by human muscle, not machines. A dialogue measured in millimeters.&rdquo;
                         </p>
                     </div>
                 </div>
@@ -151,7 +151,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 <div className="space-y-8 mb-10 border-t border-b border-cream-200 py-8">
                     <div>
                         <div className="flex justify-between items-center mb-4">
-                            <span className="font-serif text-lg text-black">Find Your Fit</span>
+                            <span className="font-serif text-lg text-charcoal-900">Find Your Fit</span>
                             <button 
                                 type="button"
                                 onClick={() => setIsSizeGuideOpen(true)}
@@ -175,7 +175,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                     </div>
 
                     <div>
-                        <span className="block font-serif text-lg text-black mb-3">
+                        <span className="block font-serif text-lg text-charcoal-900 mb-3">
                             Quantity
                         </span>
                         <QuantitySelector
@@ -194,7 +194,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                         onClick={handleAddToCart}
                         disabled={!selectedSize || !product.inStock || isAdding}
                         aria-disabled={!selectedSize || !product.inStock || isAdding}
-                        className="flex-1 bg-black text-white min-h-[56px] py-4 px-6 sm:px-8 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 active:bg-charcoal-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
+                        className="flex-1 bg-charcoal-900 text-cream-50 min-h-[56px] py-4 px-6 sm:px-8 font-sans text-sm uppercase tracking-[0.15em] hover:bg-charcoal-800 active:bg-charcoal-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2"
                     >
                         {!product.inStock 
                             ? 'Currently at the Bench' 
@@ -228,7 +228,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                             <ShieldCheck className="text-cognac-600" size={20} aria-hidden="true" />
                         </div>
                         <div>
-                            <span className="block text-sm font-medium text-black">Forty Hours of Devotion</span>
+                            <span className="block text-sm font-medium text-charcoal-900">Forty Hours of Devotion</span>
                             <span className="text-xs text-stone-warm">Each pair shaped by master hands</span>
                         </div>
                     </div>
@@ -237,7 +237,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                             <Truck className="text-cognac-600" size={20} aria-hidden="true" />
                         </div>
                         <div>
-                            <span className="block text-sm font-medium text-black">Worldwide Delivery</span>
+                            <span className="block text-sm font-medium text-charcoal-900">Worldwide Delivery</span>
                             <span className="text-xs text-stone-warm">From Ulaanbaatar to your door</span>
                         </div>
                     </div>
@@ -246,7 +246,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                             <Clock className="text-cognac-600" size={20} aria-hidden="true" />
                         </div>
                         <div>
-                            <span className="block text-sm font-medium text-black">Lifetime Craftsmanship</span>
+                            <span className="block text-sm font-medium text-charcoal-900">Lifetime Craftsmanship</span>
                             <span className="text-xs text-stone-warm">We stand behind every stitch</span>
                         </div>
                     </div>
