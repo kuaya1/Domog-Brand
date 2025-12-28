@@ -74,17 +74,14 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                         <span className="text-lg">Image unavailable</span>
                     </div>
                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-8" style={{ backgroundColor: '#FAF8F3' }}>
+                    <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative w-full h-full">
                             <Image
                                 src={images[selectedImage]}
                                 alt={`${productName} - View ${selectedImage + 1}`}
                                 fill
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                                className="object-contain drop-shadow-lg transition-all duration-300 mix-blend-multiply"
-                                style={{
-                                    filter: 'contrast(1.05) saturate(1.08) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15))'
-                                }}
+                                className="object-contain transition-all duration-300 mix-blend-multiply"
                                 priority
                                 onError={() => handleImageError(selectedImage)}
                             />
