@@ -154,15 +154,17 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
                                 N/A
                             </div>
                         ) : (
-                            <Image
-                                src={image}
-                                alt={`${productName} thumbnail ${index + 1}`}
-                                fill
-                                sizes="(max-width: 768px) 22vw, 150px"
-                                className="object-contain p-0.5 sm:p-1"
-                                loading="lazy"
-                                onError={() => handleImageError(index)}
-                            />
+                            <div className="absolute inset-0" style={{ backgroundColor: '#FAF8F3' }}>
+                                <Image
+                                    src={image}
+                                    alt={`${productName} thumbnail ${index + 1}`}
+                                    fill
+                                    sizes="(max-width: 768px) 22vw, 150px"
+                                    className="object-contain p-0.5 sm:p-1 mix-blend-multiply"
+                                    loading="lazy"
+                                    onError={() => handleImageError(index)}
+                                />
+                            </div>
                         )}
                     </button>
                 ))}
