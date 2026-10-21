@@ -237,28 +237,6 @@ export function generateProductSchema(product: Product, locale: string = 'en') {
                 returnFees: 'https://schema.org/FreeReturn',
             },
         },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '127',
-            bestRating: '5',
-            worstRating: '1',
-        },
-        review: [
-            {
-                '@type': 'Review',
-                reviewRating: {
-                    '@type': 'Rating',
-                    ratingValue: '5',
-                    bestRating: '5',
-                },
-                author: {
-                    '@type': 'Person',
-                    name: 'Heritage Collector',
-                },
-                reviewBody: 'Exceptional craftsmanship. These boots carry the weight of tradition in every stitch.',
-            },
-        ],
         additionalProperty: [
             {
                 '@type': 'PropertyValue',

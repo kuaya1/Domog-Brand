@@ -164,13 +164,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     }
                 }
             }
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '127',
-            bestRating: '5',
-            worstRating: '1'
         }
     };
 
