@@ -7,6 +7,10 @@ import { cn } from '@/lib/utils';
 import { getNamespace } from '@/lib/i18n/translations';
 import { isValidLocale } from '@/lib/i18n/config';
 
+const CONTACT_EMAIL = 'domogbrand@gmail.com';
+const CONTACT_PHONE = '+976 9919-9462';
+const CONTACT_PHONE_HREF = 'tel:+97699199462';
+
 function ContactPageContent() {
     const params = useParams();
     const searchParams = useSearchParams();
@@ -24,7 +28,8 @@ function ContactPageContent() {
         message: '',
     });
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-    const [errorMessage, setErrorMessage] = useState<string>('');
+    // 'invalid': the server rejected the input; 'unavailable': the message was not delivered
+    const [errorKind, setErrorKind] = useState<'invalid' | 'unavailable' | null>(null);
     
     // Update subject when URL parameter changes
     useEffect(() => {
@@ -36,8 +41,10 @@ function ContactPageContent() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('submitting');
-        setErrorMessage('');
+        setErrorKind(null);
 
+        // Show success only when the server confirms delivery. Any other
+        // outcome keeps the form filled in and points to email/phone.
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -49,19 +56,17 @@ function ContactPageContent() {
 
             const data = await response.json();
 
-            if (data.success) {
+            if (response.ok && data.success === true) {
                 setStatus('success');
                 setFormData({ name: '', email: '', phone: '', subject: 'general', message: '' });
                 setTimeout(() => setStatus('idle'), 5000);
             } else {
                 setStatus('error');
-                setErrorMessage(data.errors?.[0] || 'Failed to send message. Please try again.');
-                setTimeout(() => setStatus('idle'), 4000);
+                setErrorKind(data.code === 'INVALID' ? 'invalid' : 'unavailable');
             }
         } catch {
             setStatus('error');
-            setErrorMessage('Network error. Please check your connection and try again.');
-            setTimeout(() => setStatus('idle'), 4000);
+            setErrorKind('unavailable');
         }
     };
 
@@ -115,13 +120,13 @@ function ContactPageContent() {
                                 <ContactInfoItem
                                     icon={<Phone className="h-5 w-5" />}
                                     label={t.telephone_label}
-                                    value="+976 9919-9462"
+                                    value={CONTACT_PHONE}
                                     subtext={t.telephone_subtext}
                                 />
                                 <ContactInfoItem
                                     icon={<Mail className="h-5 w-5" />}
                                     label={t.email_label}
-                                    value="domogbrand@gmail.com"
+                                    value={CONTACT_EMAIL}
                                     subtext={t.email_subtext}
                                 />
                                 <ContactInfoItem
@@ -159,9 +164,22 @@ function ContactPageContent() {
                                     {t.form_required}
                                 </p>
 
-                                {status === 'error' && errorMessage && (
-                                    <div className="mb-6 p-4 bg-burgundy-700/10 border border-burgundy-700/20 text-burgundy-700">
-                                        <p className="text-sm">{errorMessage}</p>
+                                {status === 'error' && errorKind && (
+                                    <div role="alert" className="mb-6 p-4 bg-burgundy-700/10 border border-burgundy-700/20 text-burgundy-700">
+                                        <p className="text-sm">
+                                            {errorKind === 'invalid' ? t.error_invalid : t.error_unavailable}
+                                        </p>
+                                        {errorKind === 'unavailable' && (
+                                            <p className="text-sm mt-2">
+                                                <a href={`mailto:${CONTACT_EMAIL}`} className="underline underline-offset-4 whitespace-nowrap">
+                                                    {CONTACT_EMAIL}
+                                                </a>
+                                                {' · '}
+                                                <a href={CONTACT_PHONE_HREF} className="underline underline-offset-4 whitespace-nowrap">
+                                                    {CONTACT_PHONE}
+                                                </a>
+                                            </p>
+                                        )}
                                     </div>
                                 )}
 

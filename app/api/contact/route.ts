@@ -50,7 +50,7 @@ export async function POST(request: Request) {
         
         if (errors.length > 0) {
             return NextResponse.json(
-                { success: false, errors },
+                { success: false, code: 'INVALID', errors },
                 { status: 400 }
             );
         }
@@ -112,19 +112,22 @@ export async function POST(request: Request) {
         // Auto-reply to customer (with email service)
         // This provides immediate feedback that their message was received
 
-        return NextResponse.json({
-            success: true,
-            message: 'Thank you for your message. Our team will respond within 24-48 hours.',
-            reference: `DOM-${Date.now().toString(36).toUpperCase()}`,
-        });
+        // No delivery channel is connected yet. Report success only once a
+        // provider has accepted the message; until then the visitor is told
+        // it was not sent and given the email address and phone number.
+        return NextResponse.json(
+            { success: false, code: 'DELIVERY_UNAVAILABLE' },
+            { status: 503 }
+        );
 
     } catch (error) {
         console.error('Contact form error:', error);
-        
+
         return NextResponse.json(
-            { 
-                success: false, 
-                errors: ['An unexpected error occurred. Please try again or email us directly at domogbrand@gmail.com'] 
+            {
+                success: false,
+                code: 'SERVER_ERROR',
+                errors: ['An unexpected error occurred. Please try again or email us directly at domogbrand@gmail.com']
             },
             { status: 500 }
         );

@@ -112,7 +112,9 @@
         "submit": "Send Message",
         "submitting": "Sending...",
         "success_title": "Message Received",
-        "success_message": "Thank you for reaching out. A member of our team will respond within 24 hours."
+        "success_message": "Thank you for reaching out. A member of our team will respond within 24 hours.",
+        "error_invalid": "Please check your name, email and message, then try again.",
+        "error_unavailable": "We couldn't send your message. Please contact us directly:"
     },
     "cartPage": {
         "empty_title": "The Workshop Awaits",
