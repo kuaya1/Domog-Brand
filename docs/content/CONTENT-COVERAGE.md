@@ -60,3 +60,5 @@ Accessible names, `alt` text and error states are localized too.
   - shipping, warranty (buckle "горхи", suffix spacing), privacy and terms text;
   - terms §2 now limits non-cancellation to custom orders, as the English does.
 - **Claude drafts, needing review:** every other key in `messages/mn.json`, including all of `meta`, `offer`, `notFound` and the toasts and validation messages; the whole care page; and Mongolian names for products 7–15.
+
+All drafts, adaptations and policy corrections are listed side by side with their English in [MN-REVIEW-PACKET.md](MN-REVIEW-PACKET.md). Regenerate it with `npm run review:mn` after changing strings.

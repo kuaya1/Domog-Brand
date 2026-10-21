@@ -57,4 +57,4 @@ Also needed: real family and product photos. The current hero, home-section and 
 
 ## 6. Language review (blocks release of the Mongolian side)
 
-Gemini or the family should review the Mongolian strings marked **draft** in `CONTENT-COVERAGE.md`. That covers interface strings v2 did not supply, the rewritten care page, warranty corrections, product names 7–15, and policy-page edits. v2's own Mongolian was used as written.
+Gemini or the family should review the Mongolian strings in [MN-REVIEW-PACKET.md](MN-REVIEW-PACKET.md), which includes instructions for the reviewer. That covers interface strings v2 did not supply, the rewritten care page, warranty corrections, product names 7–15, and policy-page edits. v2's own Mongolian was used as written.
