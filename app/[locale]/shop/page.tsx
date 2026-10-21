@@ -9,6 +9,10 @@ import ProductSort from '@/components/ProductSort';
 import { getNamespace } from '@/lib/i18n/translations';
 import { isValidLocale } from '@/lib/i18n/config';
 
+// Price filter ceiling: highest catalog price rounded up to the next $50,
+// so the default view never hides a product
+const PRICE_CEILING = Math.ceil(Math.max(...products.map((p) => p.price)) / 50) * 50;
+
 /**
  * SHOP PAGE - Optimized for High Traffic
  * 
@@ -27,7 +31,7 @@ export default function ShopPage() {
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     // Store price range as individual values to prevent reference equality issues
     const [priceMin, setPriceMin] = useState(0);
-    const [priceMax, setPriceMax] = useState(500);
+    const [priceMax, setPriceMax] = useState(PRICE_CEILING);
     const [sortBy, setSortBy] = useState('newest');
 
     // Memoize the filtered products
@@ -88,7 +92,7 @@ export default function ShopPage() {
         setSelectedCategory(null);
         setSelectedSize(null);
         setPriceMin(0);
-        setPriceMax(500);
+        setPriceMax(PRICE_CEILING);
     }, []);
 
     return (
@@ -123,6 +127,7 @@ export default function ShopPage() {
                                 selectedCategory={selectedCategory}
                                 selectedSize={selectedSize}
                                 priceRange={[priceMin, priceMax]}
+                                maxPrice={PRICE_CEILING}
                                 onCategoryChange={handleCategoryChange}
                                 onSizeChange={handleSizeChange}
                                 onPriceRangeChange={handlePriceRangeChange}
@@ -139,6 +144,7 @@ export default function ShopPage() {
                             selectedCategory={selectedCategory}
                             selectedSize={selectedSize}
                             priceRange={[priceMin, priceMax]}
+                            maxPrice={PRICE_CEILING}
                             onCategoryChange={handleCategoryChange}
                             onSizeChange={handleSizeChange}
                             onPriceRangeChange={handlePriceRangeChange}

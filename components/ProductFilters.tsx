@@ -8,6 +8,8 @@ interface ProductFiltersProps {
     selectedCategory: string | null;
     selectedSize: string | null;
     priceRange: [number, number];
+    /** Upper bound of the price slider */
+    maxPrice: number;
     onCategoryChange: (category: string | null) => void;
     onSizeChange: (size: string | null) => void;
     onPriceRangeChange: (range: [number, number]) => void;
@@ -20,6 +22,7 @@ export default function ProductFilters({
     selectedCategory,
     selectedSize,
     priceRange,
+    maxPrice,
     onCategoryChange,
     onSizeChange,
     onPriceRangeChange,
@@ -98,7 +101,7 @@ export default function ProductFilters({
                     <input
                         type="range"
                         min="0"
-                        max="600"
+                        max={maxPrice}
                         step="10"
                         value={priceRange[1]}
                         onChange={(e) =>
