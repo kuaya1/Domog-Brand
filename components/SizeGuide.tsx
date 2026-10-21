@@ -99,7 +99,14 @@ export function SizeGuide({
     const [recommendedSize, setRecommendedSize] = useState<SizeData | null>(null);
     
     const fitTip = productCategory ? FIT_TIPS[productCategory] || FIT_TIPS.default : FIT_TIPS.default;
-    
+
+    // Products list sizes as plain EU values ("40"), the same strings the
+    // size selector and cart expect
+    const isSizeAvailable = useCallback(
+        (size: SizeData) => availableSizes.length === 0 || availableSizes.includes(size.eu.toString()),
+        [availableSizes]
+    );
+
     const calculateSize = useCallback(() => {
         const length = parseFloat(footLength);
         if (isNaN(length) || length <= 0) {
@@ -221,14 +228,7 @@ export function SizeGuide({
                                                 : sizeSystem === 'us' 
                                                     ? size.us 
                                                     : size.uk;
-                                            const isAvailable = availableSizes.length === 0 || 
-                                                availableSizes.some(s => 
-                                                    s.includes(size.eu.toString()) ||
-                                                    s.includes(size.us) ||
-                                                    s === `EU ${size.eu}` ||
-                                                    s === `US ${size.us}` ||
-                                                    s === `UK ${size.uk}`
-                                                );
+                                            const isAvailable = isSizeAvailable(size);
                                             
                                             return (
                                                 <tr 
@@ -248,7 +248,7 @@ export function SizeGuide({
                                                         <td className="py-3 text-right">
                                                             {isAvailable ? (
                                                                 <button
-                                                                    onClick={() => handleSelectSize(`EU ${size.eu}`)}
+                                                                    onClick={() => handleSelectSize(size.eu.toString())}
                                                                     className="text-cognac-600 hover:text-cognac-800 font-medium"
                                                                 >
                                                                     Select
@@ -387,9 +387,9 @@ export function SizeGuide({
                                         US {recommendedSize.us} • UK {recommendedSize.uk}
                                     </p>
                                     
-                                    {availableSizes.length > 0 && (
+                                    {availableSizes.length > 0 && isSizeAvailable(recommendedSize) && (
                                         <button
-                                            onClick={() => handleSelectSize(`EU ${recommendedSize.eu}`)}
+                                            onClick={() => handleSelectSize(recommendedSize.eu.toString())}
                                             className="bg-charcoal-900 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-charcoal-800 transition-default rounded"
                                         >
                                             Select This Size
