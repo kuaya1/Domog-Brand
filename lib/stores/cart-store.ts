@@ -92,9 +92,9 @@ export type UpdateResult =
     | { success: true; newQuantity: number }
     | { success: false; error: string; code: 'NOT_FOUND' | 'MAX_QUANTITY' | 'MIN_QUANTITY' };
 
-export type PromoResult = 
+export type PromoResult =
     | { success: true; promo: PromoCode; discount: number }
-    | { success: false; error: string; code: 'INVALID' | 'EXPIRED' | 'MIN_PURCHASE' | 'ALREADY_USED' };
+    | { success: false; error: string; code: 'INVALID' | 'EXPIRED' | 'MIN_PURCHASE' | 'ALREADY_USED'; minPurchase?: number };
 
 export interface StockValidation {
     isValid: boolean;
@@ -120,7 +120,7 @@ export interface CartDebugInfo {
 const CART_STORAGE_KEY = 'domog-cart-v2';
 const MAX_QUANTITY_PER_ITEM = 10;
 const MIN_QUANTITY = 1;
-const FREE_SHIPPING_THRESHOLD = 500;
+export const FREE_SHIPPING_THRESHOLD = 500;
 const SHIPPING_RATE = 25;
 const TAX_RATE = 0.0875; // 8.75%
 
@@ -320,10 +320,11 @@ export const useCartStore = create<CartStore>()(
                     // Check minimum purchase
                     const subtotal = get().getSubtotal();
                     if (promo.minPurchase && subtotal < promo.minPurchase) {
-                        return { 
-                            success: false, 
-                            error: `Minimum purchase of $${promo.minPurchase} required`, 
-                            code: 'MIN_PURCHASE' 
+                        return {
+                            success: false,
+                            error: `Minimum purchase of $${promo.minPurchase} required`,
+                            code: 'MIN_PURCHASE',
+                            minPurchase: promo.minPurchase,
                         };
                     }
 

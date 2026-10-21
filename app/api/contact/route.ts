@@ -15,14 +15,14 @@ interface ContactFormData {
 // Email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Subject options mapping
+// Subject values sent by the contact form (app/[locale]/contact/page.tsx)
 const subjectLabels: Record<string, string> = {
-    general: 'General Inquiry',
-    order: 'Order Question',
-    custom: 'Custom Order',
-    care: 'Care & Maintenance',
-    wholesale: 'Wholesale Inquiry',
-    press: 'Press & Media',
+    general: 'General question',
+    order: 'Order',
+    bespoke: 'Custom order',
+    sizing: 'Size & fit',
+    care: 'Care & repair',
+    press: 'Press & partnerships',
 };
 
 export async function POST(request: Request) {

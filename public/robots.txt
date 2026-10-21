@@ -1,15 +1,14 @@
-# Domog Brand - robots.txt
-# Premium Handcrafted Mongolian Footwear since 1990
+# Domog - robots.txt
 
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://domogbrand.com/sitemap.xml
+# Sitemap location (www is the canonical host)
+Sitemap: https://www.domogbrand.com/sitemap.xml
 
-# Disallow admin/private/system paths
+# Disallow admin/private/system paths.
+# /_next/ is not blocked: crawlers need its CSS and JavaScript to render pages.
 Disallow: /api/
-Disallow: /_next/
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$

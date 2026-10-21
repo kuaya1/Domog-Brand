@@ -1,37 +1,22 @@
-import { Metadata } from "next";
-import { getContactMetadata } from "@/lib/seo/metadata";
-import { getContactPageSchema, generateBreadcrumbSchema } from "@/lib/seo/structured-data";
+import type { Metadata } from 'next';
+import { isValidLocale } from '@/lib/i18n/config';
+import { getMessages } from '@/lib/i18n/messages';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { pageBreadcrumb } from '@/lib/seo/structured-data';
 
-// SEO Metadata for Contact page
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-    return getContactMetadata(params.locale);
+export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+    const locale = isValidLocale(params.locale) ? params.locale : 'en';
+    const t = getMessages(locale);
+    return buildMetadata({ locale, path: '/contact', title: t.meta.contact.title, description: t.meta.contact.description });
 }
 
-export default function ContactLayout({
-    children,
-    params: { locale },
-}: {
-    children: React.ReactNode;
-    params: { locale: string };
-}) {
-    // Structured data for Contact page
-    const contactSchema = getContactPageSchema();
-    const breadcrumbSchema = generateBreadcrumbSchema([
-        { name: 'Home', url: `/${locale}` },
-        { name: locale === 'mn' ? 'Холбоо барих' : 'Contact', url: `/${locale}/contact` },
-    ], locale);
+export default function ContactLayout({ children, params }: { children: React.ReactNode; params: { locale: string } }) {
+    const locale = isValidLocale(params.locale) ? params.locale : 'en';
+    const breadcrumb = pageBreadcrumb(locale, '/contact', getMessages(locale).nav.contact);
 
     return (
         <>
-            {/* Structured Data */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
             {children}
         </>
     );

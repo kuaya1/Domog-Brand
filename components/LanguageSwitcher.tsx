@@ -2,32 +2,35 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
-import { locales, localeNames, type Locale } from '@/lib/i18n/config';
-import { useLocale, switchLocaleInPath } from '@/lib/i18n/navigation';
+import { localeNames, type Locale } from '@/lib/i18n/config';
+import { switchLocaleInPath } from '@/lib/i18n/navigation';
+import { useMessages } from '@/lib/i18n/use-messages';
 
+/** Switches to the other language on the same page, keeping query string and hash. */
 export default function LanguageSwitcher() {
     const router = useRouter();
     const pathname = usePathname();
     const [isPending, startTransition] = useTransition();
-    
-    const currentLocale = useLocale();
-    const nextLocale: Locale = currentLocale === 'en' ? 'mn' : 'en';
+    const { locale, t } = useMessages();
+    const nextLocale: Locale = locale === 'en' ? 'mn' : 'en';
 
     const switchLocale = () => {
+        const { search, hash } = window.location;
         startTransition(() => {
-            const newPath = switchLocaleInPath(pathname, nextLocale);
-            router.push(newPath);
+            router.push(`${switchLocaleInPath(pathname, nextLocale)}${search}${hash}`);
         });
     };
 
     return (
         <button
+            type="button"
             onClick={switchLocale}
             disabled={isPending}
+            lang={nextLocale}
             className="text-xs font-medium tracking-widest uppercase px-3 py-1.5 border border-cognac/30 text-cognac hover:bg-cognac/10 transition-all duration-300 disabled:opacity-50"
-            aria-label={`Switch to ${localeNames[nextLocale]}`}
+            aria-label={t.nav.switchLanguage}
         >
-            {isPending ? '...' : localeNames[nextLocale]}
+            {localeNames[nextLocale]}
         </button>
     );
 }

@@ -1,7 +1,10 @@
-import { Metadata } from "next";
-import { locales, isValidLocale } from "@/lib/i18n/config";
-import { notFound } from "next/navigation";
-import SizeGuideContent from "./SizeGuideContent";
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { locales, isValidLocale } from '@/lib/i18n/config';
+import { getMessages } from '@/lib/i18n/messages';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { pageBreadcrumb } from '@/lib/seo/structured-data';
+import SizeGuideContent from './SizeGuideContent';
 
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
@@ -11,20 +14,22 @@ interface PageProps {
     params: { locale: string };
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const isEN = params.locale === 'en';
-    return {
-        title: isEN ? 'Size Guide' : 'Хэмжээний Заавар',
-        description: isEN 
-            ? 'Find your perfect Domog boot size with our comprehensive size guide and measurement instructions.'
-            : 'Манай дэлгэрэнгүй хэмжээний заавар, хэмжилтийн зааврын тусламжтайгаар төгс Домог гутлын хэмжээгээ олоорой.',
-    };
+export function generateMetadata({ params }: PageProps): Metadata {
+    const locale = isValidLocale(params.locale) ? params.locale : 'en';
+    const t = getMessages(locale);
+    return buildMetadata({ locale, path: '/size-guide', title: t.meta.sizeGuide.title, description: t.meta.sizeGuide.description });
 }
 
 export default function SizeGuidePage({ params: { locale } }: PageProps) {
     if (!isValidLocale(locale)) {
         notFound();
     }
-    
-    return <SizeGuideContent />;
+
+    const breadcrumb = pageBreadcrumb(locale, '/size-guide', getMessages(locale).meta.sizeGuide.title);
+    return (
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+            <SizeGuideContent />
+        </>
+    );
 }
