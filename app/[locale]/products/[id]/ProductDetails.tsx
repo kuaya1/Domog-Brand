@@ -12,7 +12,6 @@ import QuantitySelector from '@/components/QuantitySelector';
 import SizeGuide from '@/components/SizeGuide';
 import ProductCustomization, { type CustomizationState } from '@/components/ProductCustomization';
 import ProductRecommendations from '@/components/ProductRecommendations';
-import ProductReviews, { generateMockReviews } from '@/components/ProductReviews';
 import { ShieldCheck, Truck, Clock, Heart, Ruler } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -34,8 +33,7 @@ interface ProductDetailsProps {
  * - Product customization (engraving, gift wrapping, express shipping)
  * - Recently viewed tracking
  * - Product recommendations
- * - Customer reviews
- * 
+ *
  * By isolating interactivity here, the parent page remains a Server Component,
  * enabling full SEO and caching benefits while only hydrating this island.
  */
@@ -57,10 +55,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         expressShipping: false,
     });
     const [customizationCost, setCustomizationCost] = useState(0);
-    
-    // Generate mock reviews for this product
-    const reviews = generateMockReviews(product.id);
-    
+
     // Track recently viewed
     useEffect(() => {
         addViewedProduct(product as import('@/lib/products').Product);
@@ -272,13 +267,6 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             
             {/* Full Width Sections */}
             <div className="lg:col-span-2">
-                {/* Customer Reviews */}
-                <ProductReviews
-                    productId={product.id}
-                    reviews={reviews}
-                    className="border-t border-cream-200"
-                />
-                
                 {/* Similar Products */}
                 <ProductRecommendations
                     currentProduct={product as import('@/lib/products').Product}
