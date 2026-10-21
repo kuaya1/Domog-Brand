@@ -10,6 +10,7 @@ import {
     type ToastType,
     type ToastPosition 
 } from '@/lib/stores/ui-store';
+import { useMessages } from '@/lib/i18n/use-messages';
 import { cn } from '@/lib/utils';
 
 // ============================================================================
@@ -86,6 +87,7 @@ interface ToastItemProps {
 }
 
 function ToastItem({ toast, position, onDismiss }: ToastItemProps) {
+    const { t } = useMessages();
     const [isExiting, setIsExiting] = useState(false);
     const [progress, setProgress] = useState(100);
     const [isPaused, setIsPaused] = useState(false);
@@ -186,7 +188,7 @@ function ToastItem({ toast, position, onDismiss }: ToastItemProps) {
                         colors.text,
                         "opacity-60 hover:opacity-100"
                     )}
-                    aria-label="Dismiss notification"
+                    aria-label={t.common.dismiss}
                 >
                     <X className="h-4 w-4" />
                 </button>
@@ -217,6 +219,7 @@ function ToastItem({ toast, position, onDismiss }: ToastItemProps) {
 // ============================================================================
 
 export function ToastProvider() {
+    const { t } = useMessages();
     const toasts = useToasts();
     const position = useToastPosition();
     const removeToast = useUIStore(state => state.removeToast);
@@ -233,7 +236,7 @@ export function ToastProvider() {
                 POSITION_CLASSES[position],
                 isTopPosition ? "flex-col" : "flex-col-reverse"
             )}
-            aria-label="Notifications"
+            aria-label={t.common.notifications}
             role="region"
         >
             {toasts.map((toast) => (

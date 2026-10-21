@@ -9,7 +9,8 @@
     "lint": "eslint",
     "optimize": "tsx scripts/optimize-images.ts",
     "audit": "tsx scripts/audit-contrast.ts",
-    "prebuild": "npm run optimize"
+    "test": "node --import tsx --test tests/i18n.test.ts tests/catalog.test.ts tests/sizing.test.ts tests/utils.test.ts",
+    "prebuild": "npm run optimize && npm test"
   },
   "dependencies": {
     "clsx": "^2.1.1",

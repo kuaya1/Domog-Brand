@@ -1,8 +1,12 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { locales, isValidLocale } from "@/lib/i18n/config";
-import { notFound } from "next/navigation";
-import { Shield, Wrench, Clock, CheckCircle, AlertCircle } from "lucide-react";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Shield, Wrench, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { locales, isValidLocale, type Locale } from '@/lib/i18n/config';
+import { getMessages } from '@/lib/i18n/messages';
+import { buildMetadata } from '@/lib/seo/metadata';
+import { pageBreadcrumb } from '@/lib/seo/structured-data';
+import { CONTACT_EMAIL } from '@/lib/contact';
 
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
@@ -12,229 +16,192 @@ interface PageProps {
     params: { locale: string };
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const isEN = params.locale === 'en';
-    return {
-        title: isEN ? 'Lifetime Warranty' : 'Насан туршийн баталгаа',
-        description: isEN 
-            ? 'Domog Brand lifetime craftsmanship warranty. We stand behind every stitch for the life of your boots.'
-            : 'Домог Брэндийн насан туршийн урлалын баталгаа. Таны гутлын насан туршид бид оёдол бүрдээ баталгаа өгнө.',
-    };
+export function generateMetadata({ params }: PageProps): Metadata {
+    const locale = isValidLocale(params.locale) ? params.locale : 'en';
+    const t = getMessages(locale);
+    return buildMetadata({ locale, path: '/warranty', title: t.meta.warranty.title, description: t.meta.warranty.description });
 }
+
+/**
+ * Warranty terms in both languages. Coverage, exclusions, prices, turnaround,
+ * and the claim process are unchanged from the published page. Removed: an
+ * unattributed "Master Craftsman" quotation and the "built to last a
+ * lifetime" tagline. Mongolian wording errors were corrected (buckle,
+ * hyphenated suffixes). The "Our story" page previously promised free sole
+ * replacement, which these terms exclude; see docs/content/OPEN-QUESTIONS.md.
+ */
+const content = {
+    en: {
+        eyebrow: 'Our promise',
+        title: 'Lifetime Craftsmanship Warranty',
+        intro: 'What our warranty covers, what it does not, and how to make a claim.',
+        coveredTitle: 'What our warranty covers',
+        covered: [
+            'Structural defects in craftsmanship',
+            'Stitching failures under normal use',
+            'Sole separation from the upper',
+            'Hardware defects (buckles, eyelets)',
+            'Leather delamination or peeling',
+            'Zipper malfunctions (where applicable)',
+        ],
+        notCoveredTitle: 'Not covered by the warranty',
+        notCovered: [
+            'Normal wear and tear (scuffs, creasing, patina development)',
+            'Damage from improper care or storage',
+            'Water damage (beyond normal exposure)',
+            'Modifications or repairs by non-authorized parties',
+            'Sole wear from regular use (resoling available)',
+        ],
+        serviceTitle: 'Resoling & refurbishment service',
+        serviceIntro: 'Resoling and refurbishment are paid services:',
+        service: ['Resoling: $85–120 depending on style', 'Full refurbishment: $150–200', 'Turnaround time: 2–3 weeks'],
+        claimTitle: 'How to make a warranty claim',
+        claim: [
+            { title: 'Contact us', body: `Email ${CONTACT_EMAIL} with photos of the issue and your order number.` },
+            { title: 'Assessment', body: 'Our team will review your claim within 48 hours and advise on next steps.' },
+            { title: 'Send your boots', body: 'If approved, ship your boots to our workshop. We provide a prepaid label for warranty repairs.' },
+            { title: 'Repair or replace', body: 'We will repair or, if not possible, replace your boots and return them to you.' },
+        ],
+        helpTitle: 'Need help with a warranty claim?',
+        helpBody: 'Contact us with any question about your Domog boots.',
+        help: 'Contact us',
+    },
+    mn: {
+        eyebrow: 'Бидний амлалт',
+        title: 'Насан туршийн хийцийн баталгаа',
+        intro: 'Баталгаанд юу хамрагдах, юу хамрагдахгүй, хүсэлтээ хэрхэн гаргах тухай.',
+        coveredTitle: 'Баталгаанд хамрагдах зүйлс',
+        covered: [
+            'Хийцийн бүтцийн гэмтэл',
+            'Хэвийн хэрэглээнд гарсан оёдлын гэмтэл',
+            'Ул гутлын дээд хэсгээс салах',
+            'Төмөр эд ангийн гэмтэл (горхи, сүвний төмөр)',
+            'Арьс давхаргаараа салах, хуурах',
+            'Цахилгаан товчны гэмтэл (байгаа бол)',
+        ],
+        notCoveredTitle: 'Баталгаанд хамрагдахгүй зүйлс',
+        notCovered: [
+            'Хэвийн элэгдэл (зураас, үрчлээ, өнгө хувирах)',
+            'Буруу арчилгаа, хадгалалтаас үүдсэн гэмтэл',
+            'Усны гэмтэл (хэвийн хэрэглээнээс давсан)',
+            'Зөвшөөрөлгүй этгээдийн өөрчлөлт, засвар',
+            'Хэрэглээнээс болсон улны элэгдэл (ул солих үйлчилгээ бий)',
+        ],
+        serviceTitle: 'Ул солих, сэргээх үйлчилгээ',
+        serviceIntro: 'Ул солих, сэргээх нь төлбөртэй үйлчилгээ юм:',
+        service: ['Ул солих: загвараас хамааран $85–120', 'Бүрэн сэргээлт: $150–200', 'Хугацаа: 2–3 долоо хоног'],
+        claimTitle: 'Баталгааны хүсэлт гаргах',
+        claim: [
+            { title: 'Бидэнтэй холбогдох', body: `Гэмтлийн зураг, захиалгын дугаараа ${CONTACT_EMAIL} хаягаар илгээнэ үү.` },
+            { title: 'Үнэлгээ', body: 'Манай баг таны хүсэлтийг 48 цагийн дотор хянаж, дараагийн алхмыг зөвлөнө.' },
+            { title: 'Гутлаа илгээх', body: 'Зөвшөөрөгдсөн бол гутлаа манай урланд илгээнэ үү. Баталгаат засварт урьдчилан төлсөн хүргэлтийн шошго өгнө.' },
+            { title: 'Засах эсвэл солих', body: 'Бид гутлыг тань засна, засах боломжгүй бол солиод буцааж илгээнэ.' },
+        ],
+        helpTitle: 'Баталгааны талаар тусламж хэрэгтэй юу?',
+        helpBody: '«Домог»-ийн гутлынхаа талаар асуух зүйл байвал бидэнтэй холбогдоорой.',
+        help: 'Холбоо барих',
+    },
+} satisfies Record<Locale, unknown>;
 
 export default function WarrantyPage({ params: { locale } }: PageProps) {
     if (!isValidLocale(locale)) {
         notFound();
     }
-    
-    const isEN = locale === 'en';
+
+    const c = content[locale];
+    const breadcrumb = pageBreadcrumb(locale, '/warranty', getMessages(locale).meta.warranty.title);
 
     return (
         <div className="min-h-screen bg-cream">
-            {/* Hero Header */}
-            <section className="bg-charcoal-900 py-16 lg:py-24">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+
+            <section className="bg-charcoal-900 pt-32 pb-16 lg:pt-36 lg:pb-24">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-                    <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-4">
-                        {isEN ? 'Our Promise' : 'Манай амлалт'}
-                    </span>
-                    <h1 className="font-serif text-3xl lg:text-4xl text-cream font-medium">
-                        {isEN ? 'Lifetime Craftsmanship Warranty' : 'Насан Туршийн Урлалын Баталгаа'}
-                    </h1>
-                    <p className="text-cream/70 text-base mt-4 max-w-2xl mx-auto">
-                        {isEN 
-                            ? 'Every pair of Domog boots is built to last a lifetime. We stand behind every stitch.'
-                            : 'Домог гутал бүр насан турш тэсвэрлэхээр бүтээгдсэн. Бид оёдол бүрдээ баталгаа өгнө.'}
-                    </p>
+                    <span className="inline-block font-sans text-xs uppercase tracking-[0.25em] text-gold mb-4">{c.eyebrow}</span>
+                    <h1 className="font-serif text-3xl lg:text-4xl text-cream font-medium">{c.title}</h1>
+                    <p className="text-cream/70 text-base mt-4 max-w-2xl mx-auto">{c.intro}</p>
                 </div>
             </section>
 
-            {/* Content */}
             <section className="py-16 lg:py-24">
                 <div className="max-w-4xl mx-auto px-6 lg:px-8">
-                    
-                    {/* Promise Statement */}
-                    <div className="text-center mb-16 pb-16 border-b border-cream-200">
-                        <div className="w-20 h-20 bg-cream-sand flex items-center justify-center mx-auto mb-6 rounded-full">
-                            <Shield className="w-10 h-10 text-cognac" />
-                        </div>
-                        <p className="font-serif text-xl lg:text-2xl text-charcoal-900 leading-relaxed max-w-2xl mx-auto">
-                            {isEN 
-                                ? '"When a boot leaves our workshop, it carries our name. That name means something. If our work fails, we make it right."'
-                                : '"Гутал манай цехээс гарахдаа манай нэрийг авч явдаг. Энэ нэр утга учиртай. Хэрэв манай ажил амжилтгүй болвол бид засна."'}
-                        </p>
-                        <p className="text-stone-warm mt-4 text-sm uppercase tracking-wider">
-                            — {isEN ? 'Master Craftsman, Domog Atelier' : 'Мастер Урчин, Домог Ателье'}
-                        </p>
-                    </div>
-
-                    {/* What's Covered */}
                     <div className="mb-16">
                         <h2 className="font-serif text-2xl text-charcoal-900 mb-8 flex items-center gap-3">
-                            <CheckCircle className="w-6 h-6 text-cognac" />
-                            {isEN ? 'What Our Warranty Covers' : 'Баталгаанд хамрагдах зүйлс'}
+                            <CheckCircle className="w-6 h-6 text-cognac" aria-hidden="true" />
+                            {c.coveredTitle}
                         </h2>
-                        <div className="grid md:grid-cols-2 gap-6">
-                            {[
-                                {
-                                    en: 'Structural defects in craftsmanship',
-                                    mn: 'Урлалын бүтцийн алдаа'
-                                },
-                                {
-                                    en: 'Stitching failures under normal use',
-                                    mn: 'Хэвийн хэрэглээнд оёдлын эвдрэл'
-                                },
-                                {
-                                    en: 'Sole separation from the upper',
-                                    mn: 'Ул-ын дээд хэсгээс салах'
-                                },
-                                {
-                                    en: 'Hardware defects (buckles, eyelets)',
-                                    mn: 'Эд анги-ийн алдаа (тоолуур, нүд)'
-                                },
-                                {
-                                    en: 'Leather delamination or peeling',
-                                    mn: 'Арьс хуурах, хальсрах'
-                                },
-                                {
-                                    en: 'Zipper malfunctions (where applicable)',
-                                    mn: 'Цахилгаан түгжээний алдаа (хамааралтай бол)'
-                                }
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex items-start gap-3 p-4 bg-cream-sand">
-                                    <CheckCircle className="w-5 h-5 text-cognac flex-shrink-0 mt-0.5" />
-                                    <span className="text-stone-warm">{isEN ? item.en : item.mn}</span>
-                                </div>
+                        <ul className="grid md:grid-cols-2 gap-6">
+                            {c.covered.map((item) => (
+                                <li key={item} className="flex items-start gap-3 p-4 bg-cream-sand">
+                                    <Shield className="w-5 h-5 text-cognac flex-shrink-0 mt-0.5" aria-hidden="true" />
+                                    <span className="text-stone-warm">{item}</span>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
 
-                    {/* Not Covered */}
                     <div className="mb-16">
                         <h2 className="font-serif text-2xl text-charcoal-900 mb-8 flex items-center gap-3">
-                            <AlertCircle className="w-6 h-6 text-burgundy-700" />
-                            {isEN ? 'Not Covered by Warranty' : 'Баталгаанд хамрагдахгүй'}
+                            <AlertCircle className="w-6 h-6 text-burgundy-700" aria-hidden="true" />
+                            {c.notCoveredTitle}
                         </h2>
                         <div className="bg-burgundy-700/5 border border-burgundy-700/20 p-8">
                             <ul className="space-y-3 text-stone-warm">
-                                <li className="flex gap-2">
-                                    <span className="text-burgundy-700">•</span>
-                                    {isEN ? 'Normal wear and tear (scuffs, creasing, patina development)' : 'Хэвийн элэгдэл (зураас, үрчлээ, патина хөгжил)'}
-                                </li>
-                                <li className="flex gap-2">
-                                    <span className="text-burgundy-700">•</span>
-                                    {isEN ? 'Damage from improper care or storage' : 'Буруу арчилгаа, хадгалалтаас үүдсэн гэмтэл'}
-                                </li>
-                                <li className="flex gap-2">
-                                    <span className="text-burgundy-700">•</span>
-                                    {isEN ? 'Water damage (beyond normal exposure)' : 'Усны гэмтэл (хэвийн хэрэглээнээс давсан)'}
-                                </li>
-                                <li className="flex gap-2">
-                                    <span className="text-burgundy-700">•</span>
-                                    {isEN ? 'Modifications or repairs by non-authorized parties' : 'Зөвшөөрөлгүй талын өөрчлөлт, засвар'}
-                                </li>
-                                <li className="flex gap-2">
-                                    <span className="text-burgundy-700">•</span>
-                                    {isEN ? 'Sole wear from regular use (resoling available)' : 'Хэрэглээнээс болсон ул элэгдэл (дахин ул солих боломжтой)'}
-                                </li>
+                                {c.notCovered.map((item) => (
+                                    <li key={item} className="flex gap-2">
+                                        <span className="text-burgundy-700" aria-hidden="true">•</span>
+                                        {item}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
 
-                    {/* Resoling Service */}
                     <div className="mb-16 bg-cream-sand p-8 lg:p-12">
-                        <div className="flex items-start gap-6">
+                        <div className="flex flex-col sm:flex-row items-start gap-6">
                             <div className="w-14 h-14 bg-cream flex items-center justify-center flex-shrink-0">
-                                <Wrench className="w-7 h-7 text-cognac" />
+                                <Wrench className="w-7 h-7 text-cognac" aria-hidden="true" />
                             </div>
                             <div>
-                                <h3 className="font-serif text-xl text-charcoal-900 mb-3">
-                                    {isEN ? 'Resoling & Refurbishment Service' : 'Ул солих ба Сэргээх үйлчилгээ'}
-                                </h3>
-                                <p className="text-stone-warm leading-relaxed mb-4">
-                                    {isEN 
-                                        ? 'Boots are designed to be resoled, not replaced. When your soles wear down—a sign of a life well-lived—send them back to us. Our craftsmen will restore them to their former glory.'
-                                        : 'Гутлыг солихгүй, ул солихоор зориулан бүтээсэн. Таны ул элэгдэхэд—сайн амьдарсны тэмдэг—буцааж илгээнэ үү. Манай урчууд хуучин гоо сайхныг нь сэргээнэ.'}
-                                </p>
+                                <h2 className="font-serif text-xl text-charcoal-900 mb-3">{c.serviceTitle}</h2>
+                                <p className="text-stone-warm leading-relaxed mb-4">{c.serviceIntro}</p>
                                 <ul className="space-y-2 text-stone-warm text-sm">
-                                    <li>• {isEN ? 'Resoling: $85-120 depending on style' : 'Ул солих: $85-120 загвараас хамаарна'}</li>
-                                    <li>• {isEN ? 'Full refurbishment: $150-200' : 'Бүрэн сэргээлт: $150-200'}</li>
-                                    <li>• {isEN ? 'Turnaround time: 2-3 weeks' : 'Хугацаа: 2-3 долоо хоног'}</li>
+                                    {c.service.map((item) => (
+                                        <li key={item}>• {item}</li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    {/* How to Claim */}
                     <div className="mb-16">
                         <h2 className="font-serif text-2xl text-charcoal-900 mb-8 flex items-center gap-3">
-                            <Clock className="w-6 h-6 text-cognac" />
-                            {isEN ? 'How to Make a Warranty Claim' : 'Баталгаат нэхэмжлэл гаргах'}
+                            <Clock className="w-6 h-6 text-cognac" aria-hidden="true" />
+                            {c.claimTitle}
                         </h2>
-                        <div className="space-y-6">
-                            {[
-                                {
-                                    step: 1,
-                                    en: { title: 'Contact Us', desc: 'Email domogbrand@gmail.com with photos of the issue and your order number.' },
-                                    mn: { title: 'Бидэнтэй холбогдоно уу', desc: 'Асуудлын зураг, захиалгын дугаартай имэйлийг domogbrand@gmail.com руу илгээнэ үү.' }
-                                },
-                                {
-                                    step: 2,
-                                    en: { title: 'Assessment', desc: 'Our team will review your claim within 48 hours and advise on next steps.' },
-                                    mn: { title: 'Үнэлгээ', desc: 'Манай баг таны нэхэмжлэлийг 48 цагийн дотор хянаж, дараагийн алхмуудыг зөвлөнө.' }
-                                },
-                                {
-                                    step: 3,
-                                    en: { title: 'Ship to Atelier', desc: 'If approved, ship your boots to our atelier. We provide a prepaid label for warranty repairs.' },
-                                    mn: { title: 'Ателье руу илгээх', desc: 'Зөвшөөрөгдсөн бол гутлаа манай ателье руу илгээнэ үү. Баталгаат засварт урьдчилан төлсөн шошго өгнө.' }
-                                },
-                                {
-                                    step: 4,
-                                    en: { title: 'Repair or Replace', desc: 'We will repair or, if not possible, replace your boots and return them to you.' },
-                                    mn: { title: 'Засах эсвэл солих', desc: 'Бид засварлах эсвэл боломжгүй бол гутлыг солиод буцааж илгээнэ.' }
-                                }
-                            ].map((item) => (
-                                <div key={item.step} className="flex gap-6">
-                                    <div className="w-10 h-10 bg-charcoal-900 text-cream-50 flex items-center justify-center flex-shrink-0 font-medium">
-                                        {item.step}
+                        <ol className="space-y-6">
+                            {c.claim.map((step, index) => (
+                                <li key={step.title} className="flex gap-6">
+                                    <span className="w-10 h-10 bg-charcoal-900 text-cream-50 flex items-center justify-center flex-shrink-0 font-medium">
+                                        {index + 1}
+                                    </span>
+                                    <div className="min-w-0">
+                                        <h3 className="font-medium text-charcoal-900 mb-1">{step.title}</h3>
+                                        <p className="text-stone-warm break-words">{step.body}</p>
                                     </div>
-                                    <div>
-                                        <h3 className="font-medium text-charcoal-900 mb-1">
-                                            {isEN ? item.en.title : item.mn.title}
-                                        </h3>
-                                        <p className="text-stone-warm">
-                                            {isEN ? item.en.desc : item.mn.desc}
-                                        </p>
-                                    </div>
-                                </div>
+                                </li>
                             ))}
-                        </div>
+                        </ol>
                     </div>
 
-                    {/* Contact CTA */}
                     <div className="text-center pt-8 border-t border-cream-200">
-                        <h3 className="font-serif text-xl text-charcoal-900 mb-4">
-                            {isEN ? 'Need warranty assistance?' : 'Баталгааны тусламж хэрэгтэй юу?'}
-                        </h3>
-                        <p className="text-stone-warm mb-6">
-                            {isEN 
-                                ? 'Our team is ready to help with any concerns about your Domog boots.'
-                                : 'Манай баг таны Домог гутлын талаар ямар ч асуудалд туслахад бэлэн байна.'}
-                        </p>
-                        <Link 
-                            href={`/${locale}/contact`}
+                        <h2 className="font-serif text-xl text-charcoal-900 mb-4">{c.helpTitle}</h2>
+                        <p className="text-stone-warm mb-6">{c.helpBody}</p>
+                        <Link
+                            href={`/${locale}/contact?inquiry=care`}
                             className="inline-flex items-center gap-2 bg-charcoal-900 text-cream-50 px-8 py-4 text-sm uppercase tracking-widest hover:bg-charcoal-800 transition-colors"
                         >
-                            {isEN ? 'Contact Warranty Support' : 'Баталгааны тусламж авах'}
-                        </Link>
-                    </div>
-
-                    {/* Back Link */}
-                    <div className="mt-12 pt-8 border-t border-cream-200">
-                        <Link 
-                            href={`/${locale}`}
-                            className="text-cognac hover:text-cognac/80 transition-colors text-sm uppercase tracking-wider"
-                        >
-                            ← {isEN ? 'Return to Home' : 'Нүүр хуудас руу буцах'}
+                            {c.help}
                         </Link>
                     </div>
                 </div>

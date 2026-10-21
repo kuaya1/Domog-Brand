@@ -1,163 +1,128 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
-import { useParams } from 'next/navigation';
-import { products } from '@/lib/products';
+import { Suspense, useState, useMemo, useCallback, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { X } from 'lucide-react';
+import { products, isCategoryId, matchesQuery, type CategoryId } from '@/lib/products';
 import ProductGrid from '@/components/ProductGrid';
 import ProductFilters from '@/components/ProductFilters';
-import ProductSort from '@/components/ProductSort';
-import { getNamespace } from '@/lib/i18n/translations';
-import { isValidLocale } from '@/lib/i18n/config';
+import ProductSort, { type SortOption } from '@/components/ProductSort';
+import { useMessages } from '@/lib/i18n/use-messages';
+import { format, plural } from '@/lib/i18n/messages';
 
 // Price filter ceiling: highest catalog price rounded up to the next $50,
 // so the default view never hides a product
 const PRICE_CEILING = Math.ceil(Math.max(...products.map((p) => p.price)) / 50) * 50;
 
-/**
- * SHOP PAGE - Optimized for High Traffic
- * 
- * Key optimizations:
- * 1. Price range stored as individual values to prevent tuple reference issues
- * 2. Memoized filter/sort functions to prevent recalculation
- * 3. ProductGrid is memoized and only re-renders when product list changes
- * 4. useCallback for all handler functions
- */
-export default function ShopPage() {
-    const params = useParams();
-    const locale = typeof params.locale === 'string' ? params.locale : 'en';
-    const t = isValidLocale(locale) ? getNamespace(locale, 'shop') : getNamespace('en', 'shop');
-    
-    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+interface ShopViewProps {
+    /** Search term from ?search= (also what the site search submits). */
+    search: string;
+    /** Category from ?category= (footer links use it). */
+    initialCategory: CategoryId | null;
+}
+
+function ShopView({ search, initialCategory }: ShopViewProps) {
+    const { locale, t } = useMessages();
+    const router = useRouter();
+
+    const [selectedCategory, setSelectedCategory] = useState<CategoryId | null>(initialCategory);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    // Store price range as individual values to prevent reference equality issues
-    const [priceMin, setPriceMin] = useState(0);
     const [priceMax, setPriceMax] = useState(PRICE_CEILING);
-    const [sortBy, setSortBy] = useState('newest');
+    const [sortBy, setSortBy] = useState<SortOption>('newest');
 
-    // Memoize the filtered products
+    // Follow the URL when a footer link changes the category on this page
+    useEffect(() => setSelectedCategory(initialCategory), [initialCategory]);
+
     const filteredProducts = useMemo(() => {
-        let result = products;
-
-        // Filter by Category
-        if (selectedCategory) {
-            result = result.filter((p) => p.category === selectedCategory);
-        }
-
-        // Filter by Size
-        if (selectedSize) {
-            result = result.filter((p) => p.sizes.includes(selectedSize));
-        }
-
-        // Filter by Price (using individual values, not tuple)
-        result = result.filter(
-            (p) => p.price >= priceMin && p.price <= priceMax
+        const result = products.filter(
+            (p) =>
+                matchesQuery(p, search) &&
+                (!selectedCategory || p.category === selectedCategory) &&
+                (!selectedSize || p.sizes.includes(selectedSize)) &&
+                p.price <= priceMax
         );
-
-        // Sort (create new array only here, after all filters)
-        result = [...result];
         switch (sortBy) {
             case 'price-asc':
-                result.sort((a, b) => a.price - b.price);
-                break;
+                return result.sort((a, b) => a.price - b.price);
             case 'price-desc':
-                result.sort((a, b) => b.price - a.price);
-                break;
-            case 'newest':
-                result.sort((a, b) => (a.isNew === b.isNew ? 0 : a.isNew ? -1 : 1));
-                break;
+                return result.sort((a, b) => b.price - a.price);
+            default:
+                return result.sort((a, b) => (a.isNew === b.isNew ? 0 : a.isNew ? -1 : 1));
         }
+    }, [search, selectedCategory, selectedSize, priceMax, sortBy]);
 
-        return result;
-    }, [selectedCategory, selectedSize, priceMin, priceMax, sortBy]);
-
-    // Memoize handlers to prevent child re-renders
-    const handleCategoryChange = useCallback((category: string | null) => {
-        setSelectedCategory(category);
-    }, []);
-
-    const handleSizeChange = useCallback((size: string | null) => {
-        setSelectedSize(size);
-    }, []);
-
-    const handlePriceRangeChange = useCallback((range: [number, number]) => {
-        setPriceMin(range[0]);
-        setPriceMax(range[1]);
-    }, []);
-
-    const handleSortChange = useCallback((sort: string) => {
-        setSortBy(sort);
-    }, []);
-
-    const handleClearFilters = useCallback(() => {
+    const clearFilters = useCallback(() => {
         setSelectedCategory(null);
         setSelectedSize(null);
-        setPriceMin(0);
         setPriceMax(PRICE_CEILING);
-    }, []);
+        if (search) router.replace(`/${locale}/shop`);
+    }, [search, router, locale]);
+
+    const filters = (
+        <ProductFilters
+            selectedCategory={selectedCategory}
+            selectedSize={selectedSize}
+            priceRange={[0, priceMax]}
+            maxPrice={PRICE_CEILING}
+            onCategoryChange={setSelectedCategory}
+            onSizeChange={setSelectedSize}
+            onPriceRangeChange={(range) => setPriceMax(range[1])}
+        />
+    );
 
     return (
         <div className="min-h-screen bg-cream-50">
-            {/* Hero Header */}
             <div className="bg-cream-sand border-b border-cream-300">
-                <div className="max-w-container mx-auto px-5 sm:px-6 lg:px-8 py-16 lg:py-20">
+                <div className="max-w-container mx-auto px-5 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-36 lg:pb-20">
                     <div className="max-w-2xl">
-                        <span className="eyebrow mb-4 inline-block">
-                            {t.hero_label}
-                        </span>
+                        <span className="eyebrow mb-4 inline-block">{t.collection.eyebrow}</span>
                         <h1 className="text-display-sm lg:text-display-md font-serif font-medium text-charcoal-900 mb-5">
-                            {t.hero_title}
+                            {t.collection.title}
                         </h1>
-                        <p className="text-body-lg text-stone-warm max-w-xl">
-                            {t.hero_description}
-                        </p>
+                        <p className="text-body-lg text-stone-warm max-w-xl">{t.collection.intro}</p>
                     </div>
                 </div>
             </div>
 
             <div className="max-w-container mx-auto px-5 sm:px-6 lg:px-8 py-8 lg:py-16">
+                {search && (
+                    <div className="mb-8 flex flex-wrap items-center gap-3">
+                        <p className="text-body-md text-charcoal-900">{format(t.collection.searchResults, { query: search })}</p>
+                        <button
+                            type="button"
+                            onClick={() => router.replace(`/${locale}/shop`)}
+                            className="inline-flex items-center gap-1 text-sm text-cognac hover:text-cognac-dark underline underline-offset-4"
+                        >
+                            <X className="h-4 w-4" aria-hidden="true" />
+                            {t.collection.clearSearch}
+                        </button>
+                    </div>
+                )}
+
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-                    {/* Mobile Filter Toggle - Above content on mobile */}
                     <details className="lg:hidden mb-4 group">
-                        <summary className="flex items-center justify-between py-4 px-5 bg-cream-sand border border-cream-300 cursor-pointer select-none rounded">
-                            <span className="font-sans text-label-lg uppercase">Filter & Sort</span>
-                            <span className="text-cognac text-body-sm">{filteredProducts.length} results</span>
+                        <summary className="flex items-center justify-between gap-4 py-4 px-5 bg-cream-sand border border-cream-300 cursor-pointer select-none rounded">
+                            <span className="font-sans text-label-lg uppercase">{t.collection.filterAndSort}</span>
+                            <span className="text-cognac text-body-sm whitespace-nowrap">
+                                {plural(locale, filteredProducts.length, t.collection.results)}
+                            </span>
                         </summary>
                         <div className="mt-4 p-5 bg-cream-50 border border-cream-300 rounded">
-                            <ProductFilters
-                                selectedCategory={selectedCategory}
-                                selectedSize={selectedSize}
-                                priceRange={[priceMin, priceMax]}
-                                maxPrice={PRICE_CEILING}
-                                onCategoryChange={handleCategoryChange}
-                                onSizeChange={handleSizeChange}
-                                onPriceRangeChange={handlePriceRangeChange}
-                            />
+                            {filters}
                             <div className="mt-8 pt-8 border-t border-cream-300">
-                                <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
+                                <ProductSort sortBy={sortBy} onSortChange={setSortBy} idSuffix="-mobile" />
                             </div>
                         </div>
                     </details>
-                    
-                    {/* Sidebar - Desktop Only */}
-                    <aside className="hidden lg:block w-72 flex-shrink-0">
-                        <ProductFilters
-                            selectedCategory={selectedCategory}
-                            selectedSize={selectedSize}
-                            priceRange={[priceMin, priceMax]}
-                            maxPrice={PRICE_CEILING}
-                            onCategoryChange={handleCategoryChange}
-                            onSizeChange={handleSizeChange}
-                            onPriceRangeChange={handlePriceRangeChange}
-                        />
-                    </aside>
 
-                    {/* Main Content */}
+                    <aside className="hidden lg:block w-72 flex-shrink-0">{filters}</aside>
+
                     <div className="flex-1">
-                        <div className="hidden lg:flex justify-between items-center mb-8 pb-6 border-b border-cream-300">
-                            <p className="text-body-sm text-stone-warm">
-                                {t.showing} <span className="text-charcoal-900 font-medium">{filteredProducts.length}</span> {filteredProducts.length === 1 ? t.piece : t.pieces}
+                        <div className="hidden lg:flex justify-between items-center gap-4 mb-8 pb-6 border-b border-cream-300">
+                            <p className="text-body-sm text-stone-warm" aria-live="polite">
+                                {plural(locale, filteredProducts.length, t.collection.showing)}
                             </p>
-                            <ProductSort sortBy={sortBy} onSortChange={handleSortChange} />
+                            <ProductSort sortBy={sortBy} onSortChange={setSortBy} />
                         </div>
 
                         {filteredProducts.length > 0 ? (
@@ -165,17 +130,14 @@ export default function ShopPage() {
                         ) : (
                             <div className="text-center py-20 lg:py-24 bg-cream-sand border border-cream-300 rounded">
                                 <div className="max-w-md mx-auto px-6">
-                                    <p className="font-serif text-xl text-charcoal-900 mb-3">
-                                        No boots match these criteria
-                                    </p>
-                                    <p className="text-stone-warm mb-8 leading-relaxed">
-                                        Our collection is curated, not exhaustive. Perhaps adjust your filters to discover what our craftsmen have prepared.
-                                    </p>
+                                    <p className="font-serif text-xl text-charcoal-900 mb-3">{t.collection.emptyTitle}</p>
+                                    <p className="text-stone-warm mb-8 leading-relaxed">{t.collection.emptyBody}</p>
                                     <button
-                                        onClick={handleClearFilters}
+                                        type="button"
+                                        onClick={clearFilters}
                                         className="inline-flex items-center font-sans text-label-lg uppercase text-charcoal-900 border-b-2 border-cognac pb-1 hover:text-cognac transition-default"
                                     >
-                                        {t.clear_filters}
+                                        {t.collection.reset}
                                     </button>
                                 </div>
                             </div>
@@ -184,5 +146,26 @@ export default function ShopPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+function ShopWithSearchParams() {
+    const searchParams = useSearchParams();
+    const category = searchParams.get('category');
+    return (
+        <ShopView
+            search={searchParams.get('search') ?? ''}
+            initialCategory={category && isCategoryId(category) ? category : null}
+        />
+    );
+}
+
+export default function ShopPage() {
+    // The fallback is the full, unfiltered collection, so the pre-rendered
+    // HTML still lists every product.
+    return (
+        <Suspense fallback={<ShopView search="" initialCategory={null} />}>
+            <ShopWithSearchParams />
+        </Suspense>
     );
 }

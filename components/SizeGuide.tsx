@@ -1,260 +1,126 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { X, Ruler, Info, Check, AlertCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { X, Ruler, Check, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-// ============================================================================
-// Types
-// ============================================================================
-
-interface SizeData {
-    eu: number;
-    us: string;
-    uk: string;
-    footLengthCm: number;
-    footLengthIn: number;
-}
-
-type SizeSystem = 'eu' | 'us' | 'uk';
-type FitPreference = 'snug' | 'standard' | 'roomy';
+import { useMessages } from '@/lib/i18n/use-messages';
+import { SIZE_CHART, suggestSize, isSizeOffered, toInches, type LengthUnit, type SizeSuggestion } from '@/lib/sizing';
 
 interface SizeGuideProps {
     isOpen: boolean;
     onClose: () => void;
     onSelectSize?: (size: string) => void;
+    /** EU sizes the product offers, as plain strings ("40"). */
     availableSizes?: string[];
-    productCategory?: string;
 }
 
-// ============================================================================
-// Size Data
-// ============================================================================
-
-const SIZE_CHART: SizeData[] = [
-    { eu: 36, us: '4', uk: '3', footLengthCm: 22.8, footLengthIn: 9.0 },
-    { eu: 37, us: '5', uk: '4', footLengthCm: 23.5, footLengthIn: 9.25 },
-    { eu: 38, us: '6', uk: '5', footLengthCm: 24.1, footLengthIn: 9.5 },
-    { eu: 39, us: '7', uk: '6', footLengthCm: 24.8, footLengthIn: 9.75 },
-    { eu: 40, us: '8', uk: '7', footLengthCm: 25.4, footLengthIn: 10.0 },
-    { eu: 41, us: '9', uk: '8', footLengthCm: 26.0, footLengthIn: 10.25 },
-    { eu: 42, us: '10', uk: '9', footLengthCm: 26.7, footLengthIn: 10.5 },
-    { eu: 43, us: '11', uk: '10', footLengthCm: 27.3, footLengthIn: 10.75 },
-    { eu: 44, us: '12', uk: '11', footLengthCm: 28.0, footLengthIn: 11.0 },
-    { eu: 45, us: '13', uk: '12', footLengthCm: 28.6, footLengthIn: 11.25 },
-    { eu: 46, us: '14', uk: '13', footLengthCm: 29.2, footLengthIn: 11.5 },
-];
-
-const FIT_TIPS: Record<string, string> = {
-    'Riding': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Consider sizing up.',
-    'Riding Boots': 'A riding boot knows the stirrup. Choose snug through the calf—there will be a dialogue between leather and leg as it breaks in. Thick socks? Consider sizing up.',
-    'Winter': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you when the temperature drops.',
-    'Winter Boots': 'The steppe taught us: air is warmth. Allow room for wool socks and your feet will thank you when the temperature drops.',
-    'Ceremonial': 'Ceremony demands precision. True to size creates the silhouette that commands presence.',
-    'Ceremonial Boots': 'Ceremony demands precision. True to size creates the silhouette that commands presence.',
-    'Luxury': 'Heritage leather remembers. A brief break-in period is not discomfort—it is the boot learning the shape of you.',
-    'Heritage Collection': 'Heritage leather remembers. A brief break-in period is not discomfort—it is the boot learning the shape of you.',
-    'Festival': 'Festival boots balance movement and presence. Standard fit honors both the dance and the ceremony.',
-    'Everyday': 'A boot worn daily becomes an extension of the foot. Standard fit balances the support you need with the comfort you deserve.',
-    default: 'Our boots are shaped on European lasts by master hands. Measure your foot, trust your measurement, and the leather will do the rest.',
-};
-
-// ============================================================================
-// Helper Functions
-// ============================================================================
-
-function measurementToSize(lengthCm: number, fitPreference: FitPreference): SizeData | null {
-    // Adjust for fit preference
-    let adjustedLength = lengthCm;
-    if (fitPreference === 'snug') adjustedLength -= 0.3;
-    if (fitPreference === 'roomy') adjustedLength += 0.3;
-    
-    // Find best matching size
-    for (let i = 0; i < SIZE_CHART.length; i++) {
-        if (SIZE_CHART[i].footLengthCm >= adjustedLength) {
-            return SIZE_CHART[i];
-        }
-    }
-    
-    // Return largest if measurement exceeds chart
-    return SIZE_CHART[SIZE_CHART.length - 1];
-}
-
-// ============================================================================
-// Component
-// ============================================================================
-
-export function SizeGuide({
-    isOpen,
-    onClose,
-    onSelectSize,
-    availableSizes = [],
-    productCategory,
-}: SizeGuideProps) {
+/** Product-page size modal. Uses the same chart and calculator as /size-guide (lib/sizing.ts). */
+export function SizeGuide({ isOpen, onClose, onSelectSize, availableSizes = [] }: SizeGuideProps) {
+    const { locale, t } = useMessages();
     const [activeTab, setActiveTab] = useState<'chart' | 'measure'>('chart');
-    const [sizeSystem, setSizeSystem] = useState<SizeSystem>('eu');
-    const [footLength, setFootLength] = useState<string>('');
-    const [measurementUnit, setMeasurementUnit] = useState<'cm' | 'in'>('cm');
-    const [fitPreference, setFitPreference] = useState<FitPreference>('standard');
-    const [recommendedSize, setRecommendedSize] = useState<SizeData | null>(null);
-    
-    const fitTip = productCategory ? FIT_TIPS[productCategory] || FIT_TIPS.default : FIT_TIPS.default;
+    const [footLength, setFootLength] = useState('');
+    const [unit, setUnit] = useState<LengthUnit>('cm');
+    const [suggestion, setSuggestion] = useState<SizeSuggestion | null>(null);
 
-    // Products list sizes as plain EU values ("40"), the same strings the
-    // size selector and cart expect
-    const isSizeAvailable = useCallback(
-        (size: SizeData) => availableSizes.length === 0 || availableSizes.includes(size.eu.toString()),
-        [availableSizes]
-    );
+    useEffect(() => {
+        if (!isOpen) return;
+        const handleEscape = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+        document.addEventListener('keydown', handleEscape);
+        return () => document.removeEventListener('keydown', handleEscape);
+    }, [isOpen, onClose]);
 
-    const calculateSize = useCallback(() => {
-        const length = parseFloat(footLength);
-        if (isNaN(length) || length <= 0) {
-            setRecommendedSize(null);
-            return;
-        }
-        
-        // Convert to cm if needed
-        const lengthCm = measurementUnit === 'in' ? length * 2.54 : length;
-        const size = measurementToSize(lengthCm, fitPreference);
-        setRecommendedSize(size);
-    }, [footLength, measurementUnit, fitPreference]);
-    
-    const handleSelectSize = useCallback((size: string) => {
-        if (onSelectSize) {
-            onSelectSize(size);
-        }
-        onClose();
-    }, [onSelectSize, onClose]);
-    
     if (!isOpen) return null;
-    
+
+    const offered = (eu: number) =>
+        availableSizes.length === 0 || availableSizes.includes(String(eu));
+
+    const choose = (eu: number) => {
+        onSelectSize?.(String(eu));
+        onClose();
+    };
+
     return (
-        <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label="Size Guide">
-            {/* Backdrop */}
-            <div 
-                className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm"
-                onClick={onClose}
-            />
-            
-            {/* Modal */}
-            <div className="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[90vh] bg-cream-50 shadow-xl overflow-hidden flex flex-col animate-fade-in rounded">
-                {/* Header */}
-                <div className="px-6 py-5 border-b border-cream-200 bg-cream-sand">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <span className="text-label-md uppercase text-cognac block mb-1">Finding Your Fit</span>
-                            <h2 className="font-serif text-xl md:text-2xl text-charcoal-900">
-                                Size Guide
-                            </h2>
-                        </div>
-                        <button
-                            onClick={onClose}
-                            className="p-2 text-stone-warm hover:text-charcoal-900 transition-default rounded hover:bg-cream-200"
-                            aria-label="Close"
-                        >
-                            <X className="h-5 w-5" />
-                        </button>
+        <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label={t.fit.dialogLabel}>
+            <div className="absolute inset-0 bg-charcoal-900/60 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
+
+            <div className="absolute inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[90vh] bg-cream shadow-2xl overflow-hidden flex flex-col rounded-lg">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-cream-200">
+                    <div className="flex items-center gap-3">
+                        <Ruler className="h-5 w-5 text-cognac-600" aria-hidden="true" />
+                        <h2 className="font-serif text-xl text-charcoal-900">{t.fit.title}</h2>
                     </div>
-                </div>
-                
-                {/* Tabs */}
-                <div className="flex border-b border-cream-200">
                     <button
-                        onClick={() => setActiveTab('chart')}
-                        className={cn(
-                            "flex-1 py-4 text-sm font-medium transition-default uppercase tracking-wider",
-                            activeTab === 'chart'
-                                ? "text-charcoal-900 border-b-2 border-cognac bg-cream-50"
-                                : "text-stone-warm hover:text-charcoal-900 bg-cream-100"
-                        )}
+                        type="button"
+                        onClick={onClose}
+                        className="p-2 text-stone-warm hover:text-charcoal-900 transition-colors"
+                        aria-label={t.common.close}
                     >
-                        Size Chart
-                    </button>
-                    <button
-                        onClick={() => setActiveTab('measure')}
-                        className={cn(
-                            "flex-1 py-4 text-sm font-medium transition-default uppercase tracking-wider",
-                            activeTab === 'measure'
-                                ? "text-charcoal-900 border-b-2 border-cognac bg-cream-50"
-                                : "text-stone-warm hover:text-charcoal-900 bg-cream-100"
-                        )}
-                    >
-                        Find Your Size
+                        <X className="h-5 w-5" aria-hidden="true" />
                     </button>
                 </div>
-                
-                {/* Content */}
+
+                <div className="flex border-b border-cream-200" role="tablist">
+                    {(['chart', 'measure'] as const).map((tab) => (
+                        <button
+                            key={tab}
+                            type="button"
+                            role="tab"
+                            aria-selected={activeTab === tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={cn(
+                                'flex-1 px-2 py-4 text-sm font-medium transition-default',
+                                activeTab === tab
+                                    ? 'text-charcoal-900 border-b-2 border-cognac bg-cream-50'
+                                    : 'text-stone-warm hover:text-charcoal-900 bg-cream-100'
+                            )}
+                        >
+                            {tab === 'chart' ? t.fit.tabChart : t.fit.tabMeasure}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="flex-1 overflow-y-auto p-6">
-                    {activeTab === 'chart' && (
-                        <div>
-                            {/* Size System Selector */}
-                            <div className="flex items-center gap-2 mb-6">
-                                <span className="text-sm text-stone-warm">Display in:</span>
-                                {(['eu', 'us', 'uk'] as SizeSystem[]).map((system) => (
-                                    <button
-                                        key={system}
-                                        onClick={() => setSizeSystem(system)}
-                                        className={cn(
-                                            "px-3 py-1 text-sm border transition-default uppercase rounded",
-                                            sizeSystem === system
-                                                ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
-                                                : "bg-cream-50 text-charcoal-900 border-cream-300 hover:border-charcoal-900"
-                                        )}
-                                    >
-                                        {system}
-                                    </button>
-                                ))}
-                            </div>
-                            
-                            {/* Size Chart Table */}
-                            <div className="overflow-x-auto mb-6">
+                    {activeTab === 'chart' ? (
+                        <div className="space-y-4">
+                            <p className="text-sm text-stone-warm">{t.fit.chartNote}</p>
+                            <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
-                                        <tr className="border-b border-cream-200">
-                                            <th className="text-left py-3 pr-4 font-medium text-cream-500">EU</th>
-                                            <th className="text-left py-3 pr-4 font-medium text-cream-500">US</th>
-                                            <th className="text-left py-3 pr-4 font-medium text-cream-500">UK</th>
-                                            <th className="text-left py-3 pr-4 font-medium text-cream-500">Foot Length</th>
-                                            {availableSizes.length > 0 && (
-                                                <th className="text-right py-3 font-medium text-cream-500">Available</th>
-                                            )}
+                                        <tr className="border-b-2 border-charcoal-900 text-left">
+                                            <th className="py-3 pr-4 font-medium">{t.fit.columnEu}</th>
+                                            <th className="py-3 pr-4 font-medium">{t.fit.columnUs}</th>
+                                            <th className="py-3 pr-4 font-medium">{t.fit.columnUk}</th>
+                                            <th className="py-3 pr-4 font-medium">{t.fit.columnLength}</th>
+                                            {availableSizes.length > 0 && <th className="py-3"><span className="sr-only">{t.fit.select}</span></th>}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {SIZE_CHART.map((size) => {
-                                            const sizeValue = sizeSystem === 'eu' 
-                                                ? size.eu.toString() 
-                                                : sizeSystem === 'us' 
-                                                    ? size.us 
-                                                    : size.uk;
-                                            const isAvailable = isSizeAvailable(size);
-                                            
+                                        {SIZE_CHART.map((row) => {
+                                            const isOffered = offered(row.eu);
                                             return (
-                                                <tr 
-                                                    key={size.eu} 
-                                                    className={cn(
-                                                        "border-b border-cream-100 transition-colors",
-                                                        isAvailable ? "hover:bg-cream-100" : "opacity-50"
-                                                    )}
+                                                <tr
+                                                    key={row.eu}
+                                                    className={cn('border-b border-cream-100', isOffered ? 'hover:bg-cream-100' : 'opacity-50')}
                                                 >
-                                                    <td className="py-3 pr-4 font-medium">{size.eu}</td>
-                                                    <td className="py-3 pr-4">{size.us}</td>
-                                                    <td className="py-3 pr-4">{size.uk}</td>
-                                                    <td className="py-3 pr-4 text-cream-500">
-                                                        {size.footLengthCm} cm / {size.footLengthIn}&quot;
+                                                    <td className="py-3 pr-4 font-medium">{row.eu}</td>
+                                                    <td className="py-3 pr-4">{row.us}</td>
+                                                    <td className="py-3 pr-4">{row.uk}</td>
+                                                    <td className="py-3 pr-4 text-stone-warm whitespace-nowrap">
+                                                        {row.footLengthCm} {t.fit.unitCm} / {toInches(row.footLengthCm)} {t.fit.unitIn}
                                                     </td>
                                                     {availableSizes.length > 0 && (
                                                         <td className="py-3 text-right">
-                                                            {isAvailable ? (
+                                                            {isOffered ? (
                                                                 <button
-                                                                    onClick={() => handleSelectSize(size.eu.toString())}
+                                                                    type="button"
+                                                                    onClick={() => choose(row.eu)}
                                                                     className="text-cognac-600 hover:text-cognac-800 font-medium"
                                                                 >
-                                                                    Select
+                                                                    {t.fit.select}
                                                                 </button>
                                                             ) : (
-                                                                <span className="text-cream-400">Sold out</span>
+                                                                <span className="text-cream-500">{t.fit.notOffered}</span>
                                                             )}
                                                         </td>
                                                     )}
@@ -264,148 +130,114 @@ export function SizeGuide({
                                     </tbody>
                                 </table>
                             </div>
-                            
-                            {/* Fit Tip */}
-                            <div className="bg-cream-sand border-l-2 border-cognac/30 p-5">
-                                <div className="flex gap-3">
-                                    <Info className="h-5 w-5 text-cognac flex-shrink-0 mt-0.5" />
-                                    <div>
-                                        <span className="text-xs uppercase tracking-wider text-cognac mb-1 block">Craftsman&apos;s Note</span>
-                                        <p className="text-sm text-stone-warm leading-relaxed">{fitTip}</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    )}
-                    
-                    {activeTab === 'measure' && (
+                    ) : (
                         <div className="space-y-6">
-                            {/* Instructions */}
-                            <div className="bg-cream-sand p-5 rounded">
-                                <h3 className="font-serif text-lg text-charcoal-900 mb-3">How to Measure Your Foot</h3>
-                                <ol className="text-sm text-stone-warm space-y-2 list-decimal list-inside leading-relaxed">
-                                    <li>Place a piece of paper against a wall</li>
-                                    <li>Stand on the paper with your heel against the wall</li>
-                                    <li>Mark the longest part of your foot (usually the big toe)</li>
-                                    <li>Measure the distance from the wall to the mark</li>
-                                    <li>Repeat for both feet and use the larger measurement</li>
-                                </ol>
-                            </div>
-                            
-                            {/* Measurement Input */}
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm text-cream-500 mb-2">
-                                        Foot Length
-                                    </label>
-                                    <div className="flex">
-                                        <input
-                                            type="number"
-                                            value={footLength}
-                                            onChange={(e) => setFootLength(e.target.value)}
-                                            placeholder={measurementUnit === 'cm' ? '25.5' : '10.0'}
-                                            step="0.1"
-                                            className="flex-1 px-4 py-3 border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
-                                        />
-                                        <div className="flex border border-l-0 border-cream-300 rounded-r">
+                            <p className="text-stone-warm">{t.fit.intro}</p>
+                            <ol className="space-y-3 text-sm text-stone-warm">
+                                {(['1', '2', '3', '4', '5'] as const).map((step) => (
+                                    <li key={step} className="flex gap-3">
+                                        <span className="w-6 h-6 flex-shrink-0 rounded-full bg-cognac text-cream-50 text-xs flex items-center justify-center">
+                                            {step}
+                                        </span>
+                                        <span>{t.fit.steps[step]}</span>
+                                    </li>
+                                ))}
+                            </ol>
+
+                            <div>
+                                <label htmlFor="size-guide-length" className="block text-sm font-medium text-charcoal-900 mb-2">
+                                    {t.fit.length}
+                                </label>
+                                <div className="flex gap-2">
+                                    <input
+                                        id="size-guide-length"
+                                        type="number"
+                                        inputMode="decimal"
+                                        step="0.1"
+                                        min="0"
+                                        value={footLength}
+                                        onChange={(e) => {
+                                            setFootLength(e.target.value);
+                                            setSuggestion(null);
+                                        }}
+                                        placeholder={unit === 'cm' ? '25.5' : '10'}
+                                        className="flex-1 min-w-0 px-4 py-3 border border-cream-200 bg-cream-50 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+                                    />
+                                    <div className="flex border border-cream-200" role="group" aria-label={t.fit.length}>
+                                        {(['cm', 'in'] as const).map((u) => (
                                             <button
-                                                onClick={() => setMeasurementUnit('cm')}
+                                                key={u}
+                                                type="button"
+                                                aria-pressed={unit === u}
+                                                onClick={() => {
+                                                    setUnit(u);
+                                                    setSuggestion(null);
+                                                }}
                                                 className={cn(
-                                                    "px-3 py-2 text-sm transition-default",
-                                                    measurementUnit === 'cm'
-                                                        ? "bg-charcoal-900 text-cream-50"
-                                                        : "bg-cream-50 text-charcoal-900 hover:bg-cream-100"
+                                                    'px-4 py-3 text-sm transition-colors',
+                                                    unit === u ? 'bg-charcoal-900 text-cream-50' : 'bg-cream-50 text-stone-warm hover:bg-cream-100'
                                                 )}
                                             >
-                                                cm
-                                            </button>
-                                            <button
-                                                onClick={() => setMeasurementUnit('in')}
-                                                className={cn(
-                                                    "px-3 py-2 text-sm transition-default",
-                                                    measurementUnit === 'in'
-                                                        ? "bg-charcoal-900 text-cream-50"
-                                                        : "bg-cream-50 text-charcoal-900 hover:bg-cream-100"
-                                                )}
-                                            >
-                                                in
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <label className="block text-sm text-cream-500 mb-2">
-                                        Fit Preference
-                                    </label>
-                                    <div className="flex gap-2">
-                                        {(['snug', 'standard', 'roomy'] as FitPreference[]).map((fit) => (
-                                            <button
-                                                key={fit}
-                                                onClick={() => setFitPreference(fit)}
-                                                className={cn(
-                                                    "flex-1 py-3 text-sm border transition-default capitalize rounded",
-                                                    fitPreference === fit
-                                                        ? "bg-charcoal-900 text-cream-50 border-charcoal-900"
-                                                        : "bg-cream-50 text-charcoal-900 border-cream-300 hover:border-charcoal-900"
-                                                )}
-                                            >
-                                                {fit}
+                                                {u === 'cm' ? t.fit.unitCm : t.fit.unitIn}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                            
-                            {/* Calculate Button */}
+
                             <button
-                                onClick={calculateSize}
-                                disabled={!footLength}
-                                className={cn(
-                                    "w-full py-4 font-medium transition-default rounded",
-                                    footLength
-                                        ? "bg-charcoal-900 text-cream-50 hover:bg-charcoal-800"
-                                        : "bg-cream-200 text-cream-400 cursor-not-allowed"
-                                )}
+                                type="button"
+                                onClick={() => setSuggestion(suggestSize(parseFloat(footLength), unit))}
+                                className="w-full py-4 bg-charcoal-900 text-cream-50 font-medium hover:bg-charcoal-800 transition-default rounded"
                             >
-                                Find My Size
+                                {t.fit.calculate}
                             </button>
-                            
-                            {/* Result */}
-                            {recommendedSize && (
-                                <div className="bg-cognac-50 border border-cognac-200 p-6 text-center rounded">
-                                    <div className="flex items-center justify-center gap-2 mb-2">
-                                        <Check className="h-5 w-5 text-cognac-600" />
-                                        <span className="text-sm text-cognac-600 uppercase tracking-wider">
-                                            Recommended Size
-                                        </span>
-                                    </div>
-                                    <div className="font-serif text-4xl text-charcoal-900 mb-4">
-                                        EU {recommendedSize.eu}
-                                    </div>
-                                    <p className="text-sm text-stone-warm mb-4">
-                                        US {recommendedSize.us} • UK {recommendedSize.uk}
-                                    </p>
-                                    
-                                    {availableSizes.length > 0 && isSizeAvailable(recommendedSize) && (
-                                        <button
-                                            onClick={() => handleSelectSize(recommendedSize.eu.toString())}
-                                            className="bg-charcoal-900 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-charcoal-800 transition-default rounded"
-                                        >
-                                            Select This Size
-                                        </button>
-                                    )}
-                                    
-                                    {fitPreference !== 'standard' && (
-                                        <p className="text-xs text-cognac-500 mt-4 flex items-center justify-center gap-1">
-                                            <AlertCircle className="h-3 w-3" />
-                                            Adjusted for {fitPreference} fit preference
+
+                            <div aria-live="polite">
+                                {suggestion?.status === 'ok' && (
+                                    <div className="bg-cognac-50 border border-cognac-200 p-6 text-center rounded">
+                                        <div className="flex items-center justify-center gap-2 mb-2">
+                                            <Check className="h-5 w-5 text-cognac-600" aria-hidden="true" />
+                                            <span className="text-sm text-cognac-600">{t.fit.result}</span>
+                                        </div>
+                                        <div className="font-serif text-4xl text-charcoal-900 mb-2">EU {suggestion.row.eu}</div>
+                                        <p className="text-sm text-stone-warm mb-4">
+                                            US {suggestion.row.us} · UK {suggestion.row.uk}
                                         </p>
-                                    )}
-                                </div>
-                            )}
+                                        <p className="text-xs text-stone-warm mb-4">{t.fit.resultHelp}</p>
+                                        {availableSizes.length > 0 &&
+                                            (isSizeOffered(suggestion.row, availableSizes) ? (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => choose(suggestion.row.eu)}
+                                                    className="bg-charcoal-900 text-cream-50 px-6 py-3 text-sm font-medium hover:bg-charcoal-800 transition-default rounded"
+                                                >
+                                                    {t.fit.selectThisSize}
+                                                </button>
+                                            ) : (
+                                                <p className="text-sm text-burgundy-700">{t.fit.sizeNotOffered}</p>
+                                            ))}
+                                    </div>
+                                )}
+                                {(suggestion?.status === 'invalid' || suggestion?.status === 'out-of-range') && (
+                                    <p className="flex items-start gap-2 text-sm text-burgundy-700">
+                                        <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
+                                        {suggestion.status === 'invalid' ? t.fit.invalidLength : t.fit.outOfRange}
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     )}
+                </div>
+
+                <div className="px-6 py-4 border-t border-cream-200 bg-cream-50">
+                    <Link
+                        href={`/${locale}/contact?inquiry=sizing`}
+                        className="text-sm text-cognac hover:text-cognac-dark underline underline-offset-4"
+                    >
+                        {t.fit.help}
+                    </Link>
                 </div>
             </div>
         </div>

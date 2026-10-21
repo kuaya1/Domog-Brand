@@ -1,23 +1,22 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getUsedCategories, getCatalogSizes, getCategoryLabel, type CategoryId } from '@/lib/products';
+import { useMessages } from '@/lib/i18n/use-messages';
+import { format, formatPrice } from '@/lib/i18n/messages';
 
 interface ProductFiltersProps {
-    selectedCategory: string | null;
+    selectedCategory: CategoryId | null;
     selectedSize: string | null;
     priceRange: [number, number];
     /** Upper bound of the price slider */
     maxPrice: number;
-    onCategoryChange: (category: string | null) => void;
+    onCategoryChange: (category: CategoryId | null) => void;
     onSizeChange: (size: string | null) => void;
     onPriceRangeChange: (range: [number, number]) => void;
 }
 
-const CATEGORIES = ['Traditional', 'Ceremonial', 'Festival', 'Daily Wear'];
-const SIZES = ['38', '39', '40', '41', '42', '43', '44', '45'];
-
+/** Categories and sizes come from the catalog, so every option matches at least one product. */
 export default function ProductFilters({
     selectedCategory,
     selectedSize,
@@ -27,53 +26,40 @@ export default function ProductFilters({
     onSizeChange,
     onPriceRangeChange,
 }: ProductFiltersProps) {
+    const { locale, t } = useMessages();
+
     return (
         <div className="space-y-10 lg:space-y-12">
-            {/* Categories */}
-            <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200">
-                    Collection
-                </h3>
+            <fieldset>
+                <legend className="w-full font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200">
+                    {t.collection.category}
+                </legend>
                 <div className="space-y-3">
-                    <button
-                        onClick={() => onCategoryChange(null)}
-                        className={cn(
-                            'block w-full text-left text-sm py-1.5 transition-colors duration-300',
-                            selectedCategory === null
-                                ? 'text-charcoal-900 font-medium'
-                                : 'text-stone-warm hover:text-cognac'
-                        )}
-                    >
-                        All Collections
-                    </button>
-                    {CATEGORIES.map((category) => (
-                        <button
+                    <FilterOption active={selectedCategory === null} onClick={() => onCategoryChange(null)}>
+                        {t.collection.all}
+                    </FilterOption>
+                    {getUsedCategories().map((category) => (
+                        <FilterOption
                             key={category}
-                            onClick={() =>
-                                onCategoryChange(selectedCategory === category ? null : category)
-                            }
-                            className={cn(
-                                'block w-full text-left text-sm py-1.5 transition-colors duration-300',
-                                selectedCategory === category
-                                    ? 'text-charcoal-900 font-medium'
-                                    : 'text-stone-warm hover:text-cognac'
-                            )}
+                            active={selectedCategory === category}
+                            onClick={() => onCategoryChange(selectedCategory === category ? null : category)}
                         >
-                            {category}
-                        </button>
+                            {getCategoryLabel(category, locale)}
+                        </FilterOption>
                     ))}
                 </div>
-            </div>
+            </fieldset>
 
-            {/* Sizes */}
-            <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200">
-                    Size (EU)
-                </h3>
+            <fieldset>
+                <legend className="w-full font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200">
+                    {t.collection.size}
+                </legend>
                 <div className="grid grid-cols-4 gap-2">
-                    {SIZES.map((size) => (
+                    {getCatalogSizes().map((size) => (
                         <button
                             key={size}
+                            type="button"
+                            aria-pressed={selectedSize === size}
                             onClick={() => onSizeChange(selectedSize === size ? null : size)}
                             className={cn(
                                 'py-3 px-2 border text-sm transition-all duration-200',
@@ -86,31 +72,48 @@ export default function ProductFilters({
                         </button>
                     ))}
                 </div>
-            </div>
+            </fieldset>
 
-            {/* Price Range */}
             <div>
-                <h3 className="font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200">
-                    Investment
-                </h3>
+                <label
+                    htmlFor="price-filter"
+                    className="block font-sans text-xs uppercase tracking-[0.2em] text-charcoal-900 mb-5 pb-3 border-b border-cream-200"
+                >
+                    {t.collection.price}
+                </label>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm">
-                        <span className="text-stone-warm">${priceRange[0]}</span>
-                        <span className="text-charcoal-900 font-medium">${priceRange[1]}</span>
-                    </div>
+                    <p className="text-sm text-charcoal-900 font-medium">
+                        {format(t.collection.priceUpTo, { price: formatPrice(priceRange[1]) })}
+                    </p>
                     <input
+                        id="price-filter"
                         type="range"
                         min="0"
                         max={maxPrice}
                         step="10"
                         value={priceRange[1]}
-                        onChange={(e) =>
-                            onPriceRangeChange([priceRange[0], parseInt(e.target.value)])
-                        }
+                        onChange={(e) => onPriceRangeChange([priceRange[0], parseInt(e.target.value)])}
+                        aria-valuetext={formatPrice(priceRange[1])}
                         className="w-full h-1 bg-cream-300 rounded-none appearance-none cursor-pointer accent-cognac"
                     />
                 </div>
             </div>
         </div>
+    );
+}
+
+function FilterOption({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+    return (
+        <button
+            type="button"
+            aria-pressed={active}
+            onClick={onClick}
+            className={cn(
+                'block w-full text-left text-sm py-1.5 transition-colors duration-300',
+                active ? 'text-charcoal-900 font-medium' : 'text-stone-warm hover:text-cognac'
+            )}
+        >
+            {children}
+        </button>
     );
 }
